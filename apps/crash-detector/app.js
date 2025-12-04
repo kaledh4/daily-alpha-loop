@@ -38,7 +38,12 @@ window.addEventListener('appinstalled', () => {
 async function fetchData() {
     try {
         // Add cache-busting timestamp to always get fresh data
-        const response = await fetch(`data.json?t=${Date.now()}`);
+        // Fetch from centralized data source
+        const dataPath = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? '../../data/crash-detector/latest.json'
+            : '../data/crash-detector/latest.json';
+
+        const response = await fetch(`${dataPath}?t=${Date.now()}`);
         if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
         renderDashboard(data);

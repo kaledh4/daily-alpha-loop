@@ -51,6 +51,20 @@ def fetch_crypto():
 
 if __name__ == '__main__':
     print("Starting data fetch...")
-    fetch_news()
-    fetch_crypto()
+    try:
+        fetch_news()
+    except Exception as e:
+        print(f"News fetch failed: {e}")
+        
+    try:
+        fetch_crypto()
+    except Exception as e:
+        print(f"Crypto fetch failed: {e}")
+
+    try:
+        import fetch_crash_data
+        fetch_crash_data.run_crash_detector()
+    except Exception as e:
+        print(f"Crash Detector fetch failed: {e}")
+        
     print("Data fetch complete.")
