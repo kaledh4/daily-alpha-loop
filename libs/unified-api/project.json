@@ -1,0 +1,9 @@
+{
+    "name": "unified-api",
+    "sourceRoot": "libs/unified-api",
+    "projectType": "library",
+    "tags": [
+        "scope:shared",
+        "type:lib"
+    ]
+}

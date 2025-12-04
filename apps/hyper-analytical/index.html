@@ -270,10 +270,31 @@
         // Data Loading & Rendering
         // ==========================================
         async function loadDashboardData() {
-            try {
-                const response = await fetch('./dashboard_data.json');
-                const data = await response.json();
+            // Try multiple data paths for flexibility
+            const dataPaths = [
+                './dashboard_data.json',
+                './data/latest.json',
+                '../data/hyper-analytical/latest.json'
+            ];
 
+            let data = null;
+            for (const dataPath of dataPaths) {
+                try {
+                    const response = await fetch(dataPath);
+                    if (response.ok) {
+                        data = await response.json();
+                        console.log(`Data loaded from: ${dataPath}`);
+                        break;
+                    }
+                } catch (e) {
+                    console.debug(`Path ${dataPath} failed, trying next...`);
+                }
+            }
+
+            if (!data) {
+                throw new Error('Could not load data from any path');
+            }
+            try {
                 // Hide loading, show content
                 document.getElementById('loadingState').classList.add('hidden');
                 document.getElementById('mainContent').classList.remove('hidden');

@@ -36,22 +36,35 @@ window.addEventListener('appinstalled', () => {
 
 // Fetch and Render Data
 async function fetchData() {
-    try {
-        // Add cache-busting timestamp to always get fresh data
-        // Fetch from centralized data source
-        const dataPath = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-            ? '../../data/crash-detector/latest.json'
-            : '../data/crash-detector/latest.json';
+    // Try multiple data paths for flexibility
+    const dataPaths = [
+        './data/latest.json',           // Local data folder
+        './latest.json',                 // Same directory
+        '../data/crash-detector/latest.json',  // GitHub Pages structure
+        '../../data/crash-detector/latest.json' // Local dev structure
+    ];
 
-        const response = await fetch(`${dataPath}?t=${Date.now()}`);
-        if (!response.ok) throw new Error('Failed to load data');
-        const data = await response.json();
-        renderDashboard(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        document.getElementById('last-updated').textContent = 'Error loading data. Please try again later.';
+    let lastError = null;
+
+    for (const dataPath of dataPaths) {
+        try {
+            const response = await fetch(`${dataPath}?t=${Date.now()}`);
+            if (response.ok) {
+                const data = await response.json();
+                console.log(`Data loaded from: ${dataPath}`);
+                renderDashboard(data);
+                return;
+            }
+        } catch (error) {
+            lastError = error;
+            console.debug(`Path ${dataPath} failed, trying next...`);
+        }
     }
+
+    console.error('Error fetching data from all paths:', lastError);
+    document.getElementById('last-updated').textContent = 'Error loading data. Please try again later.';
 }
+
 
 function renderDashboard(data) {
     // Update Header Info

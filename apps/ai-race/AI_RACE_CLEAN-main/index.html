@@ -295,11 +295,40 @@
 
         // --- DATA FETCHING & RENDERING ---
         async function loadData() {
-            try {
-                console.log("Starting data load...");
-                const response = await fetch('mission_data.json');
-                const data = await response.json();
+            // Try multiple data paths for flexibility
+            const dataPaths = [
+                'mission_data.json',
+                './mission_data.json',
+                './data/latest.json',
+                '../data/ai-race/latest.json'
+            ];
 
+            let data = null;
+            for (const dataPath of dataPaths) {
+                try {
+                    const response = await fetch(dataPath);
+                    if (response.ok) {
+                        data = await response.json();
+                        console.log(`Data loaded from: ${dataPath}`);
+                        break;
+                    }
+                } catch (e) {
+                    console.debug(`Path ${dataPath} failed, trying next...`);
+                }
+            }
+
+            if (!data) {
+                console.error("Error loading data: Could not load from any path");
+                const errorMessage =
+                    "<p><em>AI strategic briefing is temporarily unavailable. Research data is current and being collected.</em></p>" +
+                    "<p><strong>Tip:</strong> To enable AI analysis, set up your OpenRouter API key as described in the README.</p>";
+                document.getElementById('ai-briefing-content').innerHTML = errorMessage;
+                document.getElementById('feed-container').innerHTML =
+                    '<div class="loading">⚠️ Failed to load mission data.</div>';
+                return;
+            }
+
+            try {
                 // Debug logging
                 console.log("Data loaded:", data);
 

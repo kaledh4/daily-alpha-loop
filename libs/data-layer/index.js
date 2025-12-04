@@ -1,144 +1,114 @@
 /**
- * Data Layer - Common Data Fetching Utilities
+ * Data Layer Library
+ * ===================
+ * Re-exports unified-api functionality for backward compatibility.
+ * Apps that previously imported from @monorepo/data-layer will continue to work.
  * 
- * Provides reusable data fetching functions and utilities for all dashboard applications.
+ * NEW APPS SHOULD IMPORT FROM @monorepo/unified-api DIRECTLY.
+ * 
+ * DEPRECATED: This module is for backward compatibility only.
  */
 
-import { getApiKey } from '@monorepo/shared-keys';
+// Re-export everything from unified-api
+export * from '@monorepo/unified-api';
+
+// For backward compatibility with existing code
+import {
+    fetchWithRetry,
+    fetchNews,
+    fetchCryptoPrices,
+    fetchFearAndGreed,
+    fetchTreasuryAuction,
+    fetchFREDData,
+    getCached,
+    setCache,
+    CACHE_TTL,
+    createAppFetcher
+} from '@monorepo/unified-api';
+
+import { getApiKey, hasApiKey } from '@monorepo/shared-keys';
 
 /**
- * Base fetch wrapper with error handling
- * @param {string} url - URL to fetch
- * @param {Object} options - Fetch options
- * @returns {Promise<any>} Parsed JSON response
+ * @deprecated Use fetchWithRetry from @monorepo/unified-api
  */
 export async function fetchData(url, options = {}) {
-    try {
-        const response = await fetch(url, {
-            ...options,
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error('Fetch error:', error);
-        throw error;
-    }
+    console.warn('[DEPRECATED] fetchData is deprecated. Use fetchWithRetry from @monorepo/unified-api');
+    return fetchWithRetry(url, options);
 }
 
 /**
- * Fetch with retry logic
- * @param {string} url - URL to fetch
- * @param {Object} options - Fetch options
- * @param {number} retries - Number of retries
- * @returns {Promise<any>} Parsed JSON response
- */
-export async function fetchWithRetry(url, options = {}, retries = 3) {
-    for (let i = 0; i < retries; i++) {
-        try {
-            return await fetchData(url, options);
-        } catch (error) {
-            if (i === retries - 1) throw error;
-            await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
-        }
-    }
-}
-
-/**
- * Fetch news data from NewsAPI
- * @param {Object} params - Query parameters
- * @returns {Promise<any>} News data
- */
-export async function fetchNews(params = {}) {
-    const apiKey = getApiKey('NEWS_API_KEY');
-    const { query = 'finance', language = 'en', pageSize = 10 } = params;
-
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=${language}&pageSize=${pageSize}&apiKey=${apiKey}`;
-
-    return fetchWithRetry(url);
-}
-
-/**
- * Fetch stock data from Alpha Vantage
- * @param {string} symbol - Stock symbol
- * @returns {Promise<any>} Stock data
- */
-export async function fetchStockData(symbol) {
-    const apiKey = getApiKey('ALPHA_VANTAGE_KEY');
-    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
-
-    return fetchWithRetry(url);
-}
-
-/**
- * Fetch crypto data from CoinGecko
- * @param {string} coinId - Coin ID
- * @returns {Promise<any>} Crypto data
+ * @deprecated Use fetchCryptoPrices from @monorepo/unified-api
  */
 export async function fetchCryptoData(coinId = 'bitcoin') {
-    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=usd&include_24hr_change=true`;
-
-    return fetchWithRetry(url);
+    console.warn('[DEPRECATED] fetchCryptoData is deprecated. Use fetchCryptoPrices from @monorepo/unified-api');
+    const result = await fetchCryptoPrices([coinId]);
+    return result.prices?.[coinId] || {};
 }
 
 /**
- * Fetch economic data from FRED
- * @param {string} seriesId - FRED series ID
- * @returns {Promise<any>} Economic data
+ * @deprecated Use fetchNews from @monorepo/unified-api
+ */
+export async function fetchNewsData(params = {}) {
+    console.warn('[DEPRECATED] fetchNewsData is deprecated. Use fetchNews from @monorepo/unified-api');
+    return fetchNews(params);
+}
+
+/**
+ * @deprecated Use fetchFREDData from @monorepo/unified-api
  */
 export async function fetchEconomicData(seriesId) {
-    const apiKey = getApiKey('FRED_API_KEY');
-    const url = `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${apiKey}&file_type=json`;
+    console.warn('[DEPRECATED] fetchEconomicData is deprecated. Use fetchFREDData from @monorepo/unified-api');
+    return fetchFREDData(seriesId);
+}
 
+/**
+ * @deprecated Use fetchWithRetry from @monorepo/unified-api
+ */
+export async function fetchStockData(symbol) {
+    console.warn('[DEPRECATED] fetchStockData is deprecated. Use unified-api market fetchers');
+    const apiKey = getApiKey('ALPHA_VANTAGE_KEY');
+    if (!apiKey) return null;
+
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
     return fetchWithRetry(url);
 }
 
 /**
- * Cache wrapper for data fetching
- * @param {string} key - Cache key
- * @param {Function} fetchFn - Fetch function
- * @param {number} ttl - Time to live in milliseconds
- * @returns {Promise<any>} Cached or fresh data
+ * Cache wrapper - now delegates to unified-api cache
+ * @deprecated Use memoize or getCached/setCache from @monorepo/unified-api
  */
 export async function cachedFetch(key, fetchFn, ttl = 300000) {
-    const cached = localStorage.getItem(key);
+    console.warn('[DEPRECATED] cachedFetch is deprecated. Use memoize from @monorepo/unified-api');
 
-    if (cached) {
-        const { data, timestamp } = JSON.parse(cached);
-        if (Date.now() - timestamp < ttl) {
-            return data;
-        }
+    const cached = getCached(key);
+    if (cached !== null) {
+        return cached;
     }
 
     const data = await fetchFn();
-    localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
-
+    setCache(key, data, ttl);
     return data;
 }
 
 /**
- * Batch fetch multiple URLs
- * @param {Array<string>} urls - Array of URLs to fetch
- * @returns {Promise<Array>} Array of responses
+ * Batch fetch - delegates to unified-api
  */
 export async function batchFetch(urls) {
-    return Promise.all(urls.map(url => fetchData(url)));
+    return Promise.all(urls.map(url => fetchWithRetry(url)));
 }
 
+// Default export for backward compatibility
 export default {
     fetchData,
     fetchWithRetry,
     fetchNews,
+    fetchNewsData,
     fetchStockData,
     fetchCryptoData,
+    fetchCryptoPrices,
     fetchEconomicData,
+    fetchFREDData,
     cachedFetch,
-    batchFetch
+    batchFetch,
+    createAppFetcher
 };
