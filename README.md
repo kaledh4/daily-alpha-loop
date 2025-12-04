@@ -1,27 +1,75 @@
 # 📊 Dashboard Monorepo
 
-A high-performance Nx monorepo containing 6 independent dashboard applications with shared libraries for API key management, PWA functionality, and data fetching.
+A high-performance Nx monorepo containing **7 independent dashboard applications** with shared libraries for API key management, PWA functionality, unified data fetching, and AI integration.
+
+> 🔗 **Live Dashboards:** [https://kaledh4.github.io/monorepo/](https://kaledh4.github.io/monorepo/)
 
 ## 🏗️ Architecture
 
 ### Applications (`apps/`)
 
-| App Name | Description | Port | Deployment URL |
-|----------|-------------|------|----------------|
-| **ai-race** | AI Race Tracker - Track global AI development race | 4200 | `/ai-race` |
-| **crash-detector** | Market Crash Detector - Real-time market crash detection | 4201 | `/crash-detector` |
-| **dashboard-orchestrator** | Dashboard Orchestrator Pro - Unified dashboard platform | 4202 | `/dashboard-orchestrator` |
-| **economic-compass** | Economic Compass - Global economic indicators | 4203 | `/economic-compass` |
-| **intelligence-platform** | Intelligence Platform - Market intelligence and analysis | 4204 | `/intelligence-platform` |
-| **hyper-analytical** | Hyper Analytical Dashboard - Advanced market analytics | 4205 | `/hyper-analytical` |
+| App | Description | Live Link |
+|-----|-------------|-----------|
+| 🤖 **[AI Race](https://kaledh4.github.io/monorepo/ai-race/)** | Track global AI development & research breakthroughs via arXiv | [Open →](https://kaledh4.github.io/monorepo/ai-race/) |
+| 💥 **[Crash Detector](https://kaledh4.github.io/monorepo/crash-detector/)** | Real-time market crash detection & risk analysis | [Open →](https://kaledh4.github.io/monorepo/crash-detector/) |
+| 🎛️ **[Dashboard Hub](https://kaledh4.github.io/monorepo/dashboard-orchestrator/)** | Unified dashboard platform - central hub for all apps | [Open →](https://kaledh4.github.io/monorepo/dashboard-orchestrator/) |
+| 🧭 **[Economic Compass](https://kaledh4.github.io/monorepo/economic-compass/)** | Global economic indicators & macro analysis | [Open →](https://kaledh4.github.io/monorepo/economic-compass/) |
+| 🧠 **[Intelligence Platform](https://kaledh4.github.io/monorepo/intelligence-platform/)** | Market intelligence and AI-powered analysis | [Open →](https://kaledh4.github.io/monorepo/intelligence-platform/) |
+| 📈 **[Hyper Analytical](https://kaledh4.github.io/monorepo/hyper-analytical/)** | Advanced crypto market analytics & risk metrics | [Open →](https://kaledh4.github.io/monorepo/hyper-analytical/) |
+| 📚 **[Free Knowledge](https://kaledh4.github.io/monorepo/free-knowledge/)** | Open research and knowledge aggregator | [Open →](https://kaledh4.github.io/monorepo/free-knowledge/) |
 
 ### Shared Libraries (`libs/`)
 
-| Library | Purpose | Dependencies |
-|---------|---------|--------------|
-| **shared-keys** | Centralized API key management | None |
-| **shared-pwa** | PWA service worker and manifest templates | None |
-| **data-layer** | Common data-fetching utilities | shared-keys |
+| Library | Purpose | Usage |
+|---------|---------|-------|
+| 🔑 **[shared-keys](./libs/shared-keys/)** | Centralized API key management | `import { getApiKey } from '@monorepo/shared-keys'` |
+| 📱 **[shared-pwa](./libs/shared-pwa/)** | PWA service worker and manifest templates | `import { registerServiceWorker } from '@monorepo/shared-pwa'` |
+| 🔄 **[unified-api](./libs/unified-api/)** | **Centralized data fetching, caching & AI** | `import { fetchNews, callAI } from '@monorepo/unified-api'` |
+| 📊 **[data-layer](./libs/data-layer/)** | Legacy data utilities (re-exports unified-api) | Backward compatible |
+
+### Unified Data System (`tools/fetchers/`)
+
+| Tool | Purpose | Usage |
+|------|---------|-------|
+| 🐍 **[unified_fetcher.py](./tools/fetchers/unified_fetcher.py)** | Single Python script that fetches data for ALL 7 apps | `python unified_fetcher.py --all` |
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         BUILD & DEPLOY FLOW                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│   GitHub Actions Trigger                                                 │
+│            │                                                             │
+│            ▼                                                             │
+│   ┌─────────────────┐                                                    │
+│   │  FETCH-DATA JOB │  ← Runs ONCE for all apps                         │
+│   │  unified_fetcher│                                                    │
+│   │     --all       │                                                    │
+│   └────────┬────────┘                                                    │
+│            │                                                             │
+│            ▼                                                             │
+│   ┌─────────────────┐                                                    │
+│   │  Upload Artifact│  data/ folder shared                              │
+│   │  (fetched-data) │                                                    │
+│   └────────┬────────┘                                                    │
+│            │                                                             │
+│            ▼                                                             │
+│   ┌─────────────────────────────────────────────────────────────────┐   │
+│   │                    BUILD JOBS (Parallel)                         │   │
+│   │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐            │   │
+│   │  │ ai-race  │ │ crash-   │ │ economic │ │ hyper-   │  ...       │   │
+│   │  │          │ │ detector │ │ compass  │ │analytical│            │   │
+│   │  └──────────┘ └──────────┘ └──────────┘ └──────────┘            │   │
+│   └─────────────────────────────────────────────────────────────────┘   │
+│            │                                                             │
+│            ▼                                                             │
+│   ┌─────────────────┐                                                    │
+│   │  DEPLOY TO      │                                                    │
+│   │  GITHUB PAGES   │  → kaledh4.github.io/monorepo/                    │
+│   └─────────────────┘                                                    │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 ## 🚀 Getting Started
 
@@ -29,29 +77,40 @@ A high-performance Nx monorepo containing 6 independent dashboard applications w
 
 - Node.js (v18 or higher)
 - npm (v9 or higher)
+- Python 3.11+ (for data fetching)
 - Git
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd nx-monorepo
+git clone https://github.com/kaledh4/monorepo.git
+cd monorepo
 
 # Install dependencies
 npm install
+
+# Install Python dependencies (for data fetching)
+pip install requests yfinance feedparser pandas numpy
 ```
 
 ### API Keys Configuration
 
 This monorepo uses **GitHub Secrets** for API key management. All keys are configured in your repository settings and automatically injected during GitHub Actions builds.
 
-**For Production (GitHub Actions):**
-- See [SECRETS_SETUP.md](./SECRETS_SETUP.md) for detailed instructions on configuring GitHub Secrets
+**Required Secrets:**
+| Secret | Purpose |
+|--------|---------|
+| `OPENROUTER_KEY` | AI/LLM analysis via OpenRouter |
+| `NEWS_API_KEY` | News API for headlines |
+| `FRED_API_KEY` | Federal Reserve economic data |
 
-**For Local Development:**
-- Set environment variables manually before running commands
-- See [SECRETS_SETUP.md](./SECRETS_SETUP.md) for local development options
+**Optional Secrets:**
+| Secret | Purpose |
+|--------|---------|
+| `ALPHA_VANTAGE_KEY` | Stock market data |
+| `COINMARKETCAP_KEY` | Crypto market data |
+| `COINGECKO_KEY` | Crypto prices |
 
 ## 📦 Development
 
@@ -65,9 +124,7 @@ npm run serve:dashboard-orchestrator
 npm run serve:economic-compass
 npm run serve:intelligence-platform
 npm run serve:hyper-analytical
-
-# Or use Nx directly
-nx serve ai-race
+npm run serve:free-knowledge
 ```
 
 ### Building Applications
@@ -80,179 +137,135 @@ npm run build
 npm run build:ai-race
 npm run build:crash-detector
 # ... etc
-
-# Or use Nx directly
-nx build ai-race
 ```
 
-### Deploying Applications
-
-Each application can be deployed independently to GitHub Pages or other hosting platforms:
+### Fetching Data Locally
 
 ```bash
-# Deploy all apps
-npm run deploy:all
+# Fetch data for all apps
+python tools/fetchers/unified_fetcher.py --all
 
-# Deploy specific app (requires configuration)
-nx deploy ai-race
+# Fetch for specific app
+python tools/fetchers/unified_fetcher.py --app crash-detector
+
+# Dry run (see what would be fetched)
+python tools/fetchers/unified_fetcher.py --dry-run
 ```
 
-## 🔍 Dependency Graph
+## 📚 Using the Unified API
 
-Visualize the dependency graph of all projects:
-
-```bash
-npm run graph
-```
-
-This will open an interactive dependency graph showing how all apps and libraries are connected.
-
-## 📚 Shared Libraries Usage
-
-### Using `shared-keys`
+### JavaScript (Frontend)
 
 ```javascript
-import { getApiKey, hasApiKey } from '@monorepo/shared-keys';
+import { 
+    fetchNews, 
+    fetchCryptoPrices, 
+    callAI,
+    createAppFetcher 
+} from '@monorepo/unified-api';
 
-// Get an API key
-const newsApiKey = getApiKey('NEWS_API_KEY');
+// Fetch news with caching
+const news = await fetchNews({ query: 'crypto market' });
 
-// Check if a key is configured
-if (hasApiKey('ALPHA_VANTAGE_KEY')) {
-  // Use the key
-}
+// Fetch crypto prices
+const prices = await fetchCryptoPrices(['bitcoin', 'ethereum']);
+
+// Call AI for analysis
+const analysis = await callAI(
+    'Analyze current market conditions',
+    { model: 'grok', systemPrompt: 'You are a market analyst' }
+);
+
+// App-specific pre-configured fetcher
+const fetcher = createAppFetcher('crash-detector');
+const data = await fetcher.fetchAll();
 ```
 
-### Using `shared-pwa`
+### Python (Build Time)
 
-```javascript
-import { registerServiceWorker, generateManifest } from '@monorepo/shared-pwa';
+```python
+# All data fetching is handled by:
+python tools/fetchers/unified_fetcher.py --all
 
-// Register service worker
-registerServiceWorker('/sw.js');
-
-// Generate manifest for your app
-const manifest = generateManifest({
-  name: 'My Dashboard',
-  shortName: 'Dashboard',
-  themeColor: '#1a1a1a'
-});
-```
-
-### Using `data-layer`
-
-```javascript
-import { fetchNews, fetchStockData, fetchCryptoData } from '@monorepo/data-layer';
-
-// Fetch news
-const news = await fetchNews({ query: 'finance', pageSize: 10 });
-
-// Fetch stock data
-const stockData = await fetchStockData('AAPL');
-
-// Fetch crypto data
-const btcData = await fetchCryptoData('bitcoin');
-```
-
-## 🔧 Nx Commands
-
-```bash
-# Run affected tests
-nx affected:test
-
-# Run affected builds
-nx affected:build
-
-# Lint all projects
-nx run-many --target=lint --all
-
-# Format all files
-nx format:write
-
-# Clear Nx cache
-nx reset
+# Outputs to:
+# - data/{app-name}/latest.json (for all apps)
+# - apps/ai-race/.../mission_data.json
+# - apps/hyper-analytical/dashboard_data.json
+# - apps/intelligence-platform/market_analysis.json
 ```
 
 ## 📁 Project Structure
 
 ```
-nx-monorepo/
+monorepo/
 ├── apps/
+│   ├── ai-race/              # AI research tracker
+│   ├── crash-detector/       # Market crash detection
+│   ├── dashboard-orchestrator/ # Central hub
+│   ├── economic-compass/     # Macro economics
+│   ├── intelligence-platform/ # Market intelligence
+│   ├── hyper-analytical/     # Crypto analytics
+│   └── free-knowledge/       # Knowledge aggregator
+├── libs/
+│   ├── shared-keys/          # API key management
+│   ├── shared-pwa/           # PWA utilities
+│   ├── unified-api/          # ⭐ Centralized fetching & AI
+│   └── data-layer/           # Legacy (re-exports unified-api)
+├── tools/
+│   └── fetchers/
+│       └── unified_fetcher.py # ⭐ Python data fetcher for all apps
+├── data/                     # Generated data (gitignored)
 │   ├── ai-race/
 │   ├── crash-detector/
-│   ├── dashboard-orchestrator/
-│   ├── economic-compass/
-│   ├── intelligence-platform/
-│   └── hyper-analytical/
-├── libs/
-│   ├── shared-keys/
-│   ├── shared-pwa/
-│   └── data-layer/
-├── dist/                    # Build outputs
-├── node_modules/
-├── .env                     # Environment variables (not in git)
-├── .env.example            # Environment variables template
-├── nx.json                 # Nx configuration
-├── package.json            # Root package.json
-└── README.md              # This file
+│   └── .../
+├── .github/workflows/
+│   └── build-deploy.yml      # Unified CI/CD workflow
+└── README.md
 ```
 
 ## 🌐 Deployment
 
-### GitHub Pages Deployment
+### Automatic (GitHub Actions)
 
-Each app can be deployed to GitHub Pages with separate repositories or as subdirectories:
+Pushes to `master` trigger:
+1. **Fetch Data** - `unified_fetcher.py --all` runs once
+2. **Build All Apps** - 7 apps build in parallel with shared data
+3. **Deploy** - All apps deployed to GitHub Pages
 
-1. **Separate Repositories** (Recommended for independent URLs):
-   ```bash
-   # Configure each app's deploy target in project.json
-   # Then deploy
-   nx deploy ai-race
-   ```
+### Manual Trigger
 
-2. **Monorepo Deployment** (All apps in one repo):
-   ```bash
-   # Build all apps
-   npm run build
-   
-   # Deploy to GitHub Pages (configure gh-pages branch)
-   npm run deploy:all
-   ```
+Go to **Actions** → **Build and Deploy All Dashboards** → **Run workflow**
 
 ### Scheduled Builds
 
-Configure GitHub Actions to run builds on a schedule (1 AM - 6 AM):
-
-```yaml
-# .github/workflows/scheduled-build.yml
-name: Scheduled Build
-on:
-  schedule:
-    - cron: '0 1-6 * * *'  # Run every hour from 1 AM to 6 AM UTC
-```
+Runs automatically every hour from **1 AM to 6 AM UTC** to update data.
 
 ## 🔐 Security
 
-- Never commit `.env` files
-- Use GitHub Secrets for CI/CD API keys
-- Rotate API keys regularly
-- Review dependency vulnerabilities: `npm audit`
+- ✅ API keys stored in GitHub Secrets
+- ✅ No `.env` files committed
+- ✅ Data fetched server-side (no exposed keys in frontend)
+- ✅ All API calls go through unified_fetcher.py
 
-## 📊 Monitoring
+## 📊 Features
 
-Each dashboard includes:
-- PWA offline support
-- Service worker caching
-- Performance monitoring
-- Error tracking
+| Feature | Description |
+|---------|-------------|
+| 📱 PWA | All apps work offline with service workers |
+| 🔄 Auto-refresh | Data updates automatically via scheduled builds |
+| 🤖 AI Analysis | OpenRouter integration for market insights |
+| 📈 Real-time Data | yfinance, CoinGecko, Treasury API, FRED, arXiv |
+| 💾 Caching | In-memory + persistent caching at both JS & Python layers |
+| 🎨 Modern UI | Glass morphism, animations, dark themes |
 
 ## 🤝 Contributing
 
-1. Create a feature branch
-2. Make your changes
-3. Run tests: `nx affected:test`
-4. Build: `nx affected:build`
-5. Submit a pull request
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Make your changes
+4. Test: `npm run build`
+5. Push: `git push origin feature/my-feature`
+6. Open a Pull Request
 
 ## 📝 License
 
@@ -260,11 +273,11 @@ MIT
 
 ## 🆘 Support
 
-For issues and questions:
-- Check the [Nx documentation](https://nx.dev)
-- Review individual app READMEs in `apps/*/README.md`
-- Open an issue in this repository
+- 📖 [Nx Documentation](https://nx.dev)
+- 📁 Individual app READMEs in `apps/*/README.md`
+- 📚 [Unified API Documentation](./libs/unified-api/README.md)
+- 🐛 [Open an Issue](https://github.com/kaledh4/monorepo/issues)
 
 ---
 
-**Built with ❤️ using Nx**
+**Built with ❤️ using Nx, Python, and AI**
