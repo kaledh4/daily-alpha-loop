@@ -53,10 +53,43 @@ async function updateDashboard() {
         timestampEl.textContent = date.toLocaleDateString('en-US', options) + ' UTC';
     }
 
-    // Update overview metrics if available
+    // Update market overview
     if (data.overview) {
-        // We could update header info here if needed
-        console.log('Dashboard Overview:', data.overview);
+        const overviewEl = document.getElementById('market-overview');
+        if (overviewEl) {
+            const metrics = [
+                { label: 'Bitcoin', value: data.overview.BTC, format: '$', decimals: 0 },
+                { label: 'Ethereum', value: data.overview.ETH, format: '$', decimals: 0 },
+                { label: 'S&P 500', value: data.overview.SP500, format: '', decimals: 2 },
+                { label: 'DXY', value: data.overview.DXY, format: '', decimals: 2 },
+                { label: 'Gold', value: data.overview.Gold, format: '$', decimals: 2 }
+            ];
+
+            overviewEl.innerHTML = metrics.map(m => `
+                <div class="metric-card">
+                    <div class="metric-label">${m.label}</div>
+                    <div class="metric-value">${m.format}${Number(m.value).toLocaleString('en-US', { minimumFractionDigits: m.decimals, maximumFractionDigits: m.decimals })}</div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // Update dashboard status
+    if (data.apps_status) {
+        const statusEl = document.getElementById('dashboard-status');
+        if (statusEl) {
+            const statusGrid = statusEl.querySelector('.status-grid');
+            if (statusGrid) {
+                const statusItems = Object.entries(data.apps_status).map(([app, status]) => `
+                    <div class="status-item">
+                        <span class="status-indicator ${status}"></span>
+                        <span class="status-name">${app}</span>
+                        <span class="status-label">${status}</span>
+                    </div>
+                `).join('');
+                statusGrid.innerHTML = statusItems;
+            }
+        }
     }
 }
 

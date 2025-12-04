@@ -482,25 +482,6 @@ class ArxivFetcher(BaseFetcher):
 
 # ===========================================
 # AI/LLM Fetcher
-# ===========================================
-
-class AIFetcher(BaseFetcher):
-    """Calls AI/LLM APIs via OpenRouter"""
-    
-    MODELS = {
-        'grok': 'x-ai/grok-4.1-fast:free',
-        'chimera': 'tngtech/tng-r1t-chimera:free',
-        'gpt': 'openai/gpt-oss-20b:free'
-    }
-    
-    def call_ai(self, prompt: str, system_prompt: str = None, model: str = 'grok', 
-                max_tokens: int = 2000, response_format: str = None) -> FetchResult:
-        """Call OpenRouter AI API"""
-        if not REQUESTS_AVAILABLE:
-            return FetchResult(False, None, 'openrouter', datetime.now(timezone.utc).isoformat(), 'requests not available')
-        
-        api_key = API_KEYS['OPENROUTER']
-        if not api_key:
             logger.warning("[AI] OpenRouter API key not configured")
             return FetchResult(False, {'content': 'AI analysis temporarily unavailable.'}, 'openrouter', datetime.now(timezone.utc).isoformat(), 'API key not configured')
         

@@ -1,11 +1,5 @@
-import { registerServiceWorker } from '@monorepo/shared-pwa';
-
-// Register Service Worker using shared library
-registerServiceWorker();
-
-// Note: API Keys are handled in the backend script (enhanced_tracker.py) 
-// which runs in GitHub Actions and generates data.json.
-// The frontend only consumes the generated JSON.
+// Crash Detector - Data Fetching and Rendering
+// Service Worker registration is handled in index.html inline script
 
 // PWA Install Prompt
 let deferredPrompt;
@@ -33,6 +27,7 @@ window.addEventListener('appinstalled', () => {
     console.log('PWA was installed');
     if (installBtn) installBtn.style.display = 'none';
 });
+
 
 // Fetch and Render Data
 async function fetchData() {
