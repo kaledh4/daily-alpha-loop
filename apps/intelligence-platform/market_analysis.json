@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "generated_at": "2025-11-27T08:49:32.780182",
+    "ticker": "^SPX",
+    "expiration": "2026-01-02"
+  },
+  "analysis": {
+    "current_price": 6812.61,
+    "market_expected_price": 6810.81,
+    "sentiment": "Bearish",
+    "bullish_probability": 23.5,
+    "expected_range_68pct": {
+      "low": 6805.41,
+      "high": 6827.03
+    }
+  }
+}

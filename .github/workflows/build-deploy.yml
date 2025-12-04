@@ -1,0 +1,102 @@
+name: Build and Deploy All Dashboards
+
+on:
+  # Scheduled builds from 1 AM to 6 AM UTC
+  schedule:
+    - cron: '0 1-6 * * *'  # Every hour from 1 AM to 6 AM UTC
+  
+  # Manual trigger
+  workflow_dispatch:
+  
+  # Push to master branch
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        app:
+          - ai-race
+          - crash-detector
+          - dashboard-orchestrator
+          - economic-compass
+          - intelligence-platform
+          - hyper-analytical
+          - free-knowledge
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build ${{ matrix.app }}
+        env:
+          # News APIs
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          
+          # Financial Data APIs
+          ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
+          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          
+          # Crypto APIs
+          COINMARKETCAP_KEY: ${{ secrets.COINMARKETCAP_KEY }}
+          COINGECKO_KEY: ${{ secrets.COINGECKO_KEY }}
+          
+          # AI/ML APIs
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_KEY }}
+          GIGA_AI_KEY: ${{ secrets.GIGA_AI_KEY }}
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
+          
+          # Macro Economic Data
+          MACRO_KEY: ${{ secrets.MACRO_KEY }}
+          WORLD_BANK_KEY: ${{ secrets.WORLD_BANK_KEY }}
+          
+          # Market Data
+          POLYGON_KEY: ${{ secrets.POLYGON_KEY }}
+          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
+        run: |
+          npm run build:${{ matrix.app }}
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.app }}
+          path: dist/apps/${{ matrix.app }}
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/apps
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/apps
