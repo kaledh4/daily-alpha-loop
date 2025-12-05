@@ -6,15 +6,15 @@
   "scoring": {
     "stance_confidence": 5
   },
-  "stance": "Opportunistic",
-  "mindset": "Maintain a defensive core while selectively hunting for alpha in emerging narratives.",
+  "stance": "Neutral",
+  "mindset": "Wait for clarity",
   "inputs": {
     "risk": "LOW",
     "crypto": "Bearish",
-    "macro": "Negative",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "The broad market outlook is negative, with both crypto-native momentum and macroeconomic factors pointing towards continued weakness. However, the low-risk environment and active frontier sectors suggest specific, isolated opportunities exist. This warrants a highly selective, opportunistic approach rather than broad market exposure.",
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "xxxxxxxxx/shared_lib/stance_engine",
     "xxxxxxxxx/shared_lib/momentum_blend"
