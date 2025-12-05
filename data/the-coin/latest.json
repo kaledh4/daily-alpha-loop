@@ -8,16 +8,16 @@
     "momentum": 5,
     "setup_quality": 6.5
   },
-  "btc_price": 90955.1640625,
-  "eth_price": 3128.957275390625,
+  "btc_price": 89214.2265625,
+  "eth_price": 3057.02001953125,
   "momentum": "Bearish",
-  "rsi": 38.37306921100751,
+  "rsi": 37.307533999789825,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 28,
     "classification": "Fear"
   },
-  "ai_analysis": "Crypto momentum is currently bearish, with key indicators pointing to downward pressure. The BTC RSI is low at 38.37, signaling weak buying strength, and the overall market sentiment is one of Fear. This combination suggests a risk-off environment where sellers are in control.",
+  "ai_analysis": "Momentum is decidedly bearish, with Bitcoin's RSI at 37.3 indicating significant selling pressure. This is reinforced by the stated bearish trend and a Fear & Greed Index of 28, which reflects negative market sentiment. While the RSI is approaching oversold territory, the confluence of signals points to continued weakness.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/orderflow",
     "xxxxxxxxx/shared_lib/dominance_tracker",

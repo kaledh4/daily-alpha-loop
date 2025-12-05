@@ -7,24 +7,8 @@
     "progress_rate": 65,
     "uncertainty": 0.2
   },
-  "summaries": [
-    {
-      "title": "Equinor, Aker BP discover hydrocarbons at two North Sea prospects",
-      "eli5": "Two big energy companies found more oil and gas under the ocean near Europe. It's like finding extra snacks hidden in the pantry you didn't know you had.",
-      "long_term": "This discovery helps ensure Europe has a stable energy supply, potentially keeping gas and electricity prices from spiking. It shows that even as the world moves toward green energy, finding and using traditional fuels is still a major priority for economic stability."
-    },
-    {
-      "title": "Stock market today: S&P 500, Nasdaq, Dow rise as Fed-favored PCE inflation data cools",
-      "eli5": "The cost of things we buy isn't going up as fast anymore. Because this 'inflation' is slowing down, the grown-ups in charge of the country's money (the Fed) might not need to be so strict. This makes investors happy, so they buy more stocks, and the market goes up.",
-      "long_term": "Consistently cooling inflation is a sign of a healthier economy. It could mean the central bank will lower interest rates, making it cheaper for companies to borrow money to grow and for people to buy things. This sets the stage for a potentially long period of economic growth and stronger stock market performance."
-    },
-    {
-      "title": "What Texas\u2019 recent Bitcoin purchase signals to the rest of the US in a market downturn",
-      "eli5": "A very big state, Texas, is using some of its savings to buy Bitcoin, even though its price is down. It's like a very important person buying a toy when it's on sale because they believe it will be worth a lot more later. This makes other states and big investors wonder if they should be buying it too.",
-      "long_term": "When a government-level entity invests in Bitcoin, it treats it like a serious asset, similar to gold or stocks. This action can increase trust, encourage other large institutions to invest, and pave the way for crypto to become a more stable and accepted part of the mainstream financial system."
-    }
-  ],
-  "ai_analysis": "Today's knowledge landscape shows a tug-of-war between the old and new economy. Markets are still heavily driven by traditional economic data like inflation reports, while simultaneously, disruptive assets like cryptocurrency are gaining legitimacy through institutional and even state-level adoption. The key theme is a search for stability, whether through new energy discoveries, predictable inflation, or the maturation of digital finance.",
+  "summaries": [],
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "xxxxxxxxx/shared_lib/ai_rnd_tracker",
     "xxxxxxxxx/shared_lib/quantum_papers",

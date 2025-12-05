@@ -4,7 +4,7 @@
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
   "scoring": {
-    "breakthrough_score": 5,
+    "breakthrough_score": 8,
     "trajectory": 8.5,
     "future_pull": 7.0
   },
@@ -185,8 +185,25 @@
       ]
     }
   },
-  "breakthroughs": [],
-  "ai_analysis": "AI analysis unavailable",
+  "breakthroughs": [
+    {
+      "title": "From Generated Human Videos to Physically Plausible Robot Trajectories",
+      "why_it_matters": "This research presents a method for translating videos of human actions into executable, physically realistic instructions for robots. It represents a significant step towards enabling robots to learn complex tasks simply by watching humans, dramatically lowering the barrier for robot programming and deployment."
+    },
+    {
+      "title": "The Universal Weight Subspace Hypothesis",
+      "why_it_matters": "This paper proposes a new fundamental theory about how neural networks learn, suggesting that different models trained on the same task find similar solutions within a shared, low-dimensional 'subspace.' If true, this could lead to much more efficient model training, merging, and fine-tuning, profoundly changing how large AI models are developed and customized."
+    },
+    {
+      "title": "Decoy-state quantum key distribution over 227 km",
+      "why_it_matters": "Achieving secure quantum communication over a distance of 227 km is a significant engineering milestone. It pushes the practical limits of Quantum Key Distribution (QKD) further, moving the technology from laboratory curiosity towards a viable foundation for ultra-secure, long-distance communication networks."
+    },
+    {
+      "title": "Unlocking hidden biomolecular conformational landscapes in diffusion models",
+      "why_it_matters": "This work applies powerful AI diffusion models to better understand the complex, dynamic shapes of molecules like proteins. By revealing these 'hidden' structures at inference time, this method could significantly accelerate drug discovery and our fundamental understanding of biological processes without requiring new, costly simulations."
+    }
+  ],
+  "ai_analysis": "The frontier is advancing through the application of AI to other complex domains, particularly robotics and computational biology, creating new pathways for automation and scientific discovery. Concurrently, foundational research is providing new theories on how AI models work and pushing the physical boundaries of next-generation hardware like quantum networks.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/ai_rnd",
     "xxxxxxxxx/shared_lib/quantum",

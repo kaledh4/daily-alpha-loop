@@ -4,21 +4,25 @@
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 3,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "macro": {
-    "oil": 60.45000076293945,
-    "dxy": 98.89700317382812,
-    "gold": 4285.39990234375,
-    "sp500": 6886.7900390625,
+    "oil": 60.310001373291016,
+    "dxy": 99.0510025024414,
+    "gold": 4253.0,
+    "sp500": 6870.02978515625,
     "tasi": 10626.150390625,
-    "treasury_10y": 4.116000175476074
+    "treasury_10y": 4.126999855041504
   },
-  "tasi_mood": "Neutral",
-  "drivers": [],
-  "ai_analysis": "Analysis temporarily unavailable",
+  "tasi_mood": "Negative",
+  "drivers": [
+    "Low oil price ($60.31) pressuring government revenues and energy sector profits.",
+    "Extremely high gold price ($4253.00) indicating a significant global 'risk-off' sentiment and flight to safety.",
+    "Elevated US 10Y Yield (4.13%) and strong DXY (99.05) tightening global liquidity and making emerging market assets less attractive."
+  ],
+  "ai_analysis": "The macro landscape is challenging for TASI. Subdued oil prices directly impact the Kingdom's economic engine, while strong signals of global risk aversion, evidenced by soaring gold and a strong dollar, suggest capital outflows from emerging markets. These factors create significant headwinds, overriding any positive sentiment from US equity strength.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/fed_speech_parser",
     "xxxxxxxxx/shared_lib/inflation_nowcast",
