@@ -9,20 +9,20 @@
     "confidence": 0.85
   },
   "macro": {
-    "oil": 60.150001525878906,
-    "dxy": 98.99199676513672,
-    "gold": 4239.60009765625,
-    "sp500": 6872.60009765625,
+    "oil": 60.02000045776367,
+    "dxy": 98.99099731445312,
+    "gold": 4236.39990234375,
+    "sp500": 6868.2001953125,
     "tasi": 10626.150390625,
-    "treasury_10y": 4.14300012588501
+    "treasury_10y": 4.140999794006348
   },
   "tasi_mood": "Negative",
   "drivers": [
-    "Severely low oil price ($60.15) directly impacting Saudi government revenue and key sector earnings.",
-    "Extreme global risk-off sentiment, evidenced by a sky-high gold price, suggesting a flight from equities.",
-    "High US 10Y Yield (4.14%) tightening global liquidity and increasing the appeal of bonds over stocks."
+    "Low oil price ($60.02) directly impacts Saudi government revenue and petrochemical sector profits.",
+    "Extremely high gold price ($4236.40) signals a massive global flight to safety and risk-off sentiment.",
+    "High US 10Y Yield (4.14%) and a strong DXY (98.99) tighten global liquidity, making emerging market equities less attractive."
   ],
-  "ai_analysis": "The Saudi market faces severe headwinds from the collapse in oil prices, which is its primary economic engine. This is compounded by an extreme global risk-off environment, which will likely lead to capital outflows from emerging markets like Saudi Arabia, overriding any positive sentiment from US equity strength.",
+  "ai_analysis": "The confluence of low oil prices and significant global risk-off sentiment creates a challenging environment for the Saudi market. Tightening financial conditions, evidenced by high US yields and a strong dollar, are likely to further dampen investor appetite for TASI equities.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/fed_speech_parser",
     "xxxxxxxxx/shared_lib/inflation_nowcast",
