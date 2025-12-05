@@ -23,14 +23,51 @@ import time
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
-from dataclasses import dataclass, asdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+# ========================================
+# Configuration & Setup
+# ========================================
+
+# Configure logging first
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    force=True
+)
+logger = logging.getLogger(__name__)
+
+# Paths
+ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
+DATA_DIR = ROOT_DIR / 'data'
+CACHE_DIR = DATA_DIR / 'cache'
+CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+# Load .env file
 try:
     from dotenv import load_dotenv
-    load_dotenv()
+    env_path = ROOT_DIR / '.env'
+    if env_path.exists():
+        load_dotenv(dotenv_path=env_path)
+        logger.info(f"✅ Loaded environment variables from {env_path}")
+    else:
+        logger.warning(f"⚠️ .env file not found at {env_path}")
 except ImportError:
-    pass
+    logger.warning("⚠️ python-dotenv not installed. Environment variables must be set manually.")
+
+# Check for API Keys availability (for logging purposes)
+REQUIRED_KEYS = ['GROK_API_KEY', 'GEMINI_API_KEY', 'OPENROUTER_KEY']
+missing_keys = [k for k in REQUIRED_KEYS if not os.environ.get(k)]
+if missing_keys:
+    logger.info(f"ℹ️  Note: Some API keys are missing from environment: {', '.join(missing_keys)}")
+
+# API Keys
+API_KEYS = {
+    'OPENROUTER': os.environ.get('OPENROUTER_KEY') or os.environ.get('OPENROUTER_API_KEY'),
+    'NEWS_API': os.environ.get('NEWS_API_KEY'),
+    'FRED': os.environ.get('FRED_API_KEY'),
+    'ALPHA_VANTAGE': os.environ.get('ALPHA_VANTAGE_KEY'),
+}
 
 # Third-party imports
 try:
@@ -58,31 +95,6 @@ try:
     PANDAS_AVAILABLE = True
 except ImportError:
     PANDAS_AVAILABLE = False
-
-# ========================================
-# Configuration
-# ========================================
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    force=True
-)
-logger = logging.getLogger(__name__)
-
-# Paths
-ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
-DATA_DIR = ROOT_DIR / 'data'
-CACHE_DIR = DATA_DIR / 'cache'
-CACHE_DIR.mkdir(parents=True, exist_ok=True)
-
-# API Keys
-API_KEYS = {
-    'OPENROUTER': os.environ.get('OPENROUTER_KEY') or os.environ.get('OPENROUTER_API_KEY'),
-    'NEWS_API': os.environ.get('NEWS_API_KEY'),
-    'FRED': os.environ.get('FRED_API_KEY'),
-    'ALPHA_VANTAGE': os.environ.get('ALPHA_VANTAGE_KEY'),
-}
 
 # ========================================
 # Centralized Data Store

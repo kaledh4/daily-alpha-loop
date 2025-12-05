@@ -28,10 +28,10 @@ pip install -r requirements.txt
 ### Run data fetcher
 ```bash
 # Run for all dashboards
-python fetchers/unified_fetcher.py --all
+python fetchers/unified_fetcher_v2.py --all
 
 # Or run for specific dashboard
-python fetchers/unified_fetcher.py --app the-shield
+python fetchers/unified_fetcher_v2.py --app the-shield
 ```
 
 ## 📦 Architecture
@@ -49,7 +49,7 @@ daily-alpha-loop/
 ├── data/              # Generated JSON data
 ├── tools/             # Unified fetcher script
 │   └── fetchers/
-│       └── unified_fetcher.py
+│       └── unified_fetcher_v2.py
 ├── static/            # Shared icons and assets
 └── .github/workflows/ # Daily automation
 ```
@@ -63,6 +63,11 @@ export OPENROUTER_API_KEY="your_key"
 export NEWS_API_KEY="your_key"
 export FRED_API_KEY="your_key"
 export ALPHA_VANTAGE_KEY="your_key"
+export GROK_API_KEY="your_key"    # Optional: For Grok (Priority 1)
+export GEMINI_API_KEY="your_key"  # Optional: For Gemini (Priority 2)
+
+# Or create a .env file in the root directory
+
 ```
 
 ## ⏰ Automation
@@ -102,7 +107,7 @@ All dashboards are Progressive Web Apps with:
 
 *   `generate-icons.py` - Generate PWA icons from static assets
 *   `rename-dashboards.ps1` - Batch rename dashboard folders
-*   `tools/fetchers/unified_fetcher.py` - Central data fetching
+*   `tools/fetchers/unified_fetcher_v2.py` - Central data fetching
 
 ## 📄 License
 
