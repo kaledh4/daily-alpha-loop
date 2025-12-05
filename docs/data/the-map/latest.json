@@ -4,21 +4,25 @@
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 3,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "macro": {
-    "oil": 59.91999816894531,
-    "dxy": 99.06099700927734,
-    "gold": 4245.89990234375,
-    "sp500": 6870.7900390625,
+    "oil": 59.97999954223633,
+    "dxy": 99.0739974975586,
+    "gold": 4241.0,
+    "sp500": 6866.27978515625,
     "tasi": 10626.150390625,
     "treasury_10y": 4.13100004196167
   },
-  "tasi_mood": "Neutral",
-  "drivers": [],
-  "ai_analysis": "Analysis temporarily unavailable",
+  "tasi_mood": "Negative",
+  "drivers": [
+    "Severely low oil price impacting government revenue and energy sector profits.",
+    "Record-high gold price indicating a major global 'risk-off' sentiment and flight to safety.",
+    "Strong US Dollar (DXY) and high US 10Y yields tightening financial conditions for emerging markets."
+  ],
+  "ai_analysis": "The TASI faces a highly challenging environment dominated by a severely depressed oil price, which is the lifeblood of the Saudi economy. This is compounded by a global macro backdrop of extreme risk aversion, evidenced by soaring gold, which typically leads to capital outflows from emerging markets like Saudi Arabia.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/fed_speech_parser",
     "xxxxxxxxx/shared_lib/inflation_nowcast",
