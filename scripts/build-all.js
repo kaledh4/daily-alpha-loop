@@ -7,12 +7,13 @@
 const { execSync } = require('child_process');
 
 const apps = [
-    'ai-race',
-    'crash-detector',
-    'dashboard-orchestrator',
-    'economic-compass',
-    'intelligence-platform',
-    'hyper-analytical'
+    'the-shield',
+    'the-coin',
+    'the-map',
+    'the-frontier',
+    'the-strategy',
+    'the-library',
+    'the-commander'
 ];
 
 console.log('Building all dashboard applications...\n');
@@ -23,7 +24,8 @@ let succeeded = [];
 apps.forEach(app => {
     try {
         console.log(`\n=== Building ${app} ===`);
-        execSync(`node scripts/build-app.mjs ${app}`, { stdio: 'inherit' });
+        // Use npm run build:<app> to ensure the correct script (standard or vite) is used
+        execSync(`npm run build:${app}`, { stdio: 'inherit' });
         succeeded.push(app);
     } catch (error) {
         console.error(`✗ Failed to build ${app}`);
