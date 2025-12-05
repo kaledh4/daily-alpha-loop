@@ -1,5 +1,8 @@
 {
-  "last_update": "2025-12-05 06:22:39 UTC",
+  "dashboard": "the-shield",
+  "name": "The Shield",
+  "mission": "Market Fragility Monitor",
+  "last_update": "2025-12-05 07:15:52 UTC",
   "risk_assessment": {
     "score": 10.7,
     "level": "LOW",
@@ -7,51 +10,40 @@
   },
   "metrics": [
     {
-      "name": "10Y Treasury Auction Bid-to-Cover",
+      "name": "10Y Treasury Bid-to-Cover",
       "value": "2.43x",
-      "signal": "NORMAL",
-      "desc": "Demand strength"
+      "signal": "NORMAL"
     },
     {
       "name": "USD/JPY",
-      "value": "154.64",
-      "signal": "HIGH STRESS",
-      "desc": "USD/JPY current level"
+      "value": "154.51",
+      "signal": "HIGH STRESS"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0666",
-      "signal": "NORMAL",
-      "desc": "USD/CNH current level"
-    },
-    {
-      "name": "MOVE Index",
-      "value": "65.69",
-      "signal": "NORMAL",
-      "desc": "MOVE Index current level"
+      "value": "7.0651",
+      "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
       "value": "4.11%",
-      "signal": "NORMAL",
-      "desc": "10Y Treasury Yield current level"
+      "signal": "NORMAL"
+    },
+    {
+      "name": "MOVE Index",
+      "value": "65.69",
+      "signal": "NORMAL"
     },
     {
       "name": "VIX",
       "value": "15.78",
-      "signal": "NORMAL",
-      "desc": "VIX current level"
+      "signal": "NORMAL"
     },
     {
       "name": "CBON ETF",
       "value": "$22.52",
-      "signal": "NORMAL",
-      "desc": "CBON ETF current level"
+      "signal": "NORMAL"
     }
   ],
-  "ai_insights": {
-    "crash_analysis": "AI analysis unavailable",
-    "news_summary": "Check latest news sources"
-  },
-  "days_remaining": 357
+  "ai_analysis": "While the overall risk level remains low, elevated USD/JPY stress signals potential yen market volatility or carry trade unwind, contrasting with stable bond yields and equity volatility. Monitor currency interventions, global risk sentiment shifts, and cross-asset correlations, particularly if crypto-related moves (e.g., Ethereum) amplify dollar demand. watch for corporate bond stress if economic growth concerns escalate."
 }

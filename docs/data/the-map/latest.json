@@ -1,40 +1,16 @@
 {
-  "btc": {
-    "price": 92043.515625,
-    "change_7d": 0
-  },
-  "fng": {
-    "value": "28",
-    "value_classification": "Fear",
-    "timestamp": "1764892800",
-    "time_until_update": "63418"
-  },
+  "dashboard": "the-map",
+  "name": "The Map",
+  "mission": "Macro & TASI Trendsetter",
   "macro": {
-    "treasury_10y": {
-      "price": 4.107999801635742,
-      "change_7d": 0
-    },
-    "oil": {
-      "price": 59.56999969482422,
-      "change_7d": 0
-    },
-    "tasi": {
-      "price": 10626.150390625,
-      "change_7d": 0
-    },
-    "gold": {
-      "price": 4257.89990234375,
-      "change_7d": 0
-    },
-    "dxy": {
-      "price": 98.92400360107422,
-      "change_7d": 0
-    },
-    "sp500": {
-      "price": 6857.1201171875,
-      "change_7d": 0
-    }
+    "oil": 59.59000015258789,
+    "dxy": 98.90799713134766,
+    "gold": 4255.89990234375,
+    "sp500": 6857.1201171875,
+    "tasi": 10626.150390625,
+    "treasury_10y": 4.107999801635742
   },
-  "ai_analysis": {},
-  "timestamp": "2025-12-05T06:23:03.106808"
+  "tasi_mood": "Neutral",
+  "drivers": [],
+  "ai_analysis": "Analysis temporarily unavailable"
 }

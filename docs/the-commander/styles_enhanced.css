@@ -1,0 +1,90 @@
+/* Enhanced styles for Morning Brief display */
+
+.brief-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f7fafc;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #4299e1;
+}
+
+.mb-section.weather {
+    background: linear-gradient(135deg, rgba(66, 153, 225, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%);
+    border-color: rgba(66, 153, 225, 0.4);
+}
+
+.mb-section.deep-insight {
+    grid-column: 1 / -1;
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.mb-value.weather-badge {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mb-value.signal {
+    color: #4299e1;
+    font-size: 1.4rem;
+}
+
+.mb-value.stance {
+    color: #48bb78;
+    font-size: 1.8rem;
+    background: rgba(72, 187, 120, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.mb-value.clarity {
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 1.3rem;
+}
+
+.mb-value.clarity.high {
+    background: rgba(72, 187, 120, 0.2);
+    color: #68d391;
+    border: 1px solid rgba(72, 187, 120, 0.4);
+}
+
+.mb-value.clarity.medium {
+    background: rgba(237, 137, 54, 0.2);
+    color: #f6ad55;
+    border: 1px solid rgba(237, 137, 54, 0.4);
+}
+
+.mb-value.clarity.low {
+    background: rgba(245, 101, 101, 0.2);
+    color: #fc8181;
+    border: 1px solid rgba(245, 101, 101, 0.4);
+}
+
+.mb-text.convergence {
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(66, 153, 225, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4299e1;
+}
+
+.mb-summary strong {
+    color: #f7fafc;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.mb-summary em {
+    font-size: 1.15rem;
+    color: #90cdf4;
+    font-style: italic;
+    line-height: 1.6;
+}

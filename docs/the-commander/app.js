@@ -1,5 +1,5 @@
-// Dashboard Orchestrator Dynamic Data Loading
-// Unified fetcher pattern for loading dashboard metrics
+// THE COMMANDER - Master Orchestrator
+// Displays the Morning Brief and dashboard status
 
 // ========================================
 // Demo Data (Fallback)
@@ -8,21 +8,14 @@ function getDemoData() {
     return {
         timestamp: new Date().toISOString(),
         morning_brief: {
-            weather_of_the_day: "Volatile ⛈️",
+            weather_of_the_day: "Volatile",
             top_signal: "AI Infrastructure Boom",
             why_it_matters: "Major cloud providers announced $127B in AI spend. NVIDIA H200 chips sold out through Q2 2025. This confirms the AI supercycle is accelerating, not slowing.",
             cross_dashboard_convergence: "Risk is ELEVATED due to geopolitical tension, but Crypto is BULLISH and Strategy suggests ACCUMULATE Tech. The Frontier shows massive R&D throughput.",
             action_stance: "Accumulate Dips",
             optional_deep_insight: "While macro headwinds persist (inflation sticky at 3%), the technological deflationary force of AI is creating a bifurcated market. Capital is fleeing traditional value for growth. Watch for a rotation back to energy if oil breaks $80.",
             clarity_level: "High",
-            summary_sentence: "Volatility is the price of entry for this AI-driven growth phase. Stay long innovation, hedge with energy."
-        },
-        overview: {
-            BTC: 47850,
-            ETH: 2450,
-            SP500: 4785,
-            DXY: 102.4,
-            Gold: 2045
+            summary_sentence: "Risk shows the environment, crypto shows sentiment, macro shows the wind, breakthroughs show the future, strategy shows the stance, and knowledge shows the long-term signal — combine all six to guide the user clearly through today."
         },
         apps_status: {
             "the-shield": "active",
@@ -37,10 +30,10 @@ function getDemoData() {
 
 async function fetchDashboardData() {
     const dataPaths = [
-        './data/latest.json',
-        './latest.json',
+        '../../data/the-commander/latest.json',
         '../data/the-commander/latest.json',
-        '../../data/the-commander/latest.json'
+        './data/latest.json',
+        './latest.json'
     ];
 
     let lastError = null;
@@ -50,9 +43,9 @@ async function fetchDashboardData() {
             const response = await fetch(`${dataPath}?t=${Date.now()}`);
             if (response.ok) {
                 const data = await response.json();
-                // Basic validation: check if it has meaningful data
-                if (data && data.morning_brief && data.morning_brief.weather_of_the_day && data.morning_brief.weather_of_the_day !== "Cloudy") {
-                    console.log(`Dashboard data loaded from: ${dataPath}`);
+                // Validate meaningful data
+                if (data && data.morning_brief && data.morning_brief.weather_of_the_day) {
+                    console.log(`✅ Data loaded from: ${dataPath}`);
                     return data;
                 }
             }
@@ -62,7 +55,7 @@ async function fetchDashboardData() {
         }
     }
 
-    console.warn('Failed to load valid live data. Using DEMO data fallback.');
+    console.warn('⚠️ Failed to load live data. Using DEMO data fallback.');
     return getDemoData();
 }
 
@@ -70,7 +63,7 @@ async function updateDashboard() {
     const data = await fetchDashboardData();
 
     if (!data) {
-        console.error('Failed to load dashboard data');
+        console.error('❌ Failed to load dashboard data');
         return;
     }
 
@@ -95,40 +88,63 @@ async function updateDashboard() {
         const overviewEl = document.getElementById('market-overview');
         if (overviewEl) {
             const mb = data.morning_brief;
+
+            // Weather emoji mapping
+            const weatherEmoji = {
+                'Stormy': '⛈️',
+                'Cloudy': '☁️',
+                'Sunny': '☀️',
+                'Volatile': '🌪️',
+                'Foggy': '🌫️'
+            };
+
+            const weather = mb.weather_of_the_day || 'Cloudy';
+            const emoji = weatherEmoji[weather.replace(/[⛈️☁️☀️🌪️🌫️]/g, '').trim()] || '☁️';
+
             overviewEl.innerHTML = `
                 <div class="morning-brief-card">
-                    <div class="mb-section">
+                    <h2 class="brief-title">☕ Morning Brief - 30 Second Read</h2>
+                    
+                    <div class="mb-section weather">
                         <h3>🌤️ Weather of the Day</h3>
-                        <div class="mb-value">${mb.weather_of_the_day || 'N/A'}</div>
+                        <div class="mb-value weather-badge">${emoji} ${weather}</div>
                     </div>
+                    
                     <div class="mb-section">
                         <h3>📡 Top Signal</h3>
-                        <div class="mb-value">${mb.top_signal || 'N/A'}</div>
+                        <div class="mb-value signal">${mb.top_signal || 'N/A'}</div>
                     </div>
+                    
                     <div class="mb-section">
                         <h3>💡 Why It Matters</h3>
                         <div class="mb-text">${mb.why_it_matters || 'N/A'}</div>
                     </div>
+                    
                     <div class="mb-section">
-                        <h3>🔄 Convergence</h3>
-                        <div class="mb-text">${mb.cross_dashboard_convergence || 'N/A'}</div>
+                        <h3>🔄 Cross-Dashboard Convergence</h3>
+                        <div class="mb-text convergence">${mb.cross_dashboard_convergence || 'N/A'}</div>
                     </div>
+                    
                     <div class="mb-section">
                         <h3>🎯 Action Stance</h3>
-                        <div class="mb-value highlight">${mb.action_stance || 'N/A'}</div>
+                        <div class="mb-value stance">${mb.action_stance || 'N/A'}</div>
                     </div>
+                    
                     ${mb.optional_deep_insight ? `
-                    <div class="mb-section">
-                        <h3>🧠 Deep Insight</h3>
+                    <div class="mb-section deep-insight">
+                        <h3>🧠 Deep Insight (Advanced)</h3>
                         <div class="mb-text">${mb.optional_deep_insight}</div>
                     </div>` : ''}
+                    
                     <div class="mb-section">
                         <h3>🔮 Clarity Level</h3>
-                        <div class="mb-value">${mb.clarity_level || 'N/A'}</div>
+                        <div class="mb-value clarity ${(mb.clarity_level || '').toLowerCase()}">${mb.clarity_level || 'N/A'}</div>
                     </div>
+                    
+                    ${mb.summary_sentence ? `
                     <div class="mb-summary">
-                        <em>"${mb.summary_sentence || ''}"</em>
-                    </div>
+                        <strong>Summary:</strong> <em>"${mb.summary_sentence}"</em>
+                    </div>` : ''}
                 </div>
             `;
         }
@@ -140,10 +156,19 @@ async function updateDashboard() {
         if (statusEl) {
             const statusGrid = statusEl.querySelector('.status-grid');
             if (statusGrid) {
+                const statusNames = {
+                    'the-shield': 'The Shield',
+                    'the-coin': 'The Coin',
+                    'the-map': 'The Map',
+                    'the-frontier': 'The Frontier',
+                    'the-strategy': 'The Strategy',
+                    'the-library': 'The Library'
+                };
+
                 const statusItems = Object.entries(data.apps_status).map(([app, status]) => `
                     <div class="status-item">
                         <span class="status-indicator ${status}"></span>
-                        <span class="status-name">${app}</span>
+                        <span class="status-name">${statusNames[app] || app}</span>
                         <span class="status-label">${status}</span>
                     </div>
                 `).join('');
