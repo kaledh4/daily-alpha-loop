@@ -113,7 +113,7 @@
       "recent_papers": [
         {
           "title": "Decoy-state quantum key distribution over 227 km with a frequency-converted telecom single-photon source",
-          "summary": "We implement a decoy-state quantum key distribution scheme using a telecom C-band single- emitter source. The decoy states are created by varying the optical excitation of the quantum emitter to modul...",
+          "summary": "We implement a decoy-state quantum key distribution scheme using a telecom C-band single-emitter source. The decoy states are created by varying the optical excitation of the quantum emitter to modula...",
           "date": "2025-12-04",
           "link": "http://arxiv.org/abs/2512.05101v1"
         },
@@ -181,25 +181,29 @@
   },
   "breakthroughs": [
     {
-      "title": "Deep infant brain segmentation from multi-contrast MRI",
-      "why_it_matters": "Enables precise, non-invasive mapping of developing brain structures, accelerating neurodevelopmental research and diagnostic accuracy."
+      "title": "Universal Weight Subspace Hypothesis in AI",
+      "why_it_matters": "This theoretical framework bridges neural network generalization and robustness, enabling more efficient training of models that perform reliably across diverse tasks and datasets."
     },
     {
-      "title": "Decoy-state quantum key distribution over 227 km",
-      "why_it_matters": "Demonstrates scalable, secure quantum communication infrastructure over long distances, critical for future quantum internet."
+      "title": "Value Gradient Guidance for Flow Matching Alignment",
+      "why_it_matters": "Combines reinforcement learning objectives with flow-based generative models, advancing optimization techniques for complex dynamical systems and simulation alignment."
     },
     {
-      "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for VLAM Fine-Tuning",
-      "why_it_matters": "Addresses catastrophic forgetting in vision-language-action models, enabling stable lifelong learning without data loss."
+      "title": "Decoy-State Quantum Key Distribution (QKD) with Telecom Photon Sources",
+      "why_it_matters": "Breaks distance barriers for secure quantum communication, critical for future quantum internet infrastructure, using commercially viable optical components."
     },
     {
-      "title": "Axionic tunneling in topological Kondo insulators",
-      "why_it_matters": "Reveals exotic quantum transport mechanisms in 2D materials, opening pathways for low-power quantum switches."
+      "title": "pHapCompass for Polyploid Haplotype Phase",
+      "why_it_matters": "Enables accurate modeling of complex plant/genomic architectures at scale, with direct applications to crop engineering and precision medicine."
     },
     {
-      "title": "pHapCompass for polyploid haplotype phasing",
-      "why_it_matters": "Improves genomic prediction accuracy in complex crops, accelerating agricultural biotechnology."
+      "title": "Multimode RF Reflectometry for Spin Qubits",
+      "why_it_matters": "Solves critical challenges in quantum hardware characterization, accelerating the development of scalable, fault-tolerant quantum processors."
+    },
+    {
+      "title": "Structure-Aligned Generation via NeuralRemaster",
+      "why_it_matters": "Addresses structural fidelity in diffusion models, crucial for realistic asset generation in AI-driven creative tools and scientific visualization."
     }
   ],
-  "ai_analysis": "These breakthroughs bypass hype by addressing concrete limitations: infant brain MRI advances diagnostic precision, while decoy-state QKD tackles quantum communication scalability. STARE-VLA's solution for VLAM fine-tuning is particularly frontier as it solves a core AI training challenge ignored by many commercial implementations. The combination of biotech and quantum advancements reflects true interdisciplinary innovation, grounded in peer-reviewed methodologies rather than superficial claims."
+  "ai_analysis": "The frontier lies in cross-pollination between quantum physics (advanced QKD), multimodal systems (flow matching), and biotechnology (genome-phase modeling). These breakthroughs move beyond incremental efficiency gains to establish foundational paradigms for quantum computing, robust AI generalization, and emergent materials science - areas where classical computing limitations will become insurmountable in the coming decade."
 }

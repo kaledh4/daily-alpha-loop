@@ -1,13 +1,15 @@
 
-const CACHE_NAME = 'the-strategy-1764919027795';
+const CACHE_NAME = 'the-strategy-1764920364305';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./app-unified.js",
   "./app.js",
   "./favicon.ico",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./index-unified.html",
   "./market_analysis.json",
   "./market_analysis_chart.png",
   "./service-worker.js",

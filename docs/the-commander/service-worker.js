@@ -1,10 +1,11 @@
 
-const CACHE_NAME = 'the-commander-1764919031706';
+const CACHE_NAME = 'the-commander-1764920368053';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
   "./.gitignore",
+  "./app-unified.js",
   "./app.js",
   "./data/latest.json",
   "./favicon.ico",
@@ -17,6 +18,7 @@ const ASSETS_TO_CACHE = [
   "./icons/icons8-map-48.png",
   "./icons/icons8-shield-48.png",
   "./icons/icons8-strategy-48.png",
+  "./index-unified.html",
   "./scripts/generate-brief.js",
   "./static/icons/favicon.ico",
   "./static/icons/icon-192x192.png",

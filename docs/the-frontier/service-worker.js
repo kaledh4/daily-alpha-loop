@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'the-frontier-1764919027658';
+const CACHE_NAME = 'the-frontier-1764920364173';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

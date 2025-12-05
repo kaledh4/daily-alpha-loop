@@ -1,9 +1,10 @@
 
-const CACHE_NAME = 'the-shield-1764919027252';
+const CACHE_NAME = 'the-shield-1764920363774';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./app-unified.js",
   "./app.js",
   "./data/latest.json",
   "./data.json",
@@ -11,6 +12,7 @@ const ASSETS_TO_CACHE = [
   "./historical_data.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./index-unified.html",
   "./service-worker.js",
   "./static/icons/favicon.ico",
   "./static/icons/icon-192x192.png",

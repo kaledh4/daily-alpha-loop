@@ -1,13 +1,16 @@
 
-const CACHE_NAME = 'the-coin-1764919027388';
+const CACHE_NAME = 'the-coin-1764920363907';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
+  "./app-unified.js",
+  "./app.js",
   "./dashboard_data.json",
   "./favicon.ico",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
+  "./index-unified.html",
   "./service-worker.js",
   "./static/icons/favicon.ico",
   "./static/icons/icon-192x192.png",
