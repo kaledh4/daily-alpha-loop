@@ -249,4 +249,57 @@ body {
     .data-grid {
         grid-template-columns: 1fr;
     }
+}/* Skeleton Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right, #2d3748 4%, #4a5568 25%, #2d3748 36%);
+    background-size: 1000px 100%;
+    border-radius: 4px;
+}
+
+.skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.skeleton-title {
+    height: 2rem;
+    margin-bottom: 1rem;
+    width: 60%;
+}
+
+.skeleton-card {
+    background: rgba(45, 55, 72, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(74, 85, 104, 0.3);
+}
+
+/* Install App Button */
+#install-app-btn {
+    display: none; /* Hidden by default */
+    background: linear-gradient(135deg, #4299e1 0%, #667eea 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+#install-app-btn:hover {
+    transform: scale(1.05);
 }
