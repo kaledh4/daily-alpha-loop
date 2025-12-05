@@ -181,29 +181,37 @@
   },
   "breakthroughs": [
     {
-      "title": "Universal Weight Subspace Hypothesis in AI",
-      "why_it_matters": "This theoretical framework bridges neural network generalization and robustness, enabling more efficient training of models that perform reliably across diverse tasks and datasets."
+      "title": "Universal Weight Subspace Hypothesis - Value Gradient Guidance for Flow Matching Alignment",
+      "why_it_matters": "This hypothesis provides a mathematical framework for aligning AI models, improving robustness and interpretability in generative systems while reducing computational costs."
     },
     {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "why_it_matters": "Combines reinforcement learning objectives with flow-based generative models, advancing optimization techniques for complex dynamical systems and simulation alignment."
+      "title": "Deep infant brain segmentation from multi-contrast MRI",
+      "why_it_matters": "Enables precise early detection of neurological disorders in infants using advanced imaging techniques, critical for tailored pediatric care."
     },
     {
-      "title": "Decoy-State Quantum Key Distribution (QKD) with Telecom Photon Sources",
-      "why_it_matters": "Breaks distance barriers for secure quantum communication, critical for future quantum internet infrastructure, using commercially viable optical components."
+      "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for Fine-Tuning Vision-Language-Action Models",
+      "why_it_matters": "Enhances robotics and AI agents by enabling adaptive learning of complex tasks through hierarchical reinforcement learning."
     },
     {
-      "title": "pHapCompass for Polyploid Haplotype Phase",
-      "why_it_matters": "Enables accurate modeling of complex plant/genomic architectures at scale, with direct applications to crop engineering and precision medicine."
+      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
+      "why_it_matters": "Accelerates genetic research by resolving complex polyploid genome structures, aiding in understanding rare genetic diseases."
     },
     {
-      "title": "Multimode RF Reflectometry for Spin Qubits",
-      "why_it_matters": "Solves critical challenges in quantum hardware characterization, accelerating the development of scalable, fault-tolerant quantum processors."
+      "title": "Decoy-state quantum key distribution over 227 km",
+      "why_it_matters": "Demonstrates long-distance quantum-secured communication, a foundational step for scalable quantum internet infrastructure."
     },
     {
-      "title": "Structure-Aligned Generation via NeuralRemaster",
-      "why_it_matters": "Addresses structural fidelity in diffusion models, crucial for realistic asset generation in AI-driven creative tools and scientific visualization."
+      "title": "NeuralRemaster: Phase-Preserving Diffusion for Structure-Aligned Generation",
+      "why_it_matters": "Improves high-fidelity generation in manufacturing and design, allowing precise replication of microstructures and materials."
+    },
+    {
+      "title": "Multimode RF Reflectometry for Spin Qubit Readout",
+      "why_it_matters": "Enables faster, more accurate diagnostics of quantum processors, critical for advancing fault-tolerant quantum computing."
+    },
+    {
+      "title": "Ex-Signature Bank execs launch blockchain-powered bank N3XT",
+      "why_it_matters": "Showcases blockchain's potential to disrupt finance through decentralized, transparent systems for remittances and cross-border transactions."
     }
   ],
-  "ai_analysis": "The frontier lies in cross-pollination between quantum physics (advanced QKD), multimodal systems (flow matching), and biotechnology (genome-phase modeling). These breakthroughs move beyond incremental efficiency gains to establish foundational paradigms for quantum computing, robust AI generalization, and emergent materials science - areas where classical computing limitations will become insurmountable in the coming decade."
+  "ai_analysis": "These breakthroughs emphasize frontier advancements in cross-domain AI alignment, quantum communication reliability, and biomolecular modeling, while practical applications in robotics and semiconductor design pave the way for transformative technologies. The inclusion of blockchain-based financial infrastructure confirms its emergence as a viable alternative to traditional banking systems."
 }

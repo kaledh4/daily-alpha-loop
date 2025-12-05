@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'the-library-1764922579370';
+const CACHE_NAME = 'the-library-1764927769306';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -7,8 +7,6 @@ const ASSETS_TO_CACHE = [
   "./.gitignore",
   "./app-unified.js",
   "./app.js",
-  "./dist/index.html",
-  "./dist/vite.svg",
   "./eslint.config.js",
   "./favicon.ico",
   "./icons/icon-192.png",
@@ -26,8 +24,7 @@ const ASSETS_TO_CACHE = [
   "./tsconfig.app.json",
   "./tsconfig.json",
   "./tsconfig.node.json",
-  "./vite.config.ts",
-  "./vite.svg"
+  "./vite.config.ts"
 ];
 
 self.addEventListener('install', (event) => {

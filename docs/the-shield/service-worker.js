@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'the-shield-1764921899667';
+const CACHE_NAME = 'the-shield-1764927768595';
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
