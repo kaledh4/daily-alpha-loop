@@ -8,16 +8,16 @@
     "momentum": 5,
     "setup_quality": 6.5
   },
-  "btc_price": 91395.03125,
-  "eth_price": 3133.16064453125,
-  "momentum": "Neutral",
-  "rsi": 38.73568077300704,
+  "btc_price": 91052.625,
+  "eth_price": 3139.194091796875,
+  "momentum": "Bearish",
+  "rsi": 38.4537823842574,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 28,
     "classification": "Fear"
   },
-  "ai_analysis": "Analysis temporarily unavailable",
+  "ai_analysis": "The market is displaying clear bearish momentum, led by BTC's confirmed bearish trend. This negative sentiment is reinforced by a low RSI, indicating weak buying pressure, and a Fear & Greed Index value of 28, which points to widespread fear among market participants.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/orderflow",
     "xxxxxxxxx/shared_lib/dominance_tracker",
