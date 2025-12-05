@@ -1,24 +1,16 @@
 """
-Unified Data Fetcher
-=====================
-Single Python script that fetches data for ALL apps in the monorepo.
-Eliminates duplicate fetching code across apps.
+Unified Data Fetcher V2
+=======================
+REFACTORED: Centralized data fetching with no duplicate API calls.
+The Commander (orchestrator) uses all fetched data to generate Morning Brief.
 
-REPLACES:
-- tools/fetchers/fetch_crash_data.py
-- tools/fetchers/fetch_all.py
-- apps/ai-race/AI_RACE_CLEAN-main/scraper.py
-- apps/economic-compass/app/data_fetcher.py
-- apps/hyper-analytical/macro_analysis.py (data fetching parts)
-- apps/intelligence-platform/market_analysis.py
+Philosophy:
+- Fetch each data point ONCE
+- Store in centralized cache
+- Each dashboard gets AI-analyzed JSON
+- The Commander synthesizes everything
 
-USAGE:
-    python unified_fetcher.py --all              # Fetch everything
-    python unified_fetcher.py --app crash-detector
-    python unified_fetcher.py --app ai-race
-    python unified_fetcher.py --type market,news,crypto
-
-Author: Unified Monorepo Team
+Author: Daily Alpha Loop Team
 """
 
 import os
@@ -27,32 +19,31 @@ import json
 import logging
 import argparse
 import pathlib
+import time
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Third-party imports (with graceful degradation)
+# Third-party imports
 try:
     import requests
     REQUESTS_AVAILABLE = True
 except ImportError:
     REQUESTS_AVAILABLE = False
-    logging.warning("requests not available - HTTP fetching disabled")
+    logging.warning("requests not available")
 
 try:
     import yfinance as yf
     YFINANCE_AVAILABLE = True
 except ImportError:
     YFINANCE_AVAILABLE = False
-    logging.warning("yfinance not available - market data disabled")
 
 try:
     import feedparser
     FEEDPARSER_AVAILABLE = True
 except ImportError:
     FEEDPARSER_AVAILABLE = False
-    logging.warning("feedparser not available - RSS feeds disabled")
 
 try:
     import pandas as pd
@@ -60,11 +51,10 @@ try:
     PANDAS_AVAILABLE = True
 except ImportError:
     PANDAS_AVAILABLE = False
-    logging.warning("pandas not available - analysis disabled")
 
-# ===========================================
+# ========================================
 # Configuration
-# ===========================================
+# ========================================
 
 logging.basicConfig(
     level=logging.INFO,
@@ -73,12 +63,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Base paths
+# Paths
 ROOT_DIR = pathlib.Path(__file__).parent.parent.parent
 DATA_DIR = ROOT_DIR / 'data'
-APPS_DIR = ROOT_DIR / 'apps'
+CACHE_DIR = DATA_DIR / 'cache'
+CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-# API Keys from environment
+# API Keys
 API_KEYS = {
     'OPENROUTER': os.environ.get('OPENROUTER_KEY') or os.environ.get('OPENROUTER_API_KEY'),
     'NEWS_API': os.environ.get('NEWS_API_KEY'),
@@ -86,145 +77,123 @@ API_KEYS = {
     'ALPHA_VANTAGE': os.environ.get('ALPHA_VANTAGE_KEY'),
 }
 
-# Stress thresholds (from crash-detector)
-JPY_STRESS_THRESHOLD = 150.0
-JPY_CRITICAL_THRESHOLD = 155.0
-CNH_STRESS_THRESHOLD = 7.25
-CNH_CRITICAL_THRESHOLD = 7.4
-MOVE_PROXY_HIGH = 90.0
-MOVE_PROXY_CRITICAL = 120.0
-AUCTION_BTC_STRESS = 2.3
+# ========================================
+# Centralized Data Store
+# ========================================
 
-# arXiv queries (from ai-race)
-ARXIV_DOMAINS = {
-    "Advanced Manufacturing": "cat:cs.RO OR cat:cs.SY",
-    "Biotechnology": "cat:q-bio.BM OR cat:q-bio.GN",
-    "Critical Materials": 'all:"rare earth" OR all:"critical materials"',
-    "Nuclear Energy": "cat:nucl-ex OR cat:nucl-th",
-    "Quantum Info Science": "cat:quant-ph",
-    "Semiconductors": "cat:cond-mat.mes-hall OR cat:cs.ET"
-}
-
-# ===========================================
-# Data Classes
-# ===========================================
-
-@dataclass
-class FetchResult:
-    """Standard result structure for all fetchers"""
-    success: bool
-    data: Any
-    source: str
-    fetched_at: str
-    error: Optional[str] = None
+class DataStore:
+    """
+    Centralized in-memory store for all fetched data.
+    Prevents duplicate API calls across dashboards.
+    """
+    def __init__(self):
+        self.data = {}
+        self.fetched_at = {}
     
-    def to_dict(self):
-        return asdict(self)
-
-# ===========================================
-# Base Fetcher Class
-# ===========================================
-
-class BaseFetcher:
-    """Base class for all fetchers with caching"""
+    def set(self, key: str, value: Any):
+        self.data[key] = value
+        self.fetched_at[key] = datetime.now(timezone.utc).isoformat()
+        logger.info(f"📦 Stored: {key}")
     
-    def __init__(self, cache_dir: pathlib.Path = None):
-        self.cache_dir = cache_dir or DATA_DIR / 'cache'
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
+    def get(self, key: str) -> Any:
+        return self.data.get(key)
     
-    def get_cached(self, key: str, max_age_seconds: int = 300) -> Optional[Dict]:
-        """Get cached data if fresh enough"""
-        cache_file = self.cache_dir / f"{key}.json"
-        if not cache_file.exists():
-            return None
+    def has(self, key: str) -> bool:
+        return key in self.data
+    
+    def to_dict(self) -> Dict:
+        return {
+            'data': self.data,
+            'fetched_at': self.fetched_at,
+            'timestamp': datetime.now(timezone.utc).isoformat()
+        }
+
+# Global data store instance
+store = DataStore()
+
+# ========================================
+# Fetch Functions (Call ONCE)
+# ========================================
+
+def fetch_market_data():
+    """Fetch ALL market data once - used by multiple dashboards"""
+    logger.info("=" * 50)
+    logger.info("📈 FETCHING MARKET DATA (ONCE for all dashboards)")
+    logger.info("=" * 50)
+    
+    if not YFINANCE_AVAILABLE:
+        logger.error("yfinance not available")
+        return
+    
+    # Define all tickers needed by ANY dashboard
+    tickers = {
+        # Risk Dashboard (The Shield)
+        'JPY': 'JPY=X',
+        'CNH': 'CNH=X',
+        'TNX': '^TNX',  # 10Y Treasury
+        'MOVE': '^MOVE',
+        'VIX': '^VIX',
+        'CBON': 'CBON',
         
+        # Crypto (The Coin)
+        'BTC': 'BTC-USD',
+        'ETH': 'ETH-USD',
+        
+        # Macro (The Map)
+        'DXY': 'DX-Y.NYB',
+        'GOLD': 'GC=F',
+        'OIL': 'CL=F',
+        'SP500': '^GSPC',
+        'TASI': '^TASI.SR',
+    }
+    
+    # Fetch in parallel
+    def fetch_ticker(name, ticker):
         try:
-            data = json.loads(cache_file.read_text(encoding='utf-8'))
-            fetched_at = datetime.fromisoformat(data.get('fetched_at', '2000-01-01').replace('Z', '+00:00'))
-            age = (datetime.now(timezone.utc) - fetched_at).total_seconds()
-            if age < max_age_seconds:
-                logger.info(f"[CACHE HIT] {key} (age: {age:.0f}s)")
-                return data
-        except Exception as e:
-            logger.debug(f"Cache read error for {key}: {e}")
-        return None
-    
-    def set_cache(self, key: str, data: Dict):
-        """Save data to cache"""
-        cache_file = self.cache_dir / f"{key}.json"
-        cache_file.write_text(json.dumps(data, indent=2, default=str), encoding='utf-8')
-
-# ===========================================
-# Market Data Fetcher
-# ===========================================
-
-class MarketFetcher(BaseFetcher):
-    """Fetches market data via yfinance - UNIFIED for all apps"""
-    
-    def fetch_ticker(self, ticker: str, period: str = '1d') -> FetchResult:
-        """Fetch single ticker current price"""
-        if not YFINANCE_AVAILABLE:
-            return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), 'yfinance not available')
-        
-        cache_key = f"market_{ticker}_{period}".replace('=', '_').replace('^', '_')
-        cached = self.get_cached(cache_key, max_age_seconds=60)
-        if cached:
-            return FetchResult(True, cached['data'], 'yfinance', cached['fetched_at'])
-        
-        try:
-            logger.info(f"[MARKET] Fetching {ticker}...")
-            ticker_obj = yf.Ticker(ticker)
-            
+            logger.info(f"  Fetching {name} ({ticker})...")
+            t = yf.Ticker(ticker)
             price = None
+            
             try:
-                price = ticker_obj.fast_info.last_price
+                price = t.fast_info.last_price
             except:
                 pass
             
             if price is None:
-                hist = ticker_obj.history(period=period)
+                hist = t.history(period='1d')
                 if not hist.empty:
                     price = float(hist['Close'].iloc[-1])
             
-            if price is not None:
-                data = {'ticker': ticker, 'price': float(price), 'period': period}
-                self.set_cache(cache_key, {'data': data, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-                logger.info(f"[MARKET] {ticker}: {price}")
-                return FetchResult(True, data, 'yfinance', datetime.now(timezone.utc).isoformat())
-            
-            return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), 'No data found')
+            return name, price
         except Exception as e:
-            logger.error(f"[MARKET] Error fetching {ticker}: {e}")
-            return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), str(e))
+            logger.warning(f"  Failed {name}: {e}")
+            return name, None
     
-    def fetch_multi(self, tickers: Dict[str, str]) -> Dict[str, FetchResult]:
-        """Fetch multiple tickers in parallel"""
-        results = {}
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = {executor.submit(self.fetch_ticker, ticker): name for name, ticker in tickers.items()}
-            for future in as_completed(futures):
-                name = futures[future]
-                results[name] = future.result()
-        return results
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [executor.submit(fetch_ticker, name, ticker) for name, ticker in tickers.items()]
+        for future in as_completed(futures):
+            name, price = future.result()
+            if price is not None:
+                store.set(f'market.{name}', price)
+
+def fetch_crypto_indicators():
+    """Fetch crypto with technical indicators (for The Coin)"""
+    logger.info("=" * 50)
+    logger.info("📊 FETCHING CRYPTO INDICATORS")
+    logger.info("=" * 50)
     
-    def fetch_with_indicators(self, ticker: str, period: str = '5y', interval: str = '1wk') -> FetchResult:
-        """Fetch ticker with technical indicators (for crypto analysis)"""
-        if not YFINANCE_AVAILABLE or not PANDAS_AVAILABLE:
-            return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), 'Dependencies not available')
-        
-        cache_key = f"market_full_{ticker}".replace('-', '_')
-        cached = self.get_cached(cache_key, max_age_seconds=300)
-        if cached:
-            return FetchResult(True, cached['data'], 'yfinance', cached['fetched_at'])
-        
+    if not YFINANCE_AVAILABLE or not PANDAS_AVAILABLE:
+        return
+    
+    for symbol in ['BTC-USD', 'ETH-USD']:
         try:
-            logger.info(f"[MARKET] Fetching {ticker} with indicators...")
-            df = yf.download(ticker, period=period, interval=interval, progress=False)
+            logger.info(f"  Fetching {symbol} indicators...")
+            df = yf.download(symbol, period='5y', interval='1wk', progress=False)
             
             if df.empty:
-                return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), 'No data')
+                continue
             
-            # Flatten MultiIndex if present
+            # Flatten MultiIndex
             if isinstance(df.columns, pd.MultiIndex):
                 df.columns = df.columns.get_level_values(0)
             
@@ -233,228 +202,144 @@ class MarketFetcher(BaseFetcher):
             df['EMA_21'] = df['Close'].ewm(span=21, adjust=False).mean()
             df['MA50'] = df['Close'].rolling(window=50).mean()
             df['MA200'] = df['Close'].rolling(window=200).mean()
-            df['RSI'] = self._calculate_rsi(df['Close'])
+            
+            # RSI
+            delta = df['Close'].diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+            rs = gain / loss
+            df['RSI'] = 100 - (100 / (1 + rs))
             
             latest = df.iloc[-1]
-            prev = df.iloc[-2] if len(df) > 1 else latest
+            ticker_name = symbol.replace('-USD', '')
             
-            data = {
-                'ticker': ticker,
-                'price': float(latest['Close']),
-                'sma_20': float(latest['SMA_20']) if not pd.isna(latest['SMA_20']) else None,
-                'ema_21': float(latest['EMA_21']) if not pd.isna(latest['EMA_21']) else None,
-                'ma50': float(latest['MA50']) if not pd.isna(latest['MA50']) else None,
-                'ma200': float(latest['MA200']) if not pd.isna(latest['MA200']) else None,
-                'rsi': float(latest['RSI']) if not pd.isna(latest['RSI']) else None,
-                'trend': 'Bullish' if latest['Close'] > latest['SMA_20'] else 'Bearish',
-                'prev_close': float(prev['Close'])
-            }
+            store.set(f'crypto.{ticker_name}.sma_20', float(latest['SMA_20']) if not pd.isna(latest['SMA_20']) else None)
+            store.set(f'crypto.{ticker_name}.ema_21', float(latest['EMA_21']) if not pd.isna(latest['EMA_21']) else None)
+            store.set(f'crypto.{ticker_name}.ma50', float(latest['MA50']) if not pd.isna(latest['MA50']) else None)
+            store.set(f'crypto.{ticker_name}.ma200', float(latest['MA200']) if not pd.isna(latest['MA200']) else None)
+            store.set(f'crypto.{ticker_name}.rsi', float(latest['RSI']) if not pd.isna(latest['RSI']) else None)
+            store.set(f'crypto.{ticker_name}.trend', 'Bullish' if latest['Close'] > latest['SMA_20'] else 'Bearish')
             
-            self.set_cache(cache_key, {'data': data, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-            return FetchResult(True, data, 'yfinance', datetime.now(timezone.utc).isoformat())
         except Exception as e:
-            logger.error(f"[MARKET] Error fetching {ticker}: {e}")
-            return FetchResult(False, None, 'yfinance', datetime.now(timezone.utc).isoformat(), str(e))
-    
-    def _calculate_rsi(self, prices, period=14):
-        """Calculate RSI indicator"""
-        delta = prices.diff()
-        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
-        rs = gain / loss
-        return 100 - (100 / (1 + rs))
+            logger.warning(f"  Failed {symbol} indicators: {e}")
 
-# ===========================================
-# Treasury Fetcher
-# ===========================================
+def fetch_treasury_data():
+    """Fetch Treasury auction data"""
+    logger.info("=" * 50)
+    logger.info("🏛️ FETCHING TREASURY DATA")
+    logger.info("=" * 50)
+    
+    if not REQUESTS_AVAILABLE:
+        return
+    
+    try:
+        url = "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/auctions_query"
+        params = {
+            'filter': 'security_term:eq:10-Year,security_type:eq:Note',
+            'sort': '-auction_date',
+            'page[size]': 1
+        }
+        
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        
+        if 'data' in data and len(data['data']) > 0:
+            result = data['data'][0]
+            store.set('treasury.10y_bid_to_cover', float(result.get('bid_to_cover_ratio', 0)))
+            store.set('treasury.10y_auction_date', result.get('auction_date'))
+            
+    except Exception as e:
+        logger.warning(f"  Failed treasury data: {e}")
 
-class TreasuryFetcher(BaseFetcher):
-    """Fetches Treasury auction data"""
+def fetch_fear_and_greed():
+    """Fetch crypto Fear & Greed Index"""
+    logger.info("=" * 50)
+    logger.info("😱 FETCHING FEAR & GREED INDEX")
+    logger.info("=" * 50)
     
-    BASE_URL = "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/od/auctions_query"
+    if not REQUESTS_AVAILABLE:
+        return
     
-    def fetch_auction(self, term: str = '10-Year', security_type: str = 'Note') -> FetchResult:
-        """Fetch Treasury auction data"""
-        if not REQUESTS_AVAILABLE:
-            return FetchResult(False, None, 'treasury', datetime.now(timezone.utc).isoformat(), 'requests not available')
+    try:
+        response = requests.get('https://api.alternative.me/fng/?limit=1', timeout=10)
+        data = response.json()
         
-        cache_key = f"treasury_{term}_{security_type}".replace('-', '_').replace(' ', '_')
-        cached = self.get_cached(cache_key, max_age_seconds=300)
-        if cached:
-            return FetchResult(True, cached['data'], 'treasury', cached['fetched_at'])
+        store.set('fng.value', int(data['data'][0]['value']))
+        store.set('fng.classification', data['data'][0]['value_classification'])
+        store.set('fng.timestamp', data['data'][0]['timestamp'])
         
-        try:
-            logger.info(f"[TREASURY] Fetching {term} {security_type}...")
-            params = {
-                'filter': f'security_term:eq:{term},security_type:eq:{security_type}',
-                'sort': '-auction_date',
-                'page[size]': 1
-            }
-            
-            response = requests.get(self.BASE_URL, params=params, timeout=10)
-            response.raise_for_status()
-            data = response.json()
-            
-            if 'data' in data and len(data['data']) > 0:
-                result = data['data'][0]
-                self.set_cache(cache_key, {'data': result, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-                return FetchResult(True, result, 'treasury', datetime.now(timezone.utc).isoformat())
-            
-            return FetchResult(False, None, 'treasury', datetime.now(timezone.utc).isoformat(), 'No data')
-        except Exception as e:
-            logger.error(f"[TREASURY] Error: {e}")
-            return FetchResult(False, None, 'treasury', datetime.now(timezone.utc).isoformat(), str(e))
+    except Exception as e:
+        logger.warning(f"  Failed F&G: {e}")
 
-# ===========================================
-# News Fetcher
-# ===========================================
-
-class NewsFetcher(BaseFetcher):
-    """Fetches news from various sources"""
+def fetch_news():
+    """Fetch news from RSS feeds"""
+    logger.info("=" * 50)
+    logger.info("📰 FETCHING NEWS")
+    logger.info("=" * 50)
     
-    def fetch_rss(self, feeds: List[str] = None) -> FetchResult:
-        """Fetch from RSS feeds"""
-        if not FEEDPARSER_AVAILABLE:
-            # Fallback to requests-based RSS parsing
-            return self._fetch_rss_simple(feeds)
-        
-        default_feeds = [
-            'https://finance.yahoo.com/news/rssindex',
-            'https://cointelegraph.com/rss',
-            'https://www.marketwatch.com/rss/topstories'
-        ]
-        feeds = feeds or default_feeds
-        
-        cache_key = "rss_news"
-        cached = self.get_cached(cache_key, max_age_seconds=600)
-        if cached:
-            return FetchResult(True, cached['data'], 'rss', cached['fetched_at'])
-        
-        try:
-            logger.info(f"[RSS] Fetching from {len(feeds)} feeds...")
-            articles = []
-            for feed_url in feeds:
-                try:
-                    feed = feedparser.parse(feed_url)
-                    for entry in feed.entries[:5]:
-                        articles.append({
-                            'title': entry.get('title', 'No title'),
-                            'source': feed.feed.get('title', 'Unknown'),
-                            'url': entry.get('link'),
-                            'publishedAt': entry.get('published')
-                        })
-                except Exception as e:
-                    logger.debug(f"Feed error {feed_url}: {e}")
-                    continue
-            
-            data = {'articles': articles[:15]}
-            self.set_cache(cache_key, {'data': data, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-            return FetchResult(True, data, 'rss', datetime.now(timezone.utc).isoformat())
-        except Exception as e:
-            logger.error(f"[RSS] Error: {e}")
-            return FetchResult(False, {'articles': []}, 'rss', datetime.now(timezone.utc).isoformat(), str(e))
+    feeds = [
+        'https://finance.yahoo.com/news/rssindex',
+        'https://cointelegraph.com/rss',
+        'https://www.marketwatch.com/rss/topstories',
+        'https://www.artificialintelligence-news.com/feed/',
+    ]
     
-    def _fetch_rss_simple(self, feeds: List[str] = None) -> FetchResult:
-        """Simple RSS fetch without feedparser"""
-        if not REQUESTS_AVAILABLE:
-            return FetchResult(False, {'articles': []}, 'rss', datetime.now(timezone.utc).isoformat(), 'No HTTP available')
-        
-        import xml.etree.ElementTree as ET
-        
-        default_feeds = ['https://cointelegraph.com/rss']
-        feeds = feeds or default_feeds
-        
-        articles = []
+    articles = []
+    
+    if FEEDPARSER_AVAILABLE:
         for feed_url in feeds:
             try:
-                r = requests.get(feed_url, timeout=10)
-                root = ET.fromstring(r.content)
-                for item in root.findall('.//item')[:5]:
-                    title = item.find('title')
+                logger.info(f"  Fetching {feed_url}...")
+                feed = feedparser.parse(feed_url)
+                for entry in feed.entries[:5]:
                     articles.append({
-                        'title': title.text if title is not None else 'No title',
-                        'source': 'RSS',
-                        'url': '',
-                        'publishedAt': ''
+                        'title': entry.get('title', 'No title'),
+                        'source': feed.feed.get('title', 'Unknown'),
+                        'url': entry.get('link'),
+                        'publishedAt': entry.get('published')
                     })
-            except:
-                continue
-        
-        return FetchResult(True, {'articles': articles[:10]}, 'rss', datetime.now(timezone.utc).isoformat())
-
-# ===========================================
-# Crypto Fetcher
-# ===========================================
-
-class CryptoFetcher(BaseFetcher):
-    """Fetches crypto-specific data"""
+            except Exception as e:
+                logger.debug(f"  Feed error: {e}")
     
-    def fetch_fear_and_greed(self) -> FetchResult:
-        """Fetch Fear & Greed Index"""
-        if not REQUESTS_AVAILABLE:
-            return FetchResult(False, {'value': 50, 'classification': 'Neutral'}, 'fng', datetime.now(timezone.utc).isoformat(), 'requests not available')
-        
-        cache_key = 'fng'
-        cached = self.get_cached(cache_key, max_age_seconds=900)
-        if cached:
-            return FetchResult(True, cached['data'], 'fng', cached['fetched_at'])
-        
+    store.set('news.articles', articles[:20])
+
+def fetch_arxiv_papers():
+    """Fetch arXiv research papers"""
+    logger.info("=" * 50)
+    logger.info("📚 FETCHING ARXIV PAPERS")
+    logger.info("=" * 50)
+    
+    import ssl
+    import urllib.request
+    import urllib.parse
+    import xml.etree.ElementTree as ET
+    
+    domains = {
+        "AI Research": "cat:cs.AI OR cat:cs.LG",
+        "Advanced Manufacturing": "cat:cs.RO OR cat:cs.SY",
+        "Biotechnology": "cat:q-bio.BM OR cat:q-bio.GN",
+        "Quantum Computing": "cat:quant-ph",
+        "Semiconductors": "cat:cond-mat.mes-hall OR cat:cs.ET"
+    }
+    
+    for domain_name, query in domains.items():
         try:
-            logger.info("[FNG] Fetching Fear & Greed Index...")
-            response = requests.get('https://api.alternative.me/fng/?limit=1', timeout=10)
-            data = response.json()
-            
-            result = {
-                'value': int(data['data'][0]['value']),
-                'value_classification': data['data'][0]['value_classification'],
-                'timestamp': data['data'][0]['timestamp']
-            }
-            
-            self.set_cache(cache_key, {'data': result, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-            return FetchResult(True, result, 'fng', datetime.now(timezone.utc).isoformat())
-        except Exception as e:
-            logger.error(f"[FNG] Error: {e}")
-            return FetchResult(False, {'value': 50, 'value_classification': 'Neutral'}, 'fng', datetime.now(timezone.utc).isoformat(), str(e))
-
-# ===========================================
-# arXiv Fetcher
-# ===========================================
-
-class ArxivFetcher(BaseFetcher):
-    """Fetches arXiv research papers"""
-    
-    BASE_URL = "http://export.arxiv.org/api/query"
-    
-    def fetch_papers(self, query: str, max_results: int = 10) -> FetchResult:
-        """Fetch arXiv papers by query"""
-        import ssl
-        import urllib.request
-        import urllib.parse
-        import xml.etree.ElementTree as ET
-        
-        cache_key = f"arxiv_{hash(query)}_{max_results}"
-        cached = self.get_cached(cache_key, max_age_seconds=3600)
-        if cached:
-            return FetchResult(True, cached['data'], 'arxiv', cached['fetched_at'])
-        
-        try:
-            logger.info(f"[ARXIV] Fetching papers: {query[:50]}...")
+            logger.info(f"  Fetching {domain_name}...")
             params = {
                 'search_query': query,
                 'start': 0,
-                'max_results': max_results,
+                'max_results': 5,
                 'sortBy': 'submittedDate',
                 'sortOrder': 'descending'
             }
-            url = f"{self.BASE_URL}?{urllib.parse.urlencode(params)}"
+            url = f"http://export.arxiv.org/api/query?{urllib.parse.urlencode(params)}"
             
             context = ssl._create_unverified_context()
             response = urllib.request.urlopen(url, context=context, timeout=30)
             xml_data = response.read().decode('utf-8')
             
             root = ET.fromstring(xml_data)
-            
-            # Namespaces
             ns = {'atom': 'http://www.w3.org/2005/Atom', 'opensearch': 'http://a9.com/-/spec/opensearch/1.1/'}
             
             total = root.find('opensearch:totalResults', ns)
@@ -474,59 +359,129 @@ class ArxivFetcher(BaseFetcher):
                     'link': link.text if link is not None else ''
                 })
             
-            data = {'total_results': total_results, 'papers': papers, 'query': query}
-            self.set_cache(cache_key, {'data': data, 'fetched_at': datetime.now(timezone.utc).isoformat()})
-            return FetchResult(True, data, 'arxiv', datetime.now(timezone.utc).isoformat())
-        except Exception as e:
-            logger.error(f"[ARXIV] Error: {e}")
-            return FetchResult(False, {'papers': [], 'total_results': 0}, 'arxiv', datetime.now(timezone.utc).isoformat(), str(e))
-
-# ===========================================
-# AI/LLM Fetcher
-# ===========================================
-
-class AIFetcher(BaseFetcher):
-    """Fetches AI analysis using OpenRouter with fallback support"""
-    
-    MODELS = {
-        'llama-70b': 'meta-llama/llama-3.3-70b-instruct:free',
-        'olmo-32b': 'allenai/olmo-3-32b-think:free', # Check exact name
-        'mistral-24b': 'mistralai/mistral-small-3.1-24b-instruct:free',
-        'dolphin-24b': 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
-        'qwen-235b': 'qwen/qwen3-235b-a22b:free',
-        'glm-4': 'z-ai/glm-4.5-air:free',
-        'tongyi-30b': 'alibaba/tongyi-deepresearch-30b-a3b:free',
-        'nemotron-12b': 'nvidia/nemotron-nano-12b-v2-vl:free',
-        'chimera': 'tngtech/tng-r1t-chimera:free',
-        'kimi': 'moonshotai/kimi-k2:free',
-        'longcat': 'meituan/longcat-flash-chat:free',
-        'gemma-2b': 'google/gemma-3n-e2b-it:free',
-        'olmo-32b-alt': 'allenai/olmo-32b-think:free'
-    }
-    
-    def call_ai(self, prompt: str, system_prompt: str = None, models: List[str] = None, max_tokens: int = 1000, response_format: str = None) -> FetchResult:
-        """Call AI model with fallback"""
-        api_key = API_KEYS.get('OPENROUTER')
-        
-        if not api_key:
-            logger.warning("[AI] OpenRouter API key not configured")
-            return FetchResult(False, {'content': 'AI analysis temporarily unavailable.'}, 'openrouter', datetime.now(timezone.utc).isoformat(), 'API key not configured')
-        
-        if models is None:
-            models = ['llama-70b']
+            store.set(f'arxiv.{domain_name}.total', total_results)
+            store.set(f'arxiv.{domain_name}.papers', papers)
             
-        last_error = None
+        except Exception as e:
+            logger.warning(f"  Failed {domain_name}: {e}")
+
+# ========================================
+# AI Analysis Functions
+# ========================================
+
+def call_ai(prompt: str, system_prompt: str, models: List[str], max_tokens: int = 1500) -> Optional[str]:
+    """Call AI model with priority: Grok → Gemini → OpenRouter"""
+    
+    if not REQUESTS_AVAILABLE:
+        logger.warning("AI not available (no requests library)")
+        return None
+    
+    # Try Grok API first (X.AI) - FREE
+    grok_key = os.environ.get('GROK_API_KEY') or os.environ.get('XAI_API_KEY')
+    if grok_key:
+        try:
+            logger.info("  🤖 Calling Grok (X.AI)...")
+            headers = {
+                'Authorization': f'Bearer {grok_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            messages = []
+            if system_prompt:
+                messages.append({'role': 'system', 'content': system_prompt})
+            messages.append({'role': 'user', 'content': prompt})
+            
+            payload = {
+                'model': 'grok-beta',  # Free tier model
+                'messages': messages,
+                'temperature': 0.7,
+                'max_tokens': max_tokens,
+                'stream': False
+            }
+            
+            response = requests.post(
+                'https://api.x.ai/v1/chat/completions',
+                headers=headers,
+                json=payload,
+                timeout=60
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if 'choices' in result and len(result['choices']) > 0:
+                    content = result['choices'][0]['message']['content']
+                    logger.info("  ✅ Success with Grok!")
+                    return content
+            else:
+                logger.warning(f"  Grok failed: {response.status_code}")
+        
+        except Exception as e:
+            logger.warning(f"  ❌ Grok error: {e}")
+    
+    # Try Gemini API second (Google) - FREE
+    gemini_key = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY')
+    if gemini_key:
+        try:
+            logger.info("  🤖 Calling Gemini (Google)...")
+            
+            # Gemini format: combine system and user prompts
+            full_prompt = f"{system_prompt}\n\n{prompt}"
+            
+            payload = {
+                'contents': [{
+                    'parts': [{'text': full_prompt}]
+                }],
+                'generationConfig': {
+                    'temperature': 0.7,
+                    'maxOutputTokens': max_tokens,
+                    'responseMimeType': 'application/json'
+                }
+            }
+            
+            url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={gemini_key}'
+            
+            response = requests.post(url, json=payload, timeout=60)
+            
+            if response.status_code == 200:
+                result = response.json()
+                if 'candidates' in result and len(result['candidates']) > 0:
+                    content = result['candidates'][0]['content']['parts'][0]['text']
+                    logger.info("  ✅ Success with Gemini!")
+                    return content
+            else:
+                logger.warning(f"  Gemini failed: {response.status_code}")
+        
+        except Exception as e:
+            logger.warning(f"  ❌ Gemini error: {e}")
+    
+    # Fallback to OpenRouter (has free models)
+    openrouter_key = os.environ.get('OPENROUTER_KEY') or os.environ.get('OPENROUTER_API_KEY')
+    if openrouter_key:
+        model_map = {
+            'llama-70b': 'meta-llama/llama-3.3-70b-instruct:free',
+            'olmo-32b': 'allenai/olmo-3-32b-think:free',
+            'mistral-24b': 'mistralai/mistral-small-3.1-24b-instruct:free',
+            'dolphin-24b': 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
+            'qwen-235b': 'qwen/qwen3-235b-a22b:free',
+            'glm-4': 'z-ai/glm-4.5-air:free',
+            'tongyi-30b': 'alibaba/tongyi-deepresearch-30b-a3b:free',
+            'nemotron-12b': 'nvidia/nemotron-nano-12b-v2-vl:free',
+            'chimera': 'tngtech/tng-r1t-chimera:free',
+            'kimi': 'moonshotai/kimi-k2:free',
+            'longcat': 'meituan/longcat-flash-chat:free',
+            'gemma-2b': 'google/gemma-3n-e2b-it:free',
+        }
         
         for model_key in models:
-            model_id = self.MODELS.get(model_key, model_key)
+            model_id = model_map.get(model_key, model_key)
             try:
-                logger.info(f"[AI] Calling {model_id}...")
+                logger.info(f"  🤖 Calling OpenRouter ({model_key})...")
                 
                 headers = {
-                    'Authorization': f'Bearer {api_key}',
+                    'Authorization': f'Bearer {openrouter_key}',
                     'Content-Type': 'application/json',
-                    'HTTP-Referer': 'https://kaledh4.github.io/monorepo/',
-                    'X-Title': 'Unified Dashboard'
+                    'HTTP-Referer': 'https://kaledh4.github.io/daily-alpha-loop/',
+                    'X-Title': 'Daily Alpha Loop'
                 }
                 
                 messages = []
@@ -538,11 +493,9 @@ class AIFetcher(BaseFetcher):
                     'model': model_id,
                     'messages': messages,
                     'temperature': 0.7,
-                    'max_tokens': max_tokens
+                    'max_tokens': max_tokens,
+                    'response_format': {'type': 'json_object'}
                 }
-                
-                if response_format:
-                    payload['response_format'] = {'type': response_format}
                 
                 response = requests.post(
                     'https://openrouter.ai/api/v1/chat/completions',
@@ -555,804 +508,735 @@ class AIFetcher(BaseFetcher):
                 result = response.json()
                 if 'choices' in result and len(result['choices']) > 0:
                     content = result['choices'][0]['message']['content']
-                    logger.info(f"[AI] Response received successfully from {model_key}")
-                    return FetchResult(True, {'content': content, 'model': model_key}, 'openrouter', datetime.now(timezone.utc).isoformat())
-                else:
-                    raise Exception("No choices in response")
-                    
+                    logger.info(f"  ✅ Success with {model_key}!")
+                    return content
+            
             except Exception as e:
-                logger.warning(f"[AI] Error with {model_key}: {e}")
-                last_error = e
+                logger.warning(f"  ❌ Failed {model_key}: {e}")
                 continue
-        
-        logger.error(f"[AI] All models failed. Last error: {last_error}")
-        return FetchResult(False, {'content': 'AI analysis temporarily unavailable.'}, 'openrouter', datetime.now(timezone.utc).isoformat(), str(last_error))
-
-# ===========================================
-# Signal Determination (from crash-detector)
-# ===========================================
-
-def determine_signal(metric_name: str, value: float) -> str:
-    """Determine stress signal based on metric value"""
-    if value is None:
-        return "DATA ERROR"
     
-    if "JPY" in metric_name:
-        if value >= JPY_CRITICAL_THRESHOLD: return "CRITICAL SHOCK"
-        if value >= JPY_STRESS_THRESHOLD: return "HIGH STRESS"
-        if value > 145.0: return "RISING STRESS"
-    elif "CNH" in metric_name:
-        if value >= CNH_CRITICAL_THRESHOLD: return "CRITICAL SHOCK"
-        if value >= CNH_STRESS_THRESHOLD: return "HIGH STRESS"
-        if value > 7.15: return "RISING STRESS"
-    elif "Treasury Yield" in metric_name or "TNX" in metric_name:
-        if value >= 5.0: return "CRITICAL SHOCK"
-        if value >= 4.5: return "HIGH STRESS"
-        if value >= 4.2: return "RISING STRESS"
-    elif "MOVE" in metric_name or "VIX" in metric_name:
-        if value >= MOVE_PROXY_CRITICAL: return "CRITICAL SHOCK"
-        if value >= MOVE_PROXY_HIGH: return "HIGH STRESS"
-        if value > 80.0: return "RISING STRESS"
-    elif "Bid-to-Cover" in metric_name:
-        if value < 2.0: return "CRITICAL SHOCK"
-        if value < AUCTION_BTC_STRESS: return "HIGH STRESS"
-        if value < 2.4: return "RISING STRESS"
-    
-    return "NORMAL"
+    logger.error("  ❌ All AI providers failed")
+    return None
 
-def fetch_fear_and_greed() -> Dict:
-    """Fetch Fear & Greed Index"""
-    try:
-        r = requests.get("https://api.alternative.me/fng/?limit=1", timeout=10)
-        r.raise_for_status()
-        data = r.json()
-        return data['data'][0]
-    except Exception as e:
-        logger.warning(f"Error fetching Fear & Greed: {e}")
-        return {"value": "50", "value_classification": "Neutral"}
+# ========================================
+# Dashboard Analysis Functions
+# ========================================
 
-def calculate_composite_risk(metrics: List[Dict]) -> Dict:
-    """Calculate overall risk score from metrics"""
-    score = 0
-    count = 0
-    weights = {"CRITICAL SHOCK": 100, "HIGH STRESS": 75, "RISING STRESS": 40, "NORMAL": 0, "DATA ERROR": 25}
-    
-    for m in metrics:
-        signal = m.get('signal', 'NORMAL')
-        if signal in weights:
-            score += weights[signal]
-            count += 1
-    
-    if count == 0:
-        return {"score": 0, "level": "UNKNOWN", "color": "#6c757d"}
-    
-    avg = score / count
-    if avg >= 60:
-        return {"score": round(avg, 1), "level": "CRITICAL", "color": "#dc3545"}
-    if avg >= 35:
-        return {"score": round(avg, 1), "level": "ELEVATED", "color": "#ffc107"}
-    return {"score": round(avg, 1), "level": "LOW", "color": "#28a745"}
-
-# ===========================================
-# APP-SPECIFIC FETCH FUNCTIONS
-# ===========================================
-
-def fetch_for_crash_detector() -> Dict:
-    """
-    Fetch all data needed by crash-detector app (The Shield).
-    Mission: Market Fragility Monitor
-    Output: data/crash-detector/latest.json
-    """
+def analyze_the_shield() -> Dict:
+    """THE SHIELD - Market Fragility Monitor"""
     logger.info("=" * 50)
-    logger.info("CRASH-DETECTOR (The Shield): Starting data fetch")
+    logger.info("🛡️ ANALYZING: THE SHIELD")
     logger.info("=" * 50)
     
-    market = MarketFetcher()
-    treasury = TreasuryFetcher()
-    news = NewsFetcher()
-    ai = AIFetcher()
+    # Calculate risk metrics
+    jpy = store.get('market.JPY')
+    cnh = store.get('market.CNH')
+    tnx = store.get('market.TNX')
+    move = store.get('market.MOVE')
+    vix = store.get('market.VIX')
+    cbon = store.get('market.CBON')
+    btc_10y = store.get('treasury.10y_bid_to_cover')
     
-    # Fetch market data
-    tickers = {
-        'USD/JPY': 'JPY=X',
-        'USD/CNH': 'CNH=X',
-        '10Y Treasury Yield': '^TNX',
-        'MOVE Index': '^MOVE',
-        'VIX': '^VIX',
-        'CBON ETF': 'CBON'
-    }
-    
-    market_data = market.fetch_multi(tickers)
-    
-    # Fetch treasury auctions
-    auction_10y = treasury.fetch_auction('10-Year', 'Note')
-    
-    # Build metrics list
+    # Build metrics
     metrics = []
     
-    # Treasury auction metrics
-    if auction_10y.success and auction_10y.data:
-        btc_10y = float(auction_10y.data.get('bid_to_cover_ratio', 0))
+    if btc_10y:
+        signal = "CRITICAL SHOCK" if btc_10y < 2.0 else "HIGH STRESS" if btc_10y < 2.3 else "NORMAL"
         metrics.append({
-            'name': '10Y Treasury Auction Bid-to-Cover',
-            'value': f'{btc_10y:.2f}x' if btc_10y else 'N/A',
-            'signal': determine_signal('Bid-to-Cover', btc_10y),
-            'desc': 'Demand strength'
+            'name': '10Y Treasury Bid-to-Cover',
+            'value': f'{btc_10y:.2f}x',
+            'signal': signal
         })
     
-    # Market metrics
-    for name, result in market_data.items():
-        if result.success and result.data:
-            price = result.data['price']
-            
-            # Format value based on type
-            if 'JPY' in name:
-                value = f'{price:.2f}'
-            elif 'CNH' in name:
-                value = f'{price:.4f}'
-            elif 'Yield' in name:
-                value = f'{price:.2f}%'
-            elif 'CBON' in name:
-                value = f'${price:.2f}'
-            else:
-                value = f'{price:.2f}'
-            
-            metrics.append({
-                'name': name,
-                'value': value,
-                'signal': determine_signal(name, price),
-                'desc': f'{name} current level'
-            })
+    if jpy:
+        signal = "CRITICAL SHOCK" if jpy >= 155 else "HIGH STRESS" if jpy >= 150 else "RISING STRESS" if jpy > 145 else "NORMAL"
+        metrics.append({
+            'name': 'USD/JPY',
+            'value': f'{jpy:.2f}',
+            'signal': signal
+        })
     
-    # Fetch news
-    news_result = news.fetch_rss()
+    if cnh:
+        signal = "CRITICAL SHOCK" if cnh >= 7.4 else "HIGH STRESS" if cnh >= 7.25 else "RISING STRESS" if cnh > 7.15 else "NORMAL"
+        metrics.append({
+            'name': 'USD/CNH',
+            'value': f'{cnh:.4f}',
+            'signal': signal
+        })
     
-    # Calculate risk
-    risk = calculate_composite_risk(metrics)
+    if tnx:
+        signal = "CRITICAL SHOCK" if tnx >= 5.0 else "HIGH STRESS" if tnx >= 4.5 else "RISING STRESS" if tnx >= 4.2 else "NORMAL"
+        metrics.append({
+            'name': '10Y Treasury Yield',
+            'value': f'{tnx:.2f}%',
+            'signal': signal
+        })
     
-    # Generate AI analysis
-    ai_insights = {'crash_analysis': 'AI analysis unavailable', 'news_summary': 'Check latest news sources'}
+    if move:
+        signal = "CRITICAL SHOCK" if move >= 120 else "HIGH STRESS" if move >= 90 else "RISING STRESS" if move > 80 else "NORMAL"
+        metrics.append({
+            'name': 'MOVE Index',
+            'value': f'{move:.2f}',
+            'signal': signal
+        })
     
-    if API_KEYS['OPENROUTER']:
-        news_text = "\n".join([f"- {a['title']}" for a in (news_result.data or {}).get('articles', [])[:5]])
-        prompt = f"""Rate systemic fragility from 0–100 using: yield spread, USD/JPY stress, treasury demand, MOVE volatility, CBON credit signal.
-Detect simultaneous multi-indicator stress.
+    if vix:
+        signal = "CRITICAL SHOCK" if vix >= 40 else "HIGH STRESS" if vix >= 30 else "RISING STRESS" if vix > 20 else "NORMAL"
+        metrics.append({
+            'name': 'VIX',
+            'value': f'{vix:.2f}',
+            'signal': signal
+        })
+    
+    if cbon:
+        metrics.append({
+            'name': 'CBON ETF',
+            'value': f'${cbon:.2f}',
+            'signal': 'NORMAL'
+        })
+    
+    # Calculate composite risk
+    weights = {"CRITICAL SHOCK": 100, "HIGH STRESS": 75, "RISING STRESS": 40, "NORMAL": 0}
+    score = sum(weights.get(m['signal'], 0) for m in metrics) / len(metrics) if metrics else 0
+    
+    if score >= 60:
+        risk = {"score": round(score, 1), "level": "CRITICAL", "color": "#dc3545"}
+    elif score >= 35:
+        risk = {"score": round(score, 1), "level": "ELEVATED", "color": "#ffc107"}
+    else:
+        risk = {"score": round(score, 1), "level": "LOW", "color": "#28a745"}
+    
+    # AI Analysis
+    ai_analysis = "AI analysis unavailable"
+    
+    news_articles = store.get('news.articles') or []
+    news_text = "\n".join([f"- {a['title']}" for a in news_articles[:5]])
+    
+    prompt = f"""Analyze systemic market fragility.
 
-METRICS: {json.dumps(metrics, indent=2)}
-RISK LEVEL: {risk}
-RECENT NEWS: {news_text}
+METRICS:
+{json.dumps(metrics, indent=2)}
 
-Return JSON:
-{{
-  "composite_risk_level": "0-100",
-  "key_indicators": ["List of stressed indicators"],
-  "explanation": "3-sentence explanation",
-  "crash_analysis": "HTML formatted detailed analysis",
-  "news_summary": "HTML formatted news summary"
-}}"""
-        
-        ai_result = ai.call_ai(prompt, 
-                                system_prompt="You are a Market Fragility Monitor. Provide concise analysis.",
-                                models=['llama-70b', 'olmo-32b'],
-                                response_format='json_object')
-        if ai_result.success:
-            try:
-                content = ai_result.data['content']
-                # Try to parse JSON from response
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    ai_insights = json.loads(content[start:end])
-            except Exception as e:
-                logger.warning(f"Could not parse AI response: {e}")
-                ai_insights = {'crash_analysis': ai_result.data['content'], 'news_summary': ''}
-    
-    # Build final data structure
-    data = {
-        'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
-        'risk_assessment': risk,
-        'metrics': metrics,
-        'ai_insights': ai_insights,
-        'days_remaining': (datetime(2026, 11, 28) - datetime.now()).days
-    }
-    
-    return data
+RISK LEVEL: {risk['level']} ({risk['score']})
 
-
-def fetch_for_ai_race() -> Dict:
-    """
-    Fetch all data needed by ai-race app (The Frontier).
-    Mission: Silicon Frontier Watch
-    Output: apps/ai-race/AI_RACE_CLEAN-main/mission_data.json
-    """
-    logger.info("=" * 50)
-    logger.info("AI-RACE (The Frontier): Starting data fetch")
-    logger.info("=" * 50)
-    
-    arxiv = ArxivFetcher()
-    ai = AIFetcher()
-    news = NewsFetcher()
-    
-    # Fetch arXiv papers for each domain
-    domains = {}
-    for domain_name, query in ARXIV_DOMAINS.items():
-        result = arxiv.fetch_papers(query, max_results=5)
-        if result.success:
-            domains[domain_name] = {
-                'total_volume': result.data['total_results'],
-                'recent_papers': result.data['papers']
-            }
-    
-    # Fetch news for breakthroughs
-    news_result = news.fetch_rss(['https://www.artificialintelligence-news.com/feed/', 'https://techcrunch.com/category/artificial-intelligence/feed/'])
-    
-    # Generate AI strategic briefing
-    ai_briefing = "*AI analysis unavailable. Research data is current.*"
-    breakthroughs = []
-    
-    if API_KEYS['OPENROUTER']:
-        # Build the data for AI
-        data_text = ""
-        for domain_name, domain_data in domains.items():
-            data_text += f"\n## {domain_name}\n"
-            for i, paper in enumerate(domain_data['recent_papers'][:3], 1):
-                data_text += f"Paper: {paper['title']}\n"
-        
-        news_text = "\n".join([f"- {a['title']}" for a in (news_result.data or {}).get('articles', [])[:10]])
-        
-        system_prompt = """You are a Silicon Frontier Watcher.
-From research headlines and news, extract only *capability jumps* or *deployment leaps*.
-Ignore hype.
-Return 3 real breakthroughs and why each matters.
-"""
-        
-        prompt = f"""Research Data:
-{data_text}
-
-News Data:
+RECENT NEWS:
 {news_text}
 
 Return JSON:
 {{
-  "breakthroughs": [
-    {{ "title": "Title", "why_it_matters": "Explanation" }}
-  ],
-  "briefing": "Markdown summary of the frontier status"
+  "analysis": "2-3 sentence AI analysis of current market fragility and what to watch"
 }}"""
-        
-        ai_result = ai.call_ai(
-            prompt,
-            system_prompt=system_prompt,
-            models=['tongyi-30b', 'nemotron-12b'],
-            max_tokens=3000,
-            response_format='json_object'
-        )
-        
-        if ai_result.success:
-            try:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    parsed = json.loads(content[start:end])
-                    ai_briefing = parsed.get('briefing', '')
-                    breakthroughs = parsed.get('breakthroughs', [])
-            except:
-                ai_briefing = ai_result.data['content']
+    
+    system_prompt = "You are The Shield - a Market Fragility Monitor. Detect systemic stress early."
+    
+    result = call_ai(prompt, system_prompt, ['llama-70b', 'olmo-32b'])
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                parsed = json.loads(result[start:end])
+                ai_analysis = parsed.get('analysis', ai_analysis)
+        except:
+            pass
     
     return {
-        'generated_at': datetime.now().isoformat(),
-        'domains': domains,
-        'ai_briefing': ai_briefing,
-        'breakthroughs': breakthroughs
+        'dashboard': 'the-shield',
+        'name': 'The Shield',
+        'mission': 'Market Fragility Monitor',
+        'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
+        'risk_assessment': risk,
+        'metrics': metrics,
+        'ai_analysis': ai_analysis
     }
 
+def analyze_the_coin() -> Dict:
+    """THE COIN - Crypto Momentum Scanner"""
+    logger.info("=" * 50)
+    logger.info("🪙 ANALYZING: THE COIN")
+    logger.info("=" * 50)
+    
+    btc_price = store.get('market.BTC')
+    eth_price = store.get('market.ETH')
+    btc_rsi = store.get('crypto.BTC.rsi')
+    btc_trend = store.get('crypto.BTC.trend')
+    fng_value = store.get('fng.value')
+    fng_class = store.get('fng.classification')
+    
+    # AI Analysis
+    momentum = "Neutral"
+    analysis = "Analysis temporarily unavailable"
+    
+    prompt = f"""Analyze crypto momentum.
 
-def fetch_for_economic_compass() -> Dict:
-    """
-    Fetch all data needed by economic-compass app (The Map).
-    Mission: Macro & TASI Trendsetter
-    Output: data/economic-compass/latest.json
-    """
-    logger.info("=" * 50)
-    logger.info("ECONOMIC-COMPASS (The Map): Starting data fetch")
-    logger.info("=" * 50)
+BTC Price: ${btc_price:,.0f}
+ETH Price: ${eth_price:,.0f}
+BTC RSI: {btc_rsi or 50}
+BTC Trend: {btc_trend or 'Unknown'}
+Fear & Greed: {fng_value or 50} ({fng_class or 'Neutral'})
+
+Return JSON:
+{{
+  "momentum": "Bullish/Bearish/Neutral",
+  "analysis": "2-3 sentence analysis of crypto momentum and key signals"
+}}"""
     
-    market = MarketFetcher()
-    ai = AIFetcher()
+    system_prompt = "You are The Coin - a Crypto Momentum Scanner. Track BTC/ETH momentum shifts."
     
-    # Fetch BTC and F&G
-    btc_result = market.fetch_ticker('BTC-USD')
-    fng_data = fetch_fear_and_greed()
+    result = call_ai(prompt, system_prompt, ['mistral-24b', 'dolphin-24b'])
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                parsed = json.loads(result[start:end])
+                momentum = parsed.get('momentum', momentum)
+                analysis = parsed.get('analysis', analysis)
+        except:
+            pass
     
-    btc_data = {'price': 0, 'change_7d': 0}
-    if btc_result.success:
-        btc_data['price'] = btc_result.data['price']
-        # Note: change_7d calculation would require history, for now we skip or implement if needed
-        # We can fetch 5d history if needed, but for now let's keep it simple
-    
-    # Fetch macro data
-    macro_tickers = {
-        'treasury_10y': '^TNX',
-        'dxy': 'DX-Y.NYB',
-        'gold': 'GC=F',
-        'oil': 'CL=F',
-        'sp500': '^GSPC',
-        'tasi': '^TASI.SR'
+    return {
+        'dashboard': 'the-coin',
+        'name': 'The Coin',
+        'mission': 'Crypto Momentum Scanner',
+        'btc_price': btc_price,
+        'eth_price': eth_price,
+        'momentum': momentum,
+        'rsi': btc_rsi,
+        'trend': btc_trend,
+        'fear_and_greed': {'value': fng_value, 'classification': fng_class},
+        'ai_analysis': analysis
     }
-    macro_data = market.fetch_multi(macro_tickers)
+
+def analyze_the_map() -> Dict:
+    """THE MAP - Macro & TASI Trendsetter"""
+    logger.info("=" * 50)
+    logger.info("🗺️ ANALYZING: THE MAP")
+    logger.info("=" * 50)
     
-    # Format macro data
-    macro = {}
-    for name, result in macro_data.items():
-        if result.success:
-            macro[name] = {
-                'price': result.data['price'],
-                'change_7d': 0
-            }
-        else:
-            macro[name] = {'price': 0, 'change_7d': 0}
-            
-    # AI Task
-    ai_analysis = {}
-    if API_KEYS['OPENROUTER']:
-        prompt = f"""Analyze Brent oil (${macro['oil']['price']}), DXY ({macro['dxy']['price']}), and US 10Y yields ({macro['treasury_10y']['price']}%).
-Predict morning TASI mood (Positive / Neutral / Negative).
-Return 3 drivers.
+    oil = store.get('market.OIL')
+    dxy = store.get('market.DXY')
+    gold = store.get('market.GOLD')
+    sp500 = store.get('market.SP500')
+    tasi = store.get('market.TASI')
+    tnx = store.get('market.TNX')
+    
+    # AI Analysis
+    tasi_mood = "Neutral"
+    analysis = "Analysis temporarily unavailable"
+    drivers = []
+    
+    prompt = f"""Analyze macro trends and predict TASI mood.
+
+Oil: ${oil:.2f}
+DXY: {dxy:.2f}
+Gold: ${gold:.2f}
+SP500: {sp500:.2f}
+TASI: {tasi:.2f}
+US 10Y Yield: {tnx:.2f}%
 
 Return JSON:
 {{
   "tasi_mood": "Positive/Neutral/Negative",
   "drivers": ["Driver 1", "Driver 2", "Driver 3"],
-  "analysis": "Brief analysis"
+  "analysis": "2-3 sentence analysis of macro trends affecting TASI"
 }}"""
-        
-        ai_result = ai.call_ai(prompt, 
-                                models=['qwen-235b', 'glm-4'],
-                                response_format='json_object')
-        
-        if ai_result.success:
-            try:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    ai_analysis = json.loads(content[start:end])
-            except:
-                pass
+    
+    system_prompt = "You are The Map - Macro & TASI Trendsetter. Align global macro with Saudi markets."
+    
+    result = call_ai(prompt, system_prompt, ['qwen-235b', 'glm-4'])
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                parsed = json.loads(result[start:end])
+                tasi_mood = parsed.get('tasi_mood', tasi_mood)
+                drivers = parsed.get('drivers', drivers)
+                analysis = parsed.get('analysis', analysis)
+        except:
+            pass
     
     return {
-        'btc': btc_data,
-        'fng': fng_data,
-        'macro': macro,
-        'ai_analysis': ai_analysis,
-        'timestamp': datetime.now().isoformat()
+        'dashboard': 'the-map',
+        'name': 'The Map',
+        'mission': 'Macro & TASI Trendsetter',
+        'macro': {
+            'oil': oil,
+            'dxy': dxy,
+            'gold': gold,
+            'sp500': sp500,
+            'tasi': tasi,
+            'treasury_10y': tnx
+        },
+        'tasi_mood': tasi_mood,
+        'drivers': drivers,
+        'ai_analysis': analysis
     }
 
+def analyze_the_frontier() -> Dict:
+    """THE FRONTIER - Silicon Frontier Watch"""
+    logger.info("=" * 50)
+    logger.info("🚀 ANALYZING: THE FRONTIER")
+    logger.info("=" * 50)
+    
+    # Collect arXiv data
+    domains = {}
+    for domain in ["AI Research", "Advanced Manufacturing", "Biotechnology", "Quantum Computing", "Semiconductors"]:
+        total = store.get(f'arxiv.{domain}.total')
+        papers = store.get(f'arxiv.{domain}.papers')
+        if total is not None:
+            domains[domain] = {
+                'total_volume': total,
+                'recent_papers': papers or []
+            }
+    
+    # AI Analysis
+    breakthroughs = []
+    analysis = "AI analysis unavailable"
+    
+    # Build paper text
+    papers_text = ""
+    for domain_name, domain_data in domains.items():
+        papers_text += f"\n## {domain_name}\n"
+        for paper in domain_data['recent_papers'][:3]:
+            papers_text += f"- {paper['title']}\n"
+    
+    news_articles = store.get('news.articles') or []
+    news_text = "\n".join([f"- {a['title']}" for a in news_articles[:10]])
+    
+    prompt = f"""Identify real AI/tech breakthroughs (not hype).
 
-def fetch_for_hyper_analytical() -> Dict:
-    """
-    Fetch all data needed by hyper-analytical app (The Coin).
-    Mission: Crypto Momentum Scanner
-    Output: apps/hyper-analytical/dashboard_data.json
-    """
-    logger.info("=" * 50)
-    logger.info("HYPER-ANALYTICAL (The Coin): Starting data fetch")
-    logger.info("=" * 50)
-    
-    market = MarketFetcher()
-    ai = AIFetcher()
-    
-    # Fetch crypto data
-    btc = market.fetch_with_indicators('BTC-USD')
-    eth = market.fetch_with_indicators('ETH-USD')
-    
-    # Generate AI commentary
-    commentary = "Analysis temporarily unavailable."
-    momentum = "Neutral"
-    
-    if API_KEYS['OPENROUTER'] and btc.success:
-        prompt = f"""Compare 24h vs 7-day volume (simulated).
-Detect breakouts or exhaustion.
-Bitcoin: ${btc.data['price']:,.0f}
-RSI: {btc.data.get('rsi', 50):.1f}
+RESEARCH PAPERS:
+{papers_text}
+
+NEWS:
+{news_text}
 
 Return JSON:
 {{
-  "momentum": "Bullish/Bearish/Neutral",
-  "key_metric_deltas": "Description of deltas",
-  "verdict": "1-line verdict"
+  "breakthroughs": [
+    {{"title": "Breakthrough title", "why_it_matters": "Why it matters"}}
+  ],
+  "analysis": "2-3 sentence analysis of the frontier status"
 }}"""
-        
-        ai_result = ai.call_ai(prompt, 
-                                system_prompt="You are a Crypto Momentum Scanner.",
-                                models=['mistral-24b', 'dolphin-24b'],
-                                response_format='json_object')
-        if ai_result.success:
-            try:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    parsed = json.loads(content[start:end])
-                    commentary = parsed.get('verdict', commentary)
-                    momentum = parsed.get('momentum', momentum)
-            except:
-                pass
+    
+    system_prompt = "You are The Frontier - Silicon Frontier Watch. Track AI/tech capability jumps."
+    
+    result = call_ai(prompt, system_prompt, ['tongyi-30b', 'nemotron-12b'], max_tokens=2000)
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                parsed = json.loads(result[start:end])
+                breakthroughs = parsed.get('breakthroughs', breakthroughs)
+                analysis = parsed.get('analysis', analysis)
+        except:
+            pass
     
     return {
-        'date': datetime.now().strftime('%B %d, %Y'),
-        'btc_price': btc.data['price'] if btc.success else 0,
-        'momentum': momentum,
-        'commentary': commentary,
-        'generated_at': datetime.now().isoformat()
+        'dashboard': 'the-frontier',
+        'name': 'The Frontier',
+        'mission': 'Silicon Frontier Watch',
+        'domains': domains,
+        'breakthroughs': breakthroughs,
+        'ai_analysis': analysis
     }
 
+def analyze_the_strategy() -> Dict:
+    """THE STRATEGY - Unified Opportunity Radar"""
+    logger.info("=" * 50)
+    logger.info("🎯 ANALYZING: THE STRATEGY")
+    logger.info("=" * 50)
+    
+    # Get data from other dashboards (from data files if they exist)
+    risk_level = "LOW"  # Will be populated from The Shield
+    crypto_momentum = "Neutral"  # From The Coin
+    macro_signal = "Neutral"  # From The Map
+    frontier_signal = "Active"  # From The Frontier
+    
+    # Try to read from data files
+    try:
+        shield_file = DATA_DIR / 'the-shield' / 'latest.json'
+        if shield_file.exists():
+            shield_data = json.loads(shield_file.read_text(encoding='utf-8'))
+            risk_level = shield_data.get('risk_assessment', {}).get('level', risk_level)
+    except:
+        pass
+    
+    try:
+        coin_file = DATA_DIR / 'the-coin' / 'latest.json'
+        if coin_file.exists():
+            coin_data = json.loads(coin_file.read_text(encoding='utf-8'))
+            crypto_momentum = coin_data.get('momentum', crypto_momentum)
+    except:
+        pass
+    
+    try:
+        map_file = DATA_DIR / 'the-map' / 'latest.json'
+        if map_file.exists():
+            map_data = json.loads(map_file.read_text(encoding='utf-8'))
+            macro_signal = map_data.get('tasi_mood', macro_signal)
+    except:
+        pass
+    
+    # AI Analysis
+    stance = "Neutral"
+    mindset = "Wait for clarity"
+    analysis = "Analysis temporarily unavailable"
+    
+    prompt = f"""Synthesize cross-dashboard insights into a unified stance.
 
-def fetch_for_intelligence_platform() -> Dict:
-    """
-    Fetch all data needed by intelligence-platform app (The Strategy).
-    Mission: Unified Opportunity Radar
-    Output: apps/intelligence-platform/market_analysis.json
-    """
-    logger.info("=" * 50)
-    logger.info("INTELLIGENCE-PLATFORM (The Strategy): Starting data fetch")
-    logger.info("=" * 50)
-    
-    ai = AIFetcher()
-    
-    # Gather inputs from other dashboards (simulated or read from cache)
-    # In a real run, these would be read from the just-fetched files
-    # For now, we'll assume they are available or use placeholders
-    
-    prompt = """Using risk (1), crypto (2), macro (3), and breakthroughs (4):
-Define today’s stance:
-* Defensive, Neutral, Accumulative, Opportunistic, Aggressive
-Give one suggested mindset for the user.
+Risk Level: {risk_level}
+Crypto Momentum: {crypto_momentum}
+Macro Signal: {macro_signal}
+Frontier: {frontier_signal}
+
+Define today's stance: Defensive / Neutral / Accumulative / Opportunistic / Aggressive
 
 Return JSON:
-{
+{{
   "stance": "Stance",
-  "mindset": "Mindset description"
-}"""
+  "mindset": "One-line mindset for the user",
+  "analysis": "2-3 sentence synthesis of all signals"
+}}"""
     
-    stance = "Neutral"
-    mindset = "Wait for clarity."
+    system_prompt = "You are The Strategy - Unified Opportunity Radar. Synthesize cross-dashboard insights."
     
-    if API_KEYS['OPENROUTER']:
-        ai_result = ai.call_ai(prompt, 
-                                models=['chimera', 'kimi'],
-                                response_format='json_object')
-        if ai_result.success:
-            try:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    parsed = json.loads(content[start:end])
-                    stance = parsed.get('stance', stance)
-                    mindset = parsed.get('mindset', mindset)
-            except:
-                pass
+    result = call_ai(prompt, system_prompt, ['chimera', 'kimi'])
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                parsed = json.loads(result[start:end])
+                stance = parsed.get('stance', stance)
+                mindset = parsed.get('mindset', mindset)
+                analysis = parsed.get('analysis', analysis)
+        except:
+            pass
     
     return {
-        'timestamp': datetime.now().isoformat(),
+        'dashboard': 'the-strategy',
+        'name': 'The Strategy',
+        'mission': 'Unified Opportunity Radar',
         'stance': stance,
-        'mindset': mindset
+        'mindset': mindset,
+        'inputs': {
+            'risk': risk_level,
+            'crypto': crypto_momentum,
+            'macro': macro_signal,
+            'frontier': frontier_signal
+        },
+        'ai_analysis': analysis
     }
 
-
-def fetch_for_free_knowledge() -> Dict:
-    """
-    Fetch all data needed by free-knowledge app (The Library).
-    Mission: Alpha-Clarity Archive
-    Output: data/free-knowledge/latest.json
-    """
+def analyze_the_library() -> Dict:
+    """THE LIBRARY - Alpha-Clarity Archive"""
     logger.info("=" * 50)
-    logger.info("FREE-KNOWLEDGE (The Library): Starting data fetch")
+    logger.info("📚 ANALYZING: THE LIBRARY")
     logger.info("=" * 50)
     
-    ai = AIFetcher()
-    news = NewsFetcher()
+    news_articles = store.get('news.articles') or []
     
-    # Fetch news/articles
-    news_result = news.fetch_rss()
-    articles = (news_result.data or {}).get('articles', [])[:5]
-    
+    # AI Analysis
     summaries = []
     
-    if API_KEYS['OPENROUTER'] and articles:
-        articles_text = "\n".join([f"{i+1}. {a['title']}" for i, a in enumerate(articles)])
+    if news_articles:
+        articles_text = "\n".join([f"{i+1}. {a['title']}" for i, a in enumerate(news_articles[:10])])
         
-        prompt = f"""Pick 3 complex articles from these headlines:
+        prompt = f"""Pick 3 complex market/tech articles and simplify them.
+
+HEADLINES:
 {articles_text}
 
-Simplify each into ‘Explain Like I’m 5.’
-Return a summary and why it matters long-term.
+For each, provide an ELI5 summary and why it matters long-term.
 
 Return JSON:
 {{
   "summaries": [
-    {{ "title": "Title", "eli5": "Simple summary", "long_term": "Why it matters" }}
+    {{"title": "Title", "eli5": "Simple explanation", "long_term": "Why it matters long-term"}}
   ]
 }}"""
         
-        ai_result = ai.call_ai(
-            prompt,
-            models=['longcat', 'gemma-2b'],
-            response_format='json_object'
-        )
+        system_prompt = "You are The Library - Alpha-Clarity Archive. Simplify complex market knowledge."
         
-        if ai_result.success:
+        result = call_ai(prompt, system_prompt, ['longcat', 'gemma-2b'], max_tokens=2000)
+        if result:
             try:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
+                start = result.find('{')
+                end = result.rfind('}') + 1
                 if start != -1 and end > start:
-                    parsed = json.loads(content[start:end])
-                    summaries = parsed.get('summaries', [])
+                    parsed = json.loads(result[start:end])
+                    summaries = parsed.get('summaries', summaries)
             except:
                 pass
-            
+    
     return {
-        'timestamp': datetime.now().isoformat(),
+        'dashboard': 'the-library',
+        'name': 'The Library',
+        'mission': 'Alpha-Clarity Archive',
         'summaries': summaries
     }
 
-
-def fetch_for_dashboard_orchestrator() -> Dict:
-    """
-    Fetch all data needed by dashboard-orchestrator app (The Commander).
-    Mission: Summary of Summaries
-    Output: data/dashboard-orchestrator/latest.json
-    """
+def analyze_the_commander() -> Dict:
+    """THE COMMANDER - Morning Brief Generator"""
     logger.info("=" * 50)
-    logger.info("DASHBOARD-ORCHESTRATOR (The Commander): Starting data fetch")
+    logger.info("⭐ GENERATING: THE COMMANDER (Morning Brief)")
     logger.info("=" * 50)
     
-    ai = AIFetcher()
+    # Load all dashboard data
+    shield_data = {}
+    coin_data = {}
+    map_data = {}
+    frontier_data = {}
+    strategy_data = {}
+    library_data = {}
     
-    # Helper to load JSON safely
-    def load_json(path: pathlib.Path) -> Dict:
-        try:
-            if path.exists():
-                return json.loads(path.read_text(encoding='utf-8'))
-        except Exception as e:
-            logger.warning(f"Could not load {path}: {e}")
-        return {}
-
-    # Gather inputs from all dashboards
-    risk_data = load_json(DATA_DIR / 'the-shield' / 'latest.json')
-    crypto_data = load_json(APPS_DIR / 'the-coin' / 'dashboard_data.json')
-    macro_data = load_json(DATA_DIR / 'the-map' / 'latest.json')
-    frontier_data = load_json(APPS_DIR / 'the-frontier' / 'AI_RACE_CLEAN-main' / 'mission_data.json')
-    strategy_data = load_json(APPS_DIR / 'the-strategy' / 'market_analysis.json')
-    knowledge_data = load_json(DATA_DIR / 'the-library' / 'latest.json')
+    try:
+        shield_file = DATA_DIR / 'the-shield' / 'latest.json'
+        if shield_file.exists():
+            shield_data = json.loads(shield_file.read_text(encoding='utf-8'))
+    except:
+        pass
     
+    try:
+        coin_file = DATA_DIR / 'the-coin' / 'latest.json'
+        if coin_file.exists():
+            coin_data = json.loads(coin_file.read_text(encoding='utf-8'))
+    except:
+        pass
+    
+    try:
+        map_file = DATA_DIR / 'the-map' / 'latest.json'
+        if map_file.exists():
+            map_data = json.loads(map_file.read_text(encoding='utf-8'))
+    except:
+        pass
+    
+    try:
+        frontier_file = DATA_DIR / 'the-frontier' / 'latest.json'
+        if frontier_file.exists():
+            frontier_data = json.loads(frontier_file.read_text(encoding='utf-8'))
+    except:
+        pass
+    
+    try:
+        strategy_file = DATA_DIR / 'the-strategy' / 'latest.json'
+        if strategy_file.exists():
+            strategy_data = json.loads(strategy_file.read_text(encoding='utf-8'))
+    except:
+        pass
+    
+    try:
+        library_file = DATA_DIR / 'the-library' / 'latest.json'
+        if library_file.exists():
+            library_data = json.loads(library_file.read_text(encoding='utf-8'))
+    except:
+        pass
+    
+    # AI Generation of Morning Brief
     morning_brief = {}
     
-    # Try AI generation first
-    if API_KEYS['OPENROUTER']:
-        try:
-            prompt = f"""Create a 30-Second Coffee Read.
-Inputs:
-Risk: {json.dumps(risk_data.get('risk_assessment', {}))}
-Crypto: {crypto_data.get('momentum', 'N/A')}
-Macro: {json.dumps(macro_data.get('macro', {}))}
-Breakthroughs: {len(frontier_data.get('domains', {}))} domains active
-Strategy: {strategy_data.get('stance', 'N/A')}
+    prompt = f"""Create a 30-Second Coffee Read Morning Brief.
 
-Must include:
-1. Weather of the Day (One word: Stormy / Cloudy / Sunny / Volatile / Foggy)
-2. Top Signal (The single most important data point today)
-3. Why It Matters (2 sentences)
-4. Cross-Dashboard Convergence (How risk + crypto + macro + breakthroughs connect)
-5. Action Stance (Sit tight / Accumulate / Cautious / Aggressive / Review markets)
-6. Optional Deep Insight (One optional paragraph)
-7. Clarity Level (High / Medium / Low)
+DATA FROM ALL DASHBOARDS:
+
+THE SHIELD (Risk):
+{json.dumps(shield_data.get('risk_assessment', {}), indent=2)}
+Top metric signals: {', '.join([m['name'] + ': ' + m['signal'] for m in shield_data.get('metrics', [])[:3]])}
+
+THE COIN (Crypto):
+Momentum: {coin_data.get('momentum', 'N/A')}
+BTC: ${coin_data.get('btc_price', 0):,.0f}
+
+THE MAP (Macro):
+TASI Mood: {map_data.get('tasi_mood', 'N/A')}
+Oil: ${map_data.get('macro', {}).get('oil', 0):.2f}
+SP500: {map_data.get('macro', {}).get('sp500', 0):.2f}
+
+THE FRONTIER (Breakthroughs):
+{len(frontier_data.get('breakthroughs', []))} breakthroughs identified
+
+THE STRATEGY (Stance):
+{strategy_data.get('stance', 'N/A')} - {strategy_data.get('mindset', 'N/A')}
+
+THE LIBRARY (Knowledge):
+{len(library_data.get('summaries', []))} summaries available
+
+INSTRUCTIONS:
+Create a structured Morning Brief with these EXACT fields:
 
 Return JSON:
 {{
-  "weather_of_the_day": "Weather",
-  "top_signal": "Signal",
-  "why_it_matters": "Reason",
-  "cross_dashboard_convergence": "Convergence",
-  "action_stance": "Stance",
-  "optional_deep_insight": "Insight",
-  "clarity_level": "Level",
+  "weather_of_the_day": "One word: Stormy / Cloudy / Sunny / Volatile / Foggy",
+  "top_signal": "The single most important data point today",
+  "why_it_matters": "2 sentences explaining why",
+  "cross_dashboard_convergence": "How risk + crypto + macro + breakthroughs connect",
+  "action_stance": "Sit tight / Accumulate / Cautious / Aggressive / Review markets",
+  "optional_deep_insight": "One optional paragraph for advanced users",
+  "clarity_level": "High / Medium / Low based on data convergence",
   "summary_sentence": "Risk shows the environment, crypto shows sentiment, macro shows the wind, breakthroughs show the future, strategy shows the stance, and knowledge shows the long-term signal — combine all six to guide the user clearly through today."
 }}"""
-            
-            ai_result = ai.call_ai(prompt, 
-                                    models=['llama-70b', 'olmo-32b-alt'],
-                                    response_format='json_object')
-            
-            if ai_result.success:
-                content = ai_result.data['content']
-                start = content.find('{')
-                end = content.rfind('}') + 1
-                if start != -1 and end > start:
-                    morning_brief = json.loads(content[start:end])
-        except Exception as e:
-            logger.warning(f"AI Morning Brief generation failed: {e}")
-
-    # Fallback if AI failed or keys missing
+    
+    system_prompt = "You are The Commander - Master Orchestrator. Generate the ultimate daily Morning Brief."
+    
+    result = call_ai(prompt, system_prompt, ['llama-70b', 'olmo-32b'], max_tokens=2000)
+    if result:
+        try:
+            start = result.find('{')
+            end = result.rfind('}') + 1
+            if start != -1 and end > start:
+                morning_brief = json.loads(result[start:end])
+        except:
+            pass
+    
+    # Fallback
     if not morning_brief:
-        logger.info("Generating fallback Morning Brief...")
-        
-        # Derive simple insights from data
-        risk_level = risk_data.get('risk_assessment', {}).get('level', 'UNKNOWN')
-        crypto_momentum = crypto_data.get('momentum', 'Neutral')
-        strategy_stance = strategy_data.get('stance', 'Neutral')
+        risk_level = shield_data.get('risk_assessment', {}).get('level', 'UNKNOWN')
+        crypto_momentum = coin_data.get('momentum', 'Neutral')
+        stance = strategy_data.get('stance', 'Neutral')
         
         weather = "Cloudy"
-        if risk_level == 'CRITICAL': weather = "Stormy"
-        elif risk_level == 'LOW' and crypto_momentum == 'Bullish': weather = "Sunny"
-        elif risk_level == 'ELEVATED': weather = "Foggy"
-        
-        top_signal = "Market Data Available"
-        if risk_level != 'LOW': top_signal = f"Risk Level: {risk_level}"
-        elif crypto_momentum != 'Neutral': top_signal = f"Crypto: {crypto_momentum}"
+        if risk_level == 'CRITICAL':
+            weather = "Stormy"
+        elif risk_level == 'LOW' and crypto_momentum == 'Bullish':
+            weather = "Sunny"
+        elif risk_level == 'ELEVATED':
+            weather = "Foggy"
         
         morning_brief = {
             "weather_of_the_day": weather,
-            "top_signal": top_signal,
+            "top_signal": f"Risk Level: {risk_level}",
             "why_it_matters": "AI analysis is currently unavailable, but core market data has been updated. Check individual dashboards for specific metrics.",
-            "cross_dashboard_convergence": f"Risk is {risk_level}, Crypto is {crypto_momentum}, and Strategy suggests {strategy_stance}.",
-            "action_stance": strategy_stance,
+            "cross_dashboard_convergence": f"Risk is {risk_level}, Crypto is {crypto_momentum}, and Strategy suggests {stance}.",
+            "action_stance": stance,
             "optional_deep_insight": "System is operating in data-only mode. All feeds are active.",
             "clarity_level": "Medium",
             "summary_sentence": "Data feeds active. AI synthesis pending next scheduled run."
         }
     
     return {
-        'timestamp': datetime.now().isoformat(),
+        'dashboard': 'the-commander',
+        'name': 'The Commander',
+        'mission': 'Master Orchestrator - Morning Brief',
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'morning_brief': morning_brief,
         'apps_status': {
-            'the-frontier': 'active',
             'the-shield': 'active',
-            'the-map': 'active',
             'the-coin': 'active',
+            'the-map': 'active',
+            'the-frontier': 'active',
             'the-strategy': 'active',
             'the-library': 'active'
         }
     }
 
-# ===========================================
-# SAVE FUNCTIONS
-# ===========================================
-
-def save_data(app_name: str, data: Dict):
-    """Save data to appropriate output file(s)"""
-    output_paths = {
-        'the-shield': [
-            DATA_DIR / 'the-shield' / 'latest.json',
-        ],
-        'the-frontier': [
-            APPS_DIR / 'the-frontier' / 'AI_RACE_CLEAN-main' / 'mission_data.json',
-            DATA_DIR / 'the-frontier' / 'latest.json',
-        ],
-        'the-map': [
-            DATA_DIR / 'the-map' / 'latest.json',
-        ],
-        'the-coin': [
-            APPS_DIR / 'the-coin' / 'dashboard_data.json',
-            DATA_DIR / 'the-coin' / 'latest.json',
-        ],
-        'the-strategy': [
-            APPS_DIR / 'the-strategy' / 'market_analysis.json',
-            DATA_DIR / 'the-strategy' / 'latest.json',
-        ],
-        'the-library': [
-            DATA_DIR / 'the-library' / 'latest.json',
-        ],
-        'the-commander': [
-            DATA_DIR / 'the-commander' / 'latest.json',
-        ],
-    }
-    
-    paths = output_paths.get(app_name, [DATA_DIR / app_name / 'latest.json'])
-    
-    for path in paths:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(data, indent=2, default=str), encoding='utf-8')
-        logger.info(f"✅ Saved: {path}")
-    
-    # Also save history for the-shield
-    if app_name == 'the-shield':
-        history_path = DATA_DIR / 'the-shield' / 'history.json'
-        try:
-            if history_path.exists():
-                history = json.loads(history_path.read_text(encoding='utf-8'))
-            else:
-                history = []
-            history.append(data)
-            history = history[-30:]  # Keep last 30
-            history_path.write_text(json.dumps(history, indent=2), encoding='utf-8')
-        except Exception as e:
-            logger.warning(f"Could not update history: {e}")
-
-# ===========================================
-# MAIN ENTRY POINT
-# ===========================================
+# ========================================
+# Main Execution with Waterfall Logic
+# ========================================
 
 def main():
-    parser = argparse.ArgumentParser(description='Unified Data Fetcher for Monorepo')
-    parser.add_argument('--all', action='store_true', help='Fetch data for all apps')
-    parser.add_argument('--app', type=str, help='Fetch data for specific app')
-    parser.add_argument('--apps', type=str, help='Comma-separated list of apps')
-    parser.add_argument('--dry-run', action='store_true', help='Print what would be fetched')
-    
-    args = parser.parse_args()
-    
     logger.info("=" * 60)
-    logger.info("🚀 UNIFIED DATA FETCHER - Starting")
-    logger.info(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info("🚀 DAILY ALPHA LOOP - UNIFIED FETCHER V2")
+    logger.info(f"📅 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
     logger.info("=" * 60)
     
-    # Available fetch functions
-    fetch_functions = {
-        'the-shield': fetch_for_crash_detector,
-        'the-frontier': fetch_for_ai_race,
-        'the-map': fetch_for_economic_compass,
-        'the-coin': fetch_for_hyper_analytical,
-        'the-strategy': fetch_for_intelligence_platform,
-        'the-library': fetch_for_free_knowledge,
-        'the-commander': fetch_for_dashboard_orchestrator,
-    }
+    # STEP 1: Fetch ALL data ONCE (centralized)
+    logger.info("\n" + "=" * 60)
+    logger.info("STEP 1: CENTRALIZED DATA FETCHING")
+    logger.info("=" * 60)
     
-    # Determine which apps to fetch for
-    if args.all:
-        apps_to_fetch = list(fetch_functions.keys())
-    elif args.app:
-        apps_to_fetch = [args.app]
-    elif args.apps:
-        apps_to_fetch = [a.strip() for a in args.apps.split(',')]
-    else:
-        # Default: all apps
-        apps_to_fetch = list(fetch_functions.keys())
+    fetch_market_data()
+    time.sleep(1)  # Rate limiting
     
-    logger.info(f"📦 Apps to process: {', '.join(apps_to_fetch)}")
+    fetch_crypto_indicators()
+    time.sleep(1)
     
-    if args.dry_run:
-        for app in apps_to_fetch:
-            logger.info(f"[DRY RUN] Would fetch for: {app}")
-        return
+    fetch_treasury_data()
+    time.sleep(1)
     
-    # Fetch data for each app
-    results = {'success': [], 'failed': []}
+    fetch_fear_and_greed()
+    time.sleep(1)
     
-    for app in apps_to_fetch:
-        if app in fetch_functions:
-            try:
-                logger.info(f"\n{'='*50}")
-                logger.info(f"Processing: {app}")
-                logger.info(f"{'='*50}")
-                
-                data = fetch_functions[app]()
-                save_data(app, data)
-                results['success'].append(app)
-                
-            except Exception as e:
-                logger.error(f"❌ {app} - Error: {e}")
-                import traceback
-                traceback.print_exc()
-                results['failed'].append(app)
-        else:
-            logger.warning(f"⚠️ {app} - No fetch function defined")
-            results['failed'].append(app)
+    fetch_news()
+    time.sleep(1)
+    
+    fetch_arxiv_papers()
+    time.sleep(1)
+    
+    # STEP 2: Generate dashboard analyses (waterfall pattern)
+    logger.info("\n" + "=" * 60)
+    logger.info("STEP 2: DASHBOARD ANALYSES (WATERFALL)")
+    logger.info("=" * 60)
+    
+    dashboards = []
+    
+    # Load Risk (1) and Macro (3)
+    logger.info("\n📊 Wave 1: Risk + Macro")
+    shield = analyze_the_shield()
+    dashboards.append(shield)
+    (DATA_DIR / 'the-shield').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-shield' / 'latest.json').write_text(json.dumps(shield, indent=2), encoding='utf-8')
+    
+    map_analysis = analyze_the_map()
+    dashboards.append(map_analysis)
+    (DATA_DIR / 'the-map').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-map' / 'latest.json').write_text(json.dumps(map_analysis, indent=2), encoding='utf-8')
+    
+    time.sleep(2)  # Wait between waves
+    
+    # Load Crypto (2) and AI Race (4)
+    logger.info("\n📊 Wave 2: Crypto + Frontier")
+    coin = analyze_the_coin()
+    dashboards.append(coin)
+    (DATA_DIR / 'the-coin').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-coin' / 'latest.json').write_text(json.dumps(coin, indent=2), encoding='utf-8')
+    
+    frontier = analyze_the_frontier()
+    dashboards.append(frontier)
+    (DATA_DIR / 'the-frontier').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-frontier' / 'latest.json').write_text(json.dumps(frontier, indent=2), encoding='utf-8')
+    
+    time.sleep(2)
+    
+    # Load Free Knowledge (6)
+    logger.info("\n📊 Wave 3: Library")
+    library = analyze_the_library()
+    dashboards.append(library)
+    (DATA_DIR / 'the-library').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-library' / 'latest.json').write_text(json.dumps(library, indent=2), encoding='utf-8')
+    
+    time.sleep(2)
+    
+    # Generate Strategy (5)
+    logger.info("\n📊 Wave 4: Strategy")
+    strategy = analyze_the_strategy()
+    dashboards.append(strategy)
+    (DATA_DIR / 'the-strategy').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-strategy' / 'latest.json').write_text(json.dumps(strategy, indent=2), encoding='utf-8')
+    
+    time.sleep(2)
+    
+    # Finally, generate Master Orchestrator (7)
+    logger.info("\n📊 Wave 5: The Commander")
+    commander = analyze_the_commander()
+    dashboards.append(commander)
+    (DATA_DIR / 'the-commander').mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / 'the-commander' / 'latest.json').write_text(json.dumps(commander, indent=2), encoding='utf-8')
     
     # Summary
     logger.info("\n" + "=" * 60)
-    logger.info("📊 SUMMARY")
+    logger.info("📊 GENERATION COMPLETE")
     logger.info("=" * 60)
-    logger.info(f"✅ Successful: {len(results['success'])} - {', '.join(results['success'])}")
-    if results['failed']:
-        logger.info(f"❌ Failed: {len(results['failed'])} - {', '.join(results['failed'])}")
+    
+    for d in dashboards:
+        logger.info(f"✅ {d['name']}: {d['mission']}")
+    
+    logger.info("\n" + "=" * 60)
+    logger.info("🎉 DAILY ALPHA LOOP - COMPLETE")
     logger.info("=" * 60)
-    logger.info("🎉 UNIFIED DATA FETCHER - Complete")
-    logger.info("=" * 60)
-
 
 if __name__ == '__main__':
     main()
