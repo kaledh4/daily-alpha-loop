@@ -1,6 +1,43 @@
 {
-  "generated_at": "2025-12-05T06:23:02.192677",
+  "dashboard": "the-frontier",
+  "name": "The Frontier",
+  "mission": "Silicon Frontier Watch",
   "domains": {
+    "AI Research": {
+      "total_volume": 331278,
+      "recent_papers": [
+        {
+          "title": "The Universal Weight Subspace Hypothesis",
+          "summary": "We show that deep neural networks trained across diverse tasks exhibit remarkably similar low-dimensional parametric subspaces. We provide the first large-scale empirical evidence that demonstrates th...",
+          "date": "2025-12-04",
+          "link": "http://arxiv.org/abs/2512.05117v1"
+        },
+        {
+          "title": "Value Gradient Guidance for Flow Matching Alignment",
+          "summary": "While methods exist for aligning flow matching models--a popular and effective class of generative models--with human preferences, existing approaches fail to achieve both adaptation efficiency and pr...",
+          "date": "2025-12-04",
+          "link": "http://arxiv.org/abs/2512.05116v1"
+        },
+        {
+          "title": "Deep infant brain segmentation from multi-contrast MRI",
+          "summary": "Segmentation of magnetic resonance images (MRI) facilitates analysis of human brain development by delineating anatomical structures. However, in infants and young children, accurate segmentation is c...",
+          "date": "2025-12-04",
+          "link": "http://arxiv.org/abs/2512.05114v1"
+        },
+        {
+          "title": "DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation",
+          "summary": "Recent unified multimodal large language models (MLLMs) have shown impressive capabilities, incorporating chain-of-thought (CoT) reasoning for enhanced text-to-image generation. However, existing appr...",
+          "date": "2025-12-04",
+          "link": "http://arxiv.org/abs/2512.05112v1"
+        },
+        {
+          "title": "ShadowDraw: From Any Object to Shadow-Drawing Compositional Art",
+          "summary": "We introduce ShadowDraw, a framework that transforms ordinary 3D objects into shadow-drawing compositional art. Given a 3D object, our system predicts scene parameters, including object pose and light...",
+          "date": "2025-12-04",
+          "link": "http://arxiv.org/abs/2512.05110v1"
+        }
+      ]
+    },
     "Advanced Manufacturing": {
       "total_volume": 47414,
       "recent_papers": [
@@ -71,77 +108,7 @@
         }
       ]
     },
-    "Critical Materials": {
-      "total_volume": 18472,
-      "recent_papers": [
-        {
-          "title": "Structured Light at the Extreme: Harnessing Spatiotemporal Control for High-Field Laser-Matter Interactions",
-          "summary": "This review charts the emerging paradigm of intelligent structured light for high-field laser-matter interactions, where the precise spatiotemporal and vectorial control of light is a critical degree ...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05042v1"
-        },
-        {
-          "title": "Evolution of Correlated Electrons in ${\\rm La_3Ni_2O_7}$ at Ambient Pressure: a Study of Double-Counting Effect",
-          "summary": "We employ cluster extension of dynamical mean-field theory (CDMFT) to systematically investigate the impact of double counting corrections on the correlated electronic structure of ${\\rm La_3Ni_2O_7}$...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04754v1"
-        },
-        {
-          "title": "Contract-Governed Training for Earth Observation: Observed Service Agreement Graphs and Coverage-Accuracy Trade-offs",
-          "summary": "Earth observation (EO) models are frequently trained under implicit sampling policies that optimize global accuracy but provide no explicit guarantees on who (which regions, classes, or mission-critic...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04644v1"
-        },
-        {
-          "title": "Dataset creation for supervised deep learning-based analysis of microscopic images - review of important considerations and recommendations",
-          "summary": "Supervised deep learning (DL) receives great interest for automated analysis of microscopic images with an increasing body of literature supporting its potential. The development and validation of tho...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04564v1"
-        },
-        {
-          "title": "DuGI-MAE: Improving Infrared Mask Autoencoders via Dual-Domain Guidance",
-          "summary": "Infrared imaging plays a critical role in low-light and adverse weather conditions. However, due to the distinct characteristics of infrared images, existing foundation models such as Masked Autoencod...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04511v1"
-        }
-      ]
-    },
-    "Nuclear Energy": {
-      "total_volume": 76411,
-      "recent_papers": [
-        {
-          "title": "First Study of the Nuclear Response to Fast Hadrons via Angular Correlations between Pions and Slow Protons in Electron-Nucleus Scattering",
-          "summary": "We report on the first measurement of angular correlations between high-energy pions and slow protons in electron-nucleus ($eA$) scattering, providing a new probe of how a nucleus responds to a fast-m...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05083v1"
-        },
-        {
-          "title": "L\u00e9vy sources in UrQMD in Ar+Sc collisions at SPS energies",
-          "summary": "Over the past few decades, progress in femtoscopy has been driven by the interplay between experimental measurements and theoretical calculations. Measurements provide data for the theory to understan...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05019v1"
-        },
-        {
-          "title": "Opacity estimation of OO collision from CoMBolt-ITA hybrid",
-          "summary": "Understanding the effect of system size on the applicability of the hydrodynamic description in heavy-ion physics remains unclear. Recent measurements of OO collisions at the LHC offer a new opportuni...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05009v1"
-        },
-        {
-          "title": "Internal superfluid response and torque evolution in the giant glitch of PSR J1718-3718",
-          "summary": "We investigate the post-glitch rotational evolution of pulsars by analyzing the 2007 giant glitch of PSR J1718$-$3718 using a vortex creep model that incorporates both inward and outward nonlinear vor...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04972v1"
-        },
-        {
-          "title": "Searching for new physics with $^{136}$Xe double beta decay spectrum in PandaX-4T",
-          "summary": "The continuous spectrum of double beta decay ($\u03b2\u03b2$) provides a sensitive probe to test the predictions of the Standard Model and to search for signatures of new physics beyond it. We present a compreh...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04849v1"
-        }
-      ]
-    },
-    "Quantum Info Science": {
+    "Quantum Computing": {
       "total_volume": 171082,
       "recent_papers": [
         {
@@ -212,19 +179,27 @@
       ]
     }
   },
-  "ai_briefing": "## Frontier Status Briefing\n\nThree cutting-edge advancements across fields stand out:\n\n1. **AI-Driven Robotics (STARE-VLA):** Breakthrough in sequential training of multimodal AI agents shows promise for creating more capable autonomous systems that can perform complex physical tasks.\n\n2. **Genomic Computation (pHapCompass):** Novel statistical approach to solve polyploid haplotype phasing opens new avenues in plant genomics with direct implications for agriculture and evolutionary biology.\n\n3. **Nuclear Physics Exploration:** Precision measurement techniques in extreme conditions are refining our understanding of nuclear matter behavior, with potential applications in both energy research and fundamental physics.\n\nThese developments represent concrete advances rather than speculative possibilities, each with demonstrable practical implications for their respective domains.",
   "breakthroughs": [
     {
-      "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for Fine-Tuning Vision-Language-Action Models",
-      "why_it_matters": "Enables more efficient and accurate training of embodied AI systems by sequentially refining vision-language-action alignment through stage-aware learning, critical for real-world robotics and autonomous systems."
+      "title": "Deep infant brain segmentation from multi-contrast MRI",
+      "why_it_matters": "Enables precise, non-invasive mapping of developing brain structures, accelerating neurodevelopmental research and diagnostic accuracy."
     },
     {
-      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
-      "why_it_matters": "Provides a novel computational framework to resolve complex polyploid genome structures, advancing plant genomics research and enabling better crop improvement strategies through precise haplotype phasing."
+      "title": "Decoy-state quantum key distribution over 227 km",
+      "why_it_matters": "Demonstrates scalable, secure quantum communication infrastructure over long distances, critical for future quantum internet."
     },
     {
-      "title": "First Study of Nuclear Response to Fast Hadrons via Angular Correlations",
-      "why_it_matters": "Reveals new insights into nuclear structure dynamics through innovative experimental methodology, which could advance nuclear physics research and guide material science applications."
+      "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for VLAM Fine-Tuning",
+      "why_it_matters": "Addresses catastrophic forgetting in vision-language-action models, enabling stable lifelong learning without data loss."
+    },
+    {
+      "title": "Axionic tunneling in topological Kondo insulators",
+      "why_it_matters": "Reveals exotic quantum transport mechanisms in 2D materials, opening pathways for low-power quantum switches."
+    },
+    {
+      "title": "pHapCompass for polyploid haplotype phasing",
+      "why_it_matters": "Improves genomic prediction accuracy in complex crops, accelerating agricultural biotechnology."
     }
-  ]
+  ],
+  "ai_analysis": "These breakthroughs bypass hype by addressing concrete limitations: infant brain MRI advances diagnostic precision, while decoy-state QKD tackles quantum communication scalability. STARE-VLA's solution for VLAM fine-tuning is particularly frontier as it solves a core AI training challenge ignored by many commercial implementations. The combination of biotech and quantum advancements reflects true interdisciplinary innovation, grounded in peer-reviewed methodologies rather than superficial claims."
 }

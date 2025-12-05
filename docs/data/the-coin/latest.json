@@ -1,7 +1,15 @@
 {
-  "date": "December 05, 2025",
-  "btc_price": 92043.515625,
+  "dashboard": "the-coin",
+  "name": "The Coin",
+  "mission": "Crypto Momentum Scanner",
+  "btc_price": 92406.328125,
+  "eth_price": 3179.101806640625,
   "momentum": "Neutral",
-  "commentary": "Analysis temporarily unavailable.",
-  "generated_at": "2025-12-05T06:23:04.256670"
+  "rsi": 39.553392338109184,
+  "trend": "Bearish",
+  "fear_and_greed": {
+    "value": 28,
+    "classification": "Fear"
+  },
+  "ai_analysis": "Analysis temporarily unavailable"
 }
