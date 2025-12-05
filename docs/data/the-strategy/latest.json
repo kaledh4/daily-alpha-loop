@@ -6,15 +6,15 @@
   "scoring": {
     "stance_confidence": 5
   },
-  "stance": "Opportunistic",
-  "mindset": "The broad market is weak, so we're hunting for specific, high-potential opportunities in emerging sectors.",
+  "stance": "Neutral",
+  "mindset": "Wait for clarity",
   "inputs": {
     "risk": "LOW",
     "crypto": "Bearish",
     "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "Overall market momentum is bearish, warranting a cautious approach to broad market exposure. However, with low perceived risk and an active frontier, conditions are favorable for seeking out specific, high-conviction opportunities in emerging narratives and technologies. The neutral macro backdrop supports a selective, rather than broad, deployment of capital.",
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "xxxxxxxxx/shared_lib/stance_engine",
     "xxxxxxxxx/shared_lib/momentum_blend"
