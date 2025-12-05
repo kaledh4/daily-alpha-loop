@@ -58,7 +58,8 @@ async function loadDashboardData(dashboardId) {
     const paths = [
         `../../data/${dashboardId}/latest.json`,
         `../data/${dashboardId}/latest.json`,
-        `./data/latest.json`
+        `./data/latest.json`,
+        `/daily-alpha-loop/data/${dashboardId}/latest.json`
     ];
 
     for (const path of paths) {
