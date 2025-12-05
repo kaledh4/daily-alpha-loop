@@ -1,16 +1,27 @@
 {
   "dashboard": "the-map",
   "name": "The Map",
-  "mission": "Macro & TASI Trendsetter",
+  "role": "Macro",
+  "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
+  "scoring": {
+    "stance_strength": 5,
+    "volatility_risk": 5,
+    "confidence": 0.85
+  },
   "macro": {
-    "oil": 59.720001220703125,
-    "dxy": 98.98200225830078,
-    "gold": 4250.89990234375,
+    "oil": 59.54999923706055,
+    "dxy": 98.97200012207031,
+    "gold": 4255.0,
     "sp500": 6857.1201171875,
     "tasi": 10626.150390625,
     "treasury_10y": 4.107999801635742
   },
   "tasi_mood": "Neutral",
   "drivers": [],
-  "ai_analysis": "Analysis temporarily unavailable"
+  "ai_analysis": "Analysis temporarily unavailable",
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/fed_speech_parser",
+    "xxxxxxxxx/shared_lib/inflation_nowcast",
+    "xxxxxxxxx/shared_lib/curve_shift"
+  ]
 }

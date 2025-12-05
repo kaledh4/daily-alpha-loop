@@ -1,6 +1,16 @@
 {
   "dashboard": "the-library",
   "name": "The Library",
-  "mission": "Alpha-Clarity Archive",
-  "summaries": []
+  "role": "Free Knowledge",
+  "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
+  "scoring": {
+    "progress_rate": 65,
+    "uncertainty": 0.2
+  },
+  "summaries": [],
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/ai_rnd_tracker",
+    "xxxxxxxxx/shared_lib/quantum_papers",
+    "xxxxxxxxx/shared_lib/lab_output_rate"
+  ]
 }

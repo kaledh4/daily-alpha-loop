@@ -1,10 +1,16 @@
 {
   "dashboard": "the-shield",
   "name": "The Shield",
-  "mission": "Market Fragility Monitor",
-  "last_update": "2025-12-05 09:41:19 UTC",
+  "role": "Risk Environment",
+  "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors.",
+  "last_update": "2025-12-05 10:28:42 UTC",
+  "scoring": {
+    "risk_level": 14,
+    "fragility": 8.1,
+    "volatility_pressure": 4.4
+  },
   "risk_assessment": {
-    "score": 10.7,
+    "score": 14.3,
     "level": "LOW",
     "color": "#28a745"
   },
@@ -16,12 +22,12 @@
     },
     {
       "name": "USD/JPY",
-      "value": "154.93",
-      "signal": "HIGH STRESS"
+      "value": "155.07",
+      "signal": "CRITICAL SHOCK"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0681",
+      "value": "7.0671",
       "signal": "NORMAL"
     },
     {
@@ -36,7 +42,7 @@
     },
     {
       "name": "VIX",
-      "value": "15.69",
+      "value": "15.72",
       "signal": "NORMAL"
     },
     {
@@ -45,5 +51,10 @@
       "signal": "NORMAL"
     }
   ],
-  "ai_analysis": "Systemic fragility is currently low overall, but elevated USD/JPY stress signals potential currency market tensions. Monitor safe-haven flows and cross-border capital movements, as this could amplify broader risks. Recent crypto-related news hints at investor caution, though other metrics like low VIX and stable yields suggest no immediate panic."
+  "ai_analysis": "The market shows low systemic fragility overall, with most metrics in normal ranges. However, the USD/JPY's 'CRITICAL SHOCK' signal highlights acute stress, likely driven by geopolitical or interest rate dynamics. While bond markets (e.g., Treasury bid-to-cover, CBON ETF) and volatility indices (VIX, MOVE) remain stable, the sharp yen move warrants close monitoring for spillover effects. Watch for sustained USD/JPY volatility and any correlated shifts in global risk sentiment.",
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/global_risk",
+    "xxxxxxxxx/shared_lib/volatility_matrix",
+    "xxxxxxxxx/shared_lib/liquidity_fragility"
+  ]
 }

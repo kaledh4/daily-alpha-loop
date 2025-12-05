@@ -2,13 +2,12 @@
 
 /**
  * Simple build script for static dashboard apps
- * Copies app files to dist directory and generates PWA assets
+ * Copies app files to dist directory
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { generateServiceWorker, getManifestForDashboard } from '../libs/shared-pwa/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,9 +56,7 @@ function copyRecursive(src, dest) {
         // Skip certain file types
         const ext = path.extname(src);
         const basename = path.basename(src);
-        // We skip manifest.json and service-worker.js because we generate them, 
-        // unless we want to preserve custom ones. But the goal is to use shared logic.
-        // Let's skip them for now and overwrite later.
+
         if (ext === '.py' || ext === '.txt' || ext === '.md' || ext === '.ps1' || basename === 'project.json' || basename.endsWith('.backup') || basename === 'package.json' || basename === 'package-lock.json') {
             return;
         }
@@ -73,97 +70,15 @@ console.log(`Building ${appName}...`);
 console.log(`Source: ${sourceDir}`);
 console.log(`Destination: ${distDir}`);
 
-// Special handling for different app structures
-// Special handling for different app structures
-if (appName === 'economic-compass' || appName === 'the-map') {
-    // economic-compass/the-map: files in app/static and app/templates
-    const staticDir = path.join(sourceDir, 'app', 'static');
-    const templatesDir = path.join(sourceDir, 'app', 'templates');
+copyRecursive(sourceDir, distDir);
 
-    if (fs.existsSync(staticDir)) {
-        console.log('Copying static files...');
-        copyRecursive(staticDir, distDir);
-    }
+// Also copy shared folder to dist/shared (only needs to be done once, but safe to do multiple times)
+const sharedSrc = path.join(__dirname, '..', 'shared');
+const sharedDest = path.join(__dirname, '..', 'dist', 'shared');
 
-    if (fs.existsSync(templatesDir)) {
-        console.log('Copying template files...');
-        const files = fs.readdirSync(templatesDir);
-        files.forEach(file => {
-            if (file.endsWith('.html') && !file.endsWith('.backup')) {
-                const src = path.join(templatesDir, file);
-                const dest = path.join(distDir, file);
-                fs.copyFileSync(src, dest);
-                console.log(`Copied: ${file}`);
-            }
-        });
-    }
-} else if (appName === 'ai-race' || appName === 'the-frontier') {
-    // ai-race/the-frontier: files in AI_RACE_CLEAN-main subdirectory
-    const subDir = path.join(sourceDir, 'AI_RACE_CLEAN-main');
-    if (fs.existsSync(subDir)) {
-        console.log('Copying from AI_RACE_CLEAN-main...');
-        copyRecursive(subDir, distDir);
-    } else {
-        copyRecursive(sourceDir, distDir);
-    }
-} else {
-    // Other apps: copy from root
-    copyRecursive(sourceDir, distDir);
-}
-
-// Generate PWA Assets
-console.log('Generating PWA assets...');
-
-try {
-    // 1. Generate Manifest
-    const manifest = getManifestForDashboard(appName);
-    // The manifest now has proper absolute paths for id, scope, and start_url
-    // This ensures each app is uniquely identified by the browser
-
-    fs.writeFileSync(path.join(distDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
-    console.log('✓ Generated manifest.json');
-
-    // 2. Generate Service Worker
-    // We need to know which assets to cache. 
-    // A simple heuristic: list all files in distDir recursively.
-
-    function getAllFiles(dirPath, arrayOfFiles) {
-        const files = fs.readdirSync(dirPath);
-        arrayOfFiles = arrayOfFiles || [];
-
-        files.forEach(function (file) {
-            if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-                arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
-            } else {
-                arrayOfFiles.push(path.join(dirPath, file));
-            }
-        });
-
-        return arrayOfFiles;
-    }
-
-    const allFiles = getAllFiles(distDir);
-    const assetsToCache = allFiles
-        .map(f => path.relative(distDir, f))
-        .map(f => './' + f.replace(/\\/g, '/')); // Ensure forward slashes and relative path
-
-    // Filter out service-worker.js itself to avoid recursion issues (though usually fine)
-    // and maybe map files.
-
-    const swContent = generateServiceWorker({
-        appName,
-        version: Date.now().toString(), // Use timestamp for unique versioning
-        assetsToCache
-    });
-
-    fs.writeFileSync(path.join(distDir, 'service-worker.js'), swContent);
-    console.log('✓ Generated service-worker.js');
-
-} catch (error) {
-    console.error('Error generating PWA assets:', error);
-    // Don't fail the build, just warn? Or fail?
-    // If PWA is critical, we should probably fail or at least log heavily.
-    console.error('Continuing build without PWA updates...');
+if (fs.existsSync(sharedSrc)) {
+    console.log('Copying shared assets...');
+    copyRecursive(sharedSrc, sharedDest);
 }
 
 console.log(`✓ Build complete for ${appName}`);

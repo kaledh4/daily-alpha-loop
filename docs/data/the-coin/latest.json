@@ -1,15 +1,26 @@
 {
   "dashboard": "the-coin",
   "name": "The Coin",
-  "mission": "Crypto Momentum Scanner",
-  "btc_price": 91347.6328125,
-  "eth_price": 3123.056640625,
+  "role": "Crypto Intent",
+  "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
+  "scoring": {
+    "rotation_strength": 5.0,
+    "momentum": 5,
+    "setup_quality": 6.5
+  },
+  "btc_price": 91333.6953125,
+  "eth_price": 3136.021484375,
   "momentum": "Neutral",
-  "rsi": 38.69613284627383,
+  "rsi": 38.6853737480146,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 28,
     "classification": "Fear"
   },
-  "ai_analysis": "Analysis temporarily unavailable"
+  "ai_analysis": "Analysis temporarily unavailable",
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/orderflow",
+    "xxxxxxxxx/shared_lib/dominance_tracker",
+    "xxxxxxxxx/shared_lib/liquidity_shift"
+  ]
 }

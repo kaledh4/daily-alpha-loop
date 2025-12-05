@@ -1,46 +1,23 @@
 {
-  "id": "/daily-alpha-loop/the-commander/",
-  "name": "The Commander - Master Orchestrator",
-  "short_name": "The Commander",
-  "description": "Unified dashboard orchestration platform for managing multiple intelligence streams, including AI development, financial markets, and economic indicators.",
-  "start_url": "/daily-alpha-loop/the-commander/",
-  "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone",
-    "minimal-ui",
-    "browser"
-  ],
-  "background_color": "#1e1b4b",
-  "theme_color": "#8b5cf6",
-  "orientation": "portrait",
-  "scope": "/daily-alpha-loop/the-commander/",
-  "lang": "en-US",
-  "dir": "ltr",
-  "categories": [
-    "productivity",
-    "finance",
-    "utilities"
-  ],
-  "shortcuts": [],
-  "screenshots": [],
-  "launch_handler": {
-    "client_mode": "auto"
-  },
-  "prefer_related_applications": false,
-  "related_applications": [],
-  "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+    "name": "Dashboard Orchestrator Pro",
+    "short_name": "DashOrch",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "https://raw.githubusercontent.com/google-fonts/github-project-icons/main/icons/material/analytics/white.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://raw.githubusercontent.com/google-fonts/github-project-icons/main/icons/material/analytics/white.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
 }

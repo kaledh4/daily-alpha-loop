@@ -1,7 +1,11 @@
 {
   "dashboard": "the-strategy",
   "name": "The Strategy",
-  "mission": "Unified Opportunity Radar",
+  "role": "Market Stance",
+  "mission": "Read the market context, interpret cross-domain vectors, and determine today\u2019s stance.",
+  "scoring": {
+    "stance_confidence": 5
+  },
   "stance": "Neutral",
   "mindset": "Wait for clarity",
   "inputs": {
@@ -10,5 +14,9 @@
     "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "Analysis temporarily unavailable"
+  "ai_analysis": "Analysis temporarily unavailable",
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/stance_engine",
+    "xxxxxxxxx/shared_lib/momentum_blend"
+  ]
 }

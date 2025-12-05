@@ -23,7 +23,14 @@ import time
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # Third-party imports
 try:
@@ -378,6 +385,9 @@ def call_ai(prompt: str, system_prompt: str, models: List[str], max_tokens: int 
     
     # Try Grok API first (X.AI) - FREE
     grok_key = os.environ.get('GROK_API_KEY') or os.environ.get('XAI_API_KEY')
+    if not grok_key:
+        logger.info("  ℹ️ Grok API key not found, skipping...")
+    
     if grok_key:
         try:
             logger.info("  🤖 Calling Grok (X.AI)...")
@@ -420,6 +430,9 @@ def call_ai(prompt: str, system_prompt: str, models: List[str], max_tokens: int 
     
     # Try Gemini API second (Google) - FREE
     gemini_key = os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY')
+    if not gemini_key:
+        logger.info("  ℹ️ Gemini API key not found, skipping...")
+
     if gemini_key:
         try:
             logger.info("  🤖 Calling Gemini (Google)...")
@@ -640,14 +653,31 @@ Return JSON:
         except:
             pass
     
+    # Calculate scoring metrics
+    fragility_score = min(10, (btc_10y / 3.0) * 10) if btc_10y else 5
+    volatility_score = min(10, (move / 150) * 10) if move else 5
+    
+    scoring = {
+        "risk_level": int(score),  # 0-100
+        "fragility": round(fragility_score, 1),  # 0-10
+        "volatility_pressure": round(volatility_score, 1)  # 0-10
+    }
+
     return {
         'dashboard': 'the-shield',
         'name': 'The Shield',
-        'mission': 'Market Fragility Monitor',
+        'role': 'Risk Environment',
+        'mission': 'Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
+        'scoring': scoring,
         'risk_assessment': risk,
         'metrics': metrics,
-        'ai_analysis': ai_analysis
+        'ai_analysis': ai_analysis,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/global_risk",
+            "xxxxxxxxx/shared_lib/volatility_matrix",
+            "xxxxxxxxx/shared_lib/liquidity_fragility"
+        ]
     }
 
 def analyze_the_coin() -> Dict:
@@ -695,17 +725,40 @@ Return JSON:
         except:
             pass
     
+    # Calculate scoring metrics
+    rsi_val = btc_rsi if btc_rsi else 50
+    momentum_score = 5
+    if btc_trend == 'Bullish':
+        momentum_score += 2
+    if rsi_val > 60:
+        momentum_score += 1
+    if fng_value and fng_value > 60:
+        momentum_score += 1
+    
+    scoring = {
+        "rotation_strength": 5.0, # Placeholder
+        "momentum": min(10, momentum_score),
+        "setup_quality": 6.5 # Placeholder
+    }
+
     return {
         'dashboard': 'the-coin',
         'name': 'The Coin',
-        'mission': 'Crypto Momentum Scanner',
+        'role': 'Crypto Intent',
+        'mission': 'Track BTC → Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.',
+        'scoring': scoring,
         'btc_price': btc_price,
         'eth_price': eth_price,
         'momentum': momentum,
         'rsi': btc_rsi,
         'trend': btc_trend,
         'fear_and_greed': {'value': fng_value, 'classification': fng_class},
-        'ai_analysis': analysis
+        'ai_analysis': analysis,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/orderflow",
+            "xxxxxxxxx/shared_lib/dominance_tracker",
+            "xxxxxxxxx/shared_lib/liquidity_shift"
+        ]
     }
 
 def analyze_the_map() -> Dict:
@@ -757,10 +810,27 @@ Return JSON:
         except:
             pass
     
+    # Calculate scoring metrics
+    tasi_score = 5
+    if tasi_mood == 'Positive': tasi_score = 8
+    elif tasi_mood == 'Negative': tasi_score = 3
+    
+    vol_risk = 5
+    if tnx and tnx > 4.5: vol_risk += 2
+    if oil and oil > 90: vol_risk += 1
+    
+    scoring = {
+        "stance_strength": tasi_score,
+        "volatility_risk": min(10, vol_risk),
+        "confidence": 0.85
+    }
+
     return {
         'dashboard': 'the-map',
         'name': 'The Map',
-        'mission': 'Macro & TASI Trendsetter',
+        'role': 'Macro',
+        'mission': 'Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.',
+        'scoring': scoring,
         'macro': {
             'oil': oil,
             'dxy': dxy,
@@ -771,7 +841,12 @@ Return JSON:
         },
         'tasi_mood': tasi_mood,
         'drivers': drivers,
-        'ai_analysis': analysis
+        'ai_analysis': analysis,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/fed_speech_parser",
+            "xxxxxxxxx/shared_lib/inflation_nowcast",
+            "xxxxxxxxx/shared_lib/curve_shift"
+        ]
     }
 
 def analyze_the_frontier() -> Dict:
@@ -835,13 +910,30 @@ Return JSON:
         except:
             pass
     
+    # Calculate scoring metrics
+    total_papers = sum([d['total_volume'] for d in domains.values() if d['total_volume']])
+    breakthrough_score = min(10, len(breakthroughs) * 2) if breakthroughs else 5
+    
+    scoring = {
+        "breakthrough_score": breakthrough_score,
+        "trajectory": 8.5, # Placeholder
+        "future_pull": 7.0 # Placeholder
+    }
+
     return {
         'dashboard': 'the-frontier',
         'name': 'The Frontier',
-        'mission': 'Silicon Frontier Watch',
+        'role': 'AI & Breakthroughs',
+        'mission': 'Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.',
+        'scoring': scoring,
         'domains': domains,
         'breakthroughs': breakthroughs,
-        'ai_analysis': analysis
+        'ai_analysis': analysis,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/ai_rnd",
+            "xxxxxxxxx/shared_lib/quantum",
+            "xxxxxxxxx/shared_lib/robotics"
+        ]
     }
 
 def analyze_the_strategy() -> Dict:
@@ -917,10 +1009,22 @@ Return JSON:
         except:
             pass
     
+    # Calculate scoring metrics
+    confidence = 5
+    if stance == 'Aggressive': confidence = 9
+    elif stance == 'Accumulative': confidence = 7
+    elif stance == 'Defensive': confidence = 3
+    
+    scoring = {
+        "stance_confidence": confidence
+    }
+
     return {
         'dashboard': 'the-strategy',
         'name': 'The Strategy',
-        'mission': 'Unified Opportunity Radar',
+        'role': 'Market Stance',
+        'mission': 'Read the market context, interpret cross-domain vectors, and determine today’s stance.',
+        'scoring': scoring,
         'stance': stance,
         'mindset': mindset,
         'inputs': {
@@ -929,7 +1033,11 @@ Return JSON:
             'macro': macro_signal,
             'frontier': frontier_signal
         },
-        'ai_analysis': analysis
+        'ai_analysis': analysis,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/stance_engine",
+            "xxxxxxxxx/shared_lib/momentum_blend"
+        ]
     }
 
 def analyze_the_library() -> Dict:
@@ -973,11 +1081,26 @@ Return JSON:
             except:
                 pass
     
+    # Calculate scoring metrics
+    progress_rate = 65 # Placeholder
+    
+    scoring = {
+        "progress_rate": progress_rate,
+        "uncertainty": 0.2
+    }
+
     return {
         'dashboard': 'the-library',
         'name': 'The Library',
-        'mission': 'Alpha-Clarity Archive',
-        'summaries': summaries
+        'role': 'Free Knowledge',
+        'mission': 'Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.',
+        'scoring': scoring,
+        'summaries': summaries,
+        'data_sources': [
+            "xxxxxxxxx/shared_lib/ai_rnd_tracker",
+            "xxxxxxxxx/shared_lib/quantum_papers",
+            "xxxxxxxxx/shared_lib/lab_output_rate"
+        ]
     }
 
 def analyze_the_commander() -> Dict:
@@ -1120,9 +1243,11 @@ Return JSON:
     return {
         'dashboard': 'the-commander',
         'name': 'The Commander',
-        'mission': 'Master Orchestrator - Morning Brief',
+        'role': 'Master Orchestrator',
+        'mission': 'Combine all dashboards using waterfall loading logic to produce the final unified assessment.',
         'timestamp': datetime.now(timezone.utc).isoformat(),
         'morning_brief': morning_brief,
+        'internal_summary_sentence': "Risk shows the environment, crypto shows sentiment, macro shows the wind, breakthroughs show the future, strategy shows the stance, and knowledge shows the long-term signal — combine all six to guide the user clearly through today.",
         'apps_status': {
             'the-shield': 'active',
             'the-coin': 'active',

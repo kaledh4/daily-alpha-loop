@@ -6,39 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Commander - Daily Alpha Loop</title>
     <link rel="stylesheet" href="../shared/styles.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1e1b4b">
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h1>⭐ THE COMMANDER</h1>
-            <p>Master Orchestrator - Morning Brief</p>
-            <div class="timestamp">Loading...</div>
+            <h1>The Commander</h1>
+            <p>Loading...</p>
         </div>
-
-        <!-- Shared Navigation -->
         <div id="nav"></div>
-
-        <!-- Main Content -->
-        <div id="content">
-            <div class="content-card">
-                <p class="data-text">Loading Morning Brief...</p>
-            </div>
-        </div>
+        <div id="content"></div>
     </div>
 
-    <!-- Shared Scripts -->
-    <script src="../shared/navigation.js"></script>
-    <script src="app-unified.js"></script>
-
-    <!-- PWA -->
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./service-worker.js');
-        }
+        window.DASHBOARD_NAME = 'the-commander';
     </script>
+    <script src="../shared/navigation.js"></script>
+    <script src="../shared/dashboard-core.js"></script>
 </body>
 
 </html>

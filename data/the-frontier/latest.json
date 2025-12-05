@@ -1,7 +1,13 @@
 {
   "dashboard": "the-frontier",
   "name": "The Frontier",
-  "mission": "Silicon Frontier Watch",
+  "role": "AI & Breakthroughs",
+  "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
+  "scoring": {
+    "breakthrough_score": 10,
+    "trajectory": 8.5,
+    "future_pull": 7.0
+  },
   "domains": {
     "AI Research": {
       "total_volume": 331278,
@@ -181,37 +187,34 @@
   },
   "breakthroughs": [
     {
-      "title": "Universal Weight Subspace Hypothesis - Value Gradient Guidance for Flow Matching Alignment",
-      "why_it_matters": "This hypothesis provides a mathematical framework for aligning AI models, improving robustness and interpretability in generative systems while reducing computational costs."
+      "title": "Decoy-state quantum key distribution over 227 km with frequency-converted telecom single-photon source",
+      "why_it_matters": "Achieves long-distance quantum encryption in real-world fiber infrastructure, critical for secure communication networks."
     },
     {
-      "title": "Deep infant brain segmentation from multi-contrast MRI",
-      "why_it_matters": "Enables precise early detection of neurological disorders in infants using advanced imaging techniques, critical for tailored pediatric care."
-    },
-    {
-      "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for Fine-Tuning Vision-Language-Action Models",
-      "why_it_matters": "Enhances robotics and AI agents by enabling adaptive learning of complex tasks through hierarchical reinforcement learning."
-    },
-    {
-      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
-      "why_it_matters": "Accelerates genetic research by resolving complex polyploid genome structures, aiding in understanding rare genetic diseases."
-    },
-    {
-      "title": "Decoy-state quantum key distribution over 227 km",
-      "why_it_matters": "Demonstrates long-distance quantum-secured communication, a foundational step for scalable quantum internet infrastructure."
+      "title": "Universal Weight Subspace Hypothesis in AI",
+      "why_it_matters": "Theoretical framework to understand generalization in neural networks, enabling more efficient and interpretable AI models."
     },
     {
       "title": "NeuralRemaster: Phase-Preserving Diffusion for Structure-Aligned Generation",
-      "why_it_matters": "Improves high-fidelity generation in manufacturing and design, allowing precise replication of microstructures and materials."
+      "why_it_matters": "Advances in generating high-fidelity 3D structures from multimodal data, accelerating drug discovery and materials science."
     },
     {
-      "title": "Multimode RF Reflectometry for Spin Qubit Readout",
-      "why_it_matters": "Enables faster, more accurate diagnostics of quantum processors, critical for advancing fault-tolerant quantum computing."
+      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification",
+      "why_it_matters": "Revolutionizes polyploid genome analysis by resolving phase-ambiguous haplotypes in crops like wheat, boosting agricultural genomics."
     },
     {
-      "title": "Ex-Signature Bank execs launch blockchain-powered bank N3XT",
-      "why_it_matters": "Showcases blockchain's potential to disrupt finance through decentralized, transparent systems for remittances and cross-border transactions."
+      "title": "Pump Free Microwave-Optical Quantum Transduction",
+      "why_it_matters": "Enables low-energy quantum signal conversion, crucial for scalable quantum communication and sensing systems."
+    },
+    {
+      "title": "Deep Infant Brain Segmentation from Multi-Contrast MRI",
+      "why_it_makes": "Improves early detection of neurodevelopmental disorders through automated fetal brain analysis, accelerating medical diagnostics."
     }
   ],
-  "ai_analysis": "These breakthroughs emphasize frontier advancements in cross-domain AI alignment, quantum communication reliability, and biomolecular modeling, while practical applications in robotics and semiconductor design pave the way for transformative technologies. The inclusion of blockchain-based financial infrastructure confirms its emergence as a viable alternative to traditional banking systems."
+  "ai_analysis": "Quantum computing and advanced manufacturing show the strongest frontier progress with experimental and theoretical leaps (e.g., quantum key distribution, spin qubit advancements). AI breakthroughs focus on interpretability and alignment, while biotechnology and neurotech hit critical milestones in data resolution. Robotics and materials science integration (e.g., physics-aligned video generation) signals interdisciplinary convergence as a frontier area.",
+  "data_sources": [
+    "xxxxxxxxx/shared_lib/ai_rnd",
+    "xxxxxxxxx/shared_lib/quantum",
+    "xxxxxxxxx/shared_lib/robotics"
+  ]
 }

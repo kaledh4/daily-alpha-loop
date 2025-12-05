@@ -1,34 +1,12 @@
 {
-  "id": "/daily-alpha-loop/the-strategy/",
-  "name": "The Strategy - Unified Opportunity Radar",
-  "short_name": "The Strategy",
-  "description": "Market intelligence and analysis platform powered by AI. Get daily strategic insights and market analysis.",
-  "start_url": "/daily-alpha-loop/the-strategy/",
+  "name": "Market Intelligence Dashboard",
+  "short_name": "Market Intel",
+  "description": "AI-Powered Market Intelligence Dashboard with Daily Updates from Grok",
+  "start_url": "./index.html",
   "display": "standalone",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone",
-    "minimal-ui",
-    "browser"
-  ],
-  "background_color": "#78350f",
-  "theme_color": "#f59e0b",
-  "orientation": "portrait",
-  "scope": "/daily-alpha-loop/the-strategy/",
-  "lang": "en-US",
-  "dir": "ltr",
-  "categories": [
-    "finance",
-    "productivity",
-    "news"
-  ],
-  "shortcuts": [],
-  "screenshots": [],
-  "launch_handler": {
-    "client_mode": "auto"
-  },
-  "prefer_related_applications": false,
-  "related_applications": [],
+  "background_color": "#0f0f1e",
+  "theme_color": "#1a1a2e",
+  "orientation": "any",
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -42,5 +20,17 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories": ["finance", "news", "business", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Daily Digest",
+      "short_name": "Digest",
+      "description": "View today's market digest",
+      "url": "./index.html#digest",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
 }
