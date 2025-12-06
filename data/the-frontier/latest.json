@@ -3,8 +3,9 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
+  "last_update": "2025-12-06 10:51:22 UTC",
   "scoring": {
-    "breakthrough_score": 5,
+    "breakthrough_score": 4,
     "trajectory": 8.5,
     "future_pull": 7.0
   },
@@ -185,11 +186,20 @@
       ]
     }
   },
-  "breakthroughs": [],
-  "ai_analysis": "AI analysis unavailable",
+  "breakthroughs": [
+    {
+      "title": "Decoy-state quantum key distribution",
+      "why_it_matters": "Enables secure communication over long distances"
+    },
+    {
+      "title": "pHapCompass",
+      "why_it_matters": "Improves probabilistic assembly and uncertainty quantification of polyploid haplotype phase"
+    }
+  ],
+  "ai_analysis": "The current AI and tech breakthrough velocity is moderate, with significant advancements in areas such as quantum key distribution and probabilistic assembly. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are also notable developments. However, it is essential to separate real breakthroughs from hype, as some developments may not have immediate practical applications. The breakthroughs in decoy-state quantum key distribution and pHapCompass are particularly noteworthy, as they have the potential to significantly impact various fields.",
   "data_sources": [
-    "xxxxxxxxx/shared_lib/ai_rnd",
-    "xxxxxxxxx/shared_lib/quantum",
-    "xxxxxxxxx/shared_lib/robotics"
+    "ai_rnd",
+    "quantum",
+    "robotics"
   ]
 }
