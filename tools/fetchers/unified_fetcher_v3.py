@@ -107,6 +107,48 @@ try:
 except ImportError:
     PANDAS_AVAILABLE = False
 
+# Import enhanced modules
+try:
+    import sys
+    fetchers_dir = pathlib.Path(__file__).parent
+    sys.path.insert(0, str(fetchers_dir))
+    
+    from enhanced_analytics import enhance_metric, save_dashboard_score, calculate_regime
+    from enhanced_dashboard_analysis import (
+        enhance_shield_metrics, enhance_coin_metrics, enhance_map_metrics,
+        build_conflict_matrix, calculate_weighted_top_signal, build_decision_tree
+    )
+    from free_apis import (
+        get_fred_indicators, get_crypto_metrics, fetch_hackernews_top,
+        fetch_fear_greed_history, reset_rate_limits
+    )
+    ENHANCED_AVAILABLE = True
+except ImportError as e:
+    ENHANCED_AVAILABLE = False
+    logger.warning(f"Enhanced modules not available - running in basic mode: {e}")
+
+# ========================================
+# Number Formatting Helper
+# ========================================
+
+def format_number(value: Optional[float], decimals: int = 2, suffix: str = '') -> str:
+    """Format number with specified decimal places"""
+    if value is None:
+        return 'N/A'
+    if decimals == 0:
+        return f'{int(value)}{suffix}'
+    return f'{value:.{decimals}f}{suffix}'
+
+def format_percentage(value: Optional[float], decimals: int = 2) -> str:
+    """Format as percentage"""
+    return format_number(value, decimals, '%')
+
+def format_price(value: Optional[float], decimals: int = 2) -> str:
+    """Format as price with $"""
+    if value is None:
+        return 'N/A'
+    return f'${value:,.{decimals}f}'
+
 # ========================================
 # OpenRouter Free Models Configuration
 # ========================================
@@ -984,7 +1026,7 @@ def build_shield_data(ai_result: Optional[Dict] = None) -> Dict:
         signal = "CRITICAL SHOCK" if tnx >= 5.0 else "HIGH STRESS" if tnx >= 4.5 else "RISING STRESS" if tnx >= 4.2 else "NORMAL"
         metrics.append({
             'name': '10Y Treasury Yield',
-            'value': f'{tnx:.2f}%',
+            'value': format_percentage(tnx, 2),
             'signal': signal
         })
     
@@ -1019,6 +1061,11 @@ def build_shield_data(ai_result: Optional[Dict] = None) -> Dict:
     analysis = "AI analysis unavailable"
     if ai_result and 'the_shield' in ai_result:
         analysis = ai_result['the_shield'].get('analysis', analysis)
+        # Format numbers in analysis text
+        import re
+        # Fix percentages and decimals in analysis
+        analysis = re.sub(r'(\d+\.\d{6,})%', lambda m: f'{float(m.group(1)):.2f}%', analysis)
+        analysis = re.sub(r'(\d+\.\d{6,})(?=\s|$)', lambda m: f'{float(m.group(1)):.2f}', analysis)
         if 'risk_level' in ai_result['the_shield']:
             risk['level'] = ai_result['the_shield']['risk_level']
     
@@ -1032,7 +1079,7 @@ def build_shield_data(ai_result: Optional[Dict] = None) -> Dict:
         "volatility_pressure": round(volatility_score, 1)
     }
 
-    return {
+    result = {
         'dashboard': 'the-shield',
         'name': 'The Shield',
         'role': 'Risk Environment',
@@ -1048,6 +1095,15 @@ def build_shield_data(ai_result: Optional[Dict] = None) -> Dict:
             "liquidity_fragility"
         ]
     }
+    
+    # Enhance metrics if available
+    if ENHANCED_AVAILABLE:
+        result['metrics'] = enhance_shield_metrics(metrics, 'the-shield')
+        regime = calculate_regime(metrics)
+        result['regime'] = regime
+        save_dashboard_score('the-shield', score, {'regime': regime})
+    
+    return result
 
 def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Coin dashboard data"""
@@ -1092,6 +1148,9 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
     
     if ai_result and 'the_coin' in ai_result:
         analysis = ai_result['the_coin'].get('analysis', analysis)
+        # Format numbers in analysis text
+        import re
+        analysis = re.sub(r'(\d+\.\d{6,})', lambda m: f'{float(m.group(1)):.2f}', analysis)
         momentum = ai_result['the_coin'].get('momentum', momentum)
         key_level = ai_result['the_coin'].get('key_level', key_level)
     
@@ -1110,14 +1169,16 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
         "momentum": min(10, momentum_score),
         "setup_quality": 6.5
     }
-
-    return {
+    
+    result = {
         'dashboard': 'the-coin',
         'name': 'The Coin',
         'role': 'Crypto Intent',
         'mission': 'Track BTC → Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'btc_price': btc_price,
+        'eth_price': eth_price,
         'crypto_assets': crypto_assets,
         'dxy_index': dxy,
         'fed_rate': fed_rate,
@@ -1125,7 +1186,7 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
         'risk_level': risk_level,
         'momentum': momentum,
         'key_level': key_level,
-        'rsi': btc_rsi,
+        'rsi': round(btc_rsi, 2) if btc_rsi else None,
         'trend': btc_trend,
         'fear_and_greed': {'value': fng_value, 'classification': fng_class},
         'ai_analysis': analysis,
@@ -1135,6 +1196,14 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
             "liquidity_shift"
         ]
     }
+    
+    # Enhance with momentum score and context
+    if ENHANCED_AVAILABLE:
+        result = enhance_coin_metrics(result, 'the-coin')
+        momentum_score = result.get('scoring', {}).get('momentum_score', 50)
+        save_dashboard_score('the-coin', momentum_score, {'momentum': momentum})
+    
+    return result
 
 def build_map_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Map dashboard data"""
@@ -1152,6 +1221,9 @@ def build_map_data(ai_result: Optional[Dict] = None) -> Dict:
     
     if ai_result and 'the_map' in ai_result:
         analysis = ai_result['the_map'].get('analysis', analysis)
+        # Format numbers in analysis text
+        import re
+        analysis = re.sub(r'(\d+\.\d{6,})', lambda m: f'{float(m.group(1)):.2f}', analysis)
         tasi_mood = ai_result['the_map'].get('tasi_mood', tasi_mood)
         drivers = ai_result['the_map'].get('drivers', drivers)
     
@@ -1178,12 +1250,12 @@ def build_map_data(ai_result: Optional[Dict] = None) -> Dict:
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
         'macro': {
-            'oil': oil,
-            'dxy': dxy,
-            'gold': gold,
-            'sp500': sp500,
-            'tasi': tasi,
-            'treasury_10y': tnx
+            'oil': round(oil, 2) if oil else None,
+            'dxy': round(dxy, 2) if dxy else None,
+            'gold': round(gold, 2) if gold else None,
+            'sp500': round(sp500, 2) if sp500 else None,
+            'tasi': round(tasi, 2) if tasi else None,
+            'treasury_10y': round(tnx, 2) if tnx else None
         },
         'tasi_mood': tasi_mood,
         'drivers': drivers,
@@ -1404,11 +1476,36 @@ def build_commander_data(ai_result: Optional[Dict] = None) -> Dict:
     except:
         pass
     
+    # Build conflict matrix and weighted signals if enhanced available
+    conflict_matrix = None
+    weighted_signal = None
+    decision_tree = None
+    
+    if ENHANCED_AVAILABLE:
+        dashboards_data = {
+            'the-shield': shield_data,
+            'the-coin': coin_data,
+            'the-map': map_data,
+            'the-frontier': frontier_data,
+            'the-strategy': strategy_data
+        }
+        conflict_matrix = build_conflict_matrix(dashboards_data)
+        weighted_signal = calculate_weighted_top_signal(dashboards_data)
+        decision_tree = build_decision_tree(dashboards_data)
+    
     # Get AI analysis
     morning_brief = {}
     
     if ai_result and 'the_commander' in ai_result:
         morning_brief = ai_result['the_commander']
+        # Format top_signal if it contains unformatted numbers
+        if 'top_signal' in morning_brief:
+            top_signal = morning_brief['top_signal']
+            # Replace unformatted percentages and numbers
+            import re
+            # Fix percentages like 4.138999938964844% -> 4.14%
+            top_signal = re.sub(r'(\d+\.\d{6,})%', lambda m: f'{float(m.group(1)):.2f}%', top_signal)
+            morning_brief['top_signal'] = top_signal
     else:
         # Fallback
         risk_level = shield_data.get('risk_assessment', {}).get('level', 'UNKNOWN')
