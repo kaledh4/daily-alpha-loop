@@ -3,24 +3,24 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-06 20:12:22 UTC",
+  "last_update": "2025-12-06 21:48:44 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Quantum Key Distribution",
-      "eli5": "Secure communication over long distances",
-      "long_term": "Enabling secure communication for sensitive information"
+      "title": "Decoy-state Quantum Key Distribution",
+      "eli5": "A method for secure communication over long distances",
+      "long_term": "Could revolutionize data security"
     },
     {
-      "title": "Microwave-Optical Quantum Transduction",
-      "eli5": "Enabling the transfer of quantum information between different systems",
-      "long_term": "Enabling the development of more efficient quantum computers"
+      "title": "pHapCompass",
+      "eli5": "A tool for probabilistic assembly and uncertainty quantification of polyploid haplotype phase",
+      "long_term": "Important for genetic research and personalized medicine"
     }
   ],
-  "ai_analysis": "The knowledge landscape is rapidly evolving, with significant breakthroughs in AI and tech. The key learning themes are the applications of quantum key distribution and microwave-optical quantum transduction. The knowledge velocity is high, with new research and discoveries being published at an accelerating rate.",
+  "ai_analysis": "Today's knowledge landscape is marked by significant advancements in quantum computing and machine learning, alongside insights into retirement planning and consumer behavior. The key learning themes include the importance of strategic planning for retirement and the evolving landscape of consumer shopping habits, particularly the rise of dollar stores among higher-income shoppers. The summaries of complex topics such as decoy-state quantum key distribution and pHapCompass provide deep insights into current research. The velocity of knowledge accumulation is moderate, with a steady stream of breakthroughs and research findings.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

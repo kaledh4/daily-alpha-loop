@@ -3,7 +3,7 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-06 20:12:22 UTC",
+  "last_update": "2025-12-06 21:48:44 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
@@ -11,12 +11,12 @@
   },
   "crypto_assets": {
     "BTC": {
-      "price": 89476.828125,
-      "risk": 1.255,
+      "price": 89545.734375,
+      "risk": 1.256,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3034.679931640625,
+      "price": 3044.508056640625,
       "risk": 0.543,
       "multiplier": 2.0
     },
@@ -31,12 +31,12 @@
       "multiplier": 28.0
     },
     "ADA": {
-      "price": 0.4137815535068512,
+      "price": 0.4149949550628662,
       "risk": 0.035,
       "multiplier": 12.0
     },
     "NEAR": {
-      "price": 1.7148058414459229,
+      "price": 1.7182484865188599,
       "risk": 0.034,
       "multiplier": 19.0
     }
@@ -47,13 +47,13 @@
   "risk_level": "High",
   "momentum": "Bearish",
   "key_level": "$80,000 for BTC",
-  "rsi": 37.4387319970233,
+  "rsi": 37.47331112528537,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 23,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "Crypto momentum is bearish, with BTC and ETH prices experiencing a downturn. Institutional flow is also decreasing, as indicated by the low Fear & Greed index. However, the BTC RSI is oversold, which may signal a potential reversal. The key level to watch is the $80,000 support for BTC and $2,500 for ETH.",
+  "ai_analysis": "The cryptocurrency market is experiencing a bearish trend, with BTC's price at $89,546 and an RSI of 37.47331112528537, indicating potential oversold conditions. ETH's price at $3,045 reflects a similar downward momentum. Institutional flow into cryptocurrencies seems to be slowing down, with the Fear & Greed Index at 23, signaling extreme fear, which could be a contrarian buy signal for some investors. The key level to watch for BTC is the $80,000 support, as a break below this could lead to further selling pressure.",
   "data_sources": [
     "orderflow",
     "dominance_tracker",

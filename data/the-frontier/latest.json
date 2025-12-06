@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-06 20:12:22 UTC",
+  "last_update": "2025-12-06 21:48:44 UTC",
   "scoring": {
     "breakthrough_score": 4,
     "trajectory": 8.5,
@@ -188,15 +188,15 @@
   },
   "breakthroughs": [
     {
-      "title": "Quantum Key Distribution",
-      "why_it_matters": "Secure communication over long distances"
+      "title": "Decoy-state Quantum Key Distribution",
+      "why_it_matters": "Enhanced data security over long distances"
     },
     {
-      "title": "Microwave-Optical Quantum Transduction",
-      "why_it_matters": "Enabling the transfer of quantum information between different systems"
+      "title": "Pump-free Microwave-Optical Quantum Transduction",
+      "why_it_matters": "Potential for more efficient quantum communication"
     }
   ],
-  "ai_analysis": "The AI and tech breakthrough velocity is accelerating, with significant advancements in quantum key distribution and microwave-optical quantum transduction. The Universal Weight Subspace Hypothesis is also a notable breakthrough, with potential applications in machine learning. However, the decoy-state quantum key distribution is still in its early stages, and its impact is uncertain.",
+  "ai_analysis": "The velocity of breakthroughs in AI and tech is accelerating, with significant advancements in quantum computing, such as decoy-state quantum key distribution and pump-free microwave-optical quantum transduction, which have the potential to revolutionize data security and communication. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are also noteworthy, as they could enhance machine learning capabilities. These breakthroughs are happening at a moderate to fast pace, indicating a period of rapid innovation in the tech sector.",
   "data_sources": [
     "ai_rnd",
     "quantum",
