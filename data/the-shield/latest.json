@@ -3,11 +3,11 @@
   "name": "The Shield",
   "role": "Risk Environment",
   "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors.",
-  "last_update": "2025-12-05 19:48:39 UTC",
+  "last_update": "2025-12-06 04:18:02 UTC",
   "scoring": {
     "risk_level": 14,
     "fragility": 8.1,
-    "volatility_pressure": 4.4
+    "volatility_pressure": 4.5
   },
   "risk_assessment": {
     "score": 14.3,
@@ -22,12 +22,12 @@
     },
     {
       "name": "USD/JPY",
-      "value": "155.29",
+      "value": "155.14",
       "signal": "CRITICAL SHOCK"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0703",
+      "value": "7.0679",
       "signal": "NORMAL"
     },
     {
@@ -37,21 +37,21 @@
     },
     {
       "name": "MOVE Index",
-      "value": "65.69",
+      "value": "67.28",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "15.56",
+      "value": "15.41",
       "signal": "NORMAL"
     },
     {
       "name": "CBON ETF",
-      "value": "$22.52",
+      "value": "$22.59",
       "signal": "NORMAL"
     }
   ],
-  "ai_analysis": "The market displays a significant localized stress event, with the USD/JPY pair signaling a \"CRITICAL SHOCK\" as Japanese bond yields reach multi-decade highs. While broader fragility indicators like the VIX and MOVE indices remain low, this acute stress in a key global funding currency warrants close monitoring for potential contagion into U.S. Treasury and equity markets.",
+  "ai_analysis": "Despite a low overall risk level and broad stability in equity and bond volatility, the system is showing acute stress in the foreign exchange market, evidenced by a critical shock in the USD/JPY pair. This significant currency dislocation poses a potential contagion risk. Monitor for signs of intervention from the Bank of Japan and any spillover effects into global bond yields and risk assets.",
   "data_sources": [
     "xxxxxxxxx/shared_lib/global_risk",
     "xxxxxxxxx/shared_lib/volatility_matrix",
