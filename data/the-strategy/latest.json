@@ -2,21 +2,22 @@
   "dashboard": "the-strategy",
   "name": "The Strategy",
   "role": "Market Stance",
-  "mission": "Read the market context, interpret cross-domain vectors, and determine today\u2019s stance.",
+  "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
+  "last_update": "2025-12-06 10:51:22 UTC",
   "scoring": {
-    "stance_confidence": 5
+    "stance_confidence": 3
   },
-  "stance": "Neutral",
-  "mindset": "Wait for clarity",
+  "stance": "Defensive",
+  "mindset": "Preserve capital and wait for clearer market signals",
   "inputs": {
-    "risk": "LOW",
+    "risk": "ELEVATED",
     "crypto": "Bearish",
-    "macro": "Negative",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "Analysis temporarily unavailable",
+  "ai_analysis": "The current market narrative is characterized by elevated risk, bearish crypto momentum, and a cautious macro environment. The tech breakthroughs, while significant, are not yet having a direct impact on the market. The unified market narrative today is one of caution and risk aversion, with a focus on short-term trading opportunities and defensive positioning. The stance is defensive, with a mindset of preserving capital and waiting for clearer market signals. The conviction level is medium, given the uncertainty and volatility in the market.",
   "data_sources": [
-    "xxxxxxxxx/shared_lib/stance_engine",
-    "xxxxxxxxx/shared_lib/momentum_blend"
+    "stance_engine",
+    "momentum_blend"
   ]
 }

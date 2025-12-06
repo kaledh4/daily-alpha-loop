@@ -3,29 +3,30 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
+  "last_update": "2025-12-06 10:51:22 UTC",
   "scoring": {
-    "stance_strength": 3,
+    "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "macro": {
-    "oil": 60.150001525878906,
-    "dxy": 98.99199676513672,
-    "gold": 4239.60009765625,
-    "sp500": 6872.60009765625,
+    "oil": 60.08000183105469,
+    "dxy": 98.98999786376953,
+    "gold": 4212.89990234375,
+    "sp500": 6870.39990234375,
     "tasi": 10626.150390625,
-    "treasury_10y": 4.14300012588501
+    "treasury_10y": 4.138999938964844
   },
-  "tasi_mood": "Negative",
+  "tasi_mood": "Neutral",
   "drivers": [
-    "Severely low oil price ($60.15) directly impacting Saudi government revenue and key sector earnings.",
-    "Extreme global risk-off sentiment, evidenced by a sky-high gold price, suggesting a flight from equities.",
-    "High US 10Y Yield (4.14%) tightening global liquidity and increasing the appeal of bonds over stocks."
+    "US dollar strength",
+    "Oil prices",
+    "Global rates"
   ],
-  "ai_analysis": "The Saudi market faces severe headwinds from the collapse in oil prices, which is its primary economic engine. This is compounded by an extreme global risk-off environment, which will likely lead to capital outflows from emerging markets like Saudi Arabia, overriding any positive sentiment from US equity strength.",
+  "ai_analysis": "The current macro environment is characterized by a strong US dollar, with the DXY at 98.99, and relatively high oil prices at $60.08. This could have a negative impact on the TASI and Saudi markets, as a strong dollar and high oil prices can lead to reduced demand and economic growth. The global rates, with the 10Y Treasury Yield at 4.14%, also suggest a cautious market environment. The TASI mood is currently neutral, with drivers including the US dollar strength, oil prices, and global rates. The TASI forecast for this week is likely to be negative, given the current macro conditions.",
   "data_sources": [
-    "xxxxxxxxx/shared_lib/fed_speech_parser",
-    "xxxxxxxxx/shared_lib/inflation_nowcast",
-    "xxxxxxxxx/shared_lib/curve_shift"
+    "fed_speech_parser",
+    "inflation_nowcast",
+    "curve_shift"
   ]
 }
