@@ -3,27 +3,27 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-06 21:48:44 UTC",
+  "last_update": "2025-12-06 21:58:35 UTC",
   "scoring": {
     "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "macro": {
-    "oil": 60.08000183105469,
-    "dxy": 98.98999786376953,
-    "gold": 4212.89990234375,
-    "sp500": 6870.39990234375,
-    "tasi": 10626.150390625,
-    "treasury_10y": 4.138999938964844
+    "oil": 60.08,
+    "dxy": 98.99,
+    "gold": 4212.9,
+    "sp500": 6870.4,
+    "tasi": 10626.15,
+    "treasury_10y": 4.14
   },
   "tasi_mood": "Neutral",
   "drivers": [
-    "Geopolitical Tensions",
-    "Monetary Policy Decisions",
-    "Global Economic Trajectory"
+    "Oil price fluctuations",
+    "Dollar strength",
+    "Global economic trends"
   ],
-  "ai_analysis": "The global macroeconomic landscape is influenced by the interplay between oil prices, the strength of the U.S. dollar, and interest rates. With oil at $60.08000183105469, the DXY at 98.98999786376953, and gold at $4212.89990234375, there's a complex dynamic at play that affects the TASI and broader Saudi markets. The SP500 at 6870.39990234375 indicates a cautious optimism in equity markets. The TASI, currently at 10626.150390625, is likely to be influenced by these global factors, particularly the direction of oil prices and the dollar's strength. Drivers include the ongoing geopolitical tensions, monetary policy decisions, and the trajectory of the global economy. The TASI mood is neutral, with a forecast of sideways movement this week, pending significant changes in the global macro landscape.",
+  "ai_analysis": "The current macro landscape is characterized by a strong dollar, with the DXY at 98.99, which could negatively impact oil prices and subsequently affect the TASI and Saudi markets. However, the recent increase in oil prices to $60.08 could offset some of this impact. The SP500 at 6870.40 and gold at $4212.90 indicate a mixed sentiment in global markets. The TASI at 10626.15 suggests a neutral mood, driven by the interplay between global oil prices, the dollar's strength, and local economic factors.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

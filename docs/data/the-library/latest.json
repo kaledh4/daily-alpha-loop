@@ -3,24 +3,24 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-06 21:48:44 UTC",
+  "last_update": "2025-12-06 21:58:35 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Decoy-state Quantum Key Distribution",
-      "eli5": "A method for secure communication over long distances",
-      "long_term": "Could revolutionize data security"
+      "title": "Quantum key distribution",
+      "eli5": "Secure data transmission method",
+      "long_term": "Revolutionize data security"
     },
     {
       "title": "pHapCompass",
-      "eli5": "A tool for probabilistic assembly and uncertainty quantification of polyploid haplotype phase",
-      "long_term": "Important for genetic research and personalized medicine"
+      "eli5": "Tool for understanding genetic data",
+      "long_term": "Improve genetic research and applications"
     }
   ],
-  "ai_analysis": "Today's knowledge landscape is marked by significant advancements in quantum computing and machine learning, alongside insights into retirement planning and consumer behavior. The key learning themes include the importance of strategic planning for retirement and the evolving landscape of consumer shopping habits, particularly the rise of dollar stores among higher-income shoppers. The summaries of complex topics such as decoy-state quantum key distribution and pHapCompass provide deep insights into current research. The velocity of knowledge accumulation is moderate, with a steady stream of breakthroughs and research findings.",
+  "ai_analysis": "Today's knowledge landscape is characterized by significant advancements in AI, quantum computing, and data analysis. Key learning themes include the application of machine learning in finance and the importance of understanding polyploid haplotype phase in genetics. The accumulation of breakthrough knowledge is happening at a fast pace, with new discoveries and innovations emerging regularly.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

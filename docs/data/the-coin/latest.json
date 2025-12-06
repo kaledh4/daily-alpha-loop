@@ -3,25 +3,27 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-06 21:48:44 UTC",
+  "last_update": "2025-12-06 21:58:35 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
     "setup_quality": 6.5
   },
+  "btc_price": 89491.515625,
+  "eth_price": 3043.25390625,
   "crypto_assets": {
     "BTC": {
-      "price": 89545.734375,
-      "risk": 1.256,
+      "price": 89491.515625,
+      "risk": 1.255,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3044.508056640625,
+      "price": 3043.25390625,
       "risk": 0.543,
       "multiplier": 2.0
     },
     "VXV": {
-      "price": 0.027003184,
+      "price": 0.027003542,
       "risk": 0.02,
       "multiplier": 45.0
     },
@@ -31,12 +33,12 @@
       "multiplier": 28.0
     },
     "ADA": {
-      "price": 0.4149949550628662,
+      "price": 0.41445106267929077,
       "risk": 0.035,
       "multiplier": 12.0
     },
     "NEAR": {
-      "price": 1.7182484865188599,
+      "price": 1.7155643701553345,
       "risk": 0.034,
       "multiplier": 19.0
     }
@@ -47,13 +49,13 @@
   "risk_level": "High",
   "momentum": "Bearish",
   "key_level": "$80,000 for BTC",
-  "rsi": 37.47331112528537,
+  "rsi": 37.45,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 23,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "The cryptocurrency market is experiencing a bearish trend, with BTC's price at $89,546 and an RSI of 37.47331112528537, indicating potential oversold conditions. ETH's price at $3,045 reflects a similar downward momentum. Institutional flow into cryptocurrencies seems to be slowing down, with the Fear & Greed Index at 23, signaling extreme fear, which could be a contrarian buy signal for some investors. The key level to watch for BTC is the $80,000 support, as a break below this could lead to further selling pressure.",
+  "ai_analysis": "Crypto markets are currently experiencing a bearish trend, with BTC's RSI at 37.45 and a Fear & Greed index of 23, indicating extreme fear among investors. ETH's price at $3,043 and BTC's price at $89,492 suggest a potential for further decline, but institutional flow, as seen in BitMine's $199M ETH purchase, could indicate a potential reversal. The key level to watch for BTC is the $80,000 support, while ETH's $2,800 level is crucial for maintaining bullish momentum.",
   "data_sources": [
     "orderflow",
     "dominance_tracker",
