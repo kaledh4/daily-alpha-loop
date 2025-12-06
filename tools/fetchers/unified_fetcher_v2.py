@@ -77,6 +77,26 @@ except ImportError:
     REQUESTS_AVAILABLE = False
     logging.warning("requests not available")
 
+# Import enhanced modules
+try:
+    import sys
+    fetchers_dir = pathlib.Path(__file__).parent
+    sys.path.insert(0, str(fetchers_dir))
+    
+    from enhanced_analytics import enhance_metric, save_dashboard_score, calculate_regime
+    from enhanced_dashboard_analysis import (
+        enhance_shield_metrics, enhance_coin_metrics, enhance_map_metrics,
+        build_conflict_matrix, calculate_weighted_top_signal, build_decision_tree
+    )
+    from free_apis import (
+        get_fred_indicators, get_crypto_metrics, fetch_hackernews_top,
+        fetch_fear_greed_history, reset_rate_limits
+    )
+    ENHANCED_AVAILABLE = True
+except ImportError as e:
+    ENHANCED_AVAILABLE = False
+    logger.warning(f"Enhanced modules not available - running in basic mode: {e}")
+
 try:
     import yfinance as yf
     YFINANCE_AVAILABLE = True
@@ -142,6 +162,10 @@ def fetch_market_data():
     logger.info("=" * 50)
     logger.info("📈 FETCHING MARKET DATA (ONCE for all dashboards)")
     logger.info("=" * 50)
+    
+    # Reset rate limits if enhanced modules available
+    if ENHANCED_AVAILABLE:
+        reset_rate_limits()
     
     if not YFINANCE_AVAILABLE:
         logger.error("yfinance not available")
@@ -594,8 +618,16 @@ Return JSON:
         "fragility": round(fragility_score, 1),  # 0-10
         "volatility_pressure": round(volatility_score, 1)  # 0-10
     }
+    
+    # Enhance metrics if available
+    if ENHANCED_AVAILABLE:
+        metrics = enhance_shield_metrics(metrics, 'the-shield')
+        regime = calculate_regime(metrics)
+        save_dashboard_score('the-shield', score, {'regime': regime})
+    else:
+        regime = None
 
-    return {
+    result = {
         'dashboard': 'the-shield',
         'name': 'The Shield',
         'role': 'Risk Environment',
@@ -611,6 +643,11 @@ Return JSON:
             "xxxxxxxxx/shared_lib/liquidity_fragility"
         ]
     }
+    
+    if regime:
+        result['regime'] = regime
+    
+    return result
 
 def analyze_the_coin() -> Dict:
     """THE COIN - Crypto Momentum Scanner"""
@@ -672,8 +709,8 @@ Return JSON:
         "momentum": min(10, momentum_score),
         "setup_quality": 6.5 # Placeholder
     }
-
-    return {
+    
+    result = {
         'dashboard': 'the-coin',
         'name': 'The Coin',
         'role': 'Crypto Intent',
@@ -692,6 +729,14 @@ Return JSON:
             "xxxxxxxxx/shared_lib/liquidity_shift"
         ]
     }
+    
+    # Enhance with momentum score and context
+    if ENHANCED_AVAILABLE:
+        result = enhance_coin_metrics(result, 'the-coin')
+        momentum_score = result.get('scoring', {}).get('momentum_score', 50)
+        save_dashboard_score('the-coin', momentum_score, {'momentum': momentum})
+    
+    return result
 
 def analyze_the_map() -> Dict:
     """THE MAP - Macro & TASI Trendsetter"""
@@ -756,8 +801,8 @@ Return JSON:
         "volatility_risk": min(10, vol_risk),
         "confidence": 0.85
     }
-
-    return {
+    
+    result = {
         'dashboard': 'the-map',
         'name': 'The Map',
         'role': 'Macro',
@@ -780,6 +825,14 @@ Return JSON:
             "xxxxxxxxx/shared_lib/curve_shift"
         ]
     }
+    
+    # Enhance with regional scores
+    if ENHANCED_AVAILABLE:
+        result = enhance_map_metrics(result, 'the-map')
+        macro_score = tasi_score * 10
+        save_dashboard_score('the-map', macro_score, {'tasi_mood': tasi_mood})
+    
+    return result
 
 def analyze_the_frontier() -> Dict:
     """THE FRONTIER - Silicon Frontier Watch"""
@@ -1096,6 +1149,23 @@ def analyze_the_commander() -> Dict:
     except:
         pass
     
+    # Build conflict matrix and weighted signals if enhanced available
+    conflict_matrix = None
+    weighted_signal = None
+    decision_tree = None
+    
+    if ENHANCED_AVAILABLE:
+        dashboards_data = {
+            'the-shield': shield_data,
+            'the-coin': coin_data,
+            'the-map': map_data,
+            'the-frontier': frontier_data,
+            'the-strategy': strategy_data
+        }
+        conflict_matrix = build_conflict_matrix(dashboards_data)
+        weighted_signal = calculate_weighted_top_signal(dashboards_data)
+        decision_tree = build_decision_tree(dashboards_data)
+    
     # AI Generation of Morning Brief
     morning_brief = {}
     
@@ -1178,7 +1248,7 @@ Return JSON:
             "summary_sentence": "Data feeds active. AI synthesis pending next scheduled run."
         }
     
-    return {
+    result = {
         'dashboard': 'the-commander',
         'name': 'The Commander',
         'role': 'Master Orchestrator',
@@ -1195,6 +1265,21 @@ Return JSON:
             'the-library': 'active'
         }
     }
+    
+    # Add enhanced features if available
+    if conflict_matrix:
+        result['conflict_matrix'] = conflict_matrix
+    if weighted_signal:
+        # Update top_signal with weighted calculation
+        if 'top_signal' in morning_brief:
+            morning_brief['top_signal'] = weighted_signal['signal']
+        morning_brief['weighted_score'] = weighted_signal['weighted_score']
+        morning_brief['top_component'] = weighted_signal['top_component']
+        morning_brief['confidence'] = weighted_signal['confidence']
+    if decision_tree:
+        result['decision_tree'] = decision_tree
+    
+    return result
 
 # ========================================
 # Main Execution with Waterfall Logic

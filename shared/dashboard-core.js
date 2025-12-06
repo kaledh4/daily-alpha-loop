@@ -56,6 +56,53 @@ function renderScoring(scoring) {
     `;
 }
 
+function renderEnhancedMetrics(metrics) {
+    if (!metrics || !Array.isArray(metrics)) return '';
+    
+    return `
+        <div class="content-card" style="margin-top: 20px;">
+            <h2><img src="../static/icons/icons8-map-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Enhanced Metrics</h2>
+            <div class="data-grid">
+                ${metrics.map(metric => {
+                    const percentile = metric.percentile || null;
+                    const trend = metric.trend || null;
+                    const colorZone = metric.color_zone || null;
+                    
+                    let trendHtml = '';
+                    if (trend) {
+                        const trendColor = trend.direction === '↑' ? '#28a745' : trend.direction === '↓' ? '#dc3545' : '#718096';
+                        trendHtml = `<span style="color: ${trendColor}; font-size: 1.2rem; margin-left: 8px;">${trend.direction}</span>`;
+                    }
+                    
+                    let percentileHtml = '';
+                    if (percentile !== null) {
+                        percentileHtml = `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${percentile}th percentile</div>`;
+                    }
+                    
+                    let zoneHtml = '';
+                    if (colorZone) {
+                        zoneHtml = `<div style="display: inline-block; padding: 4px 8px; background: ${colorZone.color}20; color: ${colorZone.color}; border-radius: 4px; font-size: 0.85rem; margin-left: 8px;">${colorZone.label}</div>`;
+                    }
+                    
+                    return `
+                        <div class="data-section" style="border-left: 3px solid ${colorZone ? colorZone.color : '#718096'}; padding-left: 12px;">
+                            <h3 style="display: flex; align-items: center; justify-content: space-between;">
+                                <span>${metric.name}</span>
+                                ${trendHtml}
+                            </h3>
+                            <div class="data-value" style="color: ${colorZone ? colorZone.color : '#63b3ed'};">
+                                ${metric.value} ${zoneHtml}
+                            </div>
+                            ${percentileHtml}
+                            ${trend && trend.label ? `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${trend.label}</div>` : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `;
+}
+
 function renderDataSources(sources) {
     if (!sources || sources.length === 0) return '';
 
@@ -163,20 +210,101 @@ async function initDashboard(dashboardName) {
     const contentEl = document.getElementById('content');
 
     if (dashboardName === 'the-commander') {
-        contentEl.innerHTML = renderMorningBrief(data.morning_brief);
+        let html = renderMorningBrief(data.morning_brief);
+        
+        // Add conflict matrix if available
+        if (data.conflict_matrix) {
+            const matrix = data.conflict_matrix;
+            html += `
+                <div class="content-card" style="margin-top: 20px;">
+                    <h2>📊 Dashboard Convergence</h2>
+                    <div class="data-grid">
+                        <div class="data-section">
+                            <h3>Risk</h3>
+                            <div style="color: ${matrix.risk.color}; font-weight: bold;">${matrix.risk.signal} (${matrix.risk.score}/100)</div>
+                        </div>
+                        <div class="data-section">
+                            <h3>Crypto</h3>
+                            <div style="color: ${matrix.crypto.color}; font-weight: bold;">${matrix.crypto.signal} (${matrix.crypto.score}/100)</div>
+                        </div>
+                        <div class="data-section">
+                            <h3>Macro</h3>
+                            <div style="color: ${matrix.macro.color}; font-weight: bold;">${matrix.macro.signal} (${matrix.macro.score}/100)</div>
+                        </div>
+                        <div class="data-section">
+                            <h3>Tech</h3>
+                            <div style="color: ${matrix.tech.color}; font-weight: bold;">${matrix.tech.signal} (${matrix.tech.score}/100)</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: ${matrix.net_signal.color}20; border-radius: 8px; border-left: 4px solid ${matrix.net_signal.color};">
+                        <h3 style="color: ${matrix.net_signal.color}; margin-bottom: 8px;">Net Signal: ${matrix.net_signal.signal}</h3>
+                        <div style="color: #718096;">Confidence: ${(matrix.net_signal.confidence * 100).toFixed(0)}%</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Add decision tree if available
+        if (data.decision_tree && data.decision_tree.primary_decision) {
+            const decision = data.decision_tree.primary_decision;
+            html += `
+                <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
+                    <h2 style="color: #48bb78;">🎯 Decision Tree</h2>
+                    <div style="padding: 15px; background: #1a202c; border-radius: 8px; margin-top: 10px;">
+                        <div style="color: #90cdf4; font-weight: bold; margin-bottom: 8px;">IF ${decision.condition}</div>
+                        <div style="color: #48bb78; font-size: 1.2rem; font-weight: bold; margin-bottom: 8px;">→ ${decision.action}</div>
+                        <div style="color: #718096; font-size: 0.9rem;">Confidence: ${(decision.confidence * 100).toFixed(0)}%</div>
+                        <div style="color: #cbd5e0; margin-top: 8px; font-style: italic;">${decision.reasoning}</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        contentEl.innerHTML = html;
     } else {
         let html = '';
 
-        // 1. Scoring Metrics
+        // 1. Regime detection (for The Shield)
+        if (data.regime) {
+            html += `
+                <div class="content-card">
+                    <h2>🎯 Market Regime</h2>
+                    <div style="padding: 15px; background: ${data.regime.color}20; border-radius: 8px; border-left: 4px solid ${data.regime.color};">
+                        <div style="color: ${data.regime.color}; font-size: 1.3rem; font-weight: bold;">${data.regime.regime}</div>
+                        <div style="color: #718096; margin-top: 4px;">Confidence: ${(data.regime.confidence * 100).toFixed(0)}%</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 2. Scoring Metrics
         html += renderScoring(data.scoring);
 
-        // 2. Specific Dashboard Data (Custom rendering can be added here if needed, 
-        // but for now we stick to the unified structure requested: Scoring + AI Analysis)
+        // 3. Enhanced Metrics (if available)
+        if (data.metrics && Array.isArray(data.metrics) && data.metrics[0] && data.metrics[0].percentile !== undefined) {
+            html += renderEnhancedMetrics(data.metrics);
+        } else if (data.metrics) {
+            // Fallback: render basic metrics
+            html += `
+                <div class="content-card" style="margin-top: 20px;">
+                    <h2>📊 Metrics</h2>
+                    <div class="data-grid">
+                        ${data.metrics.map(m => `
+                            <div class="data-section">
+                                <h3>${m.name}</h3>
+                                <div class="data-value">${m.value}</div>
+                                <div style="font-size: 0.85rem; color: #718096;">${m.signal}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
 
-        // 3. AI Analysis (The main difference)
+        // 4. AI Analysis
         html += renderAIAnalysis(data.ai_analysis);
 
-        // 4. Data Sources
+        // 5. Data Sources
         html += renderDataSources(data.data_sources);
 
         contentEl.innerHTML = html;
