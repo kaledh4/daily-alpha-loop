@@ -3,7 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-06 10:51:22 UTC",
+  "last_update": "2025-12-06 20:12:22 UTC",
   "scoring": {
     "stance_strength": 5,
     "volatility_risk": 5,
@@ -19,11 +19,11 @@
   },
   "tasi_mood": "Neutral",
   "drivers": [
-    "US dollar strength",
     "Oil prices",
+    "Dollar strength",
     "Global rates"
   ],
-  "ai_analysis": "The current macro environment is characterized by a strong US dollar, with the DXY at 98.99, and relatively high oil prices at $60.08. This could have a negative impact on the TASI and Saudi markets, as a strong dollar and high oil prices can lead to reduced demand and economic growth. The global rates, with the 10Y Treasury Yield at 4.14%, also suggest a cautious market environment. The TASI mood is currently neutral, with drivers including the US dollar strength, oil prices, and global rates. The TASI forecast for this week is likely to be negative, given the current macro conditions.",
+  "ai_analysis": "The macro environment is complex, with oil prices and the dollar strength impacting global rates and the TASI. The DXY is high, indicating a strong US dollar, which may negatively impact emerging markets. The TASI is also influenced by the Saudi market, which is experiencing a neutral mood. The drivers of the TASI are the oil prices, dollar strength, and global rates. The TASI forecast is neutral, with a potential bias towards the downside.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

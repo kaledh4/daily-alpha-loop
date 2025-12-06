@@ -3,24 +3,24 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-06 10:51:22 UTC",
+  "last_update": "2025-12-06 20:12:22 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Decoy-state quantum key distribution",
-      "eli5": "A method for secure communication over long distances",
-      "long_term": "Enables secure communication in various fields"
+      "title": "Quantum Key Distribution",
+      "eli5": "Secure communication over long distances",
+      "long_term": "Enabling secure communication for sensitive information"
     },
     {
-      "title": "pHapCompass",
-      "eli5": "A tool for probabilistic assembly and uncertainty quantification",
-      "long_term": "Improves our understanding of complex systems"
+      "title": "Microwave-Optical Quantum Transduction",
+      "eli5": "Enabling the transfer of quantum information between different systems",
+      "long_term": "Enabling the development of more efficient quantum computers"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by significant advancements in AI, tech, and quantum computing. The key learning themes include the importance of secure communication, probabilistic assembly, and uncertainty quantification. The knowledge velocity is moderate, with new breakthroughs and developments emerging regularly. The summaries of complex topics, such as decoy-state quantum key distribution and pHapCompass, provide valuable insights into the current state of research and development.",
+  "ai_analysis": "The knowledge landscape is rapidly evolving, with significant breakthroughs in AI and tech. The key learning themes are the applications of quantum key distribution and microwave-optical quantum transduction. The knowledge velocity is high, with new research and discoveries being published at an accelerating rate.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
