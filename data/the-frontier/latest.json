@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-06 10:51:22 UTC",
+  "last_update": "2025-12-06 20:12:22 UTC",
   "scoring": {
     "breakthrough_score": 4,
     "trajectory": 8.5,
@@ -188,15 +188,15 @@
   },
   "breakthroughs": [
     {
-      "title": "Decoy-state quantum key distribution",
-      "why_it_matters": "Enables secure communication over long distances"
+      "title": "Quantum Key Distribution",
+      "why_it_matters": "Secure communication over long distances"
     },
     {
-      "title": "pHapCompass",
-      "why_it_matters": "Improves probabilistic assembly and uncertainty quantification of polyploid haplotype phase"
+      "title": "Microwave-Optical Quantum Transduction",
+      "why_it_matters": "Enabling the transfer of quantum information between different systems"
     }
   ],
-  "ai_analysis": "The current AI and tech breakthrough velocity is moderate, with significant advancements in areas such as quantum key distribution and probabilistic assembly. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are also notable developments. However, it is essential to separate real breakthroughs from hype, as some developments may not have immediate practical applications. The breakthroughs in decoy-state quantum key distribution and pHapCompass are particularly noteworthy, as they have the potential to significantly impact various fields.",
+  "ai_analysis": "The AI and tech breakthrough velocity is accelerating, with significant advancements in quantum key distribution and microwave-optical quantum transduction. The Universal Weight Subspace Hypothesis is also a notable breakthrough, with potential applications in machine learning. However, the decoy-state quantum key distribution is still in its early stages, and its impact is uncertain.",
   "data_sources": [
     "ai_rnd",
     "quantum",
