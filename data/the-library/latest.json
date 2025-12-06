@@ -3,24 +3,24 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-06 21:58:35 UTC",
+  "last_update": "2025-12-06 22:03:31 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Quantum key distribution",
-      "eli5": "Secure data transmission method",
-      "long_term": "Revolutionize data security"
+      "title": "Quantum Key Distribution",
+      "eli5": "A way to secure communication over long distances",
+      "long_term": "Enables secure communication and data transfer"
     },
     {
-      "title": "pHapCompass",
-      "eli5": "Tool for understanding genetic data",
-      "long_term": "Improve genetic research and applications"
+      "title": "Flow Matching Alignment",
+      "eli5": "A way to improve AI efficiency",
+      "long_term": "Improves the effectiveness of AI systems and enables new applications"
     }
   ],
-  "ai_analysis": "Today's knowledge landscape is characterized by significant advancements in AI, quantum computing, and data analysis. Key learning themes include the application of machine learning in finance and the importance of understanding polyploid haplotype phase in genetics. The accumulation of breakthrough knowledge is happening at a fast pace, with new discoveries and innovations emerging regularly.",
+  "ai_analysis": "The current knowledge landscape is characterized by a high velocity of breakthroughs in AI and tech, with significant implications for the global economy and financial markets. The key learning themes from news and research include the importance of quantum key distribution, flow matching alignment, and probabilistic assembly, as well as the potential for AI-driven market insights and institutional ambitions in the crypto space.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
