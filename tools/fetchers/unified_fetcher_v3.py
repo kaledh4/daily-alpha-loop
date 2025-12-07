@@ -816,97 +816,105 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
 
     # Build comprehensive prompt for all dashboards
     prompt = f"""You are the Master AI Analyst for the Daily Alpha Loop system. 
-Analyze the following market data and generate comprehensive 4-minute briefings for ALL 7 dashboards.
-
-CURRENT MARKET DATA:
-====================
-
-RISK DATA (The Shield):
-- JPY: {all_data.get('jpy', 'N/A')}
-- CNH: {all_data.get('cnh', 'N/A')}
-- 10Y Treasury Yield: {all_data.get('tnx', 'N/A')}%
-- MOVE Index: {all_data.get('move', 'N/A')}
-- VIX: {all_data.get('vix', 'N/A')}
-- 10Y Bid-to-Cover: {all_data.get('btc_10y', 'N/A')}
-
-CRYPTO DATA (The Coin):
-- BTC Price: ${all_data.get('btc_price', 0):,.0f}
-- ETH Price: ${all_data.get('eth_price', 0):,.0f}
-- BTC RSI: {all_data.get('btc_rsi', 'N/A')}
-- BTC Trend: {all_data.get('btc_trend', 'N/A')}
-- Fear & Greed: {all_data.get('fng_value', 'N/A')} ({all_data.get('fng_class', 'N/A')})
-
-MACRO DATA (The Map):
-- Oil: ${all_data.get('oil', 'N/A')}
-- DXY: {all_data.get('dxy', 'N/A')}
-- Gold: ${all_data.get('gold', 'N/A')}
-- SP500: {all_data.get('sp500', 'N/A')}
-- TASI (Saudi): {all_data.get('tasi', 'N/A')}
-
-AI/TECH RESEARCH (The Frontier):
-{all_data.get('arxiv_summary', 'Recent papers in AI, Quantum, Robotics, Biotech domains')}
-
-NEWS HEADLINES (Last 10):
-{all_data.get('news_headlines', 'Market news unavailable')}
-
-TASK:
-Generate a comprehensive JSON response with deep analysis for ALL 7 dashboards.
-Each analysis should be suitable for a 4-minute read - go beyond surface level.
-Be specific, insightful, and actionable.
-
-Return ONLY valid JSON in this exact structure:
-{{
-  "the_shield": {{
-    "analysis": "3-4 sentence deep analysis of systemic market fragility, stress points, and what professional traders should watch. Be specific about which metrics signal danger.",
-    "risk_level": "CRITICAL/ELEVATED/LOW",
-    "top_concern": "The single biggest risk factor right now"
-  }},
-  "the_coin": {{
-    "analysis": "3-4 sentence analysis of crypto momentum, rotation dynamics, and institutional flow. Address both BTC and ETH specifically.",
-    "momentum": "Bullish/Bearish/Neutral",
-    "key_level": "The most important price level to watch"
-  }},
-  "the_map": {{
-    "analysis": "4-5 sentence macro analysis focusing on how oil prices, dollar strength, and global rates impact TASI and Saudi markets. Connect the dots between global macro and regional impact.",
-    "tasi_mood": "Positive/Neutral/Negative",
-    "drivers": ["Driver 1", "Driver 2", "Driver 3"],
-    "tasi_forecast": "What's the likely directional bias for TASI this week?"
-  }},
-  "the_frontier": {{
-    "analysis": "3-4 sentence analysis of AI and tech breakthrough velocity. What's accelerating? What's real vs hype?",
-    "breakthroughs": [
-      {{"title": "Breakthrough 1", "why_it_matters": "Impact explanation"}},
-      {{"title": "Breakthrough 2", "why_it_matters": "Impact explanation"}}
-    ],
-    "velocity": "Slow/Moderate/Fast/Exponential"
-  }},
-  "the_strategy": {{
-    "analysis": "4-5 sentence synthesis of all signals above. How do risk, crypto, macro, and tech align or conflict? What's the unified market narrative today?",
-    "stance": "Defensive/Neutral/Accumulative/Opportunistic/Aggressive",
-    "mindset": "One powerful sentence capturing the strategic approach for today",
-    "conviction": "High/Medium/Low"
-  }},
-  "the_library": {{
-    "analysis": "2-3 sentence overview of today's knowledge landscape and key learning themes from news and research",
-    "summaries": [
-      {{"title": "Complex Topic 1", "eli5": "Simple explanation", "long_term": "Why it matters"}},
-      {{"title": "Complex Topic 2", "eli5": "Simple explanation", "long_term": "Why it matters"}}
-    ],
-    "knowledge_velocity": "How fast is breakthrough knowledge accumulating?"
-  }},
-  "the_commander": {{
-    "weather_of_the_day": "Stormy/Cloudy/Sunny/Volatile/Foggy",
-    "top_signal": "The single most important data point across all dashboards today",
-    "why_it_matters": "4-5 sentence deep explanation of why this signal is critical right now. What are the second and third order effects?",
-    "cross_dashboard_convergence": "5-6 sentence paragraph connecting Risk, Crypto, Macro, and Tech. How do these forces interact today? Where is the friction? Where is alignment? What does this mean for positioning?",
-    "action_stance": "Specific actionable guidance",
-    "optional_deep_insight": "Two paragraphs of advanced market theory applied to today's data. Connect uncommon dots for professional traders. Go deep.",
-    "clarity_level": "High/Medium/Low",
-    "summary_sentence": "One powerful closing thought that synthesizes everything"
-  }}
-}}
-
-CRITICAL: Return ONLY the JSON object, no markdown, no explanation, no code blocks."""
+    Analyze the following market data and generate comprehensive 4-minute briefings for ALL 7 dashboards.
+    
+    CURRENT MARKET DATA:
+    ====================
+    
+    RISK DATA (The Shield):
+    - JPY: {format_number(all_data.get('jpy'))}
+    - CNH: {format_number(all_data.get('cnh'), 4)}
+    - 10Y Treasury Yield: {format_number(all_data.get('tnx'))}%
+    - MOVE Index: {format_number(all_data.get('move'))}
+    - VIX: {format_number(all_data.get('vix'))}
+    - 10Y Bid-to-Cover: {format_number(all_data.get('btc_10y'))}
+    
+    CRYPTO DATA (The Coin):
+    - BTC Price: ${all_data.get('btc_price', 0):,.0f}
+    - ETH Price: ${all_data.get('eth_price', 0):,.0f}
+    - BTC RSI: {format_number(all_data.get('btc_rsi'))}
+    - BTC Trend: {all_data.get('btc_trend', 'N/A')}
+    - Fear & Greed: {all_data.get('fng_value', 'N/A')} ({all_data.get('fng_class', 'N/A')})
+    
+    MACRO DATA (The Map):
+    - Oil: ${format_number(all_data.get('oil'))}
+    - DXY: {format_number(all_data.get('dxy'))}
+    - Gold: ${format_number(all_data.get('gold'))}
+    - SP500: {format_number(all_data.get('sp500'))}
+    - TASI (Saudi): {format_number(all_data.get('tasi'))}
+    
+    AI/TECH RESEARCH (The Frontier):
+    {all_data.get('arxiv_summary', 'Recent papers in AI, Quantum, Robotics, Biotech domains')}
+    
+    NEWS HEADLINES (Last 10):
+    {all_data.get('news_headlines', 'Market news unavailable')}
+    
+    TASK:
+    Generate a comprehensive JSON response with deep analysis for ALL 7 dashboards.
+    Each analysis should be suitable for a 4-minute read - go beyond surface level.
+    
+    CRITICAL INSTRUCTIONS:
+    1. QUANTITATIVE THRESHOLDS & HIERARCHY: Do not just give one number. Provide a scale (e.g., "Normal: <15, Elevated: 15-20, Critical: >20"). State exactly where we are on that scale.
+    2. PORTFOLIO IMPLICATIONS: Provide specific sector rotations, hedge recommendations, and position sizing adjustments.
+    3. TIMEFRAME CLARITY: Specify if the stance is for days, weeks, or months.
+    4. HISTORICAL ANALOGS: Compare current setup to specific past events (e.g., "Resembles Q4 2018").
+    5. CONTRARIAN INDICATORS: State what would invalidate your thesis.
+    6. WEATHER METAPHOR: If using "Stormy" or "Sunny", explain WHY. Connect it meaningfully to the data.
+    7. NO EMPTY DASHBOARDS: Ensure Frontier, Strategy, and Library have rich, specific content, not generic placeholders.
+    
+    Return ONLY valid JSON in this exact structure:
+    {{
+      "the_shield": {{
+        "analysis": "3-4 sentence deep analysis of systemic market fragility. Use specific numbers. Compare to historical norms (e.g., 'MOVE at 67 is low compared to 2022 avg of 120').",
+        "risk_level": "CRITICAL/ELEVATED/LOW",
+        "top_concern": "The single biggest risk factor right now (e.g., 'Yuan devaluation risk above 7.25')"
+      }},
+      "the_coin": {{
+        "analysis": "3-4 sentence analysis of crypto momentum. Address BTC vs ETH rotation. Mention specific price levels that trigger action.",
+        "momentum": "Bullish/Bearish/Neutral",
+        "key_level": "The most important price level to watch (e.g., '$98,500 breakout')"
+      }},
+      "the_map": {{
+        "analysis": "4-5 sentence macro analysis. Connect Oil, DXY, and Rates to TASI. Give a specific directional bias for the week.",
+        "tasi_mood": "Positive/Neutral/Negative",
+        "drivers": ["Driver 1 (Specific)", "Driver 2 (Specific)", "Driver 3 (Specific)"],
+        "tasi_forecast": "Likely directional bias for TASI (e.g., 'Rangebound 11,800-12,200')"
+      }},
+      "the_frontier": {{
+        "analysis": "3-4 sentence analysis of AI/Tech velocity. Don't be vague. Mention specific papers or breakthroughs from the provided list.",
+        "breakthroughs": [
+          {{"title": "Specific Breakthrough 1", "why_it_matters": "Deep impact explanation (2 sentences)"}},
+          {{"title": "Specific Breakthrough 2", "why_it_matters": "Deep impact explanation (2 sentences)"}}
+        ],
+        "velocity": "Slow/Moderate/Fast/Exponential"
+      }},
+      "the_strategy": {{
+        "analysis": "4-5 sentence synthesis. Resolve the tension between signals (e.g., 'Defensive on macro, but opportunistic on AI dip'). Give a clear allocation recommendation.",
+        "stance": "Defensive/Neutral/Accumulative/Opportunistic/Aggressive",
+        "mindset": "One powerful sentence capturing the strategic approach (e.g., 'Sell rips in Tech, buy dips in Energy')",
+        "conviction": "High/Medium/Low"
+      }},
+      "the_library": {{
+        "analysis": "2-3 sentence overview of the knowledge landscape. What is the 'theme' of today's research/news?",
+        "summaries": [
+          {{"title": "Deep Topic 1", "eli5": "Simple explanation", "long_term": "Why it matters for the next decade"}},
+          {{"title": "Deep Topic 2", "eli5": "Simple explanation", "long_term": "Why it matters for the next decade"}}
+        ],
+        "knowledge_velocity": "Rapid/Steady/Stagnant"
+      }},
+      "the_commander": {{
+        "weather_of_the_day": "Stormy/Cloudy/Sunny/Volatile/Foggy",
+        "top_signal": "The single most important data point across all dashboards today",
+        "why_it_matters": "4-5 sentence deep explanation of why this signal is critical right now. What are the second and third order effects?",
+        "cross_dashboard_convergence": "5-6 sentences connecting Risk, Crypto, Macro, and Tech. How do these forces interact today? Where is the friction? Where is alignment? What does this mean for positioning?",
+        "action_stance": "Specific actionable guidance",
+        "optional_deep_insight": "Two paragraphs of advanced market theory applied to today. Use historical analogs.",
+        "clarity_level": "High/Medium/Low",
+        "summary_sentence": "One powerful closing thought that synthesizes everything."
+      }}
+    }}
+    
+    CRITICAL: Return ONLY the JSON object, no markdown, no explanation, no code blocks."""
 
     # Try each free model until one succeeds
     for model_index, model in enumerate(FREE_OPENROUTER_MODELS):
