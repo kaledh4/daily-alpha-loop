@@ -58,33 +58,33 @@ function renderScoring(scoring) {
 
 function renderEnhancedMetrics(metrics) {
     if (!metrics || !Array.isArray(metrics)) return '';
-    
+
     return `
         <div class="content-card" style="margin-top: 20px;">
             <h2><img src="../static/icons/icons8-map-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Enhanced Metrics</h2>
             <div class="data-grid">
                 ${metrics.map(metric => {
-                    const percentile = metric.percentile || null;
-                    const trend = metric.trend || null;
-                    const colorZone = metric.color_zone || null;
-                    
-                    let trendHtml = '';
-                    if (trend) {
-                        const trendColor = trend.direction === '↑' ? '#28a745' : trend.direction === '↓' ? '#dc3545' : '#718096';
-                        trendHtml = `<span style="color: ${trendColor}; font-size: 1.2rem; margin-left: 8px;">${trend.direction}</span>`;
-                    }
-                    
-                    let percentileHtml = '';
-                    if (percentile !== null) {
-                        percentileHtml = `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${percentile}th percentile</div>`;
-                    }
-                    
-                    let zoneHtml = '';
-                    if (colorZone) {
-                        zoneHtml = `<div style="display: inline-block; padding: 4px 8px; background: ${colorZone.color}20; color: ${colorZone.color}; border-radius: 4px; font-size: 0.85rem; margin-left: 8px;">${colorZone.label}</div>`;
-                    }
-                    
-                    return `
+        const percentile = metric.percentile || null;
+        const trend = metric.trend || null;
+        const colorZone = metric.color_zone || null;
+
+        let trendHtml = '';
+        if (trend) {
+            const trendColor = trend.direction === '↑' ? '#28a745' : trend.direction === '↓' ? '#dc3545' : '#718096';
+            trendHtml = `<span style="color: ${trendColor}; font-size: 1.2rem; margin-left: 8px;">${trend.direction}</span>`;
+        }
+
+        let percentileHtml = '';
+        if (percentile !== null) {
+            percentileHtml = `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${percentile}th percentile</div>`;
+        }
+
+        let zoneHtml = '';
+        if (colorZone) {
+            zoneHtml = `<div style="display: inline-block; padding: 4px 8px; background: ${colorZone.color}20; color: ${colorZone.color}; border-radius: 4px; font-size: 0.85rem; margin-left: 8px;">${colorZone.label}</div>`;
+        }
+
+        return `
                         <div class="data-section" style="border-left: 3px solid ${colorZone ? colorZone.color : '#718096'}; padding-left: 12px;">
                             <h3 style="display: flex; align-items: center; justify-content: space-between;">
                                 <span>${metric.name}</span>
@@ -97,7 +97,7 @@ function renderEnhancedMetrics(metrics) {
                             ${trend && trend.label ? `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${trend.label}</div>` : ''}
                         </div>
                     `;
-                }).join('')}
+    }).join('')}
             </div>
         </div>
     `;
@@ -211,7 +211,7 @@ async function initDashboard(dashboardName) {
 
     if (dashboardName === 'the-commander') {
         let html = renderMorningBrief(data.morning_brief);
-        
+
         // Add conflict matrix if available
         if (data.conflict_matrix) {
             const matrix = data.conflict_matrix;
@@ -243,7 +243,7 @@ async function initDashboard(dashboardName) {
                 </div>
             `;
         }
-        
+
         // Add decision tree if available
         if (data.decision_tree && data.decision_tree.primary_decision) {
             const decision = data.decision_tree.primary_decision;
@@ -259,7 +259,7 @@ async function initDashboard(dashboardName) {
                 </div>
             `;
         }
-        
+
         contentEl.innerHTML = html;
     } else {
         let html = '';
@@ -280,25 +280,30 @@ async function initDashboard(dashboardName) {
         // 2. Scoring Metrics
         html += renderScoring(data.scoring);
 
-        // 3. Enhanced Metrics (if available)
-        if (data.metrics && Array.isArray(data.metrics) && data.metrics[0] && data.metrics[0].percentile !== undefined) {
-            html += renderEnhancedMetrics(data.metrics);
-        } else if (data.metrics) {
-            // Fallback: render basic metrics
-            html += `
-                <div class="content-card" style="margin-top: 20px;">
-                    <h2>📊 Metrics</h2>
-                    <div class="data-grid">
-                        ${data.metrics.map(m => `
-                            <div class="data-section">
-                                <h3>${m.name}</h3>
-                                <div class="data-value">${m.value}</div>
-                                <div style="font-size: 0.85rem; color: #718096;">${m.signal}</div>
-                            </div>
-                        `).join('')}
+        // 3. Metrics Section
+        if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
+            // Check if metrics are enhanced (have percentile)
+            const isEnhanced = data.metrics[0].percentile !== undefined;
+
+            if (isEnhanced) {
+                html += renderEnhancedMetrics(data.metrics);
+            } else {
+                // Render basic metrics
+                html += `
+                    <div class="content-card" style="margin-top: 20px;">
+                        <h2><img src="../static/icons/icons8-chart-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Market Metrics</h2>
+                        <div class="data-grid">
+                            ${data.metrics.map(m => `
+                                <div class="data-section">
+                                    <h3>${m.name}</h3>
+                                    <div class="data-value" style="color: #63b3ed;">${m.value}</div>
+                                    <div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${m.signal}</div>
+                                </div>
+                            `).join('')}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            }
         }
 
         // 4. AI Analysis
