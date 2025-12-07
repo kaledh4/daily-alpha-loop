@@ -3,12 +3,39 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-07 10:06:11 UTC",
   "scoring": {
     "breakthrough_score": 8,
     "trajectory": 8.5,
     "future_pull": 7.0
   },
+  "metrics": [
+    {
+      "name": "AI Research",
+      "value": "331,278",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Advanced Manufacturing",
+      "value": "47,414",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Biotechnology",
+      "value": "9,996",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Quantum Computing",
+      "value": "171,082",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Semiconductors",
+      "value": "104,959",
+      "signal": "ACTIVE"
+    }
+  ],
   "domains": {
     "AI Research": {
       "total_volume": 331278,
@@ -188,23 +215,23 @@
   },
   "breakthroughs": [
     {
-      "title": "Decoy-state quantum key distribution over 227 km",
-      "why_it_matters": "Enhanced data security over long distances"
-    },
-    {
-      "title": "The Universal Weight Subspace Hypothesis",
-      "why_it_matters": "Potential for significant improvements in AI decision-making"
+      "title": "Decoy-state quantum key distribution over 227 km with a frequency-converted telecom single-photon source",
+      "why_it_matters": "Enables secure communication over long distances"
     },
     {
       "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "why_it_matters": "Efficient conversion between microwave and optical signals"
+      "why_it_matters": "Advances quantum computing and secure communication"
     },
     {
-      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
-      "why_it_matters": "Advancements in genetic analysis and personalized medicine"
+      "title": "The Universal Weight Subspace Hypothesis",
+      "why_it_matters": "Improves understanding of complex systems and AI decision-making"
+    },
+    {
+      "title": "Value Gradient Guidance for Flow Matching Alignment",
+      "why_it_matters": "Enhances AI efficiency and accuracy"
     }
   ],
-  "ai_analysis": "The AI and tech sector is experiencing moderate velocity, with several breakthroughs in quantum computing and materials science. The Universal Weight Subspace Hypothesis and advancements in decoy-state quantum key distribution are particularly noteworthy, as they could lead to significant improvements in data security and computing power. The application of Value Gradient Guidance for Flow Matching Alignment could enhance AI decision-making processes. These developments suggest a fast pace of innovation, which could lead to exponential growth in the sector. Breakthroughs like Pump Free Microwave-Optical Quantum Transduction and pHapCompass indicate a deepening understanding of complex systems and their applications.",
+  "ai_analysis": "The AI/Tech sector is experiencing moderate velocity, with breakthroughs in quantum key distribution and probabilistic assembly. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are notable research papers. The breakthroughs in decoy-state quantum key distribution and Pump Free Microwave-Optical Quantum Transduction have significant implications for secure communication and quantum computing. The velocity is Moderate, with potential for exponential growth in the long term.",
   "data_sources": [
     "ai_rnd",
     "quantum",

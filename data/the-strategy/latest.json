@@ -3,15 +3,15 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-07 09:59:55 UTC",
+  "last_update": "2025-12-07 10:06:11 UTC",
   "scoring": {
     "stance_confidence": 5
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "Elevated",
-      "signal": "NORMAL"
+      "value": "ELEVATED",
+      "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
@@ -20,8 +20,8 @@
     },
     {
       "name": "Macro Input",
-      "value": "Negative",
-      "signal": "NEGATIVE"
+      "value": "Neutral",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Frontier Input",
@@ -29,15 +29,15 @@
       "signal": "NORMAL"
     }
   ],
-  "stance": "Opportunistic",
-  "mindset": "Cautious growth",
+  "stance": "Neutral",
+  "mindset": "Cautious",
   "inputs": {
-    "risk": "Elevated",
+    "risk": "ELEVATED",
     "crypto": "Bearish",
-    "macro": "Negative",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "The current market environment is characterized by a defensive macro setup, but opportunistic AI and Tech trends. The bearish crypto momentum and elevated risk level suggest a cautious approach. However, the fast velocity of innovation in AI and Tech presents opportunities for growth. The recommended stance is Opportunistic, with a focus on AI and Tech investments, while maintaining a defensive position in macro assets. The mindset is to be prepared for potential market volatility, while conviction is Medium.",
+  "ai_analysis": "The current market environment is defensive on macro, but opportunistic on AI dip. The tension between signals suggests a neutral stance, with a focus on sector rotation and hedging. Allocation recommendations include a 40% weighting to defensive sectors, 30% to AI/Tech, and 30% to cash and bonds. The mindset is cautious, with a conviction level of Medium. The stance is Neutral, with a focus on flexibility and adaptability.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"

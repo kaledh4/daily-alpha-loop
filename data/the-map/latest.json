@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 09:59:55 UTC",
+  "last_update": "2025-12-07 10:06:11 UTC",
   "scoring": {
-    "stance_strength": 3,
+    "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -17,8 +17,8 @@
     },
     {
       "name": "TASI",
-      "value": "10,628",
-      "signal": "NEGATIVE"
+      "value": "10,630",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
@@ -46,18 +46,18 @@
     "dxy": 98.99,
     "gold": 4212.9,
     "sp500": 6870.4,
-    "tasi": 10627.55,
+    "tasi": 10629.62,
     "treasury_10y": 4.14
   },
-  "tasi_mood": "Negative",
+  "tasi_mood": "Neutral",
   "drivers": [
     "Oil prices",
-    "US dollar strength",
     "Interest rates",
-    "Global economic growth",
-    "Geopolitical tensions"
+    "Global events",
+    "Inflation",
+    "Geopolitics"
   ],
-  "ai_analysis": "The current macro environment is characterized by a strong US dollar (DXY at 98.99), which is putting pressure on commodity prices, including oil (at $60.08). The SP500 at 6870.40 is near its recent highs, but the TASI (Saudi) at 10627.55 is showing signs of weakness. The 10Y Treasury Yield at 4.14% is also influencing the macro landscape, with potential implications for emerging markets. The drivers of the market this week are:",
+  "ai_analysis": "The macro environment is mixed, with Oil at $60.08 and DXY at 98.99 indicating a moderate inflationary pressure. The 10Y Treasury Yield at 4.14% suggests a relatively stable interest rate environment. The TASI at 10629.62 is neutral, with a positive bias for the week due to the potential for oil price increases. The SP500 at 6870.40 is near historical highs, suggesting a potential for consolidation. The Gold price at $4212.90 is elevated, indicating some safe-haven demand. Drivers for the week include oil prices, interest rates, and global events. The TASI mood is Neutral, with a forecast of sideways movement.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

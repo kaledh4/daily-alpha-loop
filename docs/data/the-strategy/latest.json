@@ -3,19 +3,41 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-07 10:06:11 UTC",
   "scoring": {
-    "stance_confidence": 7
+    "stance_confidence": 5
   },
-  "stance": "Accumulative",
-  "mindset": "Cautiously optimistic",
+  "metrics": [
+    {
+      "name": "Risk Input",
+      "value": "ELEVATED",
+      "signal": "CAUTION"
+    },
+    {
+      "name": "Crypto Input",
+      "value": "Bearish",
+      "signal": "BEARISH"
+    },
+    {
+      "name": "Macro Input",
+      "value": "Neutral",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Frontier Input",
+      "value": "Active",
+      "signal": "NORMAL"
+    }
+  ],
+  "stance": "Neutral",
+  "mindset": "Cautious",
   "inputs": {
-    "risk": "Elevated",
+    "risk": "ELEVATED",
     "crypto": "Bearish",
-    "macro": "Positive",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "Given the defensive posture suggested by the macro analysis and the opportunistic outlook in the AI/tech sector, the overall stance should be cautiously accumulative. The strategy involves a balanced portfolio with a slight overweight in tech and a underweight in sectors sensitive to interest rate changes. The mindset should be prepared for potential volatility but also positioned to capitalize on dips in growth sectors. Conviction in this strategy is medium, as it balances between the current bearish crypto momentum and the potential for a reversal, alongside the positive but cautious macro outlook.",
+  "ai_analysis": "The current market environment is defensive on macro, but opportunistic on AI dip. The tension between signals suggests a neutral stance, with a focus on sector rotation and hedging. Allocation recommendations include a 40% weighting to defensive sectors, 30% to AI/Tech, and 30% to cash and bonds. The mindset is cautious, with a conviction level of Medium. The stance is Neutral, with a focus on flexibility and adaptability.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"
