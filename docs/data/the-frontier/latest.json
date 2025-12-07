@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-06 22:03:31 UTC",
+  "last_update": "2025-12-07 04:30:42 UTC",
   "scoring": {
     "breakthrough_score": 4,
     "trajectory": 8.5,
@@ -188,15 +188,15 @@
   },
   "breakthroughs": [
     {
-      "title": "Quantum Key Distribution",
-      "why_it_matters": "Enables secure communication over long distances"
+      "title": "Decoy-state quantum key distribution over 227 km",
+      "why_it_matters": "Enables secure long-distance communication"
     },
     {
-      "title": "Flow Matching Alignment",
-      "why_it_matters": "Improves the efficiency and effectiveness of AI systems"
+      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
+      "why_it_matters": "Improves genomics and precision medicine"
     }
   ],
-  "ai_analysis": "The AI and tech landscape is accelerating rapidly, with breakthroughs in areas such as quantum key distribution, flow matching alignment, and probabilistic assembly. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are particularly notable, as they have the potential to significantly improve the efficiency and effectiveness of AI systems. The velocity of breakthroughs is exponential, with new discoveries and innovations emerging at an unprecedented pace.",
+  "ai_analysis": "The AI and tech breakthrough velocity is accelerating, with advancements in quantum key distribution, microwave-optical quantum transduction, and probabilistic assembly and uncertainty quantification of polyploid haplotype phase. These breakthroughs have significant implications for secure communication, computing, and genomics. The velocity of breakthroughs is exponential, with new discoveries and innovations emerging rapidly.",
   "data_sources": [
     "ai_rnd",
     "quantum",

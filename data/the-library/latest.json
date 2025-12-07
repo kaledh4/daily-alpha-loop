@@ -3,24 +3,24 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-06 22:03:31 UTC",
+  "last_update": "2025-12-07 04:30:42 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Quantum Key Distribution",
-      "eli5": "A way to secure communication over long distances",
-      "long_term": "Enables secure communication and data transfer"
+      "title": "The Universal Weight Subspace Hypothesis",
+      "eli5": "A new approach to machine learning",
+      "long_term": "Improves AI performance and efficiency"
     },
     {
-      "title": "Flow Matching Alignment",
-      "eli5": "A way to improve AI efficiency",
-      "long_term": "Improves the effectiveness of AI systems and enables new applications"
+      "title": "Value Gradient Guidance for Flow Matching Alignment",
+      "eli5": "A new method for optimizing flow matching",
+      "long_term": "Enhances computing and decision-making"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by a high velocity of breakthroughs in AI and tech, with significant implications for the global economy and financial markets. The key learning themes from news and research include the importance of quantum key distribution, flow matching alignment, and probabilistic assembly, as well as the potential for AI-driven market insights and institutional ambitions in the crypto space.",
+  "ai_analysis": "The knowledge landscape today is characterized by a high velocity of breakthrough knowledge accumulation, with significant advancements in AI, tech, and genomics. The key learning themes are secure communication, computing, and precision medicine. The summaries of complex topics include the Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
