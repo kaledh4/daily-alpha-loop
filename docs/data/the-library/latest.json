@@ -3,34 +3,34 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 06:55:44 UTC",
+  "last_update": "2025-12-07 08:36:27 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "Universal Weight Subspace Hypothesis",
-      "eli5": "More efficient AI models",
-      "long_term": "Potential for exponential growth"
+      "title": "The Universal Weight Subspace Hypothesis",
+      "eli5": "More efficient machine learning",
+      "long_term": "Improved decision-making"
     },
     {
-      "title": "Decoy-state quantum key distribution",
-      "eli5": "Secure quantum communication",
-      "long_term": "Potential for secure data transfer"
+      "title": "Value Gradient Guidance for Flow Matching Alignment",
+      "eli5": "Better decision-making",
+      "long_term": "Increased efficiency"
+    },
+    {
+      "title": "Decoy-state quantum key distribution over 227 km",
+      "eli5": "Secure communication",
+      "long_term": "Improved cybersecurity"
     },
     {
       "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "eli5": "Innovative quantum computing",
-      "long_term": "Potential for breakthroughs in computing"
-    },
-    {
-      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
-      "eli5": "Advancements in genomics",
-      "long_term": "Potential for breakthroughs in medicine"
+      "eli5": "More efficient quantum computing",
+      "long_term": "Exponential growth"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by a rapid velocity, with several notable research papers and breakthroughs in AI/Tech. The theme of today's research is focused on AI/Tech innovations and their potential applications. Summaries include the Universal Weight Subspace Hypothesis, which could lead to more efficient AI models, and the Decoy-state quantum key distribution, which could enable secure quantum communication. The knowledge velocity is currently Rapid, with new breakthroughs and research emerging daily.",
+  "ai_analysis": "The current knowledge landscape is characterized by a theme of innovation and breakthroughs in AI and Tech. The research papers and news headlines suggest a significant focus on quantum computing, machine learning, and cybersecurity. The knowledge velocity is Rapid, with new breakthroughs and discoveries being announced regularly. The key summaries are:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

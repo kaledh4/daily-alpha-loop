@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 06:55:44 UTC",
+  "last_update": "2025-12-07 08:36:27 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 8,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -14,18 +14,18 @@
     "dxy": 98.99,
     "gold": 4227.7,
     "sp500": 6870.4,
-    "tasi": 10626.15,
+    "tasi": 10620.04,
     "treasury_10y": 4.14
   },
-  "tasi_mood": "Neutral",
+  "tasi_mood": "Positive",
   "drivers": [
-    "Oil prices",
-    "Global economic conditions",
-    "Interest rates",
-    "Geopolitical tensions",
-    "US-China trade relations"
+    "Oil price",
+    "DXY",
+    "US equity market",
+    "Saudi economic growth",
+    "Global interest rates"
   ],
-  "ai_analysis": "The current macro environment is characterized by relatively low oil prices at $60.08, a strong DXY at 98.99, and high gold prices at $4,227.70. The SP500 at 6,870.40 is near its recent highs, but the TASI at 10,626.15 is showing signs of weakness. The 10Y Treasury Yield at 4.14% is also influencing the macro landscape. Drivers of the TASI include oil prices, global economic conditions, and interest rates. A potential decline in oil prices could lead to a positive impact on the TASI, while a rise in interest rates could have a negative effect. The TASI mood is currently Neutral, but a bearish bias is developing. The TASI forecast for the week is slightly bearish, with a potential decline of 1-2%. Portfolio implications include a 30% allocation to defensive sectors and a 20% allocation to oil-related stocks.",
+  "ai_analysis": "The macroeconomic landscape is characterized by a DXY at 98.99, indicating a strong US dollar, and an Oil price at $60.08, which is relatively low. The Gold price at $4227.70 is near historical highs, suggesting some safe-haven demand. The SP500 at 6870.40 is near all-time highs, indicating a positive equity market environment. The TASI at 10620.04 is also near all-time highs, suggesting a positive outlook for the Saudi market. The top drivers for the week are:",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",
