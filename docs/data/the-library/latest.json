@@ -3,34 +3,34 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 09:01:51 UTC",
+  "last_update": "2025-12-07 09:48:39 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "The Universal Weight Subspace Hypothesis",
-      "eli5": "A new approach to machine learning",
-      "long_term": "Enables more accurate predictions and decision-making"
+      "title": "Quantum Key Distribution",
+      "eli5": "Secure communication method",
+      "long_term": "Long-term data security"
     },
     {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "eli5": "A method for optimizing complex systems",
-      "long_term": "Improves efficiency and productivity"
+      "title": "AI Decision-Making",
+      "eli5": "Smarter AI systems",
+      "long_term": "Efficient processes"
     },
     {
-      "title": "Decoy-state quantum key distribution",
-      "eli5": "A secure communication method",
-      "long_term": "Enhances data protection and privacy"
+      "title": "Materials Science Breakthroughs",
+      "eli5": "New materials for tech",
+      "long_term": "Innovative products"
     },
     {
-      "title": "pHapCompass",
-      "eli5": "A tool for genome assembly",
-      "long_term": "Advances personalized medicine and genetic research"
+      "title": "Genetic Analysis",
+      "eli5": "Personalized medicine",
+      "long_term": "Healthcare revolution"
     }
   ],
-  "ai_analysis": "The knowledge landscape is characterized by Rapid knowledge velocity, with research papers and news headlines focusing on AI/Tech advancements and macroeconomic trends. The theme of today's research is the intersection of technology and global economic growth. Notable summaries are: The Universal Weight Subspace Hypothesis, Value Gradient Guidance for Flow Matching Alignment, Decoy-state quantum key distribution, and pHapCompass.",
+  "ai_analysis": "The knowledge landscape is characterized by rapid advancements in AI, quantum computing, and materials science, with a theme of enhancing security, efficiency, and decision-making. The summaries of recent research papers and news headlines indicate a focus on breakthrough technologies and their potential applications. The velocity of knowledge is rapid, with significant implications for long-term investments and strategic positioning.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
