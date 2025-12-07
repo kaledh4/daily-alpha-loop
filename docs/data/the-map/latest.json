@@ -3,7 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 08:36:27 UTC",
+  "last_update": "2025-12-07 09:01:51 UTC",
   "scoring": {
     "stance_strength": 8,
     "volatility_risk": 5,
@@ -12,20 +12,20 @@
   "macro": {
     "oil": 60.08,
     "dxy": 98.99,
-    "gold": 4227.7,
+    "gold": 4212.9,
     "sp500": 6870.4,
-    "tasi": 10620.04,
+    "tasi": 10646.16,
     "treasury_10y": 4.14
   },
   "tasi_mood": "Positive",
   "drivers": [
-    "Oil price",
-    "DXY",
-    "US equity market",
-    "Saudi economic growth",
-    "Global interest rates"
+    "Oil prices",
+    "interest rates",
+    "global economic growth",
+    "geopolitical tensions",
+    "central bank policies"
   ],
-  "ai_analysis": "The macroeconomic landscape is characterized by a DXY at 98.99, indicating a strong US dollar, and an Oil price at $60.08, which is relatively low. The Gold price at $4227.70 is near historical highs, suggesting some safe-haven demand. The SP500 at 6870.40 is near all-time highs, indicating a positive equity market environment. The TASI at 10620.04 is also near all-time highs, suggesting a positive outlook for the Saudi market. The top drivers for the week are:",
+  "ai_analysis": "The macro environment is complex, with Oil at $60.08 and DXY at 98.99 influencing the global economy. The 10Y Treasury Yield at 4.14% is impacting rates, while Gold at $4,212.90 is a safe-haven asset. The SP500 at 6,870.40 is near all-time highs, while TASI at 10,646.16 is positive. The TASI mood is Positive, with a forecast of continued growth. Key drivers are Oil prices, interest rates, global economic growth, geopolitical tensions, and central bank policies.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

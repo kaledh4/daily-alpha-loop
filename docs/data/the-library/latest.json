@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 08:36:27 UTC",
+  "last_update": "2025-12-07 09:01:51 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -11,26 +11,26 @@
   "summaries": [
     {
       "title": "The Universal Weight Subspace Hypothesis",
-      "eli5": "More efficient machine learning",
-      "long_term": "Improved decision-making"
+      "eli5": "A new approach to machine learning",
+      "long_term": "Enables more accurate predictions and decision-making"
     },
     {
       "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "eli5": "Better decision-making",
-      "long_term": "Increased efficiency"
+      "eli5": "A method for optimizing complex systems",
+      "long_term": "Improves efficiency and productivity"
     },
     {
-      "title": "Decoy-state quantum key distribution over 227 km",
-      "eli5": "Secure communication",
-      "long_term": "Improved cybersecurity"
+      "title": "Decoy-state quantum key distribution",
+      "eli5": "A secure communication method",
+      "long_term": "Enhances data protection and privacy"
     },
     {
-      "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "eli5": "More efficient quantum computing",
-      "long_term": "Exponential growth"
+      "title": "pHapCompass",
+      "eli5": "A tool for genome assembly",
+      "long_term": "Advances personalized medicine and genetic research"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by a theme of innovation and breakthroughs in AI and Tech. The research papers and news headlines suggest a significant focus on quantum computing, machine learning, and cybersecurity. The knowledge velocity is Rapid, with new breakthroughs and discoveries being announced regularly. The key summaries are:",
+  "ai_analysis": "The knowledge landscape is characterized by Rapid knowledge velocity, with research papers and news headlines focusing on AI/Tech advancements and macroeconomic trends. The theme of today's research is the intersection of technology and global economic growth. Notable summaries are: The Universal Weight Subspace Hypothesis, Value Gradient Guidance for Flow Matching Alignment, Decoy-state quantum key distribution, and pHapCompass.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

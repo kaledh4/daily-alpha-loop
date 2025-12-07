@@ -281,13 +281,17 @@ async function initDashboard(dashboardName) {
         html += renderScoring(data.scoring);
 
         // 3. Metrics Section
+        console.log('[DashboardCore] Checking metrics for:', data.dashboard);
         if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
+            console.log('[DashboardCore] Metrics found:', data.metrics.length);
             // Check if metrics are enhanced (have percentile)
             const isEnhanced = data.metrics[0].percentile !== undefined;
 
             if (isEnhanced) {
+                console.log('[DashboardCore] Rendering enhanced metrics');
                 html += renderEnhancedMetrics(data.metrics);
             } else {
+                console.log('[DashboardCore] Rendering basic metrics');
                 // Render basic metrics
                 html += `
                     <div class="content-card" style="margin-top: 20px;">
@@ -304,6 +308,8 @@ async function initDashboard(dashboardName) {
                     </div>
                 `;
             }
+        } else {
+            console.warn('[DashboardCore] No metrics found for dashboard:', data.dashboard);
         }
 
         // 4. AI Analysis

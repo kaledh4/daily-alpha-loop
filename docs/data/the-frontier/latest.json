@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-07 08:36:27 UTC",
+  "last_update": "2025-12-07 09:01:51 UTC",
   "scoring": {
     "breakthrough_score": 8,
     "trajectory": 8.5,
@@ -188,23 +188,23 @@
   },
   "breakthroughs": [
     {
-      "title": "The Universal Weight Subspace Hypothesis",
-      "why_it_matters": "Enables more efficient machine learning algorithms"
-    },
-    {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "why_it_matters": "Improves decision-making in complex systems"
-    },
-    {
-      "title": "Decoy-state quantum key distribution over 227 km",
+      "title": "Decoy-state quantum key distribution",
       "why_it_matters": "Enables secure communication over long distances"
     },
     {
       "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "why_it_matters": "Enables more efficient quantum computing"
+      "why_it_matters": "Advances quantum computing and simulation"
+    },
+    {
+      "title": "pHapCompass",
+      "why_it_matters": "Improves genome assembly and analysis"
+    },
+    {
+      "title": "Collective adsorption of pheromones",
+      "why_it_matters": "Enhances understanding of biological systems"
     }
   ],
-  "ai_analysis": "The AI and Tech research landscape is characterized by significant breakthroughs in quantum computing and machine learning. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are notable papers that could lead to significant advances in AI capabilities. The development of Decoy-state quantum key distribution over 227 km and Pump Free Microwave-Optical Quantum Transduction are also significant breakthroughs in quantum computing. The velocity of innovation is currently Fast, with potential exponential growth in the near future.",
+  "ai_analysis": "The AI/Tech sector is experiencing Moderate velocity, with breakthroughs in areas like quantum key distribution and probabilistic assembly. The Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment are notable research papers. These advancements have significant implications for fields like cryptography and machine learning. The breakthroughs are: Decoy-state quantum key distribution, Pump Free Microwave-Optical Quantum Transduction, pHapCompass, and Collective adsorption of pheromones.",
   "data_sources": [
     "ai_rnd",
     "quantum",
