@@ -1290,6 +1290,16 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
         "setup_quality": 6.5
     }
     
+    # Build Metrics for Dashboard Display
+    metrics = [
+        {'name': 'BTC Price', 'value': f"${btc_price:,.0f}" if btc_price else "N/A", 'signal': 'NORMAL'},
+        {'name': 'ETH Price', 'value': f"${eth_price:,.0f}" if eth_price else "N/A", 'signal': 'NORMAL'},
+        {'name': 'RSI (BTC)', 'value': f"{btc_rsi:.1f}" if btc_rsi else "N/A", 'signal': 'OVERSOLD' if btc_rsi and btc_rsi < 30 else 'OVERBOUGHT' if btc_rsi and btc_rsi > 70 else 'NORMAL'},
+        {'name': 'Fear & Greed', 'value': str(fng_value) if fng_value else "N/A", 'signal': fng_class.upper() if fng_class else 'NORMAL'},
+        {'name': 'DXY Index', 'value': f"{dxy:.2f}" if dxy else "N/A", 'signal': 'HIGH' if dxy and dxy > 105 else 'NORMAL'},
+        {'name': 'Fed Rate', 'value': f"{fed_rate}%" if fed_rate else "N/A", 'signal': 'NORMAL'}
+    ]
+
     result = {
         'dashboard': 'the-coin',
         'name': 'The Coin',
@@ -1297,6 +1307,7 @@ def build_coin_data(ai_result: Optional[Dict] = None) -> Dict:
         'mission': 'Track BTC → Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'metrics': metrics,
         'btc_price': btc_price,
         'eth_price': eth_price,
         'crypto_assets': crypto_assets,
@@ -1362,13 +1373,24 @@ def build_map_data(ai_result: Optional[Dict] = None) -> Dict:
         "confidence": 0.85
     }
 
-    return {
+    # Build Metrics for Dashboard Display
+    metrics = [
+        {'name': 'S&P 500', 'value': f"{sp500:,.0f}" if sp500 else "N/A", 'signal': 'NORMAL'},
+        {'name': 'TASI', 'value': f"{tasi:,.0f}" if tasi else "N/A", 'signal': tasi_mood.upper()},
+        {'name': 'Oil (Brent)', 'value': f"${oil:.2f}" if oil else "N/A", 'signal': 'HIGH' if oil and oil > 90 else 'NORMAL'},
+        {'name': 'Gold', 'value': f"${gold:,.0f}" if gold else "N/A", 'signal': 'NORMAL'},
+        {'name': 'DXY', 'value': f"{dxy:.2f}" if dxy else "N/A", 'signal': 'NORMAL'},
+        {'name': '10Y Yield', 'value': f"{tnx:.2f}%" if tnx else "N/A", 'signal': 'ELEVATED' if tnx and tnx > 4.5 else 'NORMAL'}
+    ]
+
+    result = {
         'dashboard': 'the-map',
         'name': 'The Map',
         'role': 'Macro',
         'mission': 'Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'metrics': metrics,
         'macro': {
             'oil': round(oil, 2) if oil else None,
             'dxy': round(dxy, 2) if dxy else None,
@@ -1386,6 +1408,13 @@ def build_map_data(ai_result: Optional[Dict] = None) -> Dict:
             "curve_shift"
         ]
     }
+    
+    if ENHANCED_AVAILABLE:
+        result = enhance_map_metrics(result, 'the-map')
+        stance_strength = result.get('scoring', {}).get('stance_strength', 5)
+        save_dashboard_score('the-map', stance_strength, {'tasi_mood': tasi_mood})
+        
+    return result
 
 def build_frontier_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Frontier dashboard data"""
@@ -1417,13 +1446,23 @@ def build_frontier_data(ai_result: Optional[Dict] = None) -> Dict:
         "future_pull": 7.0
     }
 
-    return {
+    # Build Metrics for Dashboard Display
+    metrics = []
+    for domain, data in domains.items():
+        metrics.append({
+            'name': domain,
+            'value': f"{data['total_volume']:,}",
+            'signal': 'ACTIVE'
+        })
+
+    result = {
         'dashboard': 'the-frontier',
         'name': 'The Frontier',
         'role': 'AI & Breakthroughs',
         'mission': 'Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'metrics': metrics,
         'domains': domains,
         'breakthroughs': breakthroughs,
         'ai_analysis': analysis,
@@ -1433,6 +1472,12 @@ def build_frontier_data(ai_result: Optional[Dict] = None) -> Dict:
             "robotics"
         ]
     }
+    
+    if ENHANCED_AVAILABLE:
+        breakthrough_score = result.get('scoring', {}).get('breakthrough_score', 5)
+        save_dashboard_score('the-frontier', breakthrough_score, {'breakthroughs': len(breakthroughs)})
+        
+    return result
 
 def build_strategy_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Strategy dashboard data"""
@@ -1486,13 +1531,22 @@ def build_strategy_data(ai_result: Optional[Dict] = None) -> Dict:
         "stance_confidence": confidence
     }
 
-    return {
+    # Build Metrics for Dashboard Display
+    metrics = [
+        {'name': 'Risk Input', 'value': risk_level, 'signal': 'CAUTION' if risk_level == 'ELEVATED' else 'NORMAL'},
+        {'name': 'Crypto Input', 'value': crypto_momentum, 'signal': crypto_momentum.upper()},
+        {'name': 'Macro Input', 'value': macro_signal, 'signal': macro_signal.upper()},
+        {'name': 'Frontier Input', 'value': frontier_signal, 'signal': 'NORMAL'}
+    ]
+
+    result = {
         'dashboard': 'the-strategy',
         'name': 'The Strategy',
         'role': 'Market Stance',
         'mission': "Read the market context, interpret cross-domain vectors, and determine today's stance.",
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'metrics': metrics,
         'stance': stance,
         'mindset': mindset,
         'inputs': {
@@ -1507,6 +1561,12 @@ def build_strategy_data(ai_result: Optional[Dict] = None) -> Dict:
             "momentum_blend"
         ]
     }
+    
+    if ENHANCED_AVAILABLE:
+        stance_confidence = result.get('scoring', {}).get('stance_confidence', 5)
+        save_dashboard_score('the-strategy', stance_confidence, {'stance': stance})
+        
+    return result
 
 def build_library_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Library dashboard data"""
@@ -1522,19 +1582,28 @@ def build_library_data(ai_result: Optional[Dict] = None) -> Dict:
     
     # Calculate scoring metrics
     progress_rate = 65
+    uncertainty = 0.2
     
     scoring = {
         "progress_rate": progress_rate,
-        "uncertainty": 0.2
+        "uncertainty": uncertainty
     }
 
-    return {
+    # Build Metrics for Dashboard Display
+    metrics = [
+        {'name': 'Progress Rate', 'value': f"{progress_rate}/100", 'signal': 'ACCELERATING' if progress_rate > 70 else 'NORMAL'},
+        {'name': 'Uncertainty', 'value': f"{uncertainty:.2f}", 'signal': 'LOW' if uncertainty < 0.3 else 'HIGH'},
+        {'name': 'Summaries', 'value': str(len(summaries)), 'signal': 'NORMAL'}
+    ]
+
+    result = {
         'dashboard': 'the-library',
         'name': 'The Library',
         'role': 'Free Knowledge',
         'mission': 'Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.',
         'last_update': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
         'scoring': scoring,
+        'metrics': metrics,
         'summaries': summaries,
         'ai_analysis': analysis,
         'data_sources': [
@@ -1543,6 +1612,12 @@ def build_library_data(ai_result: Optional[Dict] = None) -> Dict:
             "lab_output_rate"
         ]
     }
+    
+    if ENHANCED_AVAILABLE:
+        progress_rate = result.get('scoring', {}).get('progress_rate', 50)
+        save_dashboard_score('the-library', progress_rate, {'uncertainty': uncertainty})
+        
+    return result
 
 def build_commander_data(ai_result: Optional[Dict] = None) -> Dict:
     """Build The Commander dashboard data"""

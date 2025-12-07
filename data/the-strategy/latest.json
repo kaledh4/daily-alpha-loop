@@ -3,19 +3,41 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-07 09:59:55 UTC",
   "scoring": {
-    "stance_confidence": 7
+    "stance_confidence": 5
   },
-  "stance": "Accumulative",
-  "mindset": "Cautiously optimistic",
+  "metrics": [
+    {
+      "name": "Risk Input",
+      "value": "Elevated",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "Crypto Input",
+      "value": "Bearish",
+      "signal": "BEARISH"
+    },
+    {
+      "name": "Macro Input",
+      "value": "Negative",
+      "signal": "NEGATIVE"
+    },
+    {
+      "name": "Frontier Input",
+      "value": "Active",
+      "signal": "NORMAL"
+    }
+  ],
+  "stance": "Opportunistic",
+  "mindset": "Cautious growth",
   "inputs": {
     "risk": "Elevated",
     "crypto": "Bearish",
-    "macro": "Positive",
+    "macro": "Negative",
     "frontier": "Active"
   },
-  "ai_analysis": "Given the defensive posture suggested by the macro analysis and the opportunistic outlook in the AI/tech sector, the overall stance should be cautiously accumulative. The strategy involves a balanced portfolio with a slight overweight in tech and a underweight in sectors sensitive to interest rate changes. The mindset should be prepared for potential volatility but also positioned to capitalize on dips in growth sectors. Conviction in this strategy is medium, as it balances between the current bearish crypto momentum and the potential for a reversal, alongside the positive but cautious macro outlook.",
+  "ai_analysis": "The current market environment is characterized by a defensive macro setup, but opportunistic AI and Tech trends. The bearish crypto momentum and elevated risk level suggest a cautious approach. However, the fast velocity of innovation in AI and Tech presents opportunities for growth. The recommended stance is Opportunistic, with a focus on AI and Tech investments, while maintaining a defensive position in macro assets. The mindset is to be prepared for potential market volatility, while conviction is Medium.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"

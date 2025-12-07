@@ -3,34 +3,51 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-07 09:59:55 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
-  "summaries": [
+  "metrics": [
     {
-      "title": "Quantum Key Distribution",
-      "eli5": "Secure communication method",
-      "long_term": "Long-term data security"
+      "name": "Progress Rate",
+      "value": "65/100",
+      "signal": "NORMAL"
     },
     {
-      "title": "AI Decision-Making",
-      "eli5": "Smarter AI systems",
-      "long_term": "Efficient processes"
+      "name": "Uncertainty",
+      "value": "0.20",
+      "signal": "LOW"
     },
     {
-      "title": "Materials Science Breakthroughs",
-      "eli5": "New materials for tech",
-      "long_term": "Innovative products"
-    },
-    {
-      "title": "Genetic Analysis",
-      "eli5": "Personalized medicine",
-      "long_term": "Healthcare revolution"
+      "name": "Summaries",
+      "value": "4",
+      "signal": "NORMAL"
     }
   ],
-  "ai_analysis": "The knowledge landscape is characterized by rapid advancements in AI, quantum computing, and materials science, with a theme of enhancing security, efficiency, and decision-making. The summaries of recent research papers and news headlines indicate a focus on breakthrough technologies and their potential applications. The velocity of knowledge is rapid, with significant implications for long-term investments and strategic positioning.",
+  "summaries": [
+    {
+      "title": "Universal Weight Subspace Hypothesis",
+      "eli5": "Improved machine learning",
+      "long_term": "Long-term growth"
+    },
+    {
+      "title": "Decoy-state quantum key distribution",
+      "eli5": "Secure communication",
+      "long_term": "Long-term security"
+    },
+    {
+      "title": "Value Gradient Guidance for Flow Matching Alignment",
+      "eli5": "Optimization techniques",
+      "long_term": "Long-term efficiency"
+    },
+    {
+      "title": "Pump Free Microwave-Optical Quantum Transduction",
+      "eli5": "Quantum computing",
+      "long_term": "Long-term innovation"
+    }
+  ],
+  "ai_analysis": "The current knowledge landscape is characterized by a Rapid knowledge velocity, with a focus on AI, Tech, and macro trends. The theme of today's research is the intersection of innovation and market volatility. The summaries of the key research papers are:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
