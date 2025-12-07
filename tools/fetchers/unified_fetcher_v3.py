@@ -789,6 +789,108 @@ def calculate_frontier_timeline():
 # Unified AI Analysis Function
 # ========================================
 
+def parse_toon(text: str) -> Dict:
+    """Parse TOON (Token-Oriented Object Notation) format into a dictionary."""
+    import re
+    import csv
+    from io import StringIO
+
+    data = {}
+    stack = [data]
+    indent_stack = [-1]
+    
+    # Context for array of objects
+    current_array_list = None
+    current_array_fields = None
+    current_array_indent = -1
+    
+    lines = text.strip().split('\n')
+    
+    for line in lines:
+        if not line.strip() or line.strip().startswith('#'):
+            continue
+            
+        # Calculate indentation
+        indent = len(line) - len(line.lstrip())
+        content = line.strip()
+        
+        # Handle dedent
+        while indent <= indent_stack[-1] and len(indent_stack) > 1:
+            indent_stack.pop()
+            stack.pop()
+            # If we dedent back to or below the array's indent, we are done with that array
+            if current_array_list is not None and indent <= current_array_indent:
+                current_array_list = None
+                current_array_fields = None
+                current_array_indent = -1
+        
+        # If we are inside an array of objects context
+        if current_array_list is not None and indent > current_array_indent:
+            # Parse CSV row
+            try:
+                # Handle potential quoting in CSV
+                reader = csv.reader(StringIO(content), skipinitialspace=True)
+                row = next(reader)
+                if len(row) == len(current_array_fields):
+                    obj = dict(zip(current_array_fields, row))
+                    current_array_list.append(obj)
+            except:
+                pass
+            continue
+            
+        current_dict = stack[-1]
+        
+        # Regex for Array of Objects Definition: key[N]{f1,f2}:
+        # Matches: breakthroughs[2]{title,why_it_matters}:
+        # Added flexibility for spaces
+        arr_obj_match = re.match(r'^(\w+)\s*\[\d+\]\s*\{([^}]+)\}\s*:\s*$', content)
+        if arr_obj_match:
+            key = arr_obj_match.group(1)
+            fields = [f.strip() for f in arr_obj_match.group(2).split(',')]
+            new_list = []
+            current_dict[key] = new_list
+            
+            # Set context
+            current_array_list = new_list
+            current_array_fields = fields
+            current_array_indent = indent
+            continue
+
+        # Regex for Simple Array: key[N]: v1,v2
+        # Matches: drivers[3]: d1, d2, d3
+        arr_simple_match = re.match(r'^(\w+)\s*\[\d+\]\s*:\s*(.+)$', content)
+        if arr_simple_match:
+            key = arr_simple_match.group(1)
+            try:
+                reader = csv.reader(StringIO(arr_simple_match.group(2)), skipinitialspace=True)
+                values = next(reader)
+                current_dict[key] = values
+            except:
+                current_dict[key] = []
+            continue
+            
+        # Regex for Key-Value or Key-Object: key: value
+        kv_match = re.match(r'^(\w+)\s*:\s*(.*)$', content)
+        if kv_match:
+            key = kv_match.group(1)
+            value = kv_match.group(2)
+            
+            if not value: # Nested Object
+                new_dict = {}
+                current_dict[key] = new_dict
+                stack.append(new_dict)
+                indent_stack.append(indent)
+            else:
+                # Strip quotes if present
+                if value.startswith('"') and value.endswith('"'):
+                    value = value[1:-1]
+                elif value.startswith("'") and value.endswith("'"):
+                    value = value[1:-1]
+                current_dict[key] = value
+            continue
+            
+    return data
+
 def call_unified_ai(all_data: Dict) -> Optional[Dict]:
     """
     Make ONE comprehensive AI call for ALL dashboards.
@@ -814,9 +916,9 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
         logger.error("❌ OPENROUTER_KEY not found. AI generation disabled.")
         return None
 
-    # Build comprehensive prompt for all dashboards
+    # Build comprehensive prompt for all dashboards using TOON format
     prompt = f"""You are the Master AI Analyst for the Daily Alpha Loop system. 
-    Analyze the following market data and generate comprehensive 4-minute briefings for ALL 7 dashboards.
+    Analyze the following market data and generate comprehensive 8-minute briefings for ALL 7 dashboards.
     
     CURRENT MARKET DATA:
     ====================
@@ -850,8 +952,7 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
     {all_data.get('news_headlines', 'Market news unavailable')}
     
     TASK:
-    Generate a comprehensive JSON response with deep analysis for ALL 7 dashboards.
-    Each analysis should be suitable for a 4-minute read - go beyond surface level.
+    Generate a comprehensive response in TOON (Token-Oriented Object Notation) format.
     
     CRITICAL INSTRUCTIONS:
     1. QUANTITATIVE THRESHOLDS & HIERARCHY: Do not just give one number. Provide a scale (e.g., "Normal: <15, Elevated: 15-20, Critical: >20"). State exactly where we are on that scale.
@@ -861,60 +962,62 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
     5. CONTRARIAN INDICATORS: State what would invalidate your thesis.
     6. WEATHER METAPHOR: If using "Stormy" or "Sunny", explain WHY. Connect it meaningfully to the data.
     7. NO EMPTY DASHBOARDS: Ensure Frontier, Strategy, and Library have rich, specific content, not generic placeholders.
+    8. FORMAT: Use standard CSV quoting ("value") if a value contains commas.
+    9. ARRAYS: You MUST use the `key[N]{{fields}}:` syntax for arrays of objects. Do not use YAML list syntax.
     
-    Return ONLY valid JSON in this exact structure:
-    {{
-      "the_shield": {{
-        "analysis": "3-4 sentence deep analysis of systemic market fragility. Use specific numbers. Compare to historical norms (e.g., 'MOVE at 67 is low compared to 2022 avg of 120').",
-        "risk_level": "CRITICAL/ELEVATED/LOW",
-        "top_concern": "The single biggest risk factor right now (e.g., 'Yuan devaluation risk above 7.25')"
-      }},
-      "the_coin": {{
-        "analysis": "3-4 sentence analysis of crypto momentum. Address BTC vs ETH rotation. Mention specific price levels that trigger action.",
-        "momentum": "Bullish/Bearish/Neutral",
-        "key_level": "The most important price level to watch (e.g., '$98,500 breakout')"
-      }},
-      "the_map": {{
-        "analysis": "4-5 sentence macro analysis. Connect Oil, DXY, and Rates to TASI. Give a specific directional bias for the week.",
-        "tasi_mood": "Positive/Neutral/Negative",
-        "drivers": ["Driver 1 (Specific)", "Driver 2 (Specific)", "Driver 3 (Specific)"],
-        "tasi_forecast": "Likely directional bias for TASI (e.g., 'Rangebound 11,800-12,200')"
-      }},
-      "the_frontier": {{
-        "analysis": "3-4 sentence analysis of AI/Tech velocity. Don't be vague. Mention specific papers or breakthroughs from the provided list.",
-        "breakthroughs": [
-          {{"title": "Specific Breakthrough 1", "why_it_matters": "Deep impact explanation (2 sentences)"}},
-          {{"title": "Specific Breakthrough 2", "why_it_matters": "Deep impact explanation (2 sentences)"}}
-        ],
-        "velocity": "Slow/Moderate/Fast/Exponential"
-      }},
-      "the_strategy": {{
-        "analysis": "4-5 sentence synthesis. Resolve the tension between signals (e.g., 'Defensive on macro, but opportunistic on AI dip'). Give a clear allocation recommendation.",
-        "stance": "Defensive/Neutral/Accumulative/Opportunistic/Aggressive",
-        "mindset": "One powerful sentence capturing the strategic approach (e.g., 'Sell rips in Tech, buy dips in Energy')",
-        "conviction": "High/Medium/Low"
-      }},
-      "the_library": {{
-        "analysis": "2-3 sentence overview of the knowledge landscape. What is the 'theme' of today's research/news?",
-        "summaries": [
-          {{"title": "Deep Topic 1", "eli5": "Simple explanation", "long_term": "Why it matters for the next decade"}},
-          {{"title": "Deep Topic 2", "eli5": "Simple explanation", "long_term": "Why it matters for the next decade"}}
-        ],
-        "knowledge_velocity": "Rapid/Steady/Stagnant"
-      }},
-      "the_commander": {{
-        "weather_of_the_day": "Stormy/Cloudy/Sunny/Volatile/Foggy",
-        "top_signal": "The single most important data point across all dashboards today",
-        "why_it_matters": "4-5 sentence deep explanation of why this signal is critical right now. What are the second and third order effects?",
-        "cross_dashboard_convergence": "5-6 sentences connecting Risk, Crypto, Macro, and Tech. How do these forces interact today? Where is the friction? Where is alignment? What does this mean for positioning?",
-        "action_stance": "Specific actionable guidance",
-        "optional_deep_insight": "Two paragraphs of advanced market theory applied to today. Use historical analogs.",
-        "clarity_level": "High/Medium/Low",
-        "summary_sentence": "One powerful closing thought that synthesizes everything."
-      }}
-    }}
+    Return ONLY valid TOON format matching this schema:
     
-    CRITICAL: Return ONLY the JSON object, no markdown, no explanation, no code blocks."""
+    the_shield:
+      analysis: str (6-8 sentence deep analysis of systemic market fragility. Use specific numbers. Compare to historical norms e.g. 'MOVE at 67 is low compared to 2022 avg of 120')
+      risk_level: CRITICAL|ELEVATED|LOW
+      top_concern: str
+    
+    the_coin:
+      analysis: str (6-8 sentence analysis of crypto momentum. Address BTC vs ETH rotation. Mention specific price levels that trigger action.)
+      momentum: Bullish|Bearish|Neutral
+      key_level: str
+    
+    the_map:
+      analysis: str (8-10 sentence macro analysis. Connect Oil, DXY, and Rates to TASI. Give a specific directional bias for the week.)
+      tasi_mood: Positive|Neutral|Negative
+      tasi_forecast: str
+      drivers[5]: driver1,driver2,driver3,driver4,driver5
+    
+    the_frontier:
+      analysis: str (6-8 sentence analysis of AI/Tech velocity. Don't be vague. Mention specific papers or breakthroughs from the provided list.)
+      velocity: Slow|Moderate|Fast|Exponential
+      breakthroughs[4]{{title,why_it_matters}}:
+        title1,explanation1
+        title2,explanation2
+        title3,explanation3
+        title4,explanation4
+    
+    the_strategy:
+      analysis: str (8-10 sentence synthesis. Resolve the tension between signals e.g. 'Defensive on macro, but opportunistic on AI dip'. Give a clear allocation recommendation.)
+      stance: Defensive|Neutral|Accumulative|Opportunistic|Aggressive
+      mindset: str
+      conviction: High|Medium|Low
+    
+    the_library:
+      analysis: str (4-6 sentence overview of the knowledge landscape. What is the 'theme' of today's research/news?)
+      knowledge_velocity: Rapid|Steady|Stagnant
+      summaries[4]{{title,eli5,long_term}}:
+        title1,eli5_1,long_term1
+        title2,eli5_2,long_term2
+        title3,eli5_3,long_term3
+        title4,eli5_4,long_term4
+    
+    the_commander:
+      weather_of_the_day: Stormy|Cloudy|Sunny|Volatile|Foggy
+      top_signal: str
+      why_it_matters: str (8-10 sentence deep explanation of why this signal is critical right now. What are the second and third order effects?)
+      cross_dashboard_convergence: str (10-12 sentences connecting Risk, Crypto, Macro, and Tech. How do these forces interact today? Where is the friction? Where is alignment? What does this mean for positioning?)
+      action_stance: str
+      optional_deep_insight: str
+      clarity_level: High|Medium|Low
+      summary_sentence: str
+    
+    CRITICAL: Return ONLY the TOON text, no markdown, no explanation, no code blocks."""
 
     # Try each free model until one succeeds
     for model_index, model in enumerate(FREE_OPENROUTER_MODELS):
@@ -929,7 +1032,7 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
                 "messages": [
                     {
                         "role": "system",
-                        "content": "You are a master financial analyst. Return ONLY valid JSON, no markdown."
+                        "content": "You are a master financial analyst. Return ONLY valid TOON format, no markdown."
                     },
                     {
                         "role": "user",
@@ -959,19 +1062,28 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
                 if 'choices' in result and len(result['choices']) > 0:
                     content = result['choices'][0]['message']['content']
                     
-                    # Extract JSON from response
+                    # Parse TOON response
                     try:
-                        # Try to find JSON in the response
-                        start = content.find('{')
-                        end = content.rfind('}') + 1
-                        if start != -1 and end > start:
-                            json_content = content[start:end]
-                            parsed = json.loads(json_content)
-                            
-                            logger.info(f"  ✅ SUCCESS with {model}!")
+                        # Clean up markdown if present
+                        clean_content = content
+                        if "```" in content:
+                            import re
+                            matches = re.findall(r'```(?:toon)?(.*?)```', content, re.DOTALL)
+                            if matches:
+                                clean_content = matches[0]
+                        
+                        parsed = parse_toon(clean_content)
+                        
+                        # Basic validation
+                        if parsed and 'the_commander' in parsed:
+                            logger.info(f"  ✅ SUCCESS with {model} (TOON)!")
                             return parsed
-                    except json.JSONDecodeError as je:
-                        logger.warning(f"  JSON parse error with {model}: {je}")
+                        else:
+                            logger.warning(f"  TOON parse failed or incomplete with {model}")
+                            continue
+                            
+                    except Exception as e:
+                        logger.warning(f"  TOON parse error with {model}: {e}")
                         continue
                         
             elif response.status_code == 429:

@@ -1,8 +1,8 @@
 # Daily Alpha Loop
 
-### AI-Powered Market Intelligence System
+**Powered by [TOON](docs/TOON_INTEGRATION.md) for 40% Token Savings**
 
-A unified dashboard orchestrator providing daily market insights through 7 specialized intelligence dashboards.
+Daily Alpha Loop is an automated market intelligence system that aggregates data from 7 distinct dashboards.
 
 🚀 **[Launch Dashboard](https://kaledh4.github.io/daily-alpha-loop/)**
 
@@ -112,14 +112,13 @@ All dashboards are Progressive Web Apps with:
 
 ## 🌟 Features
 
-*   **Morning Brief**: 4-minute deep dive daily intelligence summary
+*   **Morning Brief**: 8-minute deep dive daily intelligence summary
 *   **Cross-Dashboard Synthesis**: Unified insights across all data sources
 *   **Free-Tier Optimization**: Efficient API usage with model fallbacks
 *   **Enhanced Metrics**: Percentiles, trends, and color-coded zones
 *   **Regime Detection**: Market regime identification (Calm/Rising Vol/Crisis)
 *   **Conflict Matrix**: Visual convergence analysis across dashboards
 *   **Decision Trees**: Actionable IF/THEN logic for trading decisions
-*   **Real-Time Updates**: 5-minute refresh intervals
 *   **Mobile-First**: Responsive PWA design
 
 ## 📄 License

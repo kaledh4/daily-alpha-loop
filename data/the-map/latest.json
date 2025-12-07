@@ -3,7 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 06:37:52 UTC",
+  "last_update": "2025-12-07 06:48:54 UTC",
   "scoring": {
     "stance_strength": 8,
     "volatility_risk": 5,
@@ -19,11 +19,13 @@
   },
   "tasi_mood": "Positive",
   "drivers": [
-    "Oil price stability",
-    "Regional economic growth",
-    "DXY strength"
+    "US jobs report",
+    "OPEC meeting",
+    "US inflation report",
+    "Chinese trade data",
+    "Fed meeting"
   ],
-  "ai_analysis": "The macro environment is characterized by a relatively strong DXY at 98.99, which could impact emerging markets. Oil at $60.08 and Gold at $4227.70 are within recent ranges, but the SP500 at 6870.40 suggests a positive equity market tone. The TASI at 10626.15 is rangebound, driven by local factors. For the week, we expect a positive bias for TASI, driven by regional economic growth and a stable oil price.",
+  "ai_analysis": "The macroeconomic landscape is characterized by a stable oil price at $60.08, a strong DXY at 98.99, and a relatively low gold price at $4227.70. The SP500 at 6870.40 is near its recent highs, suggesting a positive outlook for the US economy. The TASI at 10626.15 is also near its recent highs, suggesting a positive outlook for the Saudi economy. The top drivers for the week are the upcoming Fed meeting, the US jobs report, the OPEC meeting, the US inflation report, and the Chinese trade data. Overall, the TASI mood is Positive, with a forecast of a 1-2% increase for the week.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",
