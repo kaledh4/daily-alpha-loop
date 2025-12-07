@@ -3,7 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 04:30:42 UTC",
+  "last_update": "2025-12-07 06:37:52 UTC",
   "scoring": {
     "stance_strength": 8,
     "volatility_risk": 5,
@@ -12,18 +12,18 @@
   "macro": {
     "oil": 60.08,
     "dxy": 98.99,
-    "gold": 4212.9,
+    "gold": 4227.7,
     "sp500": 6870.4,
     "tasi": 10626.15,
     "treasury_10y": 4.14
   },
   "tasi_mood": "Positive",
   "drivers": [
-    "Oil price",
-    "Dollar strength",
-    "Global rates"
+    "Oil price stability",
+    "Regional economic growth",
+    "DXY strength"
   ],
-  "ai_analysis": "The macro data suggests a complex interplay between oil prices, dollar strength, and global rates, which may impact the TASI and Saudi markets. The current oil price at $60.08 and the DXY at 98.99 may lead to a positive mood in the TASI, driven by the potential for increased economic growth. However, the SP500 at 6870.40 and the Gold price at $4212.90 may also influence the TASI. The key drivers are the oil price, dollar strength, and global rates. The TASI forecast is neutral for this week.",
+  "ai_analysis": "The macro environment is characterized by a relatively strong DXY at 98.99, which could impact emerging markets. Oil at $60.08 and Gold at $4227.70 are within recent ranges, but the SP500 at 6870.40 suggests a positive equity market tone. The TASI at 10626.15 is rangebound, driven by local factors. For the week, we expect a positive bias for TASI, driven by regional economic growth and a stable oil price.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",
