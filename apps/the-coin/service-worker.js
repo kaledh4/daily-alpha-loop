@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daily-alpha-loop-v2';
+const CACHE_NAME = 'daily-alpha-loop-v3';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
