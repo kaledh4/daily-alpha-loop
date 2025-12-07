@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 06:37:52 UTC",
+  "last_update": "2025-12-07 06:55:44 UTC",
   "scoring": {
-    "stance_strength": 8,
+    "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -17,13 +17,15 @@
     "tasi": 10626.15,
     "treasury_10y": 4.14
   },
-  "tasi_mood": "Positive",
+  "tasi_mood": "Neutral",
   "drivers": [
-    "Oil price stability",
-    "Regional economic growth",
-    "DXY strength"
+    "Oil prices",
+    "Global economic conditions",
+    "Interest rates",
+    "Geopolitical tensions",
+    "US-China trade relations"
   ],
-  "ai_analysis": "The macro environment is characterized by a relatively strong DXY at 98.99, which could impact emerging markets. Oil at $60.08 and Gold at $4227.70 are within recent ranges, but the SP500 at 6870.40 suggests a positive equity market tone. The TASI at 10626.15 is rangebound, driven by local factors. For the week, we expect a positive bias for TASI, driven by regional economic growth and a stable oil price.",
+  "ai_analysis": "The current macro environment is characterized by relatively low oil prices at $60.08, a strong DXY at 98.99, and high gold prices at $4,227.70. The SP500 at 6,870.40 is near its recent highs, but the TASI at 10,626.15 is showing signs of weakness. The 10Y Treasury Yield at 4.14% is also influencing the macro landscape. Drivers of the TASI include oil prices, global economic conditions, and interest rates. A potential decline in oil prices could lead to a positive impact on the TASI, while a rise in interest rates could have a negative effect. The TASI mood is currently Neutral, but a bearish bias is developing. The TASI forecast for the week is slightly bearish, with a potential decline of 1-2%. Portfolio implications include a 30% allocation to defensive sectors and a 20% allocation to oil-related stocks.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

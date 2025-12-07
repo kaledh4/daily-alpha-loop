@@ -3,22 +3,22 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-07 06:37:52 UTC",
+  "last_update": "2025-12-07 06:55:44 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
     "setup_quality": 6.5
   },
-  "btc_price": 89675.859375,
-  "eth_price": 3046.906494140625,
+  "btc_price": 89671.8671875,
+  "eth_price": 3046.58740234375,
   "crypto_assets": {
     "BTC": {
-      "price": 89675.859375,
+      "price": 89671.8671875,
       "risk": 1.256,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3046.906494140625,
+      "price": 3046.58740234375,
       "risk": 0.543,
       "multiplier": 2.0
     },
@@ -33,12 +33,12 @@
       "multiplier": 28.0
     },
     "ADA": {
-      "price": 0.41879963874816895,
+      "price": 0.4195628762245178,
       "risk": 0.035,
       "multiplier": 12.0
     },
     "NEAR": {
-      "price": 1.7191790342330933,
+      "price": 1.7227845191955566,
       "risk": 0.033,
       "multiplier": 19.0
     }
@@ -48,14 +48,14 @@
   "composite_risk": 0.9,
   "risk_level": "High",
   "momentum": "Bearish",
-  "key_level": "$98,500 breakout",
+  "key_level": "$80,000 for BTC and $2,500 for ETH",
   "rsi": 37.54,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 20,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "The BTC price of $89,676 and ETH price of $3,047 reflect a bearish trend, with BTC RSI at 37.54 indicating potential oversold conditions. The Fear & Greed index at 20 suggests extreme fear, which could be a contrarian buy signal. A breakout above $98,500 for BTC could trigger a bullish reversal, while a drop below $80,000 would confirm the bearish trend.",
+  "ai_analysis": "The current BTC price of $89,672 and ETH price of $3,047 indicate a bearish trend, with BTC RSI at 37.54 and a Fear & Greed index of 20, suggesting extreme fear in the market. However, the recent ETF flows and smart money traders' bets on ETH decline could lead to a potential short squeeze. A key level to watch is the $80,000 support for BTC, which, if broken, could lead to further declines. On the other hand, a break above $100,000 could signal a trend reversal. The momentum is currently Bearish, but a potential rotation from BTC to ETH could occur if the ETH supply squeeze materializes. Portfolio implications include a 20% allocation to BTC and 30% to ETH, with a stop-loss at $70,000 for BTC and $2,500 for ETH.",
   "data_sources": [
     "orderflow",
     "dominance_tracker",

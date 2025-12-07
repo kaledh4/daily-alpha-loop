@@ -3,34 +3,34 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 06:48:54 UTC",
+  "last_update": "2025-12-07 06:55:44 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
   },
   "summaries": [
     {
-      "title": "The Universal Weight Subspace Hypothesis",
-      "eli5": "Revolutionize machine learning",
-      "long_term": "Long-term potential for AI"
+      "title": "Universal Weight Subspace Hypothesis",
+      "eli5": "More efficient AI models",
+      "long_term": "Potential for exponential growth"
     },
     {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "eli5": "Improve AI efficiency",
-      "long_term": "Long-term potential for AI"
-    },
-    {
-      "title": "Decoy-state quantum key distribution over 227 km with a frequency-converted telecom single-photon source",
-      "eli5": "Quantum computing breakthrough",
-      "long_term": "Long-term potential for quantum computing"
+      "title": "Decoy-state quantum key distribution",
+      "eli5": "Secure quantum communication",
+      "long_term": "Potential for secure data transfer"
     },
     {
       "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "eli5": "Important development in quantum computing",
-      "long_term": "Long-term potential for quantum computing"
+      "eli5": "Innovative quantum computing",
+      "long_term": "Potential for breakthroughs in computing"
+    },
+    {
+      "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
+      "eli5": "Advancements in genomics",
+      "long_term": "Potential for breakthroughs in medicine"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by a rapid velocity, with several important research papers and news articles in recent weeks. The theme of the day is AI and tech, with a focus on breakthroughs in machine learning and quantum computing. The top summaries are the Universal Weight Subspace Hypothesis, the Value Gradient Guidance for Flow Matching Alignment, the Decoy-state quantum key distribution over 227 km with a frequency-converted telecom single-photon source, and the Pump Free Microwave-Optical Quantum Transduction.",
+  "ai_analysis": "The current knowledge landscape is characterized by a rapid velocity, with several notable research papers and breakthroughs in AI/Tech. The theme of today's research is focused on AI/Tech innovations and their potential applications. Summaries include the Universal Weight Subspace Hypothesis, which could lead to more efficient AI models, and the Decoy-state quantum key distribution, which could enable secure quantum communication. The knowledge velocity is currently Rapid, with new breakthroughs and research emerging daily.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
