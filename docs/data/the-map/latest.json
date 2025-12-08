@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 10:06:11 UTC",
+  "last_update": "2025-12-08 04:31:12 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 8,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -17,22 +17,22 @@
     },
     {
       "name": "TASI",
-      "value": "10,630",
-      "signal": "NEUTRAL"
+      "value": "10,631",
+      "signal": "POSITIVE"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$60.08",
+      "value": "$60.20",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,213",
+      "value": "$4,238",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.99",
+      "value": "98.90",
       "signal": "NORMAL"
     },
     {
@@ -42,22 +42,22 @@
     }
   ],
   "macro": {
-    "oil": 60.08,
-    "dxy": 98.99,
-    "gold": 4212.9,
+    "oil": 60.2,
+    "dxy": 98.9,
+    "gold": 4238.2,
     "sp500": 6870.4,
-    "tasi": 10629.62,
+    "tasi": 10631.25,
     "treasury_10y": 4.14
   },
-  "tasi_mood": "Neutral",
+  "tasi_mood": "Positive",
   "drivers": [
     "Oil prices",
-    "Interest rates",
-    "Global events",
-    "Inflation",
-    "Geopolitics"
+    "US dollar strength",
+    "interest rates",
+    "global economic growth",
+    "geopolitical tensions"
   ],
-  "ai_analysis": "The macro environment is mixed, with Oil at $60.08 and DXY at 98.99 indicating a moderate inflationary pressure. The 10Y Treasury Yield at 4.14% suggests a relatively stable interest rate environment. The TASI at 10629.62 is neutral, with a positive bias for the week due to the potential for oil price increases. The SP500 at 6870.40 is near historical highs, suggesting a potential for consolidation. The Gold price at $4212.90 is elevated, indicating some safe-haven demand. Drivers for the week include oil prices, interest rates, and global events. The TASI mood is Neutral, with a forecast of sideways movement.",
+  "ai_analysis": "The macroeconomic landscape is complex, with Oil at $60.20 and DXY at 98.90, indicating a moderate level of inflationary pressure and a strong US dollar. The SP500 at 6870.40 is near its recent highs, suggesting a degree of optimism among equity investors. The TASI at 10631.25 is also near its recent highs, indicating a positive mood in the Saudi market. The drivers of the macro landscape are: Oil prices, US dollar strength, interest rates, global economic growth, and geopolitical tensions. For the week, the directional bias is slightly positive, with a potential upside to the TASI.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

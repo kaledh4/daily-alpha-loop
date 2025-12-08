@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-07 10:06:11 UTC",
+  "last_update": "2025-12-08 04:31:12 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -21,33 +21,12 @@
     },
     {
       "name": "Summaries",
-      "value": "4",
+      "value": "0",
       "signal": "NORMAL"
     }
   ],
-  "summaries": [
-    {
-      "title": "Decoy-state quantum key distribution",
-      "eli5": "Secure communication over long distances",
-      "long_term": "Long-term implications for secure communication and quantum computing"
-    },
-    {
-      "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "eli5": "Advances quantum computing and secure communication",
-      "long_term": "Long-term potential for exponential growth"
-    },
-    {
-      "title": "The Universal Weight Subspace Hypothesis",
-      "eli5": "Improves understanding of complex systems and AI decision-making",
-      "long_term": "Long-term implications for AI efficiency and accuracy"
-    },
-    {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "eli5": "Enhances AI efficiency and accuracy",
-      "long_term": "Long-term potential for improved AI decision-making"
-    }
-  ],
-  "ai_analysis": "The knowledge landscape is characterized by rapid advancements in AI/Tech and moderate progress in macro and crypto. The theme of today's research is secure communication and quantum computing. Notable papers include the Universal Weight Subspace Hypothesis and Value Gradient Guidance for Flow Matching Alignment. The knowledge velocity is Rapid, with significant implications for long-term growth and investment strategies.",
+  "summaries": [],
+  "ai_analysis": "The current knowledge landscape is characterized by a steady velocity, with a focus on AI and tech-related research. The theme of today's research is the development of more advanced AI models and the potential applications of quantum computing. The summaries are:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
