@@ -3,61 +3,55 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-08 04:31:12 UTC",
+  "last_update": "2025-12-09 04:27:47 UTC",
   "scoring": {
-    "stance_strength": 8,
+    "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,870",
+      "value": "6,847",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10,631",
-      "signal": "POSITIVE"
+      "value": "10,626",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$60.20",
+      "value": "$58.75",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,238",
+      "value": "$4,224",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.90",
+      "value": "99.05",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.14%",
+      "value": "4.17%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 60.2,
-    "dxy": 98.9,
-    "gold": 4238.2,
-    "sp500": 6870.4,
-    "tasi": 10631.25,
-    "treasury_10y": 4.14
+    "oil": 58.75,
+    "dxy": 99.05,
+    "gold": 4223.9,
+    "sp500": 6846.51,
+    "tasi": 10625.5,
+    "treasury_10y": 4.17
   },
-  "tasi_mood": "Positive",
-  "drivers": [
-    "Oil prices",
-    "US dollar strength",
-    "interest rates",
-    "global economic growth",
-    "geopolitical tensions"
-  ],
-  "ai_analysis": "The macroeconomic landscape is complex, with Oil at $60.20 and DXY at 98.90, indicating a moderate level of inflationary pressure and a strong US dollar. The SP500 at 6870.40 is near its recent highs, suggesting a degree of optimism among equity investors. The TASI at 10631.25 is also near its recent highs, indicating a positive mood in the Saudi market. The drivers of the macro landscape are: Oil prices, US dollar strength, interest rates, global economic growth, and geopolitical tensions. For the week, the directional bias is slightly positive, with a potential upside to the TASI.",
+  "tasi_mood": "Neutral",
+  "drivers": [],
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

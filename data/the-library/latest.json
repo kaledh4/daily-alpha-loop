@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-08 04:31:12 UTC",
+  "last_update": "2025-12-09 04:27:47 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -26,7 +26,7 @@
     }
   ],
   "summaries": [],
-  "ai_analysis": "The current knowledge landscape is characterized by a steady velocity, with a focus on AI and tech-related research. The theme of today's research is the development of more advanced AI models and the potential applications of quantum computing. The summaries are:",
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
