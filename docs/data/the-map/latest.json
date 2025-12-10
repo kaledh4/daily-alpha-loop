@@ -3,55 +3,61 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-09 04:27:47 UTC",
+  "last_update": "2025-12-10 04:36:42 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 8,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,847",
+      "value": "6,841",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10,626",
-      "signal": "NEUTRAL"
+      "value": "10,700",
+      "signal": "POSITIVE"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$58.75",
+      "value": "$58.34",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,224",
+      "value": "$4,236",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "99.05",
+      "value": "99.22",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.17%",
+      "value": "4.19%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 58.75,
-    "dxy": 99.05,
-    "gold": 4223.9,
-    "sp500": 6846.51,
-    "tasi": 10625.5,
-    "treasury_10y": 4.17
+    "oil": 58.34,
+    "dxy": 99.22,
+    "gold": 4235.8,
+    "sp500": 6840.51,
+    "tasi": 10699.79,
+    "treasury_10y": 4.19
   },
-  "tasi_mood": "Neutral",
-  "drivers": [],
-  "ai_analysis": "Analysis temporarily unavailable",
+  "tasi_mood": "Positive",
+  "drivers": [
+    "Oil Price Stability",
+    "DXY Movement",
+    "Interest Rate Decisions",
+    "Geopolitical Tensions",
+    "Major Equity Indices Performance"
+  ],
+  "ai_analysis": "The macro landscape is complex, with Oil at $58.34 and DXY at 99.22 influencing inflation expectations and trade balances. The Gold price at $4,235.80 suggests some safe-haven demand, potentially due to economic uncertainty. The SP500 at 6,840.51 is near recent highs, indicating resilience in equity markets. TASI (Saudi) at 10,699.79 reflects a positive mood in the Middle Eastern markets. For the week, the directional bias is slightly positive, driven by the resilience in equity markets and the potential for oil prices to stabilize. However, the DXY's strength could pose challenges for emerging markets. Key drivers include oil price stability, the DXY's movement, interest rate decisions, geopolitical tensions, and the performance of major equity indices.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

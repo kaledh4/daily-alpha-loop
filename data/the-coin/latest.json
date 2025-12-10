@@ -3,7 +3,7 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-09 04:27:47 UTC",
+  "last_update": "2025-12-10 04:36:42 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
@@ -12,27 +12,27 @@
   "metrics": [
     {
       "name": "BTC Price",
-      "value": "$90,440",
+      "value": "$92,515",
       "signal": "NORMAL"
     },
     {
       "name": "ETH Price",
-      "value": "$3,126",
+      "value": "$3,313",
       "signal": "NORMAL"
     },
     {
       "name": "RSI (BTC)",
-      "value": "35.4",
+      "value": "37.2",
       "signal": "NORMAL"
     },
     {
       "name": "Fear & Greed",
-      "value": "22",
-      "signal": "EXTREME FEAR"
+      "value": "26",
+      "signal": "FEAR"
     },
     {
       "name": "DXY Index",
-      "value": "99.05",
+      "value": "99.22",
       "signal": "NORMAL"
     },
     {
@@ -41,17 +41,17 @@
       "signal": "NORMAL"
     }
   ],
-  "btc_price": 90439.921875,
-  "eth_price": 3126.188720703125,
+  "btc_price": 92515.15625,
+  "eth_price": 3313.4150390625,
   "crypto_assets": {
     "BTC": {
-      "price": 90439.921875,
-      "risk": 1.254,
+      "price": 92515.15625,
+      "risk": 1.255,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3126.188720703125,
-      "risk": 0.54,
+      "price": 3313.4150390625,
+      "risk": 0.544,
       "multiplier": 2.0
     },
     "VXV": {
@@ -65,29 +65,29 @@
       "multiplier": 28.0
     },
     "ADA": {
-      "price": 0.43102166056632996,
+      "price": 0.46377500891685486,
       "risk": 0.036,
       "multiplier": 12.0
     },
     "NEAR": {
-      "price": 1.726165771484375,
+      "price": 1.7945547103881836,
       "risk": 0.033,
       "multiplier": 19.0
     }
   },
-  "dxy_index": 99.0459976196289,
+  "dxy_index": 99.21900177001953,
   "fed_rate": 3.88,
   "composite_risk": 0.9,
   "risk_level": "High",
-  "momentum": "Neutral",
-  "key_level": "Watch $90k",
-  "rsi": 35.38,
+  "momentum": "Bearish",
+  "key_level": "$90,000 for BTC",
+  "rsi": 37.21,
   "trend": "Bearish",
   "fear_and_greed": {
-    "value": 22,
-    "classification": "Extreme Fear"
+    "value": 26,
+    "classification": "Fear"
   },
-  "ai_analysis": "Analysis temporarily unavailable",
+  "ai_analysis": "The BTC price at $92,515 and ETH price at $3,313 reflect a bearish trend, with BTC RSI at 37.21 indicating potential oversold conditions. The Fear & Greed index at 26 suggests fear is prevalent, which could be a contrarian buy signal. However, the bearish trend must be respected, and any significant price drops could trigger further selling. A key level to watch is $90,000 for BTC, as a break below could lead to a deeper correction. ETH, being more volatile, could see a quicker rebound if market sentiment shifts. The momentum is currently Bearish, but monitoring these levels and the Fear & Greed index will be crucial for timing any potential reversal.",
   "data_sources": [
     "orderflow",
     "dominance_tracker",
