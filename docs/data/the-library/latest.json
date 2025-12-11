@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-10 04:36:42 UTC",
+  "last_update": "2025-12-11 04:33:06 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -27,27 +27,27 @@
   ],
   "summaries": [
     {
-      "title": "Astra's AI Model",
-      "eli5": "A new way to make AI more interactive and useful",
-      "long_term": "Future of Human-AI Interaction"
+      "title": "Closing the Train-Test Gap in World Models for Gradient-Based Planning",
+      "eli5": "Improves AI model performance",
+      "long_term": "Long-term potential for improved economic forecasting"
     },
     {
-      "title": "Quantum Error Correction",
-      "eli5": "Making quantum computers reliable",
-      "long_term": "Secure Quantum Computing"
+      "title": "LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating",
+      "eli5": "Leads to more advanced language models",
+      "long_term": "Long-term potential for improved economic analysis"
     },
     {
-      "title": "Machine Learning in Biotech",
-      "eli5": "Using AI to discover new medicines",
-      "long_term": "Personalized Medicine"
+      "title": "Connecting single-layer $t$-$J$ to Kondo lattice models: Exploration with cold atoms",
+      "eli5": "Leads to new discoveries in physics",
+      "long_term": "Long-term potential for breakthroughs in materials science"
     },
     {
-      "title": "AI in Finance",
-      "eli5": "Using AI to predict market moves",
-      "long_term": "Efficient Market Hypothesis Revisited"
+      "title": "MoDaH achieves rate optimal batch correction",
+      "eli5": "Significant breakthrough in machine learning",
+      "long_term": "Long-term potential for improved AI performance"
     }
   ],
-  "ai_analysis": "Today's research and news theme revolves around innovation and volatility, with a focus on AI breakthroughs, market fragility, and the intersection of technology and finance. The knowledge landscape is rapidly evolving, with new discoveries and analyses being published at a steady pace. Key summaries include the potential of AI in interactive models, the challenges of quantum error correction, and the application of machine learning in biotechnology. These advancements have long-term implications for how we approach computing, healthcare, and financial markets.",
+  "ai_analysis": "The current knowledge landscape is characterized by a Rapid knowledge velocity, with several breakthroughs in AI/Tech and macroeconomics. The theme of today's research is the intersection of AI and economics, with several papers exploring the potential of AI to improve economic models and decision-making. The paper \"Closing the Train-Test Gap in World Models for Gradient-Based Planning\" is a notable example, as it has the potential to improve the performance of AI models in economic forecasting. Another important paper is \"LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating\", which could lead to more advanced language models for economic analysis.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

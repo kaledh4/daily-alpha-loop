@@ -3,15 +3,15 @@
   "name": "The Shield",
   "role": "Risk Environment",
   "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors.",
-  "last_update": "2025-12-10 04:36:42 UTC",
+  "last_update": "2025-12-11 04:33:06 UTC",
   "scoring": {
     "risk_level": 16,
     "fragility": 8.1,
-    "volatility_pressure": 5.0
+    "volatility_pressure": 4.6
   },
   "risk_assessment": {
     "score": 16.7,
-    "level": "ELEVATED",
+    "level": "Elevated",
     "color": "#28a745"
   },
   "metrics": [
@@ -22,31 +22,31 @@
     },
     {
       "name": "USD/JPY",
-      "value": "156.64",
+      "value": "155.76",
       "signal": "CRITICAL SHOCK"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0601",
+      "value": "7.0610",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
-      "value": "4.19%",
+      "value": "4.16%",
       "signal": "NORMAL"
     },
     {
       "name": "MOVE Index",
-      "value": "75.38",
+      "value": "68.62",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "16.93",
+      "value": "15.77",
       "signal": "NORMAL"
     }
   ],
-  "ai_analysis": "The current MOVE Index at 75.38 is relatively low compared to the 2022 average of 120, indicating a moderate level of market stress. However, the VIX at 16.93 is slightly elevated, suggesting some investor anxiety. The 10Y Treasury Yield at 4.19% is near historical highs, which could impact borrowing costs and economic growth. The JPY at 156.64 and CNH at 7.0601 are within recent ranges, but any significant moves could affect trade balances. The 10Y Bid-to-Cover at 2.43 is relatively stable, indicating decent demand for government debt. Overall, the risk landscape is nuanced, with both calming and concerning signals. The risk level is thus Elevated, with a top concern of potential interest rate volatility.",
+  "ai_analysis": "The current MOVE Index at 68.62 is relatively low compared to the 2022 average of 120, indicating a moderate level of market volatility. The VIX at 15.77 is also below its historical average, suggesting a relatively calm market. However, the 10Y Treasury Yield at 4.16% is near its recent highs, which could be a concern for equity markets. The JPY at 155.76 and CNH at 7.0610 are within their recent ranges, but the 10Y Bid-to-Cover at 2.43 is slightly below average, indicating moderate demand for US Treasuries. Overall, the risk level is Elevated due to the potential for interest rate volatility. The top concern is the potential for a sharp increase in interest rates, which could negatively impact equity markets. The current risk environment resembles Q4 2018, where a sharp increase in interest rates led to a market correction.",
   "data_sources": [
     "global_risk",
     "volatility_matrix",
