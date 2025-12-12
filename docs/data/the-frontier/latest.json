@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-11 04:33:06 UTC",
+  "last_update": "2025-12-12 04:31:15 UTC",
   "scoring": {
     "breakthrough_score": 8,
     "trajectory": 8.5,
@@ -12,226 +12,226 @@
   "metrics": [
     {
       "name": "AI Research",
-      "value": "332,338",
+      "value": "332,576",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "47,604",
+      "value": "47,637",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "10,008",
+      "value": "10,012",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "171,372",
+      "value": "171,451",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "105,074",
+      "value": "105,105",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 332338,
+      "total_volume": 332576,
       "recent_papers": [
         {
-          "title": "Closing the Train-Test Gap in World Models for Gradient-Based Planning",
-          "summary": "World models paired with model predictive control (MPC) can be trained offline on large-scale datasets of expert trajectories and enable generalization to a wide range of planning tasks at inference t...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09929v1"
+          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+          "summary": "We propose a decoupled 3D scene generation framework called SceneMaker in this work. Due to the lack of sufficient open-set de-occlusion and pose estimation priors, existing methods struggle to simult...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10957v1"
         },
         {
-          "title": "LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating",
-          "summary": "Towards human-robot coexistence, socially aware navigation is significant for mobile robots. Yet existing studies on this area focus mainly on path efficiency and pedestrian collision avoidance, which...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09920v1"
+          "title": "Bidirectional Normalizing Flow: From Data to Noise and Back",
+          "summary": "Normalizing Flows (NFs) have been established as a principled framework for generative modeling. Standard NFs consist of a forward process and a reverse process: the forward process maps data to noise...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10953v1"
         },
         {
-          "title": "FALCON: Few-step Accurate Likelihoods for Continuous Flows",
-          "summary": "Scalable sampling of molecular states in thermodynamic equilibrium is a long-standing challenge in statistical physics. Boltzmann Generators tackle this problem by pairing a generative model, capable ...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09914v1"
+          "title": "Hierarchical Dataset Selection for High-Quality Data Sharing",
+          "summary": "The success of modern machine learning hinges on access to high-quality training data. In many real-world scenarios, such as acquiring data from public repositories or sharing across institutions, dat...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10952v1"
         },
         {
-          "title": "Supervised learning pays attention",
-          "summary": "In-context learning with attention enables large neural networks to make context-specific predictions by selectively focusing on relevant examples. Here, we adapt this idea to supervised learning proc...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09912v1"
+          "title": "Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation",
+          "summary": "Reinforcement learning (RL), earlier proven to be effective in large language and multi-modal models, has been successfully extended to enhance 2D image generation recently. However, applying RL to 3D...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10949v1"
         },
         {
-          "title": "Efficient Continual Learning in Neural Machine Translation: A Low-Rank Adaptation Approach",
-          "summary": "Continual learning in Neural Machine Translation (NMT) faces the dual challenges of catastrophic forgetting and the high computational cost of retraining. This study establishes Low-Rank Adaptation (L...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09910v1"
+          "title": "ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning",
+          "summary": "Human-level contact-rich manipulation relies on the distinct roles of two key modalities: vision provides spatially rich but temporally slow global context, while force sensing captures rapid, high-fr...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10946v1"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 47604,
+      "total_volume": 47637,
       "recent_papers": [
         {
-          "title": "Closing the Train-Test Gap in World Models for Gradient-Based Planning",
-          "summary": "World models paired with model predictive control (MPC) can be trained offline on large-scale datasets of expert trajectories and enable generalization to a wide range of planning tasks at inference t...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09929v1"
+          "title": "ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning",
+          "summary": "Human-level contact-rich manipulation relies on the distinct roles of two key modalities: vision provides spatially rich but temporally slow global context, while force sensing captures rapid, high-fr...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10946v1"
         },
         {
-          "title": "HiF-VLA: Hindsight, Insight and Foresight through Motion Representation for Vision-Language-Action Models",
-          "summary": "Vision-Language-Action (VLA) models have recently enabled robotic manipulation by grounding visual and linguistic cues into actions. However, most VLAs assume the Markov property, relying only on the ...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09928v1"
+          "title": "Any4D: Unified Feed-Forward Metric 4D Reconstruction",
+          "summary": "We present Any4D, a scalable multi-view transformer for metric-scale, dense feed-forward 4D reconstruction. Any4D directly generates per-pixel motion and geometry predictions for N frames, in contrast...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10935v1"
         },
         {
-          "title": "Token Expand-Merge: Training-Free Token Compression for Vision-Language-Action Models",
-          "summary": "Vision-Language-Action (VLA) models pretrained on large-scale multimodal datasets have emerged as powerful foundations for robotic perception and control. However, their massive scale, often billions ...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09927v1"
+          "title": "Curriculum-Based Reinforcement Learning for Autonomous UAV Navigation in Unknown Curved Tubular Conduit",
+          "summary": "Autonomous drone navigation in confined tubular environments remains a major challenge due to the constraining geometry of the conduits, the proximity of the walls, and the perceptual limitations inhe...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10934v1"
         },
         {
-          "title": "LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating",
-          "summary": "Towards human-robot coexistence, socially aware navigation is significant for mobile robots. Yet existing studies on this area focus mainly on path efficiency and pedestrian collision avoidance, which...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09920v1"
+          "title": "Decoupled Q-Chunking",
+          "summary": "Temporal-difference (TD) methods learn state and action values efficiently by bootstrapping from their own future value predictions, but such a self-bootstrapping mechanism is prone to bootstrapping b...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10926v1"
         },
         {
-          "title": "Py-DiSMech: A Scalable and Efficient Framework for Discrete Differential Geometry-Based Modeling and Control of Soft Robots",
-          "summary": "High-fidelity simulation has become essential to the design and control of soft robots, where large geometric deformations and complex contact interactions challenge conventional modeling tools. Recen...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09911v1"
+          "title": "Digital Twin Supervised Reinforcement Learning Framework for Autonomous Underwater Navigation",
+          "summary": "Autonomous navigation in underwater environments remains a major challenge due to the absence of GPS, degraded visibility, and the presence of submerged obstacles. This article investigates these issu...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10925v1"
         }
       ]
     },
     "Biotechnology": {
-      "total_volume": 10008,
+      "total_volume": 10012,
       "recent_papers": [
+        {
+          "title": "UNAAGI: Atom-Level Diffusion for Generating Non-Canonical Amino Acid Substitutions",
+          "summary": "Proposing beneficial amino acid substitutions, whether for mutational effect prediction or protein engineering, remains a central challenge in structural biology. Recent inverse folding models, traine...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10515v1"
+        },
+        {
+          "title": "Murmur2Vec: A Hashing Based Solution For Embedding Generation Of COVID-19 Spike Sequences",
+          "summary": "Early detection and characterization of coronavirus disease (COVID-19), caused by SARS-CoV-2, remain critical for effective clinical response and public-health planning. The global availability of lar...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.10147v1"
+        },
+        {
+          "title": "Decoding How Proteins Fold",
+          "summary": "The primary aims of this perspective are twofold. Firstly, to assess whether a universal principle could govern the process of protein folding. Secondly, to clarify whether the folding of a protein co...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.10115v1"
+        },
+        {
+          "title": "Development of an Agentic AI Model for NGS Downstream Analysis Targeting Researchers with Limited Biological Background",
+          "summary": "Next-Generation Sequencing (NGS) has become a cornerstone of genomic research, yet the complexity of downstream analysis-ranging from differential expression gene (DEG) identification to biological in...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.09964v1"
+        },
         {
           "title": "MoDaH achieves rate optimal batch correction",
           "summary": "Batch effects pose a significant challenge in the analysis of single-cell omics data, introducing technical artifacts that confound biological signals. While various computational methods have achieve...",
           "date": "2025-12-10",
           "link": "http://arxiv.org/abs/2512.09259v1"
-        },
-        {
-          "title": "Fused Gromov-Wasserstein Contrastive Learning for Effective Enzyme-Reaction Screening",
-          "summary": "Enzymes are crucial catalysts that enable a wide range of biochemical reactions. Efficiently identifying specific enzymes from vast protein libraries is essential for advancing biocatalysis. Tradition...",
-          "date": "2025-12-09",
-          "link": "http://arxiv.org/abs/2512.08508v1"
-        },
-        {
-          "title": "Integrating Coarse-Grained Simulations and Deep Learning to Unveil Entropy-Driven dsRNA Unwinding by DDX3X",
-          "summary": "DEAD-box RNA helicases (DDXs) are essential RNA metabolism regulators that typically unwind dsRNA in an ATP-dependent manner. However, recent studies show some DDXs can also unwind dsRNA without ATP, ...",
-          "date": "2025-12-09",
-          "link": "http://arxiv.org/abs/2512.08367v1"
-        },
-        {
-          "title": "ImmunoNX: a robust bioinformatics workflow to support personalized neoantigen vaccine trials",
-          "summary": "Personalized neoantigen vaccines represent a promising immunotherapy approach that harnesses tumor-specific antigens to stimulate anti-tumor immune responses. However, the design of these vaccines req...",
-          "date": "2025-12-09",
-          "link": "http://arxiv.org/abs/2512.08226v1"
-        },
-        {
-          "title": "needLR: Long-read structural variant annotation with population-scale frequency estimation",
-          "summary": "Summary: We present needLR, a structural variant (SV) annotation tool that can be used for filtering and prioritization of candidate pathogenic SVs from long-read sequencing data using population alle...",
-          "date": "2025-12-09",
-          "link": "http://arxiv.org/abs/2512.08175v1"
         }
       ]
     },
     "Quantum Computing": {
-      "total_volume": 171372,
+      "total_volume": 171451,
       "recent_papers": [
         {
-          "title": "Connecting single-layer $t$-$J$ to Kondo lattice models: Exploration with cold atoms",
-          "summary": "The Kondo effect, a hallmark of many-body physics, emerges from the antiferromagnetic coupling between localized spins and conduction fermions, leading to a correlated many-body singlet state. Here we...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09926v1"
+          "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+          "summary": "We establish a precise correspondence between decision-making agents in partially observable Markov decision processes (POMDPs) and one-input process functions, the classical limit of higher-order qua...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10937v1"
         },
         {
-          "title": "Photon emission by vortex particles accelerated in a linac",
-          "summary": "We study the photon emission by charged spinless particles with phase vortices and an orbital angular momentum (OAM) projection in longitudinal electric and magnetic fields within the scalar QED. A re...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09921v1"
+          "title": "Noisy Quantum Learning Theory",
+          "summary": "We develop a framework for learning from noisy quantum experiments, focusing on fault-tolerant devices accessing uncharacterized systems through noisy couplings. Our starting point is the complexity c...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10929v1"
         },
         {
-          "title": "Two simple models derived from a quantum-mechanical particle on an elliptical path",
-          "summary": "We analyze two simple models derived from a quantum-mechanical particle on an elliptical path. The first Hamiltonian operator is non-Hermitian but isomorphic to an Hermitian operator. It appears to ex...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09905v1"
+          "title": "Qubit decoherence in dissipative two-photon resonator: real-time instantons and Wigner function",
+          "summary": "We study the quantum dynamics of a single bosonic cavity subject to two-photon driving and two-photon dissipation in the presence of finite detuning. Exploiting a hidden time-reversal symmetry, the Wi...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10921v1"
         },
         {
-          "title": "A 0.8395-approximation algorithm for the EPR problem",
-          "summary": "We give an efficient 0.8395-approximation algorithm for the EPR Hamiltonian. Our improvement comes from a new nonlinear monogamy-of-entanglement bound on star graphs and a refined parameterization of ...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09896v1"
+          "title": "Partitioned Expansions for Approximate Tensor Network Contractions",
+          "summary": "We propose a method for approximating the contraction of a tensor network by partitioning the network into a sum of computationally cheaper networks. This method, which we call a partitioned network e...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10910v1"
         },
         {
-          "title": "Tomographic characterization of non-Hermitian Hamiltonians in reciprocal space",
-          "summary": "Non-Hermitian Hamiltonians enrich quantum physics by extending conventional phase diagrams, enabling novel topological phenomena, and realizing exceptional points with potential applications in quantu...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09870v1"
+          "title": "Electronic crystals and quasicrystals in semiconductor quantum wells: an AI-powered discovery",
+          "summary": "The homogeneous electron gas is a cornerstone of quantum condensed matter physics, providing the foundation for developing density functional theory and understanding electronic phases in semiconducto...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10909v1"
         }
       ]
     },
     "Semiconductors": {
-      "total_volume": 105074,
+      "total_volume": 105105,
       "recent_papers": [
         {
-          "title": "Tomographic characterization of non-Hermitian Hamiltonians in reciprocal space",
-          "summary": "Non-Hermitian Hamiltonians enrich quantum physics by extending conventional phase diagrams, enabling novel topological phenomena, and realizing exceptional points with potential applications in quantu...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09870v1"
+          "title": "Pair-density-wave in quarter-metals from a repulsive fermionic interaction in graphene heterostructures: A renormalization group study",
+          "summary": "Electronic bands in chirally stacked $n$ layer carbon-based honeycomb heterostructures, encompassing rhombohedral ($n \\geq 3$), Bernal bilayer ($n=2$), and monolayer ($n=1$) graphene, possess four-fol...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10944v1"
         },
         {
-          "title": "Frequency-Dependent Polarization Propagator Calculation for Quantum Dots Using Optimized Inverse Krylov Subspace and Folded-Spectrum Method",
-          "summary": "Accurate prediction of the frequency response of quantum dots under electromagnetic radiation is essential for investigating absorption spectra, excitonic effects, and nonlinear optical behavior in qu...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09811v1"
+          "title": "Shaping chaos in bilayer graphene cavities",
+          "summary": "Bilayer graphene (BLG) cavities, where electrons are confined in finite graphene flakes, provide a suitable platform to study quantum chaotic phenomena in condensed matter systems due to the trigonal ...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10914v1"
         },
         {
-          "title": "Pinball: A Cryogenic Predecoder for Quantum Error Correction Decoding Under Circuit-Level Noise",
-          "summary": "Scaling fault tolerant quantum computers, especially cryogenic systems, to millions of qubits is challenging due to poorly-scaling data processing and power consumption overheads. One key challenge is...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09807v1"
+          "title": "Electronic crystals and quasicrystals in semiconductor quantum wells: an AI-powered discovery",
+          "summary": "The homogeneous electron gas is a cornerstone of quantum condensed matter physics, providing the foundation for developing density functional theory and understanding electronic phases in semiconducto...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10909v1"
         },
         {
-          "title": "Biaxial Strain Modulation of Exciton-Phonon Resonance in WS2",
-          "summary": "Mechanical strain provides a powerful route to tune light-matter interactions in two-dimensional semiconductors, yet the impact of biaxial strain on resonant Raman scattering remains poorly quantified...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09783v1"
+          "title": "Topological Engineering of a Frustrated Antiferromagnetic Triradical in Aza-Triangulene Architectures",
+          "summary": "Open-shell nanographenes provide a versatile platform to host unconventional magnetic states within their \u03c0-conjugated networks. Particularly appealing are graphene architectures that incorporate spat...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10869v1"
         },
         {
-          "title": "Gate tuning of coupled electronic and structural phase transition in atomically thin Ta$_2$NiSe$_5$",
-          "summary": "Realizing an excitonic insulator phase from narrow-gap semiconductors remains challenging, as unambiguous experimental signatures are difficult to establish. Ta$_2$NiSe$_5$ has been widely regarded as...",
-          "date": "2025-12-10",
-          "link": "http://arxiv.org/abs/2512.09751v1"
+          "title": "Brightening of dark trions in monolayer WS$_2$ via localization of surface plasmons",
+          "summary": "Optically inactive dark trions in two-dimensional semiconductors are poised to play a stellar role in future quantum technologies due to their long lifetimes, about two orders of magnitude greater tha...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10856v1"
         }
       ]
     }
   },
   "breakthroughs": [
     {
-      "title": "Closing the Train-Test Gap in World Models for Gradient-Based Planning",
-      "why_it_matters": "Improves AI model performance"
+      "title": "SceneMaker",
+      "why_it_matters": "Enables more realistic 3D scene generation"
     },
     {
-      "title": "LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating",
-      "why_it_matters": "Leads to more advanced language models"
+      "title": "Bidirectional Normalizing Flow",
+      "why_it_matters": "Allows for more efficient data processing"
     },
     {
-      "title": "Connecting single-layer $t$-$J$ to Kondo lattice models: Exploration with cold atoms",
-      "why_it_matters": "Leads to new discoveries in physics"
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "why_it_matters": "Improves decision-making in complex systems"
     },
     {
-      "title": "MoDaH achieves rate optimal batch correction",
-      "why_it_matters": "Significant breakthrough in machine learning"
+      "title": "Noisy Quantum Learning Theory",
+      "why_it_matters": "Enhances machine learning in noisy environments"
     }
   ],
-  "ai_analysis": "The current AI/Tech velocity is Moderate, with several breakthroughs in recent weeks. The paper \"Closing the Train-Test Gap in World Models for Gradient-Based Planning\" is particularly notable, as it has the potential to improve the performance of AI models. Another important breakthrough is \"LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating\", which could lead to more advanced language models. The paper \"Connecting single-layer $t$-$J$ to Kondo lattice models: Exploration with cold atoms\" is also interesting, as it has the potential to lead to new discoveries in physics. Finally, \"MoDaH achieves rate optimal batch correction\" is a significant breakthrough in the field of machine learning.",
+  "ai_analysis": "The AI/Tech sector is experiencing moderate velocity, with breakthroughs in areas like open-set 3D scene generation and bidirectional normalizing flow. The paper \"SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model\" is particularly noteworthy. The breakthroughs are:",
   "data_sources": [
     "ai_rnd",
     "quantum",

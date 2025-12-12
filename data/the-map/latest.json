@@ -3,61 +3,61 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-11 04:33:06 UTC",
+  "last_update": "2025-12-12 04:31:15 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 3,
     "volatility_risk": 5,
     "confidence": 0.85
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,887",
+      "value": "6,901",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10,726",
-      "signal": "NEUTRAL"
+      "value": "10,716",
+      "signal": "NEGATIVE"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$58.46",
+      "value": "$58.03",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,243",
+      "value": "$4,299",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.68",
+      "value": "98.40",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.16%",
+      "value": "4.14%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 58.46,
-    "dxy": 98.68,
-    "gold": 4243.3,
-    "sp500": 6886.68,
-    "tasi": 10726.16,
-    "treasury_10y": 4.16
+    "oil": 58.03,
+    "dxy": 98.4,
+    "gold": 4298.7,
+    "sp500": 6901.0,
+    "tasi": 10715.98,
+    "treasury_10y": 4.14
   },
-  "tasi_mood": "Neutral",
+  "tasi_mood": "Negative",
   "drivers": [
-    "US dollar",
-    "interest rates",
-    "oil prices",
+    "Oil prices",
+    "US interest rates",
+    "Global growth concerns",
     "Saudi economic data",
-    "global risk appetite"
+    "Geopolitical tensions"
   ],
-  "ai_analysis": "The current macro environment is characterized by a strong US dollar, with the DXY at 98.68, and relatively high interest rates, with the 10Y Treasury Yield at 4.16%. This is negative for emerging markets and commodities, with Oil at $58.46 and Gold at $4243.30. The TASI at 10726.16 is relatively stable, but the Saudi market is heavily influenced by oil prices. The current macro setup resembles Q1 2022, where a strong US dollar and high interest rates led to a decline in emerging markets. The top drivers for the TASI this week are the US dollar, interest rates, oil prices, Saudi economic data, and global risk appetite. The TASI mood is Neutral, with a forecast of sideways trading.",
+  "ai_analysis": "The macro environment is complex, with Oil at $58.03 and DXY at 98.40 indicating a strong US dollar. The Gold price at $4,298.70 suggests some safe-haven demand. The SP500 at 6,901.00 is stable, but the TASI at 10,715.98 is showing signs of weakness. The Saudi market is influenced by global oil prices and US interest rates. For the week, the directional bias is slightly negative due to concerns about global growth and inflation. The drivers of the TASI are:",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

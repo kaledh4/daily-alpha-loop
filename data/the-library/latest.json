@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-11 04:33:06 UTC",
+  "last_update": "2025-12-12 04:31:15 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -27,27 +27,27 @@
   ],
   "summaries": [
     {
-      "title": "Closing the Train-Test Gap in World Models for Gradient-Based Planning",
-      "eli5": "Improves AI model performance",
-      "long_term": "Long-term potential for improved economic forecasting"
+      "title": "SceneMaker",
+      "eli5": "Generates 3D scenes",
+      "long_term": "Enables more realistic simulations"
     },
     {
-      "title": "LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating",
-      "eli5": "Leads to more advanced language models",
-      "long_term": "Long-term potential for improved economic analysis"
+      "title": "Bidirectional Normalizing Flow",
+      "eli5": "Processes data efficiently",
+      "long_term": "Improves machine learning"
     },
     {
-      "title": "Connecting single-layer $t$-$J$ to Kondo lattice models: Exploration with cold atoms",
-      "eli5": "Leads to new discoveries in physics",
-      "long_term": "Long-term potential for breakthroughs in materials science"
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "eli5": "Improves decision-making",
+      "long_term": "Enhances complex systems"
     },
     {
-      "title": "MoDaH achieves rate optimal batch correction",
-      "eli5": "Significant breakthrough in machine learning",
-      "long_term": "Long-term potential for improved AI performance"
+      "title": "Noisy Quantum Learning Theory",
+      "eli5": "Enhances machine learning",
+      "long_term": "Enables learning in noisy environments"
     }
   ],
-  "ai_analysis": "The current knowledge landscape is characterized by a Rapid knowledge velocity, with several breakthroughs in AI/Tech and macroeconomics. The theme of today's research is the intersection of AI and economics, with several papers exploring the potential of AI to improve economic models and decision-making. The paper \"Closing the Train-Test Gap in World Models for Gradient-Based Planning\" is a notable example, as it has the potential to improve the performance of AI models in economic forecasting. Another important paper is \"LISN: Language-Instructed Social Navigation with VLM-based Controller Modulating\", which could lead to more advanced language models for economic analysis.",
+  "ai_analysis": "The knowledge landscape is focused on AI/Tech breakthroughs and their applications. The theme of today's research is the intersection of AI and decision-making. The knowledge velocity is Rapid, with new breakthroughs emerging regularly. The summaries are:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
