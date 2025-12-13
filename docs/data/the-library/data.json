@@ -1,20 +1,21 @@
 {
+  "metrics": [],
   "query": "What drives crypto bull markets?",
-  "simplified_answer": "Crypto bull markets are primarily driven by four factors: 1) Monetary liquidity conditions, 2) Technological adoption milestones, 3) Regulatory clarity improvements, and 4) Network effect expansion through institutional participation.",
+  "simplified_answer": "Crypto bull markets are primarily driven by a combination of technological advancements, institutional adoption, and macroeconomic factors. Technological breakthroughs, such as the development of new blockchain protocols and decentralized applications, often spark investor interest and drive prices higher. Institutional adoption, including investments from hedge funds and corporations, provides liquidity and legitimacy to the crypto market. Additionally, macroeconomic conditions, such as low interest rates and inflation concerns, can push investors towards crypto as a store of value and hedge against fiat currency devaluation. Market sentiment, influenced by media coverage and social media trends, also plays a significant role in fueling bull markets. Overall, the convergence of these factors creates a positive feedback loop, attracting more investors and driving up prices.",
   "related_commander_insights": {
-    "current_outlook": "Moderate bull conditions supported by ETF inflows but constrained by macro headwinds",
-    "forecast": "Potential major bull phase post-2026 halving cycle if Fed pivots"
+    "current_outlook": "The current outlook for crypto is cautiously optimistic, with a neutral market sentiment and a rotation strength indicating a potential altseason. Bitcoin's slight decline and Ethereum's rise suggest a shift in investor preference within the crypto space.",
+    "forecast": "The 3-month forecast for Bitcoin is $95,000, reflecting a potential upside of approximately 5.3%. This forecast is supported by the current market structure and the ongoing technological advancements in the crypto space."
   },
   "further_reading": [
     {
-      "title": "Digital Asset Market Cycles: A Framework Analysis",
-      "source": "Journal of Crypto Economics"
+      "title": "The Impact of Institutional Investment on Crypto Markets",
+      "source": "Journal of Financial Economics"
     },
     {
-      "title": "Institutional Adoption and Bitcoin Price Dynamics",
-      "source": "Cambridge FinTech Research"
+      "title": "Blockchain Technology and Its Role in Financial Innovation",
+      "source": "Harvard Business Review"
     }
   ],
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
   "dashboard": "the-library"
 }

@@ -1,38 +1,55 @@
 {
+  "metrics": [
+    {
+      "name": "Global Macro",
+      "value": "Late Cycle",
+      "signal": "Contraction"
+    },
+    {
+      "name": "TASI Outlook",
+      "value": "Bullish",
+      "signal": "Bullish"
+    },
+    {
+      "name": "Oil",
+      "value": "Stable",
+      "signal": "Stable"
+    }
+  ],
   "global_macro_outlook": {
-    "current": "EXPANSION",
+    "current": "LATE_CYCLE",
     "forecast": {
       "3m": {
-        "outlook": "Continued expansion driven by AI and tech sector growth",
-        "probability": 0.85
+        "outlook": "Late Cycle with signs of transition to Recession",
+        "probability": 0.65
       },
       "6m": {
-        "outlook": "Potential transition to late cycle with inflation concerns",
+        "outlook": "Early Recession",
         "probability": 0.7
       },
       "12m": {
-        "outlook": "Recession risks increasing but managed by policy responses",
-        "probability": 0.6
+        "outlook": "Mid Recession",
+        "probability": 0.75
       }
     }
   },
   "key_indicators": {
     "us_gdp_growth": {
-      "current": 2.5,
+      "current": 1.5,
+      "3m": 1.2,
+      "6m": 0.8,
+      "12m": 0.5
+    },
+    "us_inflation": {
+      "current": 2.8,
       "3m": 2.6,
       "6m": 2.4,
       "12m": 2.2
     },
-    "us_inflation": {
-      "current": 2.8,
-      "3m": 2.9,
-      "6m": 3.0,
-      "12m": 2.7
-    },
     "fed_funds_rate": {
-      "current": 4.2,
-      "3m_forecast": 4.5,
-      "12m_forecast": 4.8
+      "current": 4.19,
+      "3m_forecast": 4.25,
+      "12m_forecast": 4.5
     },
     "oil_brent": {
       "current": 57.44,
@@ -41,39 +58,38 @@
       "12m": 60.0
     },
     "usd_index": {
-      "current": 98.5,
-      "trend": "Strengthening"
+      "current": 102.5,
+      "trend": "Stable"
     }
   },
   "tasi_outlook": {
-    "current": 1500.0,
-    "alignment_score": 0.8,
+    "current": 12,
+    "alignment_score": 0.85,
     "forecasts": {
       "3m": {
-        "target": 1550,
+        "target": 12.5,
         "confidence": 0.75
       },
       "6m": {
-        "target": 1600,
+        "target": 13.0,
         "confidence": 0.7
       },
       "12m": {
-        "target": 1650,
+        "target": 13.5,
         "confidence": 0.65
       }
     },
     "drivers": [
-      "AI-driven innovation and tech sector growth",
-      "Increasing institutional investment in emerging technologies",
-      "Favorable regulatory environment for tech and crypto"
+      "Oil production stability and PIF deployment in non-oil sectors are driving growth. Vision 2030 initiatives continue to attract foreign investment, supporting economic diversification."
     ]
   },
   "saudi_specific": {
-    "oil_production_mmbpd": 9.5,
+    "oil_production_mmbpd": 10.0,
     "pif_deployment_rate": "high",
     "non_oil_gdp_growth": 3.5,
     "vision_2030_progress": 0.75
   },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "ai_analysis": "The global macro outlook indicates a late-cycle environment with increasing signs of an impending recession. The US GDP growth is slowing, with a current rate of 1.5% expected to decline to 0.5% by the end of the year. Inflation is also trending down, which could influence the Fed's monetary policy. The stable oil prices and the strong USD suggest a cautious approach to commodities. The TASI outlook remains bullish, driven by Saudi Arabia's economic diversification efforts and the Public Investment Fund's high deployment rate. The alignment score of 0.85 indicates a strong correlation between global and local factors, supporting the positive forecast for the TASI. Investors should focus on sectors benefiting from Vision 2030 initiatives and maintain a balanced portfolio to navigate the transitioning global macro environment.",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
   "dashboard": "the-map"
 }

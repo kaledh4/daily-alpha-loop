@@ -1,56 +1,21 @@
 {
-  "dashboard": "the-library",
-  "name": "The Library",
-  "role": "Free Knowledge",
-  "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 08:38:43 UTC",
-  "scoring": {
-    "progress_rate": 65,
-    "uncertainty": 0.2
+  "metrics": [],
+  "query": "What drives crypto bull markets?",
+  "simplified_answer": "Crypto bull markets are primarily driven by a combination of technological advancements, institutional adoption, and macroeconomic factors. Technological breakthroughs, such as the development of new blockchain protocols and decentralized applications, often spark investor interest and drive prices higher. Institutional adoption, including investments from hedge funds and corporations, provides liquidity and legitimacy to the crypto market. Additionally, macroeconomic conditions, such as low interest rates and inflation concerns, can push investors towards crypto as a store of value and hedge against fiat currency devaluation. Market sentiment, influenced by media coverage and social media trends, also plays a significant role in fueling bull markets. Overall, the convergence of these factors creates a positive feedback loop, attracting more investors and driving up prices.",
+  "related_commander_insights": {
+    "current_outlook": "The current outlook for crypto is cautiously optimistic, with a neutral market sentiment and a rotation strength indicating a potential altseason. Bitcoin's slight decline and Ethereum's rise suggest a shift in investor preference within the crypto space.",
+    "forecast": "The 3-month forecast for Bitcoin is $95,000, reflecting a potential upside of approximately 5.3%. This forecast is supported by the current market structure and the ongoing technological advancements in the crypto space."
   },
-  "metrics": [
+  "further_reading": [
     {
-      "name": "Progress Rate",
-      "value": "65/100",
-      "signal": "NORMAL"
+      "title": "The Impact of Institutional Investment on Crypto Markets",
+      "source": "Journal of Financial Economics"
     },
     {
-      "name": "Uncertainty",
-      "value": "0.20",
-      "signal": "LOW"
-    },
-    {
-      "name": "Summaries",
-      "value": "4",
-      "signal": "NORMAL"
+      "title": "Blockchain Technology and Its Role in Financial Innovation",
+      "source": "Harvard Business Review"
     }
   ],
-  "summaries": [
-    {
-      "title": "SceneMaker",
-      "eli5": "Open-set 3D Scene Generation has potential applications in finance and biotech",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "Bidirectional Normalizing Flow",
-      "eli5": "From Data to Noise and Back has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
-      "eli5": "Decision-Making Agents and Higher-Order Causal Processes has potential applications in finance and AI",
-      "long_term": "Long-term potential for significant advancements in finance and AI"
-    },
-    {
-      "title": "Noisy Quantum Learning Theory",
-      "eli5": "Noisy Quantum Learning Theory has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    }
-  ],
-  "ai_analysis": "The current knowledge landscape is driven by research in AI/Tech, with a focus on Open-set 3D Scene Generation, Bidirectional Normalizing Flow, and Noisy Quantum Learning Theory. The theme of today's research is the application of AI and machine learning in finance and biotech. The knowledge velocity is Rapid, with significant breakthroughs in recent weeks. The summaries of the research papers suggest potential applications in finance, biotech, and AI.",
-  "data_sources": [
-    "ai_rnd_tracker",
-    "quantum_papers",
-    "lab_output_rate"
-  ]
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
+  "dashboard": "the-library"
 }

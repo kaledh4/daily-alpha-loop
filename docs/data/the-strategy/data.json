@@ -1,62 +1,59 @@
 {
-  "top_opportunities": [
+  "metrics": [
     {
-      "asset": "BTC-USD",
-      "timeframe": "3m",
-      "conviction": 0.7,
-      "expected_return": 15.0,
-      "max_drawdown_risk": 25.0,
-      "sharpe_forecast": 1.2,
-      "position_size": "7-10%",
-      "entry_trigger": "Break above $92,500 with volume",
-      "exit_targets": [
-        95000,
-        100000
-      ],
-      "stop_loss": 82000
+      "name": "Top Opportunity",
+      "value": "Gold",
+      "signal": "Buy"
     },
     {
+      "name": "Portfolio Risk",
+      "value": "Medium",
+      "signal": "Neutral"
+    }
+  ],
+  "top_opportunities": [
+    {
       "asset": "Gold",
-      "timeframe": "6m",
-      "conviction": 0.65,
-      "expected_return": 12.0,
-      "max_drawdown_risk": 15.0,
-      "sharpe_forecast": 0.9,
-      "position_size": "5-8%",
-      "entry_trigger": "Hold above $4,350",
+      "timeframe": "3-6 months",
+      "conviction": 0.8,
+      "expected_return": 5.0,
+      "max_drawdown_risk": 3.0,
+      "sharpe_forecast": 1.2,
+      "position_size": "5%",
+      "entry_trigger": "Price above $4,300",
       "exit_targets": [
-        4400,
-        4600
+        4400.0
       ],
-      "stop_loss": 4100
+      "stop_loss": 4200.0
     }
   ],
   "portfolio_allocation": {
-    "crypto": 25.0,
-    "equities": 30.0,
+    "crypto": 20.0,
+    "equities": 35.0,
     "commodities": 15.0,
-    "cash": 10.0,
-    "bonds": 20.0
+    "cash": 15.0,
+    "bonds": 15.0
   },
   "risk_adjusted_scores": {
     "btc": {
-      "score": 7.8,
-      "rank": 1
-    },
-    "gold": {
       "score": 6.5,
       "rank": 2
     },
+    "gold": {
+      "score": 7.5,
+      "rank": 1
+    },
     "tasi": {
-      "score": 5.2,
+      "score": 6.0,
       "rank": 3
     }
   },
   "correlation_matrix": {
-    "btc_spx": -1.2,
-    "gold_spx": -2.8,
-    "btc_gold": 0.4
+    "btc_spx": 0.6,
+    "gold_spx": -1.0,
+    "btc_gold": 0.2
   },
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "ai_analysis": "The current market environment suggests a neutral stance with a medium risk profile. Gold emerges as the top opportunity with a buy signal, supported by a conviction level of 0.80 and an expected return of 5.0% over the next 3-6 months. The entry trigger is set at a price above $4,300, with a stop-loss at $4,200 to manage downside risk. The portfolio allocation reflects a balanced approach, with 20% in crypto, 35% in equities, 15% in commodities, and 15% each in cash and bonds. This diversification strategy aims to capitalize on the potential upside in gold while maintaining exposure to growth assets like crypto and equities. The risk-adjusted scores indicate that gold is the most attractive asset, followed by Bitcoin and the TASI. The correlation matrix shows a strong negative correlation between gold and the S&P 500, suggesting that gold can serve as an effective hedge during equity market downturns. Investors should monitor the global macro environment and adjust their positions accordingly, focusing on assets that offer both growth potential and downside protection.",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
   "dashboard": "the-strategy"
 }

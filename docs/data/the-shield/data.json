@@ -1,53 +1,71 @@
 {
+  "metrics": [
+    {
+      "name": "Fragility Index",
+      "value": "45",
+      "signal": "Stable",
+      "percentile": 55
+    },
+    {
+      "name": "VIX",
+      "value": "15.74",
+      "signal": "Low"
+    },
+    {
+      "name": "Liquidity",
+      "value": "6.5",
+      "signal": "Ample"
+    }
+  ],
   "fragility_index": {
     "current": 45.0,
     "3m_forecast": {
-      "value": 48.0,
+      "value": 47.0,
       "crash_probability": 0.15
     },
     "6m_forecast": {
-      "value": 52.0,
+      "value": 49.0,
       "crash_probability": 0.2
     },
     "12m_forecast": {
-      "value": 55.0,
+      "value": 52.0,
       "crash_probability": 0.25
     }
   },
   "stress_indicators": {
     "vix_term_structure": {
       "signal": "contango",
-      "stress_level": "medium"
+      "stress_level": "low"
     },
     "credit_spreads": {
       "current": 1.2,
-      "trend": "widening",
-      "z_score": 1.5
+      "trend": "tightening",
+      "z_score": -1.0
     },
     "liquidity_metrics": {
       "bid_ask_spreads": {
-        "stress": "elevated"
+        "stress": "normal"
       },
       "market_depth": {
-        "stress": "low"
+        "stress": "normal"
       }
     },
     "cross_asset_correlation": {
       "current": 0.75,
       "crisis_threshold": 0.85,
-      "trend": "rising"
+      "trend": "stable"
     }
   },
   "tail_risk_hedges": [
     {
       "instrument": "Gold",
-      "recommended_allocation": "10%",
-      "rationale": "Gold is recommended as a tail risk hedge due to its historical performance as a safe haven asset during periods of market stress. With the current fragility index indicating a moderate level of market fragility and the potential for increased volatility, allocating a portion of the portfolio to gold can provide a buffer against potential downside risks. Gold's positive change in the data further supports its role as a hedge, as it has shown resilience and even appreciation in the face of market uncertainties. This allocation is particularly relevant given the risk-on sentiment driven by AI advancements, as it allows investors to participate in the potential upside while mitigating the risks associated with market volatility."
+      "recommended_allocation": "5%",
+      "rationale": "Gold serves as a traditional safe-haven asset, providing a hedge against market volatility and potential economic uncertainties. Its recent price increase indicates growing investor interest in safe assets, making it a prudent addition to a diversified portfolio."
     },
     {
       "instrument": "Volatility ETFs",
-      "recommended_allocation": "5%",
-      "rationale": "Volatility ETFs, such as those tracking the VIX, are recommended as a tail risk hedge to capitalize on potential market turbulence. The slight increase in the VIX, coupled with the rising cross-asset correlation, suggests that market uncertainty is on the rise. By allocating a portion of the portfolio to volatility ETFs, investors can benefit from any significant market sell-offs or spikes in volatility. This strategy complements the risk-on stance by providing a hedge against the downside, ensuring that the portfolio is well-protected against potential market corrections or crashes."
+      "recommended_allocation": "3%",
+      "rationale": "With the VIX showing a modest increase, volatility ETFs can offer protection against potential market turbulence. These instruments allow investors to benefit from rising volatility, providing a buffer during periods of market stress."
     }
   ],
   "early_warning_signals": {
@@ -56,6 +74,7 @@
     "crypto_correlation_breakdown": false,
     "funding_stress": false
   },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "ai_analysis": "The current market fragility index of 45 suggests a stable environment, but with a gradual increase expected over the next year. The VIX's modest rise to 15.74 indicates a low level of stress, supported by tightening credit spreads and normal liquidity conditions. The cross-asset correlation of 0.75 remains below the crisis threshold, suggesting that assets are not moving in lockstep, which is a positive sign. However, investors should monitor the gradual increase in the fragility index and be prepared for potential tail risks, especially as the 12-month forecast shows a slight increase in crash probability to 25%. Diversification into safe-haven assets like gold and volatility ETFs can provide a cushion against potential market disruptions.",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
   "dashboard": "the-shield"
 }

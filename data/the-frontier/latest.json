@@ -1,22 +1,34 @@
 {
+  "metrics": [
+    {
+      "name": "AGI Timeline",
+      "value": "2028",
+      "signal": "Accelerating"
+    },
+    {
+      "name": "Workforce Impact",
+      "value": "High",
+      "signal": "Disruptive"
+    }
+  ],
   "agi_timeline": {
     "median_estimate": "2028",
     "probability_distribution": {
-      "2025-2027": 0.1,
-      "2027-2030": 0.6,
-      "2030-2035": 0.2,
+      "2025-2027": 0.15,
+      "2027-2030": 0.5,
+      "2030-2035": 0.25,
       "post-2035": 0.1
     },
-    "confidence": 0.75
+    "confidence": 0.8
   },
   "escape_velocity_metrics": {
-    "current_probability": 0.7,
+    "current_probability": 0.65,
     "trend": "accelerating",
     "key_indicators": {
-      "model_capability_doubling_months": 6,
-      "compute_efficiency_improvement_rate": 0.3,
-      "research_breakthrough_velocity": 0.8,
-      "recursive_self_improvement_index": 0.75
+      "model_capability_doubling_months": 6.0,
+      "compute_efficiency_improvement_rate": 0.35,
+      "research_breakthrough_velocity": 0.4,
+      "recursive_self_improvement_index": 0.55
     }
   },
   "workforce_impact": {
@@ -29,27 +41,34 @@
     },
     "new_job_creation_rate": 3.0,
     "net_displacement_forecast": {
-      "3m": -2.0,
-      "12m": -5.0,
-      "36m": -10.0
+      "3m": 1.0,
+      "12m": 2.0,
+      "36m": 3.0
     }
   },
   "breakthrough_tracker": {
     "recent_milestones": [
       {
         "date": "2025-12-01",
-        "event": "Release of StereoSpace paper",
+        "event": "Launch of StereoSpace AI model",
         "impact": "high"
       },
       {
         "date": "2025-11-15",
-        "event": "WorldLens full-spectrum evaluations",
-        "impact": "high"
+        "event": "WorldLens driving world model evaluation",
+        "impact": "medium"
       }
     ],
     "papers_per_week": 10,
-    "trend": "accelerating"
+    "trend": "increasing"
   },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "investment_implications": {
+    "ai_infrastructure": "overweight",
+    "traditional_tech": "underweight",
+    "defense_cybersecurity": "overweight",
+    "conviction": 0.85
+  },
+  "ai_analysis": "The AGI timeline is accelerating, with a median estimate of 2028 and a high confidence level of 0.80. The escape velocity probability of 0.65 indicates a strong likelihood of achieving AGI within the next few years. Key indicators such as model capability doubling every 6 months and a research breakthrough velocity of 0.40 support this optimistic outlook. The workforce impact is significant, with an annual automation rate of 5.0% and high disruption expected in sectors like customer service and data entry. However, the new job creation rate of 3.0% suggests that while there will be displacement, new opportunities will also emerge. Investors should overweight AI infrastructure and defense-cybersecurity sectors, as these are likely to benefit from the rapid advancements in AI technology. Traditional tech sectors may face challenges as AI disrupts existing business models, making them less attractive for investment.",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
   "dashboard": "the-frontier"
 }

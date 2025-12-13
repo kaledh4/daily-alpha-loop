@@ -1,45 +1,59 @@
 {
-  "dashboard": "the-strategy",
-  "name": "The Strategy",
-  "role": "Market Stance",
-  "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-13 08:38:43 UTC",
-  "scoring": {
-    "stance_confidence": 3
-  },
   "metrics": [
     {
-      "name": "Risk Input",
-      "value": "LOW",
-      "signal": "NORMAL"
+      "name": "Top Opportunity",
+      "value": "Gold",
+      "signal": "Buy"
     },
     {
-      "name": "Crypto Input",
-      "value": "Bearish",
-      "signal": "BEARISH"
-    },
-    {
-      "name": "Macro Input",
-      "value": "Positive",
-      "signal": "POSITIVE"
-    },
-    {
-      "name": "Frontier Input",
-      "value": "Active",
-      "signal": "NORMAL"
+      "name": "Portfolio Risk",
+      "value": "Medium",
+      "signal": "Neutral"
     }
   ],
-  "stance": "Defensive",
-  "mindset": "Cautious",
-  "inputs": {
-    "risk": "LOW",
-    "crypto": "Bearish",
-    "macro": "Positive",
-    "frontier": "Active"
+  "top_opportunities": [
+    {
+      "asset": "Gold",
+      "timeframe": "3-6 months",
+      "conviction": 0.8,
+      "expected_return": 5.0,
+      "max_drawdown_risk": 3.0,
+      "sharpe_forecast": 1.2,
+      "position_size": "5%",
+      "entry_trigger": "Price above $4,300",
+      "exit_targets": [
+        4400.0
+      ],
+      "stop_loss": 4200.0
+    }
+  ],
+  "portfolio_allocation": {
+    "crypto": 20.0,
+    "equities": 35.0,
+    "commodities": 15.0,
+    "cash": 15.0,
+    "bonds": 15.0
   },
-  "ai_analysis": "The current market conditions suggest a Defensive stance, given the potential for rising interest rates to impact equity markets. However, the AI/Tech sector is showing Moderate velocity, which could provide opportunities for Accumulative strategies. The Crypto sector is in a bearish trend, but the low RSI and extreme fear index suggest a potential buying opportunity. A balanced portfolio with a mix of Defensive and Accumulative strategies could be optimal. The mindset should be cautious, with a focus on risk management. The conviction level is Medium, given the uncertainty in the market.",
-  "data_sources": [
-    "stance_engine",
-    "momentum_blend"
-  ]
+  "risk_adjusted_scores": {
+    "btc": {
+      "score": 6.5,
+      "rank": 2
+    },
+    "gold": {
+      "score": 7.5,
+      "rank": 1
+    },
+    "tasi": {
+      "score": 6.0,
+      "rank": 3
+    }
+  },
+  "correlation_matrix": {
+    "btc_spx": 0.6,
+    "gold_spx": -1.0,
+    "btc_gold": 0.2
+  },
+  "ai_analysis": "The current market environment suggests a neutral stance with a medium risk profile. Gold emerges as the top opportunity with a buy signal, supported by a conviction level of 0.80 and an expected return of 5.0% over the next 3-6 months. The entry trigger is set at a price above $4,300, with a stop-loss at $4,200 to manage downside risk. The portfolio allocation reflects a balanced approach, with 20% in crypto, 35% in equities, 15% in commodities, and 15% each in cash and bonds. This diversification strategy aims to capitalize on the potential upside in gold while maintaining exposure to growth assets like crypto and equities. The risk-adjusted scores indicate that gold is the most attractive asset, followed by Bitcoin and the TASI. The correlation matrix shows a strong negative correlation between gold and the S&P 500, suggesting that gold can serve as an effective hedge during equity market downturns. Investors should monitor the global macro environment and adjust their positions accordingly, focusing on assets that offer both growth potential and downside protection.",
+  "last_update": "2025-12-13T20:08:20.911999+00:00",
+  "dashboard": "the-strategy"
 }
