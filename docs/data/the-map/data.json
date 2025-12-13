@@ -1,79 +1,79 @@
 {
   "global_macro_outlook": {
-    "current": "LATE_CYCLE",
+    "current": "EXPANSION",
     "forecast": {
       "3m": {
-        "outlook": "Stagflation risks",
-        "probability": 0.65
+        "outlook": "Continued expansion driven by AI and tech sector growth",
+        "probability": 0.85
       },
       "6m": {
-        "outlook": "Mild recession",
-        "probability": 0.55
+        "outlook": "Potential transition to late cycle with inflation concerns",
+        "probability": 0.7
       },
       "12m": {
-        "outlook": "Policy-driven recovery",
-        "probability": 0.45
+        "outlook": "Recession risks increasing but managed by policy responses",
+        "probability": 0.6
       }
     }
   },
   "key_indicators": {
     "us_gdp_growth": {
-      "current": 1.8,
-      "3m": 1.5,
-      "6m": 1.2,
-      "12m": 2.0
+      "current": 2.5,
+      "3m": 2.6,
+      "6m": 2.4,
+      "12m": 2.2
     },
     "us_inflation": {
-      "current": 3.2,
-      "3m": 3.0,
-      "6m": 2.8,
-      "12m": 2.5
+      "current": 2.8,
+      "3m": 2.9,
+      "6m": 3.0,
+      "12m": 2.7
     },
     "fed_funds_rate": {
-      "current": 4.19,
-      "3m_forecast": 4.0,
-      "12m_forecast": 3.5
+      "current": 4.2,
+      "3m_forecast": 4.5,
+      "12m_forecast": 4.8
     },
     "oil_brent": {
-      "current": 57.4,
-      "3m": 60.0,
-      "6m": 62.5,
-      "12m": 65.0
+      "current": 57.44,
+      "3m": 58.0,
+      "6m": 59.0,
+      "12m": 60.0
     },
     "usd_index": {
-      "current": 102.3,
-      "trend": "Rangebound"
+      "current": 98.5,
+      "trend": "Strengthening"
     }
   },
   "tasi_outlook": {
-    "current": 6827.4,
-    "alignment_score": 0.75,
+    "current": 1500.0,
+    "alignment_score": 0.8,
     "forecasts": {
       "3m": {
-        "target": 7000,
-        "confidence": 0.7
+        "target": 1550,
+        "confidence": 0.75
       },
       "6m": {
-        "target": 7200,
-        "confidence": 0.65
+        "target": 1600,
+        "confidence": 0.7
       },
       "12m": {
-        "target": 7500,
-        "confidence": 0.6
+        "target": 1650,
+        "confidence": 0.65
       }
     },
     "drivers": [
-      "Oil price stabilization",
-      "Vision 2030 execution",
-      "Regional infrastructure investments"
+      "AI-driven innovation and tech sector growth",
+      "Increasing institutional investment in emerging technologies",
+      "Favorable regulatory environment for tech and crypto"
     ]
   },
   "saudi_specific": {
-    "oil_production_mmbpd": 9.8,
+    "oil_production_mmbpd": 9.5,
     "pif_deployment_rate": "high",
-    "non_oil_gdp_growth": 4.2,
-    "vision_2030_progress": 0.68
+    "non_oil_gdp_growth": 3.5,
+    "vision_2030_progress": 0.75
   },
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "last_update": "2025-12-13T17:08:52.036332+00:00",
   "dashboard": "the-map"
 }

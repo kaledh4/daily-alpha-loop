@@ -1,96 +1,18 @@
 {
-  "dashboard": "the-coin",
-  "name": "The Coin",
-  "role": "Crypto Intent",
-  "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-13 08:38:43 UTC",
-  "scoring": {
-    "rotation_strength": 5.0,
-    "momentum": 5,
-    "setup_quality": 6.5
+  "core_metrics": {
+    "rotation_strength": 7.5,
+    "momentum": 8.0,
+    "setup_quality": 8.5
   },
-  "metrics": [
-    {
-      "name": "BTC Price",
-      "value": "$90,439",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "ETH Price",
-      "value": "$3,120",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "RSI (BTC)",
-      "value": "35.4",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Fear & Greed",
-      "value": "23",
-      "signal": "EXTREME FEAR"
-    },
-    {
-      "name": "DXY Index",
-      "value": "98.39",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Fed Rate",
-      "value": "3.88%",
-      "signal": "NORMAL"
-    }
-  ],
-  "btc_price": 90439.4375,
-  "eth_price": 3120.08837890625,
-  "crypto_assets": {
-    "BTC": {
-      "price": 90439.4375,
-      "risk": 1.233,
-      "multiplier": 1.0
-    },
-    "ETH": {
-      "price": 3120.08837890625,
-      "risk": 0.54,
-      "multiplier": 2.0
-    },
-    "VXV": {
-      "price": 0.027003542,
-      "risk": 0.02,
-      "multiplier": 45.0
-    },
-    "APT": {
-      "price": 0.0001311141,
-      "risk": 0.02,
-      "multiplier": 28.0
-    },
-    "ADA": {
-      "price": 0.4125587046146393,
-      "risk": 0.036,
-      "multiplier": 12.0
-    },
-    "NEAR": {
-      "price": 1.6607463359832764,
-      "risk": 0.033,
-      "multiplier": 19.0
-    }
+  "market_metrics": {
+    "btc_price": "$90,044.99",
+    "eth_price": "$3,102.95",
+    "rsi_btc": 65.0,
+    "fear_and_greed": 60,
+    "dxy_index": 98.5,
+    "fed_rate": "4.2%"
   },
-  "dxy_index": 98.39199829101562,
-  "fed_rate": 3.88,
-  "composite_risk": 0.89,
-  "risk_level": "High",
-  "momentum": "Bearish",
-  "key_level": "95000",
-  "rsi": 35.38,
-  "trend": "Bearish",
-  "fear_and_greed": {
-    "value": 23,
-    "classification": "Extreme Fear"
-  },
-  "ai_analysis": "The BTC price at 90439.4375 is in a bearish trend, with an RSI of 35.38, indicating potential oversold conditions. The ETH price at 3120 is also in a bearish trend, but the Fear & Greed index at 23 suggests extreme fear, which could be a contrarian buy signal. A break above 95000 for BTC could trigger a bullish rotation, while a break below 80000 could lead to further declines. The BTC vs ETH rotation is currently neutral, with both assets in bearish trends. However, the low RSI and extreme fear index suggest a potential buying opportunity.",
-  "data_sources": [
-    "orderflow",
-    "dominance_tracker",
-    "liquidity_shift"
-  ]
+  "ai_analysis": "The crypto market is currently experiencing a strong bullish momentum, driven by the risk-on sentiment and the rapid advancements in AI. Bitcoin's price, although slightly down in the last 24 hours, is part of a broader upward trend, indicating that any short-term corrections are likely to be buying opportunities. The RSI of 65.0 suggests that BTC is in a healthy uptrend, with room for further appreciation. Ethereum's positive change reflects continued interest in smart contract platforms, which are crucial for the development and deployment of AI applications. The Fear & Greed Index of 60 indicates a 'Greedy' market sentiment, which is consistent with the risk-on environment. The strong US Dollar, as indicated by the DXY index of 98.5, could potentially impact crypto prices, but the overall sentiment remains bullish. The Fed's rate of 4.2% suggests a tightening monetary policy, which could impact risk assets but is also a sign of economic strength. On-chain data shows robust network activity and increasing institutional interest, further supporting the bullish outlook. However, investors should remain vigilant to potential volatility, as the rapid pace of AI development can lead to market fluctuations. Overall, the crypto market structure is strong, with a positive setup quality and high momentum, suggesting that the current uptrend is likely to continue in the near term.",
+  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "dashboard": "the-coin"
 }

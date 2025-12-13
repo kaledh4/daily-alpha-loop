@@ -113,13 +113,13 @@ function formatTimestamp(timestamp) {
 async function loadDashboardData(dashboardId) {
     const paths = [
         // 1. GitHub Pages absolute path (Most reliable for production)
-        `/daily-alpha-loop/data/${dashboardId}/latest.json`,
+        `/daily-alpha-loop/data/${dashboardId}/data.json`,
         // 2. Standard relative path (Works for local server and some deployments)
-        `../data/${dashboardId}/latest.json`,
+        `../data/${dashboardId}/data.json`,
         // 3. Full URL fallback (If relative paths fail)
-        `https://kaledh4.github.io/daily-alpha-loop/data/${dashboardId}/latest.json`,
+        `https://kaledh4.github.io/daily-alpha-loop/data/${dashboardId}/data.json`,
         // 4. Deep relative path (Fallback for nested structures)
-        `../../data/${dashboardId}/latest.json`,
+        `../../data/${dashboardId}/data.json`,
         // 5. Local data path (Fallback for dev)
         `./data/latest.json`
     ];
