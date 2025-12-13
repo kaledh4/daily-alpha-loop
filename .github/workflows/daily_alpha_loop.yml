@@ -37,6 +37,7 @@ jobs:
         run: npm install
 
       - name: Run Daily Alpha Loop V3
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           # V3 Primary API Key (REQUIRED for AI analysis)
           OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}

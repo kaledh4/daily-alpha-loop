@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 06:46:33 UTC",
+  "last_update": "2025-12-13 04:22:44 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -27,27 +27,27 @@
   ],
   "summaries": [
     {
-      "title": "title1: AI-generated content",
-      "eli5": "eli5_1: Using AI to create realistic content",
-      "long_term": "long_term1: Potential disruption of traditional media"
+      "title": "SceneMaker",
+      "eli5": "Enables the generation of complex 3D scenes with high fidelity",
+      "long_term": "Potential for applications in finance and other industries"
     },
     {
-      "title": "title2: Bidirectional normalizing flow",
-      "eli5": "eli5_2: Improving data analysis with AI",
-      "long_term": "long_term2: Enhanced decision-making capabilities"
+      "title": "Bidirectional Normalizing Flow",
+      "eli5": "Allows for efficient sampling and generation of complex data distributions",
+      "long_term": "Enables the development of more robust and efficient machine learning algorithms"
     },
     {
-      "title": "title3: Noisy quantum learning theory",
-      "eli5": "eli5_3: Efficient quantum learning",
-      "long_term": "long_term3: Potential breakthroughs in fields like medicine and finance"
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "eli5": "Provides a framework for understanding complex decision-making processes",
+      "long_term": "Potential for applications in finance and other industries"
     },
     {
-      "title": "title4: UNAAGI",
-      "eli5": "eli5_4: Generating non-canonical amino acid substitutions",
-      "long_term": "long_term4: Potential applications in biotechnology and medicine"
+      "title": "Noisy Quantum Learning Theory",
+      "eli5": "Enables the development of more robust and efficient quantum machine learning algorithms",
+      "long_term": "Potential for applications in finance and other industries"
     }
   ],
-  "ai_analysis": "The knowledge landscape is rapidly evolving, with a focus on AI/Tech innovation and macroeconomic trends. The theme of today's research is the intersection of AI and finance, with potential applications in areas like portfolio management and risk analysis. The knowledge velocity is rapid, with new breakthroughs and discoveries emerging daily. The summaries[4]{title,eli5,long_term} are:",
+  "ai_analysis": "The current knowledge landscape is characterized by a Rapid knowledge velocity, driven by breakthroughs in AI/Tech and macro research. The theme of today's research is the intersection of AI and finance, with a focus on the potential applications and risks of AI in financial markets. The summaries are:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
