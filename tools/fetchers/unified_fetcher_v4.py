@@ -384,6 +384,10 @@ class UnifiedFetcherV4:
         DATA SUMMARY:
         {json.dumps(data_summary, indent=2)}
         
+        **CRITICAL INSTRUCTION**: Provide EXTREMELY DETAILED, VERBOSE, and INSIGHTFUL analysis. 
+        Do not be brief. Write comprehensive paragraphs for all text fields. 
+        The user wants "more text, more meaning, more insights".
+        
         Generate JSON output matching the following schema EXACTLY. Do not deviate.
         
         {{
@@ -404,11 +408,11 @@ class UnifiedFetcherV4:
                 }},
                 "morning_brief": {{
                     "weather_of_the_day": "Sunny/Cloudy/Stormy",
-                    "top_signal": "string",
+                    "top_signal": "string (clear and actionable signal)",
                     "action_stance": "Aggressive/Neutral/Defensive",
-                    "why_it_matters": "string",
-                    "cross_dashboard_convergence": "string",
-                    "summary_sentence": "string"
+                    "why_it_matters": "string (LONG, DETAILED paragraph explaining the deep significance of the signal)",
+                    "cross_dashboard_convergence": "string (LONG, DETAILED paragraph explaining how crypto, macro, and risk metrics align)",
+                    "summary_sentence": "string (impactful summary)"
                 }}
             }},
             "the_shield": {{
@@ -432,7 +436,7 @@ class UnifiedFetcherV4:
                     }}
                 }},
                 "tail_risk_hedges": [
-                    {{ "instrument": "string", "recommended_allocation": "string", "rationale": "string" }}
+                    {{ "instrument": "string", "recommended_allocation": "string", "rationale": "string (detailed explanation of why this hedge is needed)" }}
                 ],
                 "early_warning_signals": {{
                     "yield_curve_inversion": true/false,
@@ -455,15 +459,15 @@ class UnifiedFetcherV4:
                     "dxy_index": 0.0,
                     "fed_rate": "string"
                 }},
-                "ai_analysis": "string (paragraph)"
+                "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
             }},
             "the_map": {{
                 "global_macro_outlook": {{
                     "current": "LATE_CYCLE/RECESSION/RECOVERY/EXPANSION",
                     "forecast": {{
-                        "3m": {{ "outlook": "string", "probability": 0.0-1.0 }},
-                        "6m": {{ "outlook": "string", "probability": 0.0-1.0 }},
-                        "12m": {{ "outlook": "string", "probability": 0.0-1.0 }}
+                        "3m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }},
+                        "6m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }},
+                        "12m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }}
                     }}
                 }},
                 "key_indicators": {{
@@ -481,7 +485,7 @@ class UnifiedFetcherV4:
                         "6m": {{ "target": 0, "confidence": 0.0-1.0 }},
                         "12m": {{ "target": 0, "confidence": 0.0-1.0 }}
                     }},
-                    "drivers": ["string"]
+                    "drivers": ["string (detailed driver description)"]
                 }},
                 "saudi_specific": {{
                     "oil_production_mmbpd": 0.0,
@@ -575,7 +579,7 @@ class UnifiedFetcherV4:
             }},
             "the_library": {{
                 "query": "What drives crypto bull markets?",
-                "simplified_answer": "string",
+                "simplified_answer": "string (comprehensive, easy-to-understand explanation)",
                 "related_commander_insights": {{
                     "current_outlook": "string",
                     "forecast": "string"
@@ -627,10 +631,15 @@ class UnifiedFetcherV4:
                 target_dir = DATA_DIR / folder
                 target_dir.mkdir(parents=True, exist_ok=True)
                 
-                # Save data.json
+                # Save data.json (Primary)
                 with open(target_dir / 'data.json', 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=2)
-                logger.info(f"Saved data for {folder}")
+                
+                # Save latest.json (Legacy/Backup)
+                with open(target_dir / 'latest.json', 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=2)
+                    
+                logger.info(f"Saved data for {folder} (data.json & latest.json)")
 
     async def run(self):
         """Main execution flow"""
