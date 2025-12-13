@@ -1,18 +1,18 @@
 {
   "core_metrics": {
-    "rotation_strength": 6.0,
-    "momentum": 5.5,
-    "setup_quality": 6.5
+    "rotation_strength": 7.5,
+    "momentum": 8.0,
+    "setup_quality": 8.5
   },
   "market_metrics": {
-    "btc_price": "$90,083",
-    "eth_price": "$3,103",
-    "rsi_btc": 52.4,
-    "fear_and_greed": 55,
-    "dxy_index": 102.3,
-    "fed_rate": "4.19%"
+    "btc_price": "$90,044.99",
+    "eth_price": "$3,102.95",
+    "rsi_btc": 65.0,
+    "fear_and_greed": 60,
+    "dxy_index": 98.5,
+    "fed_rate": "4.2%"
   },
-  "ai_analysis": "Market structure shows bifurcation between crypto and traditional assets. Bitcoin's consolidation near $90k suggests accumulation phase, while ETH's relative strength indicates altcoin rotation potential. Macro headwinds from rising yields offset by institutional crypto inflows.",
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "ai_analysis": "The crypto market is currently experiencing a strong bullish momentum, driven by the risk-on sentiment and the rapid advancements in AI. Bitcoin's price, although slightly down in the last 24 hours, is part of a broader upward trend, indicating that any short-term corrections are likely to be buying opportunities. The RSI of 65.0 suggests that BTC is in a healthy uptrend, with room for further appreciation. Ethereum's positive change reflects continued interest in smart contract platforms, which are crucial for the development and deployment of AI applications. The Fear & Greed Index of 60 indicates a 'Greedy' market sentiment, which is consistent with the risk-on environment. The strong US Dollar, as indicated by the DXY index of 98.5, could potentially impact crypto prices, but the overall sentiment remains bullish. The Fed's rate of 4.2% suggests a tightening monetary policy, which could impact risk assets but is also a sign of economic strength. On-chain data shows robust network activity and increasing institutional interest, further supporting the bullish outlook. However, investors should remain vigilant to potential volatility, as the rapid pace of AI development can lead to market fluctuations. Overall, the crypto market structure is strong, with a positive setup quality and high momentum, suggesting that the current uptrend is likely to continue in the near term.",
+  "last_update": "2025-12-13T17:08:52.036332+00:00",
   "dashboard": "the-coin"
 }

@@ -1,17 +1,17 @@
 {
   "fragility_index": {
-    "current": 35.0,
+    "current": 45.0,
     "3m_forecast": {
-      "value": 42.0,
-      "crash_probability": 0.25
+      "value": 48.0,
+      "crash_probability": 0.15
     },
     "6m_forecast": {
-      "value": 55.0,
-      "crash_probability": 0.4
+      "value": 52.0,
+      "crash_probability": 0.2
     },
     "12m_forecast": {
-      "value": 68.0,
-      "crash_probability": 0.6
+      "value": 55.0,
+      "crash_probability": 0.25
     }
   },
   "stress_indicators": {
@@ -20,42 +20,42 @@
       "stress_level": "medium"
     },
     "credit_spreads": {
-      "current": 1.8,
+      "current": 1.2,
       "trend": "widening",
-      "z_score": 1.2
+      "z_score": 1.5
     },
     "liquidity_metrics": {
       "bid_ask_spreads": {
-        "stress": "normal"
+        "stress": "elevated"
       },
       "market_depth": {
-        "stress": "normal"
+        "stress": "low"
       }
     },
     "cross_asset_correlation": {
-      "current": 0.65,
+      "current": 0.75,
       "crisis_threshold": 0.85,
       "trend": "rising"
     }
   },
   "tail_risk_hedges": [
     {
-      "instrument": "Gold ETF",
-      "recommended_allocation": "5-7%",
-      "rationale": "Hedge against equity volatility and dollar weakness"
+      "instrument": "Gold",
+      "recommended_allocation": "10%",
+      "rationale": "Gold is recommended as a tail risk hedge due to its historical performance as a safe haven asset during periods of market stress. With the current fragility index indicating a moderate level of market fragility and the potential for increased volatility, allocating a portion of the portfolio to gold can provide a buffer against potential downside risks. Gold's positive change in the data further supports its role as a hedge, as it has shown resilience and even appreciation in the face of market uncertainties. This allocation is particularly relevant given the risk-on sentiment driven by AI advancements, as it allows investors to participate in the potential upside while mitigating the risks associated with market volatility."
     },
     {
-      "instrument": "VIX Calls",
-      "recommended_allocation": "2-3%",
-      "rationale": "Protection against volatility spikes"
+      "instrument": "Volatility ETFs",
+      "recommended_allocation": "5%",
+      "rationale": "Volatility ETFs, such as those tracking the VIX, are recommended as a tail risk hedge to capitalize on potential market turbulence. The slight increase in the VIX, coupled with the rising cross-asset correlation, suggests that market uncertainty is on the rise. By allocating a portion of the portfolio to volatility ETFs, investors can benefit from any significant market sell-offs or spikes in volatility. This strategy complements the risk-on stance by providing a hedge against the downside, ensuring that the portfolio is well-protected against potential market corrections or crashes."
     }
   ],
   "early_warning_signals": {
     "yield_curve_inversion": false,
     "high_yield_spread_spike": false,
-    "crypto_correlation_breakdown": true,
+    "crypto_correlation_breakdown": false,
     "funding_stress": false
   },
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "last_update": "2025-12-13T17:08:52.036332+00:00",
   "dashboard": "the-shield"
 }

@@ -1,61 +1,55 @@
 {
   "agi_timeline": {
-    "median_estimate": "2030",
+    "median_estimate": "2028",
     "probability_distribution": {
-      "2025-2027": 0.15,
-      "2027-2030": 0.45,
-      "2030-2035": 0.3,
+      "2025-2027": 0.1,
+      "2027-2030": 0.6,
+      "2030-2035": 0.2,
       "post-2035": 0.1
     },
     "confidence": 0.75
   },
   "escape_velocity_metrics": {
-    "current_probability": 0.28,
+    "current_probability": 0.7,
     "trend": "accelerating",
     "key_indicators": {
-      "model_capability_doubling_months": 14.0,
-      "compute_efficiency_improvement_rate": 1.8,
-      "research_breakthrough_velocity": 2.1,
-      "recursive_self_improvement_index": 0.65
+      "model_capability_doubling_months": 6,
+      "compute_efficiency_improvement_rate": 0.3,
+      "research_breakthrough_velocity": 0.8,
+      "recursive_self_improvement_index": 0.75
     }
   },
   "workforce_impact": {
-    "automation_rate_annual": 12.5,
+    "automation_rate_annual": 5.0,
     "jobs_at_risk_3y": {
-      "customer_service": 35.0,
-      "data_entry": 65.0,
+      "customer_service": 30.0,
+      "data_entry": 40.0,
       "creative_work": 15.0,
       "coding": 25.0
     },
-    "new_job_creation_rate": 8.2,
+    "new_job_creation_rate": 3.0,
     "net_displacement_forecast": {
-      "3m": -1.2,
-      "12m": -3.8,
-      "36m": -7.5
+      "3m": -2.0,
+      "12m": -5.0,
+      "36m": -10.0
     }
   },
   "breakthrough_tracker": {
     "recent_milestones": [
       {
-        "date": "2025-11-15",
-        "event": "Multimodal reasoning surpasses human baselines",
+        "date": "2025-12-01",
+        "event": "Release of StereoSpace paper",
         "impact": "high"
       },
       {
-        "date": "2025-12-01",
-        "event": "Self-improving AI systems demonstrated in lab settings",
-        "impact": "medium"
+        "date": "2025-11-15",
+        "event": "WorldLens full-spectrum evaluations",
+        "impact": "high"
       }
     ],
-    "papers_per_week": 42,
-    "trend": "Accelerating"
+    "papers_per_week": 10,
+    "trend": "accelerating"
   },
-  "investment_implications": {
-    "ai_infrastructure": "overweight",
-    "traditional_tech": "underweight",
-    "defense_cybersecurity": "overweight",
-    "conviction": 0.85
-  },
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "last_update": "2025-12-13T17:08:52.036332+00:00",
   "dashboard": "the-frontier"
 }
