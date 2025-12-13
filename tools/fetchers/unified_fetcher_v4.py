@@ -282,58 +282,77 @@ class UnifiedFetcherV4:
         }
 
     async def call_ai_ensemble(self, prompt: str) -> Dict:
-        """Call AI models with fallback"""
-        api_key = os.environ.get('OPENROUTER_API_KEY')
-        if not api_key:
-            logger.error("OPENROUTER_API_KEY not found")
+        """Call AI models with fallback using multiple API keys"""
+        # Get all available keys
+        api_keys = [
+            k for k in [
+                os.environ.get('OPENROUTER_API_KEY'),
+                os.environ.get('OPENROUTER_API_KEY2'),
+                os.environ.get('OPENROUTER_API_KEY3')
+            ] if k
+        ]
+        
+        if not api_keys:
+            logger.error("No OPENROUTER_API_KEYs found")
             return {}
 
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-            "HTTP-Referer": "https://daily-alpha-loop.com", 
-            "X-Title": "Daily Alpha Loop"
-        }
-
-        for model in self.ai_models:
-            try:
-                logger.info(f"Calling AI model: {model}")
-                payload = {
-                    "model": model,
-                    "messages": [
-                        {"role": "system", "content": "You are a senior financial analyst and AGI researcher. Output strictly valid JSON."},
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": 0.2,
-                    "response_format": {"type": "json_object"}
-                }
-                
-                response = requests.post(
-                    "https://openrouter.ai/api/v1/chat/completions",
-                    headers=headers,
-                    json=payload,
-                    timeout=60
-                )
-                
-                if response.status_code == 200:
-                    content = response.json()['choices'][0]['message']['content']
-                    # Clean markdown code blocks if present
-                    if "```json" in content:
-                        content = content.split("```json")[1].split("```")[0].strip()
-                    elif "```" in content:
-                        content = content.split("```")[1].split("```")[0].strip()
-                    
-                    return json.loads(content)
-                elif response.status_code == 429:
-                    logger.warning(f"Model {model} rate limited (429). Waiting 5s...")
-                    time.sleep(5)
-                else:
-                    logger.warning(f"Model {model} failed: {response.text}")
+        for key_index, api_key in enumerate(api_keys):
+            logger.info(f"Attempting with API Key #{key_index + 1}")
             
-            except Exception as e:
-                logger.warning(f"Error calling {model}: {e}")
-                continue
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://daily-alpha-loop.com", 
+                "X-Title": "Daily Alpha Loop"
+            }
+
+            for model in self.ai_models:
+                try:
+                    logger.info(f"Calling AI model: {model}")
+                    payload = {
+                        "model": model,
+                        "messages": [
+                            {"role": "system", "content": "You are a senior financial analyst and AGI researcher. Output strictly valid JSON."},
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": 0.2,
+                        "response_format": {"type": "json_object"}
+                    }
+                    
+                    response = requests.post(
+                        "https://openrouter.ai/api/v1/chat/completions",
+                        headers=headers,
+                        json=payload,
+                        timeout=60
+                    )
+                    
+                    if response.status_code == 200:
+                        content = response.json()['choices'][0]['message']['content']
+                        # Clean markdown code blocks if present
+                        if "```json" in content:
+                            content = content.split("```json")[1].split("```")[0].strip()
+                        elif "```" in content:
+                            content = content.split("```")[1].split("```")[0].strip()
+                        
+                        return json.loads(content)
+                    
+                    elif response.status_code in [401, 402, 403]:
+                        logger.warning(f"Key #{key_index + 1} failed with status {response.status_code}. Switching to next key...")
+                        break # Break model loop to try next key
+                        
+                    elif response.status_code == 429:
+                        logger.warning(f"Model {model} rate limited (429). Waiting 5s...")
+                        time.sleep(5)
+                    else:
+                        logger.warning(f"Model {model} failed: {response.text}")
+                
+                except Exception as e:
+                    logger.warning(f"Error calling {model}: {e}")
+                    continue
+            
+            logger.warning(f"All models failed with Key #{key_index + 1}. Trying next key if available...")
         
+        logger.error("All keys and models failed.")
         return {}
 
     async def unified_analysis(self):
