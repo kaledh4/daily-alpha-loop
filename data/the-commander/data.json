@@ -1,9 +1,9 @@
 {
   "flight_to_safety_score": {
-    "current": 3,
+    "current": 4,
     "trend": "Rising",
     "3m_forecast": {
-      "score": 6,
+      "score": 5,
       "confidence": 0.75
     }
   },
@@ -13,7 +13,7 @@
       "conviction": 8,
       "forecasts": {
         "3m": {
-          "target": "$120,000"
+          "target": "$100,000"
         }
       }
     },
@@ -29,20 +29,20 @@
   },
   "agi_singularity_tracker": {
     "escape_velocity_probability": 0.65,
-    "timeline_estimate": "2032",
+    "timeline_estimate": "2028",
     "key_metrics": {
-      "compute_doubling": "6 months",
-      "research_velocity": "Accelerating"
+      "compute_doubling": "Exponential",
+      "research_velocity": "High"
     }
   },
   "morning_brief": {
     "weather_of_the_day": "Cloudy",
-    "top_signal": "VIX Spike",
-    "action_stance": "Defensive",
-    "why_it_matters": "Increased market uncertainty.",
-    "cross_dashboard_convergence": "Shield and Commander align on risk-off sentiment.",
-    "summary_sentence": "Prepare for volatility as risk aversion increases."
+    "top_signal": "Increasing volatility in equities",
+    "action_stance": "Neutral",
+    "why_it_matters": "Market sentiment is mixed, with both risk-on and risk-off signals present.",
+    "cross_dashboard_convergence": "Moderate",
+    "summary_sentence": "The market is showing signs of increased volatility, with a neutral stance recommended."
   },
-  "last_update": "2025-12-13T10:47:36.873882+00:00",
+  "last_update": "2025-12-13T11:03:16.702372+00:00",
   "dashboard": "the-commander"
 }
