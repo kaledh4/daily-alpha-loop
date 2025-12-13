@@ -3,15 +3,15 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-07 09:59:55 UTC",
+  "last_update": "2025-12-13 04:22:44 UTC",
   "scoring": {
-    "stance_confidence": 5
+    "stance_confidence": 3
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "Elevated",
-      "signal": "NORMAL"
+      "value": "ELEVATED",
+      "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
@@ -20,8 +20,8 @@
     },
     {
       "name": "Macro Input",
-      "value": "Negative",
-      "signal": "NEGATIVE"
+      "value": "Neutral",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Frontier Input",
@@ -29,15 +29,15 @@
       "signal": "NORMAL"
     }
   ],
-  "stance": "Opportunistic",
-  "mindset": "Cautious growth",
+  "stance": "Defensive",
+  "mindset": "Cautious on macro and crypto, opportunistic on AI dips",
   "inputs": {
-    "risk": "Elevated",
+    "risk": "ELEVATED",
     "crypto": "Bearish",
-    "macro": "Negative",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "The current market environment is characterized by a defensive macro setup, but opportunistic AI and Tech trends. The bearish crypto momentum and elevated risk level suggest a cautious approach. However, the fast velocity of innovation in AI and Tech presents opportunities for growth. The recommended stance is Opportunistic, with a focus on AI and Tech investments, while maintaining a defensive position in macro assets. The mindset is to be prepared for potential market volatility, while conviction is Medium.",
+  "ai_analysis": "The current strategy is Defensive, due to the Elevated risk level and Bearish crypto momentum. However, the Moderate AI/Tech velocity and potential for a bounce in BTC prices suggest an Opportunistic stance on AI-related assets. The mindset is to be cautious on macro and crypto, but opportunistic on AI dips. The conviction is Medium, due to the uncertainty in the macro environment. The recommended allocation is 40% Defensive, 30% Opportunistic, and 30% Neutral.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"

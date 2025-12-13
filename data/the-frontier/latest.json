@@ -3,7 +3,7 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-07 09:59:55 UTC",
+  "last_update": "2025-12-13 04:22:44 UTC",
   "scoring": {
     "breakthrough_score": 8,
     "trajectory": 8.5,
@@ -12,226 +12,226 @@
   "metrics": [
     {
       "name": "AI Research",
-      "value": "331,278",
+      "value": "332,576",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "47,414",
+      "value": "47,637",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "9,996",
+      "value": "10,012",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "171,082",
+      "value": "171,451",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "104,959",
+      "value": "105,104",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 331278,
+      "total_volume": 332576,
       "recent_papers": [
         {
-          "title": "The Universal Weight Subspace Hypothesis",
-          "summary": "We show that deep neural networks trained across diverse tasks exhibit remarkably similar low-dimensional parametric subspaces. We provide the first large-scale empirical evidence that demonstrates th...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05117v1"
+          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+          "summary": "We propose a decoupled 3D scene generation framework called SceneMaker in this work. Due to the lack of sufficient open-set de-occlusion and pose estimation priors, existing methods struggle to simult...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10957v1"
         },
         {
-          "title": "Value Gradient Guidance for Flow Matching Alignment",
-          "summary": "While methods exist for aligning flow matching models--a popular and effective class of generative models--with human preferences, existing approaches fail to achieve both adaptation efficiency and pr...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05116v1"
+          "title": "Bidirectional Normalizing Flow: From Data to Noise and Back",
+          "summary": "Normalizing Flows (NFs) have been established as a principled framework for generative modeling. Standard NFs consist of a forward process and a reverse process: the forward process maps data to noise...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10953v1"
         },
         {
-          "title": "Deep infant brain segmentation from multi-contrast MRI",
-          "summary": "Segmentation of magnetic resonance images (MRI) facilitates analysis of human brain development by delineating anatomical structures. However, in infants and young children, accurate segmentation is c...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05114v1"
+          "title": "Hierarchical Dataset Selection for High-Quality Data Sharing",
+          "summary": "The success of modern machine learning hinges on access to high-quality training data. In many real-world scenarios, such as acquiring data from public repositories or sharing across institutions, dat...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10952v1"
         },
         {
-          "title": "DraCo: Draft as CoT for Text-to-Image Preview and Rare Concept Generation",
-          "summary": "Recent unified multimodal large language models (MLLMs) have shown impressive capabilities, incorporating chain-of-thought (CoT) reasoning for enhanced text-to-image generation. However, existing appr...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05112v1"
+          "title": "Are We Ready for RL in Text-to-3D Generation? A Progressive Investigation",
+          "summary": "Reinforcement learning (RL), earlier proven to be effective in large language and multi-modal models, has been successfully extended to enhance 2D image generation recently. However, applying RL to 3D...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10949v1"
         },
         {
-          "title": "ShadowDraw: From Any Object to Shadow-Drawing Compositional Art",
-          "summary": "We introduce ShadowDraw, a framework that transforms ordinary 3D objects into shadow-drawing compositional art. Given a 3D object, our system predicts scene parameters, including object pose and light...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05110v1"
+          "title": "ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning",
+          "summary": "Human-level contact-rich manipulation relies on the distinct roles of two key modalities: vision provides spatially rich but temporally slow global context, while force sensing captures rapid, high-fr...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10946v1"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 47414,
+      "total_volume": 47637,
       "recent_papers": [
         {
-          "title": "STARE-VLA: Progressive Stage-Aware Reinforcement for Fine-Tuning Vision-Language-Action Models",
-          "summary": "Recent advances in Vision-Language-Action (VLA) models, powered by large language models and reinforcement learning-based fine-tuning, have shown remarkable progress in robotic manipulation. Existing ...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05107v1"
+          "title": "ImplicitRDP: An End-to-End Visual-Force Diffusion Policy with Structural Slow-Fast Learning",
+          "summary": "Human-level contact-rich manipulation relies on the distinct roles of two key modalities: vision provides spatially rich but temporally slow global context, while force sensing captures rapid, high-fr...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10946v1"
         },
         {
-          "title": "NeuralRemaster: Phase-Preserving Diffusion for Structure-Aligned Generation",
-          "summary": "Standard diffusion corrupts data using Gaussian noise whose Fourier coefficients have random magnitudes and random phases. While effective for unconditional or text-to-image generation, corrupting pha...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05106v1"
+          "title": "Any4D: Unified Feed-Forward Metric 4D Reconstruction",
+          "summary": "We present Any4D, a scalable multi-view transformer for metric-scale, dense feed-forward 4D reconstruction. Any4D directly generates per-pixel motion and geometry predictions for N frames, in contrast...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10935v1"
         },
         {
-          "title": "From Generated Human Videos to Physically Plausible Robot Trajectories",
-          "summary": "Video generation models are rapidly improving in their ability to synthesize human actions in novel contexts, holding the potential to serve as high-level planners for contextual robot control. To rea...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05094v1"
+          "title": "Curriculum-Based Reinforcement Learning for Autonomous UAV Navigation in Unknown Curved Tubular Conduit",
+          "summary": "Autonomous drone navigation in confined tubular environments remains a major challenge due to the constraining geometry of the conduits, the proximity of the walls, and the perceptual limitations inhe...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10934v1"
         },
         {
-          "title": "Object Reconstruction under Occlusion with Generative Priors and Contact-induced Constraints",
-          "summary": "Object geometry is key information for robot manipulation. Yet, object reconstruction is a challenging task because cameras only capture partial observations of objects, especially when occlusion occu...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05079v1"
+          "title": "Decoupled Q-Chunking",
+          "summary": "Temporal-difference (TD) methods learn state and action values efficiently by bootstrapping from their own future value predictions, but such a self-bootstrapping mechanism is prone to bootstrapping b...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10926v1"
         },
         {
-          "title": "Contact-Implicit Modeling and Simulation of a Snake Robot on Compliant and Granular Terrain",
-          "summary": "This thesis presents a unified modeling and simulation framework for analyzing sidewinding and tumbling locomotion of the COBRA snake robot across rigid, compliant, and granular terrains. A contact-im...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05008v1"
+          "title": "Digital Twin Supervised Reinforcement Learning Framework for Autonomous Underwater Navigation",
+          "summary": "Autonomous navigation in underwater environments remains a major challenge due to the absence of GPS, degraded visibility, and the presence of submerged obstacles. This article investigates these issu...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10925v1"
         }
       ]
     },
     "Biotechnology": {
-      "total_volume": 9996,
+      "total_volume": 10012,
       "recent_papers": [
         {
-          "title": "pHapCompass: Probabilistic Assembly and Uncertainty Quantification of Polyploid Haplotype Phase",
-          "summary": "Computing haplotypes from sequencing data, i.e. haplotype assembly, is an important component of foundational molecular and population genetics problems, including interpreting the effects of genetic ...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04393v1"
+          "title": "UNAAGI: Atom-Level Diffusion for Generating Non-Canonical Amino Acid Substitutions",
+          "summary": "Proposing beneficial amino acid substitutions, whether for mutational effect prediction or protein engineering, remains a central challenge in structural biology. Recent inverse folding models, traine...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10515v1"
         },
         {
-          "title": "Collective adsorption of pheromones at the water-air interface",
-          "summary": "Understanding the phase behaviour of pheromones and other messaging molecules remains a significant and largely unexplored challenge, even though it plays a central role in chemical communication. Her...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.04340v1"
+          "title": "Murmur2Vec: A Hashing Based Solution For Embedding Generation Of COVID-19 Spike Sequences",
+          "summary": "Early detection and characterization of coronavirus disease (COVID-19), caused by SARS-CoV-2, remain critical for effective clinical response and public-health planning. The global availability of lar...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.10147v1"
         },
         {
-          "title": "Unlocking hidden biomolecular conformational landscapes in diffusion models at inference time",
-          "summary": "The function of biomolecules such as proteins depends on their ability to interconvert between a wide range of structures or \"conformations.\" Researchers have endeavored for decades to develop computa...",
-          "date": "2025-12-02",
-          "link": "http://arxiv.org/abs/2512.03312v1"
+          "title": "Decoding How Proteins Fold",
+          "summary": "The primary aims of this perspective are twofold. Firstly, to assess whether a universal principle could govern the process of protein folding. Secondly, to clarify whether the folding of a protein co...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.10115v1"
         },
         {
-          "title": "SpikGPT: A High-Accuracy and Interpretable Spiking Attention Framework for Single-Cell Annotation",
-          "summary": "Accurate and scalable cell type annotation remains a challenge in single-cell transcriptomics, especially when datasets exhibit strong batch effects or contain previously unseen cell populations. Here...",
-          "date": "2025-12-02",
-          "link": "http://arxiv.org/abs/2512.03286v1"
+          "title": "Development of an Agentic AI Model for NGS Downstream Analysis Targeting Researchers with Limited Biological Background",
+          "summary": "Next-Generation Sequencing (NGS) has become a cornerstone of genomic research, yet the complexity of downstream analysis-ranging from differential expression gene (DEG) identification to biological in...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.09964v1"
         },
         {
-          "title": "Contrastive Deep Learning for Variant Detection in Wastewater Genomic Sequencing",
-          "summary": "Wastewater-based genomic surveillance has emerged as a powerful tool for population-level viral monitoring, offering comprehensive insights into circulating viral variants across entire communities. H...",
-          "date": "2025-12-02",
-          "link": "http://arxiv.org/abs/2512.03158v1"
+          "title": "MoDaH achieves rate optimal batch correction",
+          "summary": "Batch effects pose a significant challenge in the analysis of single-cell omics data, introducing technical artifacts that confound biological signals. While various computational methods have achieve...",
+          "date": "2025-12-10",
+          "link": "http://arxiv.org/abs/2512.09259v1"
         }
       ]
     },
     "Quantum Computing": {
-      "total_volume": 171082,
+      "total_volume": 171451,
       "recent_papers": [
         {
-          "title": "Decoy-state quantum key distribution over 227 km with a frequency-converted telecom single-photon source",
-          "summary": "We implement a decoy-state quantum key distribution scheme using a telecom C-band single-emitter source. The decoy states are created by varying the optical excitation of the quantum emitter to modula...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05101v1"
+          "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+          "summary": "We establish a precise correspondence between decision-making agents in partially observable Markov decision processes (POMDPs) and one-input process functions, the classical limit of higher-order qua...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10937v1"
         },
         {
-          "title": "Pump Free Microwave-Optical Quantum Transduction",
-          "summary": "Distributed quantum computing involves superconducting computation nodes operating at microwave frequencies, which are connected by long-distance transmission lines that transmit photons at optical fr...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05096v1"
+          "title": "Noisy Quantum Learning Theory",
+          "summary": "We develop a framework for learning from noisy quantum experiments, focusing on fault-tolerant devices accessing uncharacterized systems through noisy couplings. Our starting point is the complexity c...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10929v1"
         },
         {
-          "title": "Multimode RF Reflectometry for Spin Qubit Readout and Device Characterization",
-          "summary": "We introduce a multimode superconducting inductor architecture that enables radio-frequency reflectometry at multiple discrete frequencies up to 2 GHz, addressing limitations of conventional single-mo...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05087v1"
+          "title": "Qubit decoherence in dissipative two-photon resonator: real-time instantons and Wigner function",
+          "summary": "We study the quantum dynamics of a single bosonic cavity subject to two-photon driving and two-photon dissipation in the presence of finite detuning. Exploiting a hidden time-reversal symmetry, the Wi...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10921v1"
         },
         {
-          "title": "Thermodynamic universality across dissipative quantum phase transitions",
-          "summary": "We study finite-time driving across second-order dissipative quantum phase transitions described by Lindblad dynamics. We show that the nonadiabatic entropy production, which quantifies deviations fro...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05074v1"
+          "title": "Partitioned Expansions for Approximate Tensor Network Contractions",
+          "summary": "We propose a method for approximating the contraction of a tensor network by partitioning the network into a sum of computationally cheaper networks. This method, which we call a partitioned network e...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10910v1"
         },
         {
-          "title": "Hybrid Quantum-Classical Autoencoders for Unsupervised Network Intrusion Detection",
-          "summary": "Unsupervised anomaly-based intrusion detection requires models that can generalize to attack patterns not observed during training. This work presents the first large-scale evaluation of hybrid quantu...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05069v1"
+          "title": "Electronic crystals and quasicrystals in semiconductor quantum wells: an AI-powered discovery",
+          "summary": "The homogeneous electron gas is a cornerstone of quantum condensed matter physics, providing the foundation for developing density functional theory and understanding electronic phases in semiconducto...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10909v1"
         }
       ]
     },
     "Semiconductors": {
-      "total_volume": 104959,
+      "total_volume": 105104,
       "recent_papers": [
         {
-          "title": "Global phase diagram of two-dimensional dirty hyperbolic Dirac liquids",
-          "summary": "Within the framework of the canonical nearest-neighbor tight-binding model for spinless fermions, a family of two-dimensional bipartite hyperbolic lattices hosts massless Diraclike excitations near ha...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05109v1"
+          "title": "Pair-density-wave in quarter-metals from a repulsive fermionic interaction in graphene heterostructures: A renormalization group study",
+          "summary": "Electronic bands in chirally stacked $n$ layer carbon-based honeycomb heterostructures, encompassing rhombohedral ($n \\geq 3$), Bernal bilayer ($n=2$), and monolayer ($n=1$) graphene, possess four-fol...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10944v1"
         },
         {
-          "title": "Multimode RF Reflectometry for Spin Qubit Readout and Device Characterization",
-          "summary": "We introduce a multimode superconducting inductor architecture that enables radio-frequency reflectometry at multiple discrete frequencies up to 2 GHz, addressing limitations of conventional single-mo...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05087v1"
+          "title": "Shaping chaos in bilayer graphene cavities",
+          "summary": "Bilayer graphene (BLG) cavities, where electrons are confined in finite graphene flakes, provide a suitable platform to study quantum chaotic phenomena in condensed matter systems due to the trigonal ...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10914v1"
         },
         {
-          "title": "Axionic tunneling from a topological Kondo insulator",
-          "summary": "Discoveries over the past two decades have revealed the remarkable ability of quantum materials to emulate relativistic properties of the vacuum, from Dirac cones in graphene to the Weyl surface state...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05057v1"
+          "title": "Electronic crystals and quasicrystals in semiconductor quantum wells: an AI-powered discovery",
+          "summary": "The homogeneous electron gas is a cornerstone of quantum condensed matter physics, providing the foundation for developing density functional theory and understanding electronic phases in semiconducto...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10909v1"
         },
         {
-          "title": "High Fidelity Qubit Control in a Natural Si-MOS Quantum Dot using a 300 mm Silicon on Insulator Wafer",
-          "summary": "We demonstrate high-fidelity single qubit control in a natural Si-MOS quantum dot fabricated in an industrial 300 mm wafer process on a silicon on insulator (SOI) wafer using electron spin resonance. ...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05052v1"
+          "title": "Topological Engineering of a Frustrated Antiferromagnetic Triradical in Aza-Triangulene Architectures",
+          "summary": "Open-shell nanographenes provide a versatile platform to host unconventional magnetic states within their \u03c0-conjugated networks. Particularly appealing are graphene architectures that incorporate spat...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10869v1"
         },
         {
-          "title": "Hall-like response from anisotropic Fermi surfaces",
-          "summary": "We demonstrate that an anisotropic and rotated Fermi surface can generate a finite Hall-like transverse response in electron transport, even in the absence of a magnetic field or Berry curvature. Usin...",
-          "date": "2025-12-04",
-          "link": "http://arxiv.org/abs/2512.05014v1"
+          "title": "Brightening of dark trions in monolayer WS$_2$ via localization of surface plasmons",
+          "summary": "Optically inactive dark trions in two-dimensional semiconductors are poised to play a stellar role in future quantum technologies due to their long lifetimes, about two orders of magnitude greater tha...",
+          "date": "2025-12-11",
+          "link": "http://arxiv.org/abs/2512.10856v1"
         }
       ]
     }
   },
   "breakthroughs": [
     {
-      "title": "Universal Weight Subspace Hypothesis",
-      "why_it_matters": "Enables more efficient machine learning models"
+      "title": "SceneMaker",
+      "why_it_matters": "Enables the generation of complex 3D scenes with high fidelity"
     },
     {
-      "title": "Decoy-state quantum key distribution",
-      "why_it_matters": "Enhances secure communication protocols"
+      "title": "Bidirectional Normalizing Flow",
+      "why_it_matters": "Allows for efficient sampling and generation of complex data distributions"
     },
     {
-      "title": "Value Gradient Guidance for Flow Matching Alignment",
-      "why_it_matters": "Improves optimization techniques"
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "why_it_matters": "Provides a framework for understanding complex decision-making processes"
     },
     {
-      "title": "Pump Free Microwave-Optical Quantum Transduction",
-      "why_it_matters": "Increases quantum computing capabilities"
+      "title": "Noisy Quantum Learning Theory",
+      "why_it_matters": "Enables the development of more robust and efficient quantum machine learning algorithms"
     }
   ],
-  "ai_analysis": "The recent breakthroughs in AI and Tech, such as the Universal Weight Subspace Hypothesis and Decoy-state quantum key distribution, indicate a Fast velocity of innovation. The Value Gradient Guidance for Flow Matching Alignment and Pump Free Microwave-Optical Quantum Transduction also show promising advancements. These breakthroughs have the potential to revolutionize various industries and create new opportunities for growth.",
+  "ai_analysis": "The current AI/Tech velocity is Moderate, driven by breakthroughs in areas such as open-set 3D scene generation and bidirectional normalizing flow. The paper on SceneMaker is particularly notable, as it enables the generation of complex 3D scenes with high fidelity. The breakthroughs in AI/Tech are:",
   "data_sources": [
     "ai_rnd",
     "quantum",

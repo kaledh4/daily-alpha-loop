@@ -3,29 +3,61 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-13 04:22:44 UTC",
   "scoring": {
-    "stance_strength": 8,
+    "stance_strength": 5,
     "volatility_risk": 5,
     "confidence": 0.85
   },
-  "macro": {
-    "oil": 60.08,
-    "dxy": 98.99,
-    "gold": 4212.9,
-    "sp500": 6870.4,
-    "tasi": 10627.2,
-    "treasury_10y": 4.14
-  },
-  "tasi_mood": "Positive",
-  "drivers": [
-    "DXY",
-    "Oil prices",
-    "Interest rates",
-    "Geopolitical events",
-    "SP500 performance"
+  "metrics": [
+    {
+      "name": "S&P 500",
+      "value": "6,827",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "TASI",
+      "value": "10,716",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Oil (Brent)",
+      "value": "$57.53",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "Gold",
+      "value": "$4,330",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "DXY",
+      "value": "98.39",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "10Y Yield",
+      "value": "4.19%",
+      "signal": "NORMAL"
+    }
   ],
-  "ai_analysis": "The macroeconomic landscape is complex, with oil at $60.08, DXY at 98.99, and gold at $4,212.90, suggesting a mixed picture of economic health and inflation expectations. The SP500 at 6,870.40 indicates a resilient stock market, while the TASI (Saudi) at 10,627.20 reflects a positive mood in the Middle East. Connecting these dots, the strong dollar and moderate oil prices could influence the TASI positively in the short term, especially if the SP500 continues its upward trend. However, geopolitical tensions and interest rate movements could quickly alter this outlook. For the week, the directional bias is slightly positive, driven by the resilience of major stock markets and the potential for continued dollar strength. Key drivers include the DXY, oil prices, interest rates, geopolitical events, and the performance of the SP500.",
+  "macro": {
+    "oil": 57.53,
+    "dxy": 98.39,
+    "gold": 4329.8,
+    "sp500": 6827.41,
+    "tasi": 10715.98,
+    "treasury_10y": 4.19
+  },
+  "tasi_mood": "Neutral",
+  "drivers": [
+    "Oil prices",
+    "US dollar strength",
+    "Interest rates",
+    "Gold prices",
+    "Global economic growth"
+  ],
+  "ai_analysis": "The current macro environment is characterized by rising oil prices at $57.53, a strong US dollar at 98.39, and high gold prices at $4,329.80. The SP500 at 6,827.41 is near its recent highs, but the TASI at 10,715.98 is showing signs of weakness. The DXY and oil prices are positively correlated, which could lead to further strength in the US dollar. The TASI mood is Neutral, but the forecast is for a decline due to rising interest rates and oil prices. The drivers of the macro environment are:",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

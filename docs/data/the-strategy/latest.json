@@ -3,19 +3,41 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-07 09:48:39 UTC",
+  "last_update": "2025-12-13 04:22:44 UTC",
   "scoring": {
-    "stance_confidence": 7
+    "stance_confidence": 3
   },
-  "stance": "Accumulative",
-  "mindset": "Cautiously optimistic",
+  "metrics": [
+    {
+      "name": "Risk Input",
+      "value": "ELEVATED",
+      "signal": "CAUTION"
+    },
+    {
+      "name": "Crypto Input",
+      "value": "Bearish",
+      "signal": "BEARISH"
+    },
+    {
+      "name": "Macro Input",
+      "value": "Neutral",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Frontier Input",
+      "value": "Active",
+      "signal": "NORMAL"
+    }
+  ],
+  "stance": "Defensive",
+  "mindset": "Cautious on macro and crypto, opportunistic on AI dips",
   "inputs": {
-    "risk": "Elevated",
+    "risk": "ELEVATED",
     "crypto": "Bearish",
-    "macro": "Positive",
+    "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "Given the defensive posture suggested by the macro analysis and the opportunistic outlook in the AI/tech sector, the overall stance should be cautiously accumulative. The strategy involves a balanced portfolio with a slight overweight in tech and a underweight in sectors sensitive to interest rate changes. The mindset should be prepared for potential volatility but also positioned to capitalize on dips in growth sectors. Conviction in this strategy is medium, as it balances between the current bearish crypto momentum and the potential for a reversal, alongside the positive but cautious macro outlook.",
+  "ai_analysis": "The current strategy is Defensive, due to the Elevated risk level and Bearish crypto momentum. However, the Moderate AI/Tech velocity and potential for a bounce in BTC prices suggest an Opportunistic stance on AI-related assets. The mindset is to be cautious on macro and crypto, but opportunistic on AI dips. The conviction is Medium, due to the uncertainty in the macro environment. The recommended allocation is 40% Defensive, 30% Opportunistic, and 30% Neutral.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"
