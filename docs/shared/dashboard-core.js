@@ -221,12 +221,12 @@ function renderMorningBrief(brief) {
 
     const getWeatherIcon = (weather) => {
         const w = weather.toLowerCase();
-        if (w.includes('storm')) return '../static/icons/icons8-stormy-48.png';
+        // Prioritize specific matches
         if (w.includes('cloud')) return '../static/icons/icons8-cloudy.gif';
+        if (w.includes('storm') || w.includes('rain')) return '../static/icons/icons8-stormy-48.png';
         if (w.includes('sun') || w.includes('clear')) return '../static/icons/icons8-sunny-48.png';
         if (w.includes('fog')) return '../static/icons/icons8-foggy-48.png';
         if (w.includes('volat')) return '../static/icons/icons8-volatile-48.png';
-        if (w.includes('rain')) return '../static/icons/icons8-stormy-48.png';
         return '../static/icons/icons8-sunny-48.png';
     };
 
