@@ -1128,6 +1128,31 @@ def call_unified_ai(all_data: Dict) -> Optional[Dict]:
       optional_deep_insight: str
       clarity_level: High|Medium|Low
       summary_sentence: str
+      flight_to_safety_score:
+        current: float (0-10)
+        trend: Rising|Falling|Stable
+        3m_forecast:
+          score: float
+          confidence: float
+      agi_singularity_tracker:
+        escape_velocity_probability: float (0-1)
+        timeline_estimate: str
+        key_metrics:
+          compute_growth: str
+          algo_efficiency: str
+      asset_outlook:
+        btc:
+          risk_reward: Favorable|Neutral|Unfavorable
+          conviction: High|Medium|Low
+          forecasts:
+            3m:
+              target: float
+        gold:
+          risk_reward: Favorable|Neutral|Unfavorable
+          conviction: High|Medium|Low
+          forecasts:
+            3m:
+              target: float
     
     CRITICAL: Return ONLY the TOON text, no markdown, no explanation, no code blocks."""
 
@@ -1813,6 +1838,11 @@ def build_commander_data(ai_result: Optional[Dict] = None) -> Dict:
             # Fix percentages like 4.138999938964844% -> 4.14%
             top_signal = re.sub(r'(\d+\.\d{6,})%', lambda m: f'{float(m.group(1)):.2f}%', top_signal)
             morning_brief['top_signal'] = top_signal
+            
+        # Extract new metrics if available
+        flight_to_safety = morning_brief.get('flight_to_safety_score')
+        agi_tracker = morning_brief.get('agi_singularity_tracker')
+        asset_outlook = morning_brief.get('asset_outlook')
     else:
         # Fallback
         risk_level = shield_data.get('risk_assessment', {}).get('level', 'UNKNOWN')
@@ -1844,7 +1874,11 @@ def build_commander_data(ai_result: Optional[Dict] = None) -> Dict:
         'role': 'Master Orchestrator',
         'mission': 'Combine all dashboards using waterfall loading logic to produce the final unified assessment.',
         'timestamp': datetime.now(timezone.utc).isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'morning_brief': morning_brief,
+        'flight_to_safety_score': flight_to_safety if 'flight_to_safety' in locals() else None,
+        'agi_singularity_tracker': agi_tracker if 'agi_tracker' in locals() else None,
+        'asset_outlook': asset_outlook if 'asset_outlook' in locals() else None,
         'internal_summary_sentence': "Risk shows the environment, crypto shows sentiment, macro shows the wind, breakthroughs show the future, strategy shows the stance, and knowledge shows the long-term signal — combine all six to guide the user clearly through today.",
         'apps_status': {
             'the-shield': 'active',
