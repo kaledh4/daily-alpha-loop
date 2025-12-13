@@ -3,7 +3,11 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
+<<<<<<< HEAD
   "last_update": "2025-12-13 04:22:44 UTC",
+=======
+  "last_update": "2025-12-13 07:14:28 UTC",
+>>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -27,6 +31,7 @@
   ],
   "summaries": [
     {
+<<<<<<< HEAD
       "title": "SceneMaker",
       "eli5": "Enables the generation of complex 3D scenes with high fidelity",
       "long_term": "Potential for applications in finance and other industries"
@@ -48,6 +53,29 @@
     }
   ],
   "ai_analysis": "The current knowledge landscape is characterized by a Rapid knowledge velocity, driven by breakthroughs in AI/Tech and macro research. The theme of today's research is the intersection of AI and finance, with a focus on the potential applications and risks of AI in financial markets. The summaries are:",
+=======
+      "title": "UNAAGI",
+      "eli5": "Generates new amino acid substitutions",
+      "long_term": "Enables new medical treatments"
+    },
+    {
+      "title": "Murmur2Vec",
+      "eli5": "Embeds COVID-19 spike sequences",
+      "long_term": "Enables better vaccine development"
+    },
+    {
+      "title": "SceneMaker",
+      "eli5": "Generates 3D scenes",
+      "long_term": "Enables more realistic simulations"
+    },
+    {
+      "title": "Bidirectional Normalizing Flow",
+      "eli5": "Processes data more efficiently",
+      "long_term": "Enables faster decision-making"
+    }
+  ],
+  "ai_analysis": "The current knowledge landscape is characterized by a focus on AI/Tech breakthroughs and their potential applications. The theme of today's research is the intersection of AI and finance, with papers such as \"UNAAGI: Atom-Level Diffusion for Generating Non-Canonical Amino Acid Substitutions\" and \"Murmur2Vec: A Hashing Based Solution For Embedding Generation Of COVID-19 Spike Sequences\" presenting novel approaches to complex problems. The knowledge velocity is currently Rapid, with summaries such as:",
+>>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",

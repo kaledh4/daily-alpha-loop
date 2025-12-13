@@ -3,7 +3,11 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
+<<<<<<< HEAD
   "last_update": "2025-12-13 04:22:44 UTC",
+=======
+  "last_update": "2025-12-13 07:14:28 UTC",
+>>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
   "scoring": {
     "breakthrough_score": 8,
     "trajectory": 8.5,
@@ -216,6 +220,7 @@
   "breakthroughs": [
     {
       "title": "SceneMaker",
+<<<<<<< HEAD
       "why_it_matters": "Enables the generation of complex 3D scenes with high fidelity"
     },
     {
@@ -232,6 +237,24 @@
     }
   ],
   "ai_analysis": "The current AI/Tech velocity is Moderate, driven by breakthroughs in areas such as open-set 3D scene generation and bidirectional normalizing flow. The paper on SceneMaker is particularly notable, as it enables the generation of complex 3D scenes with high fidelity. The breakthroughs in AI/Tech are:",
+=======
+      "why_it_matters": "Enables more realistic 3D scene generation"
+    },
+    {
+      "title": "Bidirectional Normalizing Flow",
+      "why_it_matters": "Allows for more efficient data processing"
+    },
+    {
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "why_it_matters": "Improves decision-making in complex systems"
+    },
+    {
+      "title": "Noisy Quantum Learning Theory",
+      "why_it_matters": "Enables more efficient quantum learning"
+    }
+  ],
+  "ai_analysis": "The current AI/Tech velocity is characterized by significant breakthroughs in areas such as open-set 3D scene generation and bidirectional normalizing flow. The paper \"SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model\" presents a novel approach to 3D scene generation, which could have significant implications for areas such as robotics and computer vision. The velocity is currently Fast, with breakthroughs such as:",
+>>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
   "data_sources": [
     "ai_rnd",
     "quantum",
