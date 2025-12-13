@@ -135,4 +135,5 @@ MIT License - See individual dashboard folders for specific licensing.
 ---
 
 **Built for clarity, focus, and smarter decision-making.**
+<!-- Last Updated: 2025-12-13 -->
 
