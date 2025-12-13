@@ -3,7 +3,7 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-13 06:46:33 UTC",
+  "last_update": "2025-12-13 07:14:28 UTC",
   "scoring": {
     "stance_confidence": 5
   },
@@ -29,15 +29,15 @@
       "signal": "NORMAL"
     }
   ],
-  "stance": "Neutral",
-  "mindset": "Prepared for volatility, open to opportunities",
+  "stance": "Opportunistic",
+  "mindset": "Buy the dip in AI/Tech, defend the core in macro",
   "inputs": {
     "risk": "ELEVATED",
     "crypto": "Bearish",
     "macro": "Positive",
     "frontier": "Active"
   },
-  "ai_analysis": "The current market setup is complex, with defensive signals from the macro landscape and opportunistic signals from the AI/Tech space. The key is to balance these opposing forces, with a neutral stance and a focus on quality assets. The allocation recommendation is to maintain a moderate risk profile, with a mix of safe-haven assets and growth-oriented investments. The mindset is to be prepared for potential market volatility, while also being open to opportunities in the AI/Tech space. The conviction level is medium, as the market is likely to be choppy in the short term.",
+  "ai_analysis": "The current market environment is characterized by a mix of defensive and opportunistic signals. The macro environment is positive, but the crypto market is bearish. The AI/Tech sector is experiencing significant breakthroughs, which could lead to new opportunities. The stance is currently Opportunistic, with a mindset of \"buy the dip\" in AI/Tech and \"defend the core\" in macro. The conviction is High, with a recommended allocation of 60% to macro, 20% to AI/Tech, and 20% to crypto.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"

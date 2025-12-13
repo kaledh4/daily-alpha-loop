@@ -3,7 +3,7 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-  "last_update": "2025-12-13 06:46:33 UTC",
+  "last_update": "2025-12-13 07:14:28 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
@@ -12,12 +12,12 @@
   "metrics": [
     {
       "name": "BTC Price",
-      "value": "$90,351",
+      "value": "$90,363",
       "signal": "NORMAL"
     },
     {
       "name": "ETH Price",
-      "value": "$3,091",
+      "value": "$3,094",
       "signal": "NORMAL"
     },
     {
@@ -41,16 +41,16 @@
       "signal": "NORMAL"
     }
   ],
-  "btc_price": 90351.3828125,
-  "eth_price": 3090.60546875,
+  "btc_price": 90363.2890625,
+  "eth_price": 3094.36572265625,
   "crypto_assets": {
     "BTC": {
-      "price": 90351.3828125,
+      "price": 90363.2890625,
       "risk": 1.233,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3090.60546875,
+      "price": 3094.36572265625,
       "risk": 0.54,
       "multiplier": 2.0
     },
@@ -65,12 +65,12 @@
       "multiplier": 28.0
     },
     "ADA": {
-      "price": 0.40937337279319763,
+      "price": 0.41038957238197327,
       "risk": 0.036,
       "multiplier": 12.0
     },
     "NEAR": {
-      "price": 1.6473559141159058,
+      "price": 1.6488490104675293,
       "risk": 0.033,
       "multiplier": 19.0
     }
@@ -87,7 +87,7 @@
     "value": 23,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "The BTC price at $90,351 and ETH price at $3,091 indicate a bearish trend, with BTC RSI at 35.32 suggesting oversold conditions. The Fear & Greed index at 23 indicates extreme fear, which could be a contrarian buy signal. A BTC price below $80,000 would be a concern, while an ETH price above $3,500 would indicate a potential reversal. The BTC vs ETH rotation is currently in favor of ETH, but this could change if BTC breaks above $100,000. A key level to watch is the $80,000 support for BTC.",
+  "ai_analysis": "The current BTC price at $90,363 and ETH price at $3,094 indicate a bearish trend in the crypto market. The BTC RSI at 35.32 is in oversold territory, which could lead to a potential bounce. However, the Fear & Greed index at 23 indicates Extreme Fear, which could lead to further downward pressure. A key level to watch is the $80,000 support level for BTC, which if broken, could lead to a further decline. On the other hand, a break above $100,000 could lead to a bullish reversal. The momentum is currently Bearish, with a key level of $80,000.",
   "data_sources": [
     "orderflow",
     "dominance_tracker",

@@ -3,7 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-13 06:46:33 UTC",
+  "last_update": "2025-12-13 07:14:28 UTC",
   "scoring": {
     "stance_strength": 8,
     "volatility_risk": 5,
@@ -51,13 +51,13 @@
   },
   "tasi_mood": "Positive",
   "drivers": [
-    "Oil prices",
-    "DXY",
-    "10Y Treasury Yield",
-    "Gold",
-    "TASI"
+    "US jobs report",
+    "inflation data",
+    "Middle East developments",
+    "oil prices",
+    "interest rates"
   ],
-  "ai_analysis": "The macro landscape is complex, with Oil at $57.44 and DXY at 98.39 indicating a moderate level of economic activity. The Gold price at $4300.10 suggests some safe-haven demand, while the SP500 at 6827.41 is near all-time highs. The TASI at 10715.98 is positive, driven by the Saudi economy. The key drivers for the week are: drivers[5]: Oil prices, DXY, 10Y Treasury Yield, Gold, and TASI. A DXY above 100 would be a concern, while an Oil price below $50 would indicate a more positive environment. The TASI mood is positive, with a forecast of continued growth.",
+  "ai_analysis": "The current macro environment is characterized by a strong US dollar, with the DXY at 98.39, and relatively high oil prices at $57.44. The TASI at 10715.98 is near its recent highs, indicating a positive mood in the Saudi market. The SP500 at 6827.41 is also near its recent highs, indicating a positive outlook for US equities. However, the gold price at $4300.10 is relatively high, indicating some safe-haven demand. The drivers of the market this week are expected to be the US jobs report, inflation data, and any developments in the Middle East. The tasi_mood is currently Positive, with a forecast of continued growth. The drivers are:",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

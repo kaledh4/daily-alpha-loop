@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 06:46:33 UTC",
+  "last_update": "2025-12-13 07:14:28 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -27,27 +27,27 @@
   ],
   "summaries": [
     {
-      "title": "title1: AI-generated content",
-      "eli5": "eli5_1: Using AI to create realistic content",
-      "long_term": "long_term1: Potential disruption of traditional media"
+      "title": "UNAAGI",
+      "eli5": "Generates new amino acid substitutions",
+      "long_term": "Enables new medical treatments"
     },
     {
-      "title": "title2: Bidirectional normalizing flow",
-      "eli5": "eli5_2: Improving data analysis with AI",
-      "long_term": "long_term2: Enhanced decision-making capabilities"
+      "title": "Murmur2Vec",
+      "eli5": "Embeds COVID-19 spike sequences",
+      "long_term": "Enables better vaccine development"
     },
     {
-      "title": "title3: Noisy quantum learning theory",
-      "eli5": "eli5_3: Efficient quantum learning",
-      "long_term": "long_term3: Potential breakthroughs in fields like medicine and finance"
+      "title": "SceneMaker",
+      "eli5": "Generates 3D scenes",
+      "long_term": "Enables more realistic simulations"
     },
     {
-      "title": "title4: UNAAGI",
-      "eli5": "eli5_4: Generating non-canonical amino acid substitutions",
-      "long_term": "long_term4: Potential applications in biotechnology and medicine"
+      "title": "Bidirectional Normalizing Flow",
+      "eli5": "Processes data more efficiently",
+      "long_term": "Enables faster decision-making"
     }
   ],
-  "ai_analysis": "The knowledge landscape is rapidly evolving, with a focus on AI/Tech innovation and macroeconomic trends. The theme of today's research is the intersection of AI and finance, with potential applications in areas like portfolio management and risk analysis. The knowledge velocity is rapid, with new breakthroughs and discoveries emerging daily. The summaries[4]{title,eli5,long_term} are:",
+  "ai_analysis": "The current knowledge landscape is characterized by a focus on AI/Tech breakthroughs and their potential applications. The theme of today's research is the intersection of AI and finance, with papers such as \"UNAAGI: Atom-Level Diffusion for Generating Non-Canonical Amino Acid Substitutions\" and \"Murmur2Vec: A Hashing Based Solution For Embedding Generation Of COVID-19 Spike Sequences\" presenting novel approaches to complex problems. The knowledge velocity is currently Rapid, with summaries such as:",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
