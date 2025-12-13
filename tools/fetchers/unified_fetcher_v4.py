@@ -192,11 +192,9 @@ class UnifiedFetcherV4:
         }
         
         self.ai_models = [
-            "mistralai/mistral-small-3.1-24b-instruct:free",
-            "microsoft/phi-3-medium-128k-instruct:free",
-            "meta-llama/llama-3.3-70b-instruct:free",
-            "allenai/olmo-3-32b-think:free",
             "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+            "mistralai/mistral-small-3.1-24b-instruct:free",
+            "allenai/olmo-3-32b-think:free",
             "openai/gpt-oss-120b:free",
             "openai/gpt-oss-20b:free",
             "tngtech/deepseek-r1t2-chimera:free",
@@ -386,22 +384,14 @@ class UnifiedFetcherV4:
         DATA SUMMARY:
         {json.dumps(data_summary, indent=2)}
         
-        Generate JSON output for:
-        1. THE COMMANDER: Flight-to-safety scores, outlook forecasts, asset outlooks
-        2. THE SHIELD: Fragility index, stress indicators, crash probabilities
-        3. THE COIN: Crypto outlooks, on-chain signals, price forecasts
-        4. THE MAP: Macro outlook, GDP/inflation forecasts, TASI outlook
-        5. THE FRONTIER: AGI timeline, workforce displacement, breakthrough tracking
-        6. THE STRATEGY: Opportunity scores, position sizing, risk-adjusted returns
-        7. THE LIBRARY: Simplified answers for complex topics
+        Generate JSON output matching the following schema EXACTLY. Do not deviate.
         
-        Output strict JSON matching this schema structure:
         {{
             "the_commander": {{
                 "flight_to_safety_score": {{ 
-                    "current": 0-10, 
+                    "current": 0.0-10.0, 
                     "trend": "string (e.g. 'Rising')", 
-                    "3m_forecast": {{ "score": 0-10, "confidence": 0.0-1.0 }} 
+                    "3m_forecast": {{ "score": 0.0-10.0, "confidence": 0.0-1.0 }} 
                 }},
                 "asset_outlook": {{
                     "BTC": {{ "risk_reward": "High/Medium/Low", "conviction": 0-10, "forecasts": {{ "3m": {{ "target": "price_string" }} }} }},
@@ -422,40 +412,177 @@ class UnifiedFetcherV4:
                 }}
             }},
             "the_shield": {{
-                "metrics": [
-                    {{ 
-                        "name": "string", 
-                        "value": "string", 
-                        "percentile": 0-100, 
-                        "trend": {{ "direction": "↑/↓", "label": "string" }},
-                        "color_zone": {{ "color": "hex", "label": "string" }}
+                "fragility_index": {{
+                    "current": 0.0-100.0,
+                    "3m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }},
+                    "6m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }},
+                    "12m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }}
+                }},
+                "stress_indicators": {{
+                    "vix_term_structure": {{ "signal": "contango/backwardation", "stress_level": "low/medium/high" }},
+                    "credit_spreads": {{ "current": 0.0, "trend": "widening/tightening", "z_score": 0.0 }},
+                    "liquidity_metrics": {{
+                        "bid_ask_spreads": {{ "stress": "normal/elevated" }},
+                        "market_depth": {{ "stress": "normal/low" }}
+                    }},
+                    "cross_asset_correlation": {{
+                        "current": 0.0-1.0,
+                        "crisis_threshold": 0.85,
+                        "trend": "stable/rising"
                     }}
-                ]
+                }},
+                "tail_risk_hedges": [
+                    {{ "instrument": "string", "recommended_allocation": "string", "rationale": "string" }}
+                ],
+                "early_warning_signals": {{
+                    "yield_curve_inversion": true/false,
+                    "high_yield_spread_spike": true/false,
+                    "crypto_correlation_breakdown": true/false,
+                    "funding_stress": true/false
+                }}
             }},
             "the_coin": {{
-                "metrics": [
-                    {{ "name": "Rotation Strength", "value": "0-10", "percentile": 0-100 }},
-                    {{ "name": "Momentum", "value": "0-10", "percentile": 0-100 }}
-                ]
+                "core_metrics": {{
+                    "rotation_strength": 0.0-10.0,
+                    "momentum": 0.0-10.0,
+                    "setup_quality": 0.0-10.0
+                }},
+                "market_metrics": {{
+                    "btc_price": "string",
+                    "eth_price": "string",
+                    "rsi_btc": 0.0,
+                    "fear_and_greed": 0,
+                    "dxy_index": 0.0,
+                    "fed_rate": "string"
+                }},
+                "ai_analysis": "string (paragraph)"
             }},
             "the_map": {{
-                "metrics": [
-                    {{ "name": "Global Macro", "value": "string" }},
-                    {{ "name": "TASI Outlook", "value": "string" }}
-                ]
+                "global_macro_outlook": {{
+                    "current": "LATE_CYCLE/RECESSION/RECOVERY/EXPANSION",
+                    "forecast": {{
+                        "3m": {{ "outlook": "string", "probability": 0.0-1.0 }},
+                        "6m": {{ "outlook": "string", "probability": 0.0-1.0 }},
+                        "12m": {{ "outlook": "string", "probability": 0.0-1.0 }}
+                    }}
+                }},
+                "key_indicators": {{
+                    "us_gdp_growth": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
+                    "us_inflation": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
+                    "fed_funds_rate": {{ "current": 0.0, "3m_forecast": 0.0, "12m_forecast": 0.0 }},
+                    "oil_brent": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
+                    "usd_index": {{ "current": 0.0, "trend": "string" }}
+                }},
+                "tasi_outlook": {{
+                    "current": 0.0,
+                    "alignment_score": 0.0-1.0,
+                    "forecasts": {{
+                        "3m": {{ "target": 0, "confidence": 0.0-1.0 }},
+                        "6m": {{ "target": 0, "confidence": 0.0-1.0 }},
+                        "12m": {{ "target": 0, "confidence": 0.0-1.0 }}
+                    }},
+                    "drivers": ["string"]
+                }},
+                "saudi_specific": {{
+                    "oil_production_mmbpd": 0.0,
+                    "pif_deployment_rate": "high/medium/low",
+                    "non_oil_gdp_growth": 0.0,
+                    "vision_2030_progress": 0.0-1.0
+                }}
             }},
             "the_frontier": {{
-                "metrics": [
-                    {{ "name": "AGI Timeline", "value": "string" }}
-                ]
+                "agi_timeline": {{
+                    "median_estimate": "string (year)",
+                    "probability_distribution": {{
+                        "2025-2027": 0.0,
+                        "2027-2030": 0.0,
+                        "2030-2035": 0.0,
+                        "post-2035": 0.0
+                    }},
+                    "confidence": 0.0-1.0
+                }},
+                "escape_velocity_metrics": {{
+                    "current_probability": 0.0-1.0,
+                    "trend": "accelerating/stable",
+                    "key_indicators": {{
+                        "model_capability_doubling_months": 0.0,
+                        "compute_efficiency_improvement_rate": 0.0,
+                        "research_breakthrough_velocity": 0.0,
+                        "recursive_self_improvement_index": 0.0
+                    }}
+                }},
+                "workforce_impact": {{
+                    "automation_rate_annual": 0.0,
+                    "jobs_at_risk_3y": {{
+                        "customer_service": 0.0,
+                        "data_entry": 0.0,
+                        "creative_work": 0.0,
+                        "coding": 0.0
+                    }},
+                    "new_job_creation_rate": 0.0,
+                    "net_displacement_forecast": {{
+                        "3m": 0.0,
+                        "12m": 0.0,
+                        "36m": 0.0
+                    }}
+                }},
+                "breakthrough_tracker": {{
+                    "recent_milestones": [
+                        {{ "date": "string", "event": "string", "impact": "high/medium/low" }}
+                    ],
+                    "papers_per_week": 0,
+                    "trend": "string"
+                }},
+                "investment_implications": {{
+                    "ai_infrastructure": "overweight/underweight",
+                    "traditional_tech": "overweight/underweight",
+                    "defense_cybersecurity": "overweight/underweight",
+                    "conviction": 0.0-1.0
+                }}
             }},
             "the_strategy": {{
-                "metrics": [
-                    {{ "name": "Top Opportunity", "value": "string" }}
-                ]
+                "top_opportunities": [
+                    {{
+                        "asset": "string",
+                        "timeframe": "string",
+                        "conviction": 0.0-1.0,
+                        "expected_return": 0.0,
+                        "max_drawdown_risk": 0.0,
+                        "sharpe_forecast": 0.0,
+                        "position_size": "string",
+                        "entry_trigger": "string",
+                        "exit_targets": [0.0],
+                        "stop_loss": 0.0
+                    }}
+                ],
+                "portfolio_allocation": {{
+                    "crypto": 0.0,
+                    "equities": 0.0,
+                    "commodities": 0.0,
+                    "cash": 0.0,
+                    "bonds": 0.0
+                }},
+                "risk_adjusted_scores": {{
+                    "btc": {{ "score": 0.0, "rank": 0 }},
+                    "gold": {{ "score": 0.0, "rank": 0 }},
+                    "tasi": {{ "score": 0.0, "rank": 0 }}
+                }},
+                "correlation_matrix": {{
+                    "btc_spx": 0.0,
+                    "gold_spx": 0.0,
+                    "btc_gold": 0.0
+                }}
             }},
             "the_library": {{
-                "metrics": []
+                "query": "What drives crypto bull markets?",
+                "simplified_answer": "string",
+                "related_commander_insights": {{
+                    "current_outlook": "string",
+                    "forecast": "string"
+                }},
+                "further_reading": [
+                    {{ "title": "string", "source": "string" }}
+                ]
             }}
         }}
         """
