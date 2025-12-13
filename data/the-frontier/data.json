@@ -1,10 +1,61 @@
 {
-  "metrics": [
-    {
-      "name": "AGI Timeline",
-      "value": "2029 with 75% confidence"
+  "agi_timeline": {
+    "median_estimate": "2030",
+    "probability_distribution": {
+      "2025-2027": 0.15,
+      "2027-2030": 0.45,
+      "2030-2035": 0.3,
+      "post-2035": 0.1
+    },
+    "confidence": 0.75
+  },
+  "escape_velocity_metrics": {
+    "current_probability": 0.28,
+    "trend": "accelerating",
+    "key_indicators": {
+      "model_capability_doubling_months": 14.0,
+      "compute_efficiency_improvement_rate": 1.8,
+      "research_breakthrough_velocity": 2.1,
+      "recursive_self_improvement_index": 0.65
     }
-  ],
-  "last_update": "2025-12-13T16:11:43.765720+00:00",
+  },
+  "workforce_impact": {
+    "automation_rate_annual": 12.5,
+    "jobs_at_risk_3y": {
+      "customer_service": 35.0,
+      "data_entry": 65.0,
+      "creative_work": 15.0,
+      "coding": 25.0
+    },
+    "new_job_creation_rate": 8.2,
+    "net_displacement_forecast": {
+      "3m": -1.2,
+      "12m": -3.8,
+      "36m": -7.5
+    }
+  },
+  "breakthrough_tracker": {
+    "recent_milestones": [
+      {
+        "date": "2025-11-15",
+        "event": "Multimodal reasoning surpasses human baselines",
+        "impact": "high"
+      },
+      {
+        "date": "2025-12-01",
+        "event": "Self-improving AI systems demonstrated in lab settings",
+        "impact": "medium"
+      }
+    ],
+    "papers_per_week": 42,
+    "trend": "Accelerating"
+  },
+  "investment_implications": {
+    "ai_infrastructure": "overweight",
+    "traditional_tech": "underweight",
+    "defense_cybersecurity": "overweight",
+    "conviction": 0.85
+  },
+  "last_update": "2025-12-13T16:37:22.595767+00:00",
   "dashboard": "the-frontier"
 }

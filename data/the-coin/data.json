@@ -1,16 +1,18 @@
 {
-  "metrics": [
-    {
-      "name": "Rotation Strength",
-      "value": "6",
-      "percentile": 55
-    },
-    {
-      "name": "Momentum",
-      "value": "7",
-      "percentile": 60
-    }
-  ],
-  "last_update": "2025-12-13T16:11:43.765720+00:00",
+  "core_metrics": {
+    "rotation_strength": 6.0,
+    "momentum": 5.5,
+    "setup_quality": 6.5
+  },
+  "market_metrics": {
+    "btc_price": "$90,083",
+    "eth_price": "$3,103",
+    "rsi_btc": 52.4,
+    "fear_and_greed": 55,
+    "dxy_index": 102.3,
+    "fed_rate": "4.19%"
+  },
+  "ai_analysis": "Market structure shows bifurcation between crypto and traditional assets. Bitcoin's consolidation near $90k suggests accumulation phase, while ETH's relative strength indicates altcoin rotation potential. Macro headwinds from rising yields offset by institutional crypto inflows.",
+  "last_update": "2025-12-13T16:37:22.595767+00:00",
   "dashboard": "the-coin"
 }
