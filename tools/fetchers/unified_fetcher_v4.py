@@ -192,9 +192,9 @@ class UnifiedFetcherV4:
         }
         
         self.ai_models = [
-            "meta-llama/llama-3.3-70b-instruct:free",
             "mistralai/mistral-small-3.1-24b-instruct:free",
-            "alibaba/tongyi-deepresearch-30b-a3b:free",
+            "microsoft/phi-3-medium-128k-instruct:free",
+            "meta-llama/llama-3.3-70b-instruct:free",
             "allenai/olmo-3-32b-think:free",
             "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
             "openai/gpt-oss-120b:free",
@@ -212,7 +212,8 @@ class UnifiedFetcherV4:
             "google/gemma-3n-e2b-it:free",
             "google/gemma-3-4b-it:free",
             "arcee-ai/trinity-mini:free",
-            "amazon/nova-2-lite-v1:free"
+            "amazon/nova-2-lite-v1:free",
+            "alibaba/tongyi-deepresearch-30b-a3b:free"
         ]
         
         self.historical_data = {}
@@ -293,8 +294,10 @@ class UnifiedFetcherV4:
         ]
         
         if not api_keys:
-            logger.error("No OPENROUTER_API_KEYs found")
+            logger.error("No OPENROUTER_API_KEYs found. Please set OPENROUTER_API_KEY in .env or environment.")
             return {}
+
+        logger.info(f"Found {len(api_keys)} API key(s) available for use.")
 
         for key_index, api_key in enumerate(api_keys):
             logger.info(f"Attempting with API Key #{key_index + 1}")
@@ -334,7 +337,13 @@ class UnifiedFetcherV4:
                         elif "```" in content:
                             content = content.split("```")[1].split("```")[0].strip()
                         
-                        return json.loads(content)
+                        try:
+                            data = json.loads(content)
+                            logger.info(f"Successfully received analysis from {model}")
+                            return data
+                        except json.JSONDecodeError as je:
+                            logger.warning(f"Model {model} returned invalid JSON: {je}")
+                            continue
                     
                     elif response.status_code in [401, 402, 403]:
                         logger.warning(f"Key #{key_index + 1} failed with status {response.status_code}. Switching to next key...")
@@ -344,15 +353,18 @@ class UnifiedFetcherV4:
                         logger.warning(f"Model {model} rate limited (429). Waiting 5s...")
                         time.sleep(5)
                     else:
-                        logger.warning(f"Model {model} failed: {response.text}")
+                        logger.warning(f"Model {model} failed with status {response.status_code}: {response.text[:200]}")
                 
                 except Exception as e:
                     logger.warning(f"Error calling {model}: {e}")
                     continue
+                
+                # Small delay between models to be nice
+                time.sleep(1)
             
             logger.warning(f"All models failed with Key #{key_index + 1}. Trying next key if available...")
         
-        logger.error("All keys and models failed.")
+        logger.error("All keys and models failed. Returning empty result.")
         return {}
 
     async def unified_analysis(self):
