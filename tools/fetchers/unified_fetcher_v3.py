@@ -762,7 +762,49 @@ def calculate_crash_risk_score():
     
     logger.info(f"  Crash Risk Score: {composite_score:.1f}/100 ({risk_level})")
 
-
+def calculate_frontier_timeline():
+    """Calculate timeline milestones for The Frontier"""
+    logger.info("=" * 50)
+    logger.info("🚀 CALCULATING FRONTIER TIMELINE")
+    logger.info("=" * 50)
+    
+    # Reference date: Assuming project start was on 2025-11-24 (Day 1)
+    reference_date = datetime(2025, 11, 24, tzinfo=timezone.utc)
+    current_date = datetime.now(timezone.utc)
+    
+    # Calculate current day
+    days_elapsed = (current_date - reference_date).days + 1
+    
+    milestones = {
+        'Resource ID': {
+            'days_from_start': 78,
+            'days_remaining': max(0, 78 - days_elapsed),
+            'target_date': (reference_date + timedelta(days=78)).strftime('%Y-%m-%d')
+        },
+        'Data Assets': {
+            'days_from_start': 108,
+            'days_remaining': max(0, 108 - days_elapsed),
+            'target_date': (reference_date + timedelta(days=108)).strftime('%Y-%m-%d')
+        },
+        'Robotics Integration': {
+            'days_from_start': 228,
+            'days_remaining': max(0, 228 - days_elapsed),
+            'target_date': (reference_date + timedelta(days=228)).strftime('%Y-%m-%d')
+        },
+        'Operating Capability': {
+            'days_from_start': 258,
+            'days_remaining': max(0, 258 - days_elapsed),
+            'target_date': (reference_date + timedelta(days=258)).strftime('%Y-%m-%d')
+        }
+    }
+    
+    store.set('frontier.current_day', days_elapsed)
+    store.set('frontier.milestones', milestones)
+    store.set('frontier.days_remaining', max(0, 258 - days_elapsed))
+    
+    logger.info(f"  Current Day: {days_elapsed}")
+    for name, data in milestones.items():
+        logger.info(f"  {name}: {data['days_remaining']} days remaining")
 
 def fetch_fred_data():
     """Fetch macro indicators from FRED"""
