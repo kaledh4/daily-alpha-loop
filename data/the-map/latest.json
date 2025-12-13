@@ -3,11 +3,7 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-<<<<<<< HEAD
-  "last_update": "2025-12-13 04:22:44 UTC",
-=======
-  "last_update": "2025-12-13 07:14:28 UTC",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "last_update": "2025-12-13 08:32:39 UTC",
   "scoring": {
     "stance_strength": 5,
     "volatility_risk": 5,
@@ -26,12 +22,12 @@
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.53",
+      "value": "$57.44",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,330",
+      "value": "$4,300",
       "signal": "NORMAL"
     },
     {
@@ -46,32 +42,16 @@
     }
   ],
   "macro": {
-    "oil": 57.53,
+    "oil": 57.44,
     "dxy": 98.39,
-    "gold": 4329.8,
+    "gold": 4300.1,
     "sp500": 6827.41,
     "tasi": 10715.98,
     "treasury_10y": 4.19
   },
   "tasi_mood": "Neutral",
-  "drivers": [
-<<<<<<< HEAD
-    "Oil prices",
-    "US dollar strength",
-    "Interest rates",
-    "Gold prices",
-    "Global economic growth"
-  ],
-  "ai_analysis": "The current macro environment is characterized by rising oil prices at $57.53, a strong US dollar at 98.39, and high gold prices at $4,329.80. The SP500 at 6,827.41 is near its recent highs, but the TASI at 10,715.98 is showing signs of weakness. The DXY and oil prices are positively correlated, which could lead to further strength in the US dollar. The TASI mood is Neutral, but the forecast is for a decline due to rising interest rates and oil prices. The drivers of the macro environment are:",
-=======
-    "US jobs report",
-    "inflation data",
-    "Middle East developments",
-    "oil prices",
-    "interest rates"
-  ],
-  "ai_analysis": "The current macro environment is characterized by a strong US dollar, with the DXY at 98.39, and relatively high oil prices at $57.44. The TASI at 10715.98 is near its recent highs, indicating a positive mood in the Saudi market. The SP500 at 6827.41 is also near its recent highs, indicating a positive outlook for US equities. However, the gold price at $4300.10 is relatively high, indicating some safe-haven demand. The drivers of the market this week are expected to be the US jobs report, inflation data, and any developments in the Middle East. The tasi_mood is currently Positive, with a forecast of continued growth. The drivers are:",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "drivers": [],
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

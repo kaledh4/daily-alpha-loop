@@ -3,24 +3,20 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-<<<<<<< HEAD
-  "last_update": "2025-12-13 04:22:44 UTC",
-=======
-  "last_update": "2025-12-13 07:14:28 UTC",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "last_update": "2025-12-13 08:32:39 UTC",
   "scoring": {
-    "stance_confidence": 3
+    "stance_confidence": 5
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "ELEVATED",
-      "signal": "CAUTION"
+      "value": "LOW",
+      "signal": "NORMAL"
     },
     {
       "name": "Crypto Input",
-      "value": "Bearish",
-      "signal": "BEARISH"
+      "value": "Neutral",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Macro Input",
@@ -33,24 +29,15 @@
       "signal": "NORMAL"
     }
   ],
-<<<<<<< HEAD
-  "stance": "Defensive",
-  "mindset": "Cautious on macro and crypto, opportunistic on AI dips",
-=======
-  "stance": "Opportunistic",
-  "mindset": "Buy the dip in AI/Tech, defend the core in macro",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "stance": "Neutral",
+  "mindset": "Wait for clarity",
   "inputs": {
-    "risk": "ELEVATED",
-    "crypto": "Bearish",
+    "risk": "LOW",
+    "crypto": "Neutral",
     "macro": "Neutral",
     "frontier": "Active"
   },
-<<<<<<< HEAD
-  "ai_analysis": "The current strategy is Defensive, due to the Elevated risk level and Bearish crypto momentum. However, the Moderate AI/Tech velocity and potential for a bounce in BTC prices suggest an Opportunistic stance on AI-related assets. The mindset is to be cautious on macro and crypto, but opportunistic on AI dips. The conviction is Medium, due to the uncertainty in the macro environment. The recommended allocation is 40% Defensive, 30% Opportunistic, and 30% Neutral.",
-=======
-  "ai_analysis": "The current market environment is characterized by a mix of defensive and opportunistic signals. The macro environment is positive, but the crypto market is bearish. The AI/Tech sector is experiencing significant breakthroughs, which could lead to new opportunities. The stance is currently Opportunistic, with a mindset of \"buy the dip\" in AI/Tech and \"defend the core\" in macro. The conviction is High, with a recommended allocation of 60% to macro, 20% to AI/Tech, and 20% to crypto.",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "stance_engine",
     "momentum_blend"

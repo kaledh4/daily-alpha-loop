@@ -3,11 +3,7 @@
   "name": "The Coin",
   "role": "Crypto Intent",
   "mission": "Track BTC \u2192 Alts rotation, detect fakeouts, measure liquidity migration, and infer sentiment momentum.",
-<<<<<<< HEAD
-  "last_update": "2025-12-13 04:22:44 UTC",
-=======
-  "last_update": "2025-12-13 07:14:28 UTC",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "last_update": "2025-12-13 08:32:39 UTC",
   "scoring": {
     "rotation_strength": 5.0,
     "momentum": 5,
@@ -16,25 +12,17 @@
   "metrics": [
     {
       "name": "BTC Price",
-<<<<<<< HEAD
-      "value": "$90,321",
-=======
-      "value": "$90,363",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+      "value": "$90,517",
       "signal": "NORMAL"
     },
     {
       "name": "ETH Price",
-<<<<<<< HEAD
-      "value": "$3,090",
-=======
-      "value": "$3,094",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+      "value": "$3,125",
       "signal": "NORMAL"
     },
     {
       "name": "RSI (BTC)",
-      "value": "35.3",
+      "value": "35.4",
       "signal": "NORMAL"
     },
     {
@@ -49,35 +37,21 @@
     },
     {
       "name": "Fed Rate",
-      "value": "3.88%",
+      "value": "5.33%",
       "signal": "NORMAL"
     }
   ],
-<<<<<<< HEAD
-  "btc_price": 90320.8984375,
-  "eth_price": 3089.79443359375,
+  "btc_price": 90516.9765625,
+  "eth_price": 3124.643310546875,
   "crypto_assets": {
     "BTC": {
-      "price": 90320.8984375,
-      "risk": 1.237,
-      "multiplier": 1.0
-    },
-    "ETH": {
-      "price": 3089.79443359375,
-      "risk": 0.542,
-=======
-  "btc_price": 90363.2890625,
-  "eth_price": 3094.36572265625,
-  "crypto_assets": {
-    "BTC": {
-      "price": 90363.2890625,
+      "price": 90516.9765625,
       "risk": 1.233,
       "multiplier": 1.0
     },
     "ETH": {
-      "price": 3094.36572265625,
+      "price": 3124.643310546875,
       "risk": 0.54,
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
       "multiplier": 2.0
     },
     "VXV": {
@@ -91,41 +65,29 @@
       "multiplier": 28.0
     },
     "ADA": {
-<<<<<<< HEAD
-      "price": 0.4093317985534668,
-=======
-      "price": 0.41038957238197327,
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+      "price": 0.41270533204078674,
       "risk": 0.036,
       "multiplier": 12.0
     },
     "NEAR": {
-<<<<<<< HEAD
-      "price": 1.6497559547424316,
-=======
-      "price": 1.6488490104675293,
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+      "price": 1.6616672277450562,
       "risk": 0.033,
       "multiplier": 19.0
     }
   },
   "dxy_index": 98.39199829101562,
-  "fed_rate": 3.88,
+  "fed_rate": 5.33,
   "composite_risk": 0.89,
   "risk_level": "High",
-  "momentum": "Bearish",
-  "key_level": "$80,000",
-  "rsi": 35.3,
+  "momentum": "Neutral",
+  "key_level": "Watch $90k",
+  "rsi": 35.45,
   "trend": "Bearish",
   "fear_and_greed": {
     "value": 23,
     "classification": "Extreme Fear"
   },
-<<<<<<< HEAD
-  "ai_analysis": "The BTC price at $90,321 and ETH price at $3,090 are both below their recent highs, indicating a Bearish momentum. The BTC RSI at 35.30 is in oversold territory, which could lead to a bounce. However, the Fear & Greed index at 23 is in Extreme Fear, suggesting a high level of market anxiety. A break below $80,000 for BTC could trigger a further decline, while a break above $100,000 could lead to a rally. The ETH/BTC ratio is currently favorable for ETH, suggesting a potential rotation into altcoins. The key level to watch is $80,000 for BTC.",
-=======
-  "ai_analysis": "The current BTC price at $90,363 and ETH price at $3,094 indicate a bearish trend in the crypto market. The BTC RSI at 35.32 is in oversold territory, which could lead to a potential bounce. However, the Fear & Greed index at 23 indicates Extreme Fear, which could lead to further downward pressure. A key level to watch is the $80,000 support level for BTC, which if broken, could lead to a further decline. On the other hand, a break above $100,000 could lead to a bullish reversal. The momentum is currently Bearish, with a key level of $80,000.",
->>>>>>> 6bd2d2dca6f693f523291536e855fef808640196
+  "ai_analysis": "Analysis temporarily unavailable",
   "data_sources": [
     "orderflow",
     "dominance_tracker",
