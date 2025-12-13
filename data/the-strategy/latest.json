@@ -3,7 +3,7 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
-  "last_update": "2025-12-13 04:22:44 UTC",
+  "last_update": "2025-12-13 06:33:20 UTC",
   "scoring": {
     "stance_confidence": 3
   },
@@ -30,14 +30,14 @@
     }
   ],
   "stance": "Defensive",
-  "mindset": "Cautious on macro and crypto, opportunistic on AI dips",
+  "mindset": "Cautious",
   "inputs": {
     "risk": "ELEVATED",
     "crypto": "Bearish",
     "macro": "Neutral",
     "frontier": "Active"
   },
-  "ai_analysis": "The current strategy is Defensive, due to the Elevated risk level and Bearish crypto momentum. However, the Moderate AI/Tech velocity and potential for a bounce in BTC prices suggest an Opportunistic stance on AI-related assets. The mindset is to be cautious on macro and crypto, but opportunistic on AI dips. The conviction is Medium, due to the uncertainty in the macro environment. The recommended allocation is 40% Defensive, 30% Opportunistic, and 30% Neutral.",
+  "ai_analysis": "The overall strategy is Defensive, given the Elevated risk level and bearish crypto momentum. However, the AI/Tech sector is experiencing a Moderate velocity, which could provide opportunities for opportunistic investing. The macro environment is mixed, and the TASI is expected to move sideways in the short term. A possible allocation is 40% defensive assets, 30% AI/Tech, and 30% macro-related assets. The mindset is cautious, with a conviction level of Medium.",
   "data_sources": [
     "stance_engine",
     "momentum_blend"
