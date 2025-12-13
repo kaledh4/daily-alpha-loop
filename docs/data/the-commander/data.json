@@ -1,0 +1,48 @@
+{
+  "flight_to_safety_score": {
+    "current": 3,
+    "trend": "Rising",
+    "3m_forecast": {
+      "score": 6,
+      "confidence": 0.75
+    }
+  },
+  "asset_outlook": {
+    "BTC": {
+      "risk_reward": "High",
+      "conviction": 8,
+      "forecasts": {
+        "3m": {
+          "target": "$120,000"
+        }
+      }
+    },
+    "GOLD": {
+      "risk_reward": "Medium",
+      "conviction": 6,
+      "forecasts": {
+        "3m": {
+          "target": "$4,500"
+        }
+      }
+    }
+  },
+  "agi_singularity_tracker": {
+    "escape_velocity_probability": 0.65,
+    "timeline_estimate": "2032",
+    "key_metrics": {
+      "compute_doubling": "6 months",
+      "research_velocity": "Accelerating"
+    }
+  },
+  "morning_brief": {
+    "weather_of_the_day": "Cloudy",
+    "top_signal": "VIX Spike",
+    "action_stance": "Defensive",
+    "why_it_matters": "Increased market uncertainty.",
+    "cross_dashboard_convergence": "Shield and Commander align on risk-off sentiment.",
+    "summary_sentence": "Prepare for volatility as risk aversion increases."
+  },
+  "last_update": "2025-12-13T10:47:36.873882+00:00",
+  "dashboard": "the-commander"
+}
