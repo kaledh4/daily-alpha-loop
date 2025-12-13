@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-13 06:33:20 UTC",
+  "last_update": "2025-12-13 06:46:33 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 8,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -18,7 +18,7 @@
     {
       "name": "TASI",
       "value": "10,716",
-      "signal": "NEUTRAL"
+      "signal": "POSITIVE"
     },
     {
       "name": "Oil (Brent)",
@@ -49,15 +49,15 @@
     "tasi": 10715.98,
     "treasury_10y": 4.19
   },
-  "tasi_mood": "Neutral",
+  "tasi_mood": "Positive",
   "drivers": [
     "Oil prices",
-    "US interest rates",
-    "Saudi economic growth",
-    "global trade",
-    "geopolitical tensions"
+    "DXY",
+    "10Y Treasury Yield",
+    "Gold",
+    "TASI"
   ],
-  "ai_analysis": "The macro environment is mixed, with Oil at $57.44 and DXY at 98.39 indicating a moderate level of economic activity. The SP500 at 6827.41 is near its recent highs, but the TASI at 10715.98 is slightly below its average. The Gold price at $4300.10 is relatively stable, indicating a moderate level of inflation concerns. The drivers of the TASI are: Oil prices, US interest rates, Saudi economic growth, global trade, and geopolitical tensions. The TASI mood is Neutral, with a forecast of sideways movement in the short term.",
+  "ai_analysis": "The macro landscape is complex, with Oil at $57.44 and DXY at 98.39 indicating a moderate level of economic activity. The Gold price at $4300.10 suggests some safe-haven demand, while the SP500 at 6827.41 is near all-time highs. The TASI at 10715.98 is positive, driven by the Saudi economy. The key drivers for the week are: drivers[5]: Oil prices, DXY, 10Y Treasury Yield, Gold, and TASI. A DXY above 100 would be a concern, while an Oil price below $50 would indicate a more positive environment. The TASI mood is positive, with a forecast of continued growth.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",
