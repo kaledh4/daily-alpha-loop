@@ -13,7 +13,7 @@
       "conviction": 8,
       "forecasts": {
         "3m": {
-          "target": "$100,000"
+          "target": "$105,000"
         }
       }
     },
@@ -43,6 +43,6 @@
     "cross_dashboard_convergence": "Moderate",
     "summary_sentence": "The market is showing signs of increased volatility, with a neutral stance recommended."
   },
-  "last_update": "2025-12-13T11:03:16.702372+00:00",
+  "last_update": "2025-12-13T11:45:25.047563+00:00",
   "dashboard": "the-commander"
 }
