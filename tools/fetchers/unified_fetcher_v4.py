@@ -392,6 +392,10 @@ class UnifiedFetcherV4:
         
         {{
             "the_commander": {{
+                "metrics": [
+                    {{ "name": "Flight to Safety", "value": "0-10", "signal": "Risk On/Off" }},
+                    {{ "name": "Market Sentiment", "value": "0-100", "signal": "Bearish/Bullish" }}
+                ],
                 "flight_to_safety_score": {{ 
                     "current": 0.0-10.0, 
                     "trend": "string (e.g. 'Rising')", 
@@ -416,6 +420,11 @@ class UnifiedFetcherV4:
                 }}
             }},
             "the_shield": {{
+                "metrics": [
+                    {{ "name": "Fragility Index", "value": "0-100", "signal": "Stable/Fragile", "percentile": 0-100 }},
+                    {{ "name": "VIX", "value": "string", "signal": "Low/High" }},
+                    {{ "name": "Liquidity", "value": "0-10", "signal": "Ample/Tight" }}
+                ],
                 "fragility_index": {{
                     "current": 0.0-100.0,
                     "3m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }},
@@ -443,9 +452,15 @@ class UnifiedFetcherV4:
                     "high_yield_spread_spike": true/false,
                     "crypto_correlation_breakdown": true/false,
                     "funding_stress": true/false
-                }}
+                }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of market fragility and risks)"
             }},
             "the_coin": {{
+                "metrics": [
+                    {{ "name": "Rotation Strength", "value": "0-10", "signal": "Bitcoin/Altseason", "percentile": 0-100 }},
+                    {{ "name": "Momentum", "value": "0-10", "signal": "Bullish/Bearish", "percentile": 0-100 }},
+                    {{ "name": "Setup Quality", "value": "0-10", "signal": "Good/Bad" }}
+                ],
                 "core_metrics": {{
                     "rotation_strength": 0.0-10.0,
                     "momentum": 0.0-10.0,
@@ -462,6 +477,11 @@ class UnifiedFetcherV4:
                 "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
             }},
             "the_map": {{
+                "metrics": [
+                    {{ "name": "Global Macro", "value": "string", "signal": "Expansion/Contraction" }},
+                    {{ "name": "TASI Outlook", "value": "string", "signal": "Bullish/Bearish" }},
+                    {{ "name": "Oil", "value": "string", "signal": "Stable/Volatile" }}
+                ],
                 "global_macro_outlook": {{
                     "current": "LATE_CYCLE/RECESSION/RECOVERY/EXPANSION",
                     "forecast": {{
@@ -492,9 +512,14 @@ class UnifiedFetcherV4:
                     "pif_deployment_rate": "high/medium/low",
                     "non_oil_gdp_growth": 0.0,
                     "vision_2030_progress": 0.0-1.0
-                }}
+                }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of global macro and Saudi market)"
             }},
             "the_frontier": {{
+                "metrics": [
+                    {{ "name": "AGI Timeline", "value": "string", "signal": "Accelerating/Stable" }},
+                    {{ "name": "Workforce Impact", "value": "High/Medium/Low", "signal": "Disruptive" }}
+                ],
                 "agi_timeline": {{
                     "median_estimate": "string (year)",
                     "probability_distribution": {{
@@ -542,9 +567,14 @@ class UnifiedFetcherV4:
                     "traditional_tech": "overweight/underweight",
                     "defense_cybersecurity": "overweight/underweight",
                     "conviction": 0.0-1.0
-                }}
+                }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of AI progress and workforce impact)"
             }},
             "the_strategy": {{
+                "metrics": [
+                    {{ "name": "Top Opportunity", "value": "string", "signal": "Buy/Sell" }},
+                    {{ "name": "Portfolio Risk", "value": "High/Medium/Low", "signal": "Defensive/Aggressive" }}
+                ],
                 "top_opportunities": [
                     {{
                         "asset": "string",
@@ -575,9 +605,11 @@ class UnifiedFetcherV4:
                     "btc_spx": 0.0,
                     "gold_spx": 0.0,
                     "btc_gold": 0.0
-                }}
+                }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of investment strategy and opportunities)"
             }},
             "the_library": {{
+                "metrics": [],
                 "query": "What drives crypto bull markets?",
                 "simplified_answer": "string (comprehensive, easy-to-understand explanation)",
                 "related_commander_insights": {{

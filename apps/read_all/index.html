@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read All Data - Daily Alpha Loop</title>
+    <link rel="stylesheet" href="../shared/styles.css">
+    <style>
+        .json-container {
+            background: #1a202c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            border: 1px solid #2d3748;
+        }
+        pre {
+            color: #a0aec0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+        }
+        .copy-btn {
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 10px;
+        }
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Read All Data</h1>
+            <p style="color: #cbd5e0;">Raw JSON data for debugging and analysis.</p>
+        </div>
+        
+        <div id="content">
+            <!-- Data will be injected here -->
+        </div>
+    </div>
+
+    <script>
+        const DASHBOARDS = [
+            'the-commander',
+            'the-shield',
+            'the-coin',
+            'the-map',
+            'the-frontier',
+            'the-strategy',
+            'the-library'
+        ];
+
+        async function loadAllData() {
+            const contentDiv = document.getElementById('content');
+            
+            for (const dashboard of DASHBOARDS) {
+                try {
+                    const response = await fetch(`../../data/${dashboard}/data.json?t=${Date.now()}`);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const data = await response.json();
+                    
+                    const section = document.createElement('div');
+                    section.className = 'json-container';
+                    
+                    const title = document.createElement('h2');
+                    title.style.color = '#63b3ed';
+                    title.textContent = dashboard.toUpperCase().replace('-', ' ');
+                    
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'copy-btn';
+                    copyBtn.textContent = 'Copy JSON';
+                    copyBtn.onclick = () => {
+                        navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => copyBtn.textContent = 'Copy JSON', 2000);
+                    };
+                    
+                    const pre = document.createElement('pre');
+                    pre.textContent = JSON.stringify(data, null, 2);
+                    
+                    section.appendChild(copyBtn);
+                    section.appendChild(title);
+                    section.appendChild(pre);
+                    contentDiv.appendChild(section);
+                    
+                } catch (e) {
+                    console.error(`Failed to load ${dashboard}:`, e);
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'json-container';
+                    errorDiv.style.borderColor = '#fc8181';
+                    errorDiv.innerHTML = `<h2 style="color: #fc8181;">${dashboard} - ERROR</h2><p>${e.message}</p>`;
+                    contentDiv.appendChild(errorDiv);
+                }
+            }
+        }
+
+        loadAllData();
+    </script>
+</body>
+</html>
