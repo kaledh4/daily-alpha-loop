@@ -2,15 +2,15 @@
   "metrics": [
     {
       "name": "Rotation Strength",
-      "value": "7",
-      "percentile": 75
+      "value": "6",
+      "percentile": 55
     },
     {
       "name": "Momentum",
-      "value": "8",
-      "percentile": 85
+      "value": "7",
+      "percentile": 60
     }
   ],
-  "last_update": "2025-12-13T11:45:25.047563+00:00",
+  "last_update": "2025-12-13T16:11:43.765720+00:00",
   "dashboard": "the-coin"
 }
