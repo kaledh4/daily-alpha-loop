@@ -1,0 +1,41 @@
+{
+  "name": "@nx-monorepo/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "build": "node scripts/build-all.js",
+    "build:the-shield": "node scripts/build-app.mjs the-shield",
+    "build:the-frontier": "node scripts/build-app.mjs the-frontier",
+    "build:the-map": "node scripts/build-app.mjs the-map",
+    "build:the-coin": "node scripts/build-app.mjs the-coin",
+    "build:the-strategy": "node scripts/build-app.mjs the-strategy",
+    "build:the-library": "node scripts/build-app.mjs the-library",
+    "build:the-commander": "node scripts/build-app.mjs the-commander",
+    "serve:the-shield": "http-server apps/the-shield -p 4200",
+    "serve:the-frontier": "http-server apps/the-frontier -p 4201",
+    "serve:the-map": "http-server apps/the-map -p 4202",
+    "serve:the-coin": "http-server apps/the-coin -p 4203",
+    "serve:the-strategy": "http-server apps/the-strategy -p 4204",
+    "serve:the-library": "http-server apps/the-library -p 4205",
+    "serve:the-commander": "http-server apps/the-commander -p 4206",
+    "graph": "nx graph",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@nx/js": "22.1.3",
+    "@nx/react": "^22.1.3",
+    "@nx/web": "22.1.3",
+    "@nx/workspace": "22.1.3",
+    "gh-pages": "^6.1.0",
+    "http-server": "^14.1.1",
+    "nx": "22.1.3"
+  }
+}

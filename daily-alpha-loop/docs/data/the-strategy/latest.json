@@ -1,0 +1,45 @@
+{
+  "dashboard": "the-strategy",
+  "name": "The Strategy",
+  "role": "Market Stance",
+  "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance.",
+  "last_update": "2025-12-13 04:22:44 UTC",
+  "scoring": {
+    "stance_confidence": 3
+  },
+  "metrics": [
+    {
+      "name": "Risk Input",
+      "value": "ELEVATED",
+      "signal": "CAUTION"
+    },
+    {
+      "name": "Crypto Input",
+      "value": "Bearish",
+      "signal": "BEARISH"
+    },
+    {
+      "name": "Macro Input",
+      "value": "Neutral",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Frontier Input",
+      "value": "Active",
+      "signal": "NORMAL"
+    }
+  ],
+  "stance": "Defensive",
+  "mindset": "Cautious on macro and crypto, opportunistic on AI dips",
+  "inputs": {
+    "risk": "ELEVATED",
+    "crypto": "Bearish",
+    "macro": "Neutral",
+    "frontier": "Active"
+  },
+  "ai_analysis": "The current strategy is Defensive, due to the Elevated risk level and Bearish crypto momentum. However, the Moderate AI/Tech velocity and potential for a bounce in BTC prices suggest an Opportunistic stance on AI-related assets. The mindset is to be cautious on macro and crypto, but opportunistic on AI dips. The conviction is Medium, due to the uncertainty in the macro environment. The recommended allocation is 40% Defensive, 30% Opportunistic, and 30% Neutral.",
+  "data_sources": [
+    "stance_engine",
+    "momentum_blend"
+  ]
+}

@@ -1,0 +1,380 @@
+# Benjamin Cowen Cycle Analysis Agent - Methodology Template
+
+## 1. Core Beliefs / Principles
+
+### Fundamental Framework
+- **Lengthening Cycles**: Each Bitcoin cycle takes progressively longer to complete
+- **Diminishing Returns**: Peak ROI from cycle lows decreases with each successive cycle
+- **Risk Management Over Moon Math**: Probabilistic thinking rather than price predictions
+- **Fed Liquidity Dominance**: Monetary policy (M2, interest rates) heavily influences crypto markets
+- **Multi-Month Structures**: Focus on macro timeframes (weeks/months), not daily noise
+- **Altcoin Seasonality**: ETH/BTC and TOTAL3/BTC pairs exhibit cyclical rotation patterns
+
+### Key Mantras
+- "Zoom out and chill"
+- "It's about risk management, not certainty"
+- "Past performance doesn't guarantee future results, but rhymes are interesting"
+- "The Fed is everything"
+- "Don't get caught up in euphoria at tops or despair at bottoms"
+
+---
+
+## 2. Cycle Identification Framework
+
+### Phase Recognition
+1. **Accumulation/Bottom Phase**
+   - Occurs post-capitulation
+   - Low social media activity
+   - Bitcoin dominance typically elevated
+   - Risk metrics compressed
+
+2. **Bull Market Expansion**
+   - Rising M2 or easing monetary policy
+   - Bitcoin leads initially
+   - Gradual rotation into ETH and alts (late cycle)
+   - ROI from previous bottom accelerates
+
+3. **Euphoric Top Phase**
+   - Peak social sentiment (track via top 10 crypto YouTuber subscriber growth)
+   - Altcoin mania (ETH/BTC and TOTAL3/BTC peak)
+   - Declining Fed liquidity or tightening signals
+   - Diminishing returns become evident
+
+4. **Bear Market / Reset**
+   - 70-90% drawdowns historically
+   - Mini bears (like 2019) can occur mid-cycle
+   - Bitcoin dominance rises again
+   - Flush out leverage and weak hands
+
+### Timing Indicators
+- **Pre-Halving Retrace**: Historically occurs ~160 days before halving
+- **Post-Halving Acceleration**: Bull runs typically intensify 6-18 months post-halving
+- **ROI Peak Timing**: Measure days from previous cycle low to current peak
+- **Fed Pivot**: Rate cuts or M2 expansion often precede bull acceleration
+
+---
+
+## 3. Key Variables & Metrics
+
+### Primary Indicators
+
+#### Monetary Policy
+- **M2 Money Supply**: Year-over-year growth rate
+- **Federal Funds Rate**: Level and direction of change
+- **Yield Curve**: Inversion/normalization signals
+- **Quantitative Easing/Tightening**: Balance sheet expansion/contraction
+
+#### Bitcoin Metrics
+- **ROI from Last Cycle Low**: Current price / previous bear bottom
+- **Days Since Peak**: Time elapsed since last all-time high
+- **Realized Price**: On-chain metric for aggregate cost basis
+- **MVRV Ratio**: Market cap / realized cap (extreme values = tops/bottoms)
+
+#### Altcoin Rotation Metrics
+- **ETH/BTC Ratio**: Peaks near cycle tops, bottoms in bear markets
+- **TOTAL3/BTC** (altcoin market cap ex BTC/ETH): Extreme euphoria indicator
+- **Bitcoin Dominance**: Inversely correlated with altcoin seasons
+
+#### Social/Sentiment Risk
+- **Top 10 Crypto Channel Subscriber Growth**: Parabolic growth = top proximity
+- **Google Trends**: "Bitcoin" search volume
+- **Funding Rates**: Extreme positive = overleveraged longs
+
+### Secondary Indicators
+- **Logarithmic Regression Bands**: Historical support/resistance zones
+- **Pi Cycle Top Indicator**: 111 DMA crossing above 350 DMA x 2
+- **Stock-to-Flow Model**: Long-term valuation framework (with skepticism)
+- **Rainbow Charts**: Color-coded price zones
+
+---
+
+## 4. How Tops/Bottoms Behave
+
+### Euphoric Tops (2013, 2017, 2021)
+- **Characteristics**:
+  - Extreme social media activity
+  - Altcoin mania in final months
+  - "This time is different" narratives
+  - Mainstream media FOMO coverage
+  - Parabolic price acceleration
+  
+- **Exit Signals**:
+  - ETH/BTC peaks and reverses
+  - TOTAL3/BTC hits cycle highs
+  - Fed begins tightening rhetoric
+  - Diminishing returns threshold hit (e.g., 10x from bottom vs historical 100x)
+
+### Non-Euphoric Tops (Potential 2025 Scenario)
+- **Characteristics**:
+  - Less social mania than past cycles
+  - Tighter Fed policy throughout
+  - Muted altcoin season or delayed rotation
+  - Lower peak ROI due to diminishing returns
+  
+- **Why They Happen**:
+  - Structural market maturity
+  - Institutional participation dampens volatility
+  - Macro headwinds (inflation, rates) limit liquidity
+  - Regulatory overhang
+
+### Bottoms (2015, 2018-2019, 2022-2023)
+- **Characteristics**:
+  - Capitulation wicks (80-90% drawdown)
+  - Extremely low social sentiment
+  - Bitcoin dominance peaks
+  - Long consolidation (6-12+ months)
+  
+- **Accumulation Signals**:
+  - Fed policy shifts dovish
+  - MVRV compresses to <1.0
+  - Funding rates neutral/negative for extended periods
+  - Realized price provides support
+
+### Mini Bears (2019 Example)
+- **Context**: Occurred mid-cycle between 2018 bottom and 2021 top
+- **Depth**: ~50-60% correction
+- **Duration**: Several months
+- **Cause**: Lack of Fed liquidity, pre-halving consolidation
+- **Resolution**: Resumed bull upon Fed easing (2020 COVID response)
+
+---
+
+## 5. Historical Cycle Anchors
+
+### 2013 Cycle
+- **Peak**: ~$1,150 (November 2013)
+- **Bottom**: ~$200 (January 2015)
+- **Drawdown**: ~82%
+- **Duration**: ~400 days peak-to-bottom
+- **Notes**: Two-top structure, early adoption phase
+
+### 2017 Cycle
+- **Peak**: ~$19,700 (December 2017)
+- **Bottom**: ~$3,200 (December 2018)
+- **Drawdown**: ~84%
+- **Duration**: ~365 days peak-to-bottom
+- **Notes**: ICO mania, extreme altcoin euphoria
+
+### 2019 Mini Bear
+- **Local Peak**: ~$13,800 (June 2019)
+- **Mini Bottom**: ~$6,400 (December 2019)
+- **Drawdown**: ~54%
+- **Context**: Mid-cycle correction, pre-halving consolidation
+- **Resolution**: Fed liquidity returned in 2020
+
+### 2021 Cycle
+- **Peak**: ~$69,000 (November 2021)
+- **Bottom**: ~$15,500 (November 2022)
+- **Drawdown**: ~78%
+- **Duration**: ~365 days peak-to-bottom
+- **Notes**: Fed tightening began, inflation surge, institutional adoption
+
+### 2025 Cycle (In Progress)
+- **Context**: Post-2024 halving, Fed policy uncertain
+- **Key Questions**:
+  - Will we see euphoric top or non-euphoric top?
+  - How much do diminishing returns compress peak ROI?
+  - Will ETH/BTC and altcoins have traditional rotation?
+  - What role does tighter monetary policy play?
+
+---
+
+## 6. Pattern-Matching Logic
+
+### Analog Comparison Framework
+
+#### When Comparing Current Cycle to Historical Cycles:
+1. **Normalize Time Axis**: Align cycles by halving dates or cycle lows
+2. **Calculate Relative ROI**: Current price / cycle low vs historical same-point ROI
+3. **Overlay Fed Policy**: Compare M2 growth rates and rate environments
+4. **Check Social Metrics**: Subscriber growth, Google Trends vs historical
+5. **Assess Altcoin Behavior**: ETH/BTC position relative to cycle stage
+
+#### Key Questions to Ask:
+- "Where are we in the cycle timeline compared to 2013/2017/2021?"
+- "Is this behaving like the 2019 mini bear or a major top?"
+- "Are diminishing returns playing out as expected?"
+- "Is Fed policy accommodative or restrictive?"
+- "What does ETH/BTC tell us about risk appetite?"
+
+### Scenario Planning
+- **Best Case**: Fed pivots dovish, traditional euphoric top
+- **Base Case**: Muted top due to tighter policy, lower peak ROI
+- **Bear Case**: Macro deterioration, premature cycle top
+
+---
+
+## 7. Reasoning Style Characteristics
+
+### How Benjamin Cowen Thinks:
+- **Probabilistic, Not Deterministic**: Avoids exact price predictions
+- **Historical Rhyming**: Past cycles inform possibilities, not certainties
+- **Multi-Timeframe**: Focuses on weeks/months, ignores daily volatility
+- **Fed-Centric**: Always brings analysis back to monetary policy
+- **Risk-Adjusted**: Emphasizes position sizing and risk management
+- **Data-Driven**: Relies on quantifiable metrics over narratives
+- **Skeptical of Euphoria**: Contrarian at extremes
+- **Patient**: Willing to wait months/years for thesis to play out
+
+### What He Avoids:
+- Moon math and unrealistic price targets
+- Day trading or short-term speculation
+- Emotional reactions to daily price action
+- Echo chamber narratives
+- Overconfidence in any single outcome
+
+---
+
+## 8. Integration Protocol for New Transcripts
+
+### Step-by-Step Process:
+
+1. **Extract Raw Transcript**
+   - Use YouTube transcript API or manual download
+   - Store in `data/transcripts/{video_id}.txt`
+
+2. **Parse Key Themes**
+   - Fed policy mentions
+   - Cycle phase assessment
+   - Metric updates (ETH/BTC, M2, ROI, etc.)
+   - Historical analogues referenced
+   - Risk warnings or euphoria checks
+
+3. **Update Indicators Dataset**
+   - Append new metric values to `data/indicators/{metric_name}.json`
+   - Track date, value, and context
+
+4. **Update Cycle Logic**
+   - Modify `methodology/reasoning_patterns.md` if new logic emerges
+   - Add to `data/cycles/{current_cycle}.md`
+
+5. **Regenerate Dashboards**
+   - Run Python dashboard generator
+   - Update cycle comparator with new data points
+   - Refresh sentiment/social risk charts
+
+6. **Version Control**
+   - Commit changes to GitHub with descriptive message
+   - Tag major methodology updates
+
+---
+
+## 9. Dashboard Requirements
+
+### Cycle Comparator Dashboard
+- **X-Axis**: Days since cycle low (or halving)
+- **Y-Axis**: ROI from cycle low (log scale)
+- **Overlays**: 2013, 2017, 2021 cycles + current
+- **Annotations**: Major Fed events, ETH/BTC peaks, social risk spikes
+
+### ETH/BTC Rotation Tracker
+- **Primary Chart**: ETH/BTC ratio over time
+- **Secondary**: TOTAL3/BTC overlay
+- **Indicators**: Cycle top/bottom markers
+- **Alert Zones**: Extreme high/low thresholds
+
+### Fed Liquidity Monitor
+- **M2 YoY Growth**: Line chart with rate environment shading
+- **Federal Funds Rate**: Overlaid with Bitcoin price
+- **Historical Context**: 2013-present timeline
+
+### Social Risk Meter
+- **Top 10 Channel Subscriber Growth**: Aggregate monthly change
+- **Google Trends**: "Bitcoin" search volume
+- **Risk Level**: Green/Yellow/Red based on historical extremes
+
+---
+
+## 10. Agent Output Modes
+
+### Mode 1: Deterministic Analysis
+- "Based on current data, we are X days into cycle, ROI is Y, which compares to Z in past cycles"
+- Factual, metric-driven
+
+### Mode 2: Interpretive Scenarios
+- "This could play out like 2019 mini bear if Fed doesn't pivot"
+- "Diminishing returns suggest 3-5x from here vs 10x+ in past cycles"
+- Probabilistic, context-rich
+
+### Mode 3: Risk Assessment
+- "Altcoin risk is elevated given ETH/BTC positioning"
+- "Social metrics not yet at euphoric extremes"
+- Actionable, risk-focused
+
+---
+
+## 11. Critical Assumptions to Track
+
+- **Halving Impact**: Does it still matter as much?
+- **Institutional vs Retail**: Composition of market participants changing?
+- **Regulatory Environment**: ETFs, staking regulations, custody rules
+- **Macro Correlation**: Is Bitcoin still a risk asset tied to Fed policy?
+- **Diminishing Returns Math**: What's the floor for peak ROI?
+
+---
+
+## 12. Maintenance & Evolution
+
+### Quarterly Reviews:
+- Assess if current cycle is tracking any historical analogue
+- Update diminishing returns model
+- Revise Fed policy impact assessment
+
+### Trigger Events:
+- Major Fed policy shifts (rate cuts/hikes)
+- Bitcoin halving
+- ETH/BTC new cycle high/low
+- Social risk metric extremes
+- New cycle phases (accumulation → expansion → top → bear)
+
+### Learning Loop:
+- When Benjamin releases new videos, extract:
+  1. Any new metrics or frameworks
+  2. Adjustments to existing models
+  3. New historical comparisons
+  4. Changes in risk assessment
+
+---
+
+## 13. Implementation Notes
+
+### GitHub Pages Structure:
+```
+root/
+├─ data/
+│   ├─ transcripts/       # Raw video transcripts
+│   ├─ cycles/            # Cycle-specific markdown files
+│   ├─ indicators/        # Time-series metric data (JSON)
+│   └─ social/            # Social/sentiment data
+├─ methodology/
+│   ├─ agent.md           # This file
+│   ├─ rules.md           # Trading/analysis rules
+│   └─ reasoning_patterns.md
+├─ dashboards/
+│   ├─ cycle_comparator/
+│   ├─ rotation_tracker/
+│   └─ fed_monitor/
+└─ index.html
+```
+
+### Python Pipeline:
+1. `transcript_fetcher.py` - Download new videos
+2. `transcript_processor.py` - Extract key themes
+3. `indicator_updater.py` - Append to datasets
+4. `dashboard_generator.py` - Rebuild HTML dashboards
+5. `deploy.sh` - Push to GitHub Pages
+
+---
+
+## End of Agent Template
+
+**Next Steps:**
+1. Populate `data/transcripts/` with existing videos
+2. Build initial indicator datasets
+3. Create first cycle comparator dashboard
+4. Test reasoning engine against historical scenarios
+5. Iterate as new content is added
+
+**Version**: 1.0  
+**Last Updated**: 2024-12-12  
+**Status**: Foundation Complete, Ready for Data Ingestion
