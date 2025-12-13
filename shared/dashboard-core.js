@@ -21,11 +21,25 @@ function renderHeader(data) {
     header.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
             ${iconHtml}
-            <h1 style="margin: 0;">${data.name}</h1>
+            <h1 style="margin: 0;">${data.name || 'Dashboard'}</h1>
         </div>
-        <p style="font-size: 1.4rem; color: #90cdf4; font-weight: 600; margin-bottom: 10px;">${data.role}</p>
-        <p style="max-width: 800px; margin: 0 auto; color: #cbd5e0;">${data.mission}</p>
-        <div class="timestamp">Updated: ${data.last_update || data.timestamp || 'Just now'}</div>
+        <p style="font-size: 1.4rem; color: #90cdf4; font-weight: 600; margin-bottom: 10px;">${data.role || ''}</p>
+        <p style="max-width: 800px; margin: 0 auto; color: #cbd5e0;">${data.mission || ''}</p>
+        <div class="timestamp">Updated: ${(() => {
+            const ts = data.last_update || data.timestamp;
+            if (!ts) return 'Just now';
+            try {
+                const date = new Date(ts);
+                const yyyy = date.getFullYear();
+                const mm = String(date.getMonth() + 1).padStart(2, '0');
+                const dd = String(date.getDate()).padStart(2, '0');
+                const hh = String(date.getHours()).padStart(2, '0');
+                const min = String(date.getMinutes()).padStart(2, '0');
+                return `${yyyy}-${mm}-${dd} | ${hh}:${min}`;
+            } catch (e) {
+                return ts;
+            }
+        })()}</div>
     `;
 }
 
