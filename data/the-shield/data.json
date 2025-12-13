@@ -2,44 +2,44 @@
   "metrics": [
     {
       "name": "Fragility Index",
-      "value": "65",
-      "percentile": 70,
+      "value": "75",
+      "percentile": 80,
       "trend": {
         "direction": "\u2191",
-        "label": "Rising"
+        "label": "Increasing"
       },
       "color_zone": {
-        "color": "#FFCC00",
-        "label": "Caution"
+        "color": "#FF0000",
+        "label": "High Risk"
       }
     },
     {
       "name": "Stress Indicators",
-      "value": "55",
-      "percentile": 60,
+      "value": "Moderate",
+      "percentile": 65,
       "trend": {
         "direction": "\u2191",
         "label": "Rising"
       },
       "color_zone": {
-        "color": "#FF9900",
-        "label": "Moderate"
+        "color": "#FFFF00",
+        "label": "Caution"
       }
     },
     {
       "name": "Crash Probabilities",
       "value": "15%",
-      "percentile": 50,
+      "percentile": 70,
       "trend": {
-        "direction": "\u2193",
-        "label": "Stable"
+        "direction": "\u2191",
+        "label": "Increasing"
       },
       "color_zone": {
-        "color": "#00FF00",
-        "label": "Low"
+        "color": "#FF0000",
+        "label": "High Risk"
       }
     }
   ],
-  "last_update": "2025-12-13T11:45:25.047563+00:00",
+  "last_update": "2025-12-13T16:11:43.765720+00:00",
   "dashboard": "the-shield"
 }
