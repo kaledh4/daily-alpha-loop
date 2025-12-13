@@ -1,0 +1,16 @@
+{
+  "metrics": [
+    {
+      "name": "Rotation Strength",
+      "value": "7",
+      "percentile": 80
+    },
+    {
+      "name": "Momentum",
+      "value": "6",
+      "percentile": 70
+    }
+  ],
+  "last_update": "2025-12-13T10:47:36.873882+00:00",
+  "dashboard": "the-coin"
+}
