@@ -192,10 +192,27 @@ class UnifiedFetcherV4:
         }
         
         self.ai_models = [
-            'meta-llama/llama-3.3-70b-instruct:free',
-            'google/gemini-2.0-flash-exp:free',
-            'mistralai/mistral-small-3.1-24b-instruct:free',
-            'google/gemma-2-9b-it:free',
+            "meta-llama/llama-3.3-70b-instruct:free",
+            "mistralai/mistral-small-3.1-24b-instruct:free",
+            "alibaba/tongyi-deepresearch-30b-a3b:free",
+            "allenai/olmo-3-32b-think:free",
+            "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+            "openai/gpt-oss-120b:free",
+            "openai/gpt-oss-20b:free",
+            "tngtech/deepseek-r1t2-chimera:free",
+            "tngtech/deepseek-r1t-chimera:free",
+            "tngtech/tng-r1t-chimera:free",
+            "moonshotai/kimi-k2:free",
+            "kwaipilot/kat-coder-pro:free",
+            "qwen/qwen3-coder:free",
+            "qwen/qwen3-4b:free",
+            "z-ai/glm-4.5-air:free",
+            "meituan/longcat-flash-chat:free",
+            "google/gemma-3n-e4b-it:free",
+            "google/gemma-3n-e2b-it:free",
+            "google/gemma-3-4b-it:free",
+            "arcee-ai/trinity-mini:free",
+            "amazon/nova-2-lite-v1:free"
         ]
         
         self.historical_data = {}
@@ -307,6 +324,9 @@ class UnifiedFetcherV4:
                         content = content.split("```")[1].split("```")[0].strip()
                     
                     return json.loads(content)
+                elif response.status_code == 429:
+                    logger.warning(f"Model {model} rate limited (429). Waiting 5s...")
+                    time.sleep(5)
                 else:
                     logger.warning(f"Model {model} failed: {response.text}")
             
