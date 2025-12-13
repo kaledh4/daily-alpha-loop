@@ -3,9 +3,9 @@
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
   "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration.",
-  "last_update": "2025-12-13 08:32:39 UTC",
+  "last_update": "2025-12-13 08:38:43 UTC",
   "scoring": {
-    "breakthrough_score": 5,
+    "breakthrough_score": 8,
     "trajectory": 8.5,
     "future_pull": 7.0
   },
@@ -213,8 +213,25 @@
       ]
     }
   },
-  "breakthroughs": [],
-  "ai_analysis": "AI analysis unavailable",
+  "breakthroughs": [
+    {
+      "title": "SceneMaker",
+      "why_it_matters": "Open-set 3D Scene Generation has potential applications in finance and biotech"
+    },
+    {
+      "title": "Bidirectional Normalizing Flow",
+      "why_it_matters": "From Data to Noise and Back has potential applications in AI and machine learning"
+    },
+    {
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "why_it_matters": "Decision-Making Agents and Higher-Order Causal Processes has potential applications in finance and AI"
+    },
+    {
+      "title": "Noisy Quantum Learning Theory",
+      "why_it_matters": "Noisy Quantum Learning Theory has potential applications in AI and machine learning"
+    }
+  ],
+  "ai_analysis": "The AI/Tech velocity is currently Moderate, driven by breakthroughs in Open-set 3D Scene Generation and Bidirectional Normalizing Flow. The paper on Decision-Making Agents and Higher-Order Causal Processes also suggests potential applications in finance. The breakthroughs in Noisy Quantum Learning Theory and UNAAGI could lead to significant advancements in AI. The Murmur2Vec paper on COVID-19 spike sequences also has potential applications in biotech.",
   "data_sources": [
     "ai_rnd",
     "quantum",

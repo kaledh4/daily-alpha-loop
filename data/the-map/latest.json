@@ -3,9 +3,9 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction.",
-  "last_update": "2025-12-13 08:32:39 UTC",
+  "last_update": "2025-12-13 08:38:43 UTC",
   "scoring": {
-    "stance_strength": 5,
+    "stance_strength": 8,
     "volatility_risk": 5,
     "confidence": 0.85
   },
@@ -18,7 +18,7 @@
     {
       "name": "TASI",
       "value": "10,716",
-      "signal": "NEUTRAL"
+      "signal": "POSITIVE"
     },
     {
       "name": "Oil (Brent)",
@@ -49,9 +49,15 @@
     "tasi": 10715.98,
     "treasury_10y": 4.19
   },
-  "tasi_mood": "Neutral",
-  "drivers": [],
-  "ai_analysis": "Analysis temporarily unavailable",
+  "tasi_mood": "Positive",
+  "drivers": [
+    "DXY",
+    "Oil price",
+    "interest rates",
+    "Gold price",
+    "SP500"
+  ],
+  "ai_analysis": "The macro environment is currently driven by the DXY at 98.39, which is near its recent highs, and the Oil price at 57.44, which is relatively low. The Gold price at 4300.10 is also relatively high, suggesting a safe-haven bid. The SP500 at 6827.41 is in a neutral trend, while the TASI at 10715.98 is in a positive trend. The drivers of the TASI are the DXY, Oil price, and interest rates. A rise in interest rates could impact the TASI, while a decline in the DXY could support it. The TASI mood is Positive, with a forecast of further gains. The key drivers are the DXY, Oil price, interest rates, Gold price, and SP500.",
   "data_sources": [
     "fed_speech_parser",
     "inflation_nowcast",

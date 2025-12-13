@@ -3,7 +3,7 @@
   "name": "The Library",
   "role": "Free Knowledge",
   "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 08:32:39 UTC",
+  "last_update": "2025-12-13 08:38:43 UTC",
   "scoring": {
     "progress_rate": 65,
     "uncertainty": 0.2
@@ -21,12 +21,33 @@
     },
     {
       "name": "Summaries",
-      "value": "0",
+      "value": "4",
       "signal": "NORMAL"
     }
   ],
-  "summaries": [],
-  "ai_analysis": "Analysis temporarily unavailable",
+  "summaries": [
+    {
+      "title": "SceneMaker",
+      "eli5": "Open-set 3D Scene Generation has potential applications in finance and biotech",
+      "long_term": "Long-term potential for significant advancements in AI and machine learning"
+    },
+    {
+      "title": "Bidirectional Normalizing Flow",
+      "eli5": "From Data to Noise and Back has potential applications in AI and machine learning",
+      "long_term": "Long-term potential for significant advancements in AI and machine learning"
+    },
+    {
+      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
+      "eli5": "Decision-Making Agents and Higher-Order Causal Processes has potential applications in finance and AI",
+      "long_term": "Long-term potential for significant advancements in finance and AI"
+    },
+    {
+      "title": "Noisy Quantum Learning Theory",
+      "eli5": "Noisy Quantum Learning Theory has potential applications in AI and machine learning",
+      "long_term": "Long-term potential for significant advancements in AI and machine learning"
+    }
+  ],
+  "ai_analysis": "The current knowledge landscape is driven by research in AI/Tech, with a focus on Open-set 3D Scene Generation, Bidirectional Normalizing Flow, and Noisy Quantum Learning Theory. The theme of today's research is the application of AI and machine learning in finance and biotech. The knowledge velocity is Rapid, with significant breakthroughs in recent weeks. The summaries of the research papers suggest potential applications in finance, biotech, and AI.",
   "data_sources": [
     "ai_rnd_tracker",
     "quantum_papers",
