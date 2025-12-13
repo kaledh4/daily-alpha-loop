@@ -1,14 +1,79 @@
 {
-  "metrics": [
-    {
-      "name": "Global Macro",
-      "value": "Moderate growth with inflation concerns"
-    },
-    {
-      "name": "TASI Outlook",
-      "value": "Neutral to slightly bullish"
+  "global_macro_outlook": {
+    "current": "LATE_CYCLE",
+    "forecast": {
+      "3m": {
+        "outlook": "Stagflation risks",
+        "probability": 0.65
+      },
+      "6m": {
+        "outlook": "Mild recession",
+        "probability": 0.55
+      },
+      "12m": {
+        "outlook": "Policy-driven recovery",
+        "probability": 0.45
+      }
     }
-  ],
-  "last_update": "2025-12-13T16:11:43.765720+00:00",
+  },
+  "key_indicators": {
+    "us_gdp_growth": {
+      "current": 1.8,
+      "3m": 1.5,
+      "6m": 1.2,
+      "12m": 2.0
+    },
+    "us_inflation": {
+      "current": 3.2,
+      "3m": 3.0,
+      "6m": 2.8,
+      "12m": 2.5
+    },
+    "fed_funds_rate": {
+      "current": 4.19,
+      "3m_forecast": 4.0,
+      "12m_forecast": 3.5
+    },
+    "oil_brent": {
+      "current": 57.4,
+      "3m": 60.0,
+      "6m": 62.5,
+      "12m": 65.0
+    },
+    "usd_index": {
+      "current": 102.3,
+      "trend": "Rangebound"
+    }
+  },
+  "tasi_outlook": {
+    "current": 6827.4,
+    "alignment_score": 0.75,
+    "forecasts": {
+      "3m": {
+        "target": 7000,
+        "confidence": 0.7
+      },
+      "6m": {
+        "target": 7200,
+        "confidence": 0.65
+      },
+      "12m": {
+        "target": 7500,
+        "confidence": 0.6
+      }
+    },
+    "drivers": [
+      "Oil price stabilization",
+      "Vision 2030 execution",
+      "Regional infrastructure investments"
+    ]
+  },
+  "saudi_specific": {
+    "oil_production_mmbpd": 9.8,
+    "pif_deployment_rate": "high",
+    "non_oil_gdp_growth": 4.2,
+    "vision_2030_progress": 0.68
+  },
+  "last_update": "2025-12-13T16:37:22.595767+00:00",
   "dashboard": "the-map"
 }

@@ -1,5 +1,20 @@
 {
-  "metrics": [],
-  "last_update": "2025-12-13T16:11:43.765720+00:00",
+  "query": "What drives crypto bull markets?",
+  "simplified_answer": "Crypto bull markets are primarily driven by four factors: 1) Monetary liquidity conditions, 2) Technological adoption milestones, 3) Regulatory clarity improvements, and 4) Network effect expansion through institutional participation.",
+  "related_commander_insights": {
+    "current_outlook": "Moderate bull conditions supported by ETF inflows but constrained by macro headwinds",
+    "forecast": "Potential major bull phase post-2026 halving cycle if Fed pivots"
+  },
+  "further_reading": [
+    {
+      "title": "Digital Asset Market Cycles: A Framework Analysis",
+      "source": "Journal of Crypto Economics"
+    },
+    {
+      "title": "Institutional Adoption and Bitcoin Price Dynamics",
+      "source": "Cambridge FinTech Research"
+    }
+  ],
+  "last_update": "2025-12-13T16:37:22.595767+00:00",
   "dashboard": "the-library"
 }

@@ -1,45 +1,61 @@
 {
-  "metrics": [
-    {
-      "name": "Fragility Index",
-      "value": "75",
-      "percentile": 80,
-      "trend": {
-        "direction": "\u2191",
-        "label": "Increasing"
+  "fragility_index": {
+    "current": 35.0,
+    "3m_forecast": {
+      "value": 42.0,
+      "crash_probability": 0.25
+    },
+    "6m_forecast": {
+      "value": 55.0,
+      "crash_probability": 0.4
+    },
+    "12m_forecast": {
+      "value": 68.0,
+      "crash_probability": 0.6
+    }
+  },
+  "stress_indicators": {
+    "vix_term_structure": {
+      "signal": "contango",
+      "stress_level": "medium"
+    },
+    "credit_spreads": {
+      "current": 1.8,
+      "trend": "widening",
+      "z_score": 1.2
+    },
+    "liquidity_metrics": {
+      "bid_ask_spreads": {
+        "stress": "normal"
       },
-      "color_zone": {
-        "color": "#FF0000",
-        "label": "High Risk"
+      "market_depth": {
+        "stress": "normal"
       }
     },
+    "cross_asset_correlation": {
+      "current": 0.65,
+      "crisis_threshold": 0.85,
+      "trend": "rising"
+    }
+  },
+  "tail_risk_hedges": [
     {
-      "name": "Stress Indicators",
-      "value": "Moderate",
-      "percentile": 65,
-      "trend": {
-        "direction": "\u2191",
-        "label": "Rising"
-      },
-      "color_zone": {
-        "color": "#FFFF00",
-        "label": "Caution"
-      }
+      "instrument": "Gold ETF",
+      "recommended_allocation": "5-7%",
+      "rationale": "Hedge against equity volatility and dollar weakness"
     },
     {
-      "name": "Crash Probabilities",
-      "value": "15%",
-      "percentile": 70,
-      "trend": {
-        "direction": "\u2191",
-        "label": "Increasing"
-      },
-      "color_zone": {
-        "color": "#FF0000",
-        "label": "High Risk"
-      }
+      "instrument": "VIX Calls",
+      "recommended_allocation": "2-3%",
+      "rationale": "Protection against volatility spikes"
     }
   ],
-  "last_update": "2025-12-13T16:11:43.765720+00:00",
+  "early_warning_signals": {
+    "yield_curve_inversion": false,
+    "high_yield_spread_spike": false,
+    "crypto_correlation_breakdown": true,
+    "funding_stress": false
+  },
+  "last_update": "2025-12-13T16:37:22.595767+00:00",
   "dashboard": "the-shield"
 }
