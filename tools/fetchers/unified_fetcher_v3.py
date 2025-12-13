@@ -762,9 +762,7 @@ def calculate_crash_risk_score():
     
     logger.info(f"  Crash Risk Score: {composite_score:.1f}/100 ({risk_level})")
 
-    logger.info(f"  Current Day: {days_elapsed}")
-    for name, data in milestones.items():
-        logger.info(f"  {name}: {data['days_remaining']} days remaining")
+
 
 def fetch_fred_data():
     """Fetch macro indicators from FRED"""
