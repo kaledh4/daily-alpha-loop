@@ -55,7 +55,7 @@ function renderScoring(scoring) {
 
     return `
         <div class="content-card">
-            <h2><img src="../static/icons/icons8-strategy-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Core Metrics</h2>
+            <h2><img src="../static/icons/icons8-metrics-58.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Core Metrics</h2>
             <div class="data-grid">
                 ${Object.entries(scoring).map(([key, value]) => `
                     <div class="data-section">
@@ -160,7 +160,7 @@ function renderAgiTracker(tracker) {
     if (!tracker) return '';
     return `
         <div class="content-card" style="margin-top: 20px; border-color: #9f7aea;">
-            <h2 style="color: #9f7aea;">🤖 AGI Singularity Tracker</h2>
+            <h2 style="color: #9f7aea;"><img src="../static/icons/AGI-Singularity-Tracker.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> AGI Singularity Tracker</h2>
             <div class="data-grid">
                 <div class="data-section">
                     <h3>Escape Velocity Prob</h3>
@@ -188,7 +188,7 @@ function renderAssetOutlook(outlook) {
     if (!outlook) return '';
     return `
         <div class="content-card" style="margin-top: 20px;">
-            <h2>🔮 Asset Outlook</h2>
+            <h2><img src="../static/icons/Asset_Outlook.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Asset Outlook</h2>
             <div class="data-grid">
                 ${Object.entries(outlook).map(([asset, data]) => `
                     <div class="data-section">
@@ -221,20 +221,20 @@ function renderMorningBrief(brief) {
 
     const getWeatherIcon = (weather) => {
         const w = weather.toLowerCase();
-        if (w.includes('storm')) return '⛈️';
-        if (w.includes('cloud')) return '☁️';
-        if (w.includes('sun') || w.includes('clear')) return '☀️';
-        if (w.includes('fog')) return '🌫️';
-        if (w.includes('volat')) return '⚡';
-        if (w.includes('rain')) return '🌧️';
-        return '🌡️';
+        if (w.includes('storm')) return '../static/icons/icons8-stormy-48.png';
+        if (w.includes('cloud')) return '../static/icons/icons8-cloudy.gif';
+        if (w.includes('sun') || w.includes('clear')) return '../static/icons/icons8-sunny-48.png';
+        if (w.includes('fog')) return '../static/icons/icons8-foggy-48.png';
+        if (w.includes('volat')) return '../static/icons/icons8-volatile-48.png';
+        if (w.includes('rain')) return '../static/icons/icons8-stormy-48.png';
+        return '../static/icons/icons8-sunny-48.png';
     };
 
     return `
         <div class="content-card">
             <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
                 <span>Weather: ${brief.weather_of_the_day}</span>
-                <span style="font-size: 2rem;">${getWeatherIcon(brief.weather_of_the_day)}</span>
+                <img src="${getWeatherIcon(brief.weather_of_the_day)}" alt="${brief.weather_of_the_day}" style="width: 48px; height: 48px;">
             </div>
             
             <div class="data-grid" style="margin-top: 20px;">

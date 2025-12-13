@@ -7,7 +7,7 @@ const DASHBOARDS = [
     { id: 'the-map', name: 'The Map', mission: 'Macro Trends', icon: '../static/icons/icons8-map-48.png' },
     { id: 'the-frontier', name: 'The Frontier', mission: 'AI Breakthroughs', icon: '../static/icons/icons8-ai-48.png' },
     { id: 'the-strategy', name: 'The Strategy', mission: 'Opportunity Radar', icon: '../static/icons/icons8-strategy-48.png' },
-    { id: 'the-library', name: 'The Library', mission: 'Knowledge Archive', icon: '../static/icons/icons8-library-48.png' }
+    { id: 'the-library', name: 'The Library', mission: 'Knowledge Archive', icon: '../static/icons/icons8-library-50.png' }
 ];
 
 function renderNavigation(currentDashboard) {
