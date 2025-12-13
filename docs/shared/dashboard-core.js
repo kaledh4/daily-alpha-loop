@@ -118,6 +118,79 @@ function renderDataSources(sources) {
     `;
 }
 
+function renderFlightToSafety(score) {
+    if (!score) return '';
+    return `
+        <div class="content-card" style="margin-top: 20px;">
+            <h2>🛡️ Flight to Safety Score</h2>
+            <div class="data-grid">
+                <div class="data-section">
+                    <h3>Current Score</h3>
+                    <div class="data-value" style="color: #fc8181;">${score.current} <span style="font-size: 0.8rem; color: #718096;">/ 10</span></div>
+                </div>
+                <div class="data-section">
+                    <h3>Trend</h3>
+                    <div class="data-value" style="font-size: 1.2rem;">${score.trend}</div>
+                </div>
+                <div class="data-section">
+                    <h3>3M Forecast</h3>
+                    <div class="data-value" style="color: #63b3ed;">${score['3m_forecast'].score}</div>
+                    <div style="font-size: 0.8rem; color: #718096;">Conf: ${(score['3m_forecast'].confidence * 100).toFixed(0)}%</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function renderAgiTracker(tracker) {
+    if (!tracker) return '';
+    return `
+        <div class="content-card" style="margin-top: 20px; border-color: #9f7aea;">
+            <h2 style="color: #9f7aea;">🤖 AGI Singularity Tracker</h2>
+            <div class="data-grid">
+                <div class="data-section">
+                    <h3>Escape Velocity Prob</h3>
+                    <div class="data-value" style="color: #9f7aea;">${(tracker.escape_velocity_probability * 100).toFixed(1)}%</div>
+                </div>
+                <div class="data-section">
+                    <h3>Timeline Estimate</h3>
+                    <div class="data-value" style="font-size: 1.2rem;">${tracker.timeline_estimate}</div>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <h3 style="margin-bottom: 8px;">Key Metrics</h3>
+                ${Object.entries(tracker.key_metrics).map(([k, v]) => `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; border-bottom: 1px solid #2d3748; padding-bottom: 2px;">
+                        <span style="color: #cbd5e0;">${k.replace(/_/g, ' ')}</span>
+                        <span style="color: #63b3ed;">${v}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderAssetOutlook(outlook) {
+    if (!outlook) return '';
+    return `
+        <div class="content-card" style="margin-top: 20px;">
+            <h2>🔮 Asset Outlook</h2>
+            <div class="data-grid">
+                ${Object.entries(outlook).map(([asset, data]) => `
+                    <div class="data-section">
+                        <h3>${asset.toUpperCase()}</h3>
+                        <div class="data-value" style="font-size: 1.2rem;">${data.risk_reward.toUpperCase()}</div>
+                        <div style="font-size: 0.9rem; color: #718096; margin-top: 4px;">Conviction: ${data.conviction}</div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            3M Target: <span style="color: #48bb78;">${data.forecasts['3m'].target}</span>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
 function renderAIAnalysis(analysis) {
     return `
         <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
@@ -183,7 +256,6 @@ async function initDashboard(dashboardName) {
     const data = await loadDashboardData(dashboardName);
 
     // Render Navigation (assuming navigation.js is loaded)
-    // Render Navigation (assuming navigation.js is loaded)
     if (window.renderNavigation) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('mode') !== 'seamless') {
@@ -211,6 +283,15 @@ async function initDashboard(dashboardName) {
 
     if (dashboardName === 'the-commander') {
         let html = renderMorningBrief(data.morning_brief);
+
+        // Add Flight to Safety
+        html += renderFlightToSafety(data.flight_to_safety_score);
+
+        // Add Asset Outlook
+        html += renderAssetOutlook(data.asset_outlook);
+
+        // Add AGI Tracker
+        html += renderAgiTracker(data.agi_singularity_tracker);
 
         // Add conflict matrix if available
         if (data.conflict_matrix) {
