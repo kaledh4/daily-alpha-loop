@@ -1,13 +1,13 @@
 {
   "risk_assessment": {
-    "score": 0.0,
-    "level": "LOW",
-    "color": "#00FF00"
+    "score": 5.0,
+    "level": "MEDIUM",
+    "color": "#FFA500"
   },
   "scoring": {
-    "risk_level": 0,
-    "fragility": 0.0,
-    "volatility_pressure": 0.0
+    "risk_level": 5,
+    "fragility": 0.5,
+    "volatility_pressure": 0.4
   },
   "metrics": [
     {
@@ -17,12 +17,12 @@
     },
     {
       "name": "USD/JPY",
-      "value": "140.0",
+      "value": "135.0",
       "signal": "NORMAL"
     },
     {
       "name": "USD/CNH",
-      "value": "6.9",
+      "value": "7.2",
       "signal": "NORMAL"
     },
     {
@@ -32,22 +32,25 @@
     },
     {
       "name": "MOVE Index",
-      "value": "80.0",
+      "value": "120",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
       "value": "15.74",
-      "signal": "NORMAL"
+      "signal": "ELEVATED"
+    },
+    {
+      "name": "Fear & Greed",
+      "value": "45",
+      "signal": "Fear"
     }
   ],
-  "ai_analysis": "The current market environment exhibits low risk and high stability, as indicated by the low risk assessment score and the normal signals across key metrics. The 10Y Treasury Bid-to-Cover ratio is at 2.5, suggesting healthy demand for government securities. The USD/JPY and USD/CNH exchange rates are stable, with values at 140.0 and 6.9, respectively, indicating no significant currency pressures. The 10Y Treasury Yield is at 4.19%, reflecting a balanced outlook on economic growth and inflation. The MOVE Index, at 80.0, and the VIX, at 15.74, both indicate normal levels of volatility, suggesting that market participants are not overly concerned about short-term risks. The overall fragility and volatility pressure are minimal, further supporting a stable market environment. This low-risk assessment is conducive to aggressive investment strategies, particularly in assets that show resilience and growth potential, such as crypto and gold. The stability in traditional markets provides a solid foundation for exploring higher-risk, higher-reward opportunities in the crypto space.",
+  "ai_analysis": "MOCK ANALYSIS: Market fragility is simulated as moderate.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Federal Reserve"
+    "Mock Data Generator"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:00:50.569713+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",

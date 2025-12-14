@@ -1,16 +1,16 @@
 {
   "scoring": {
-    "stance_confidence": 8
+    "stance_confidence": 5
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "Low",
+      "value": "Medium",
       "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
-      "value": "Bullish",
+      "value": "Bearish",
       "signal": "BEARISH"
     },
     {
@@ -20,25 +20,23 @@
     },
     {
       "name": "Frontier Input",
-      "value": "Normal",
+      "value": "Active",
       "signal": "NORMAL"
     }
   ],
-  "stance": "Aggressive",
-  "mindset": "Growth-Oriented",
+  "stance": "Defensive",
+  "mindset": "Cautious",
   "inputs": {
-    "risk": "Low risk environment with cautious optimism.",
-    "crypto": "Bullish crypto market with Bitcoin leading the charge.",
-    "macro": "Stable macro environment with global economic recovery.",
-    "frontier": "Rapid advancements in AI and quantum computing, driving innovation and growth."
+    "risk": "Medium",
+    "crypto": "Bearish",
+    "macro": "Neutral",
+    "frontier": "Active"
   },
-  "ai_analysis": "The current investment strategy is aggressive and growth-oriented, driven by a low-risk environment and bullish crypto markets. The stance confidence is high, at 8, reflecting a strong conviction in the current market outlook. The risk input indicates a low-risk environment with cautious optimism, supported by stable macro conditions and global economic recovery. Crypto markets are showing bullish trends, with Bitcoin leading the charge and Ethereum following suit. This bullish sentiment is further reinforced by the positive performance of other top crypto assets, such as BNB and SOL. The macro input is neutral, reflecting a stable global economy with no significant shocks or disruptions. The frontier input is normal, but with rapid advancements in AI and quantum computing, which are expected to drive innovation and growth across various sectors. Investors should focus on high-growth opportunities in crypto and frontier technologies, while maintaining a diversified portfolio to mitigate any potential risks. The aggressive stance is supported by the convergence of bullish crypto signals, stable macro conditions, and the potential for disruptive innovations in frontier technologies. This strategy aims to capitalize on the current market dynamics, leveraging the resilience of crypto assets and the growth potential of emerging technologies.",
+  "ai_analysis": "MOCK ANALYSIS: Strategy is simulated as defensive.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "CoinMarketCap"
+    "Mock Data"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:00:50.569713+00:00",
   "dashboard": "the-strategy",
   "name": "The Strategy",
   "role": "Market Stance",
