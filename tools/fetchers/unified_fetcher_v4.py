@@ -291,48 +291,66 @@ class UnifiedFetcherV4:
         """Fetch 90 days of data for trend analysis"""
         logger.info(f"Fetching {lookback_days} days of historical data...")
         
-        # 1. Crypto History (BTC, ETH)
-        for symbol in ['BTC-USD', 'ETH-USD']:
-            try:
-                ticker = yf.Ticker(symbol)
-                hist = ticker.history(period=f"{lookback_days}d")
-                self.historical_data[symbol] = hist['Close'].to_dict()
-                # Store current metrics
-                if not hist.empty:
-                    self.current_metrics[symbol] = {
-                        'price': hist['Close'].iloc[-1],
-                        'change_24h': (hist['Close'].iloc[-1] - hist['Close'].iloc[-2]) / hist['Close'].iloc[-2] if len(hist) > 1 else 0
-                    }
-            except Exception as e:
-                logger.warning(f"Failed to fetch history for {symbol}: {e}")
-
-        # 2. Macro History (SPX, Gold, Oil, 10Y Yield)
-        macro_assets = {
+        # Define all assets to fetch
+        assets = {
+            # Crypto
+            'BTC-USD': 'BTC-USD',
+            'ETH-USD': 'ETH-USD',
+            'VXV-USD': 'VXV-USD',
+            'APT-USD': 'APT-USD',
+            'ADA-USD': 'ADA-USD',
+            'NEAR-USD': 'NEAR-USD',
+            
+            # Macro & Risk
             'SPX': '^GSPC',
             'GOLD': 'GC=F',
             'OIL': 'CL=F',
             'US10Y': '^TNX',
             'TASI': '^TASI.SR',
             'MOVE': '^MOVE',
-            'DXY': 'DX-Y.NYB'
+            'DXY': 'DX-Y.NYB',
+            'JPY': 'JPY=X',
+            'CNH': 'CNH=X',
+            'VIX': '^VIX',
+            'CBON': 'CBON'
         }
-        for name, ticker_symbol in macro_assets.items():
+
+        for name, symbol in assets.items():
             try:
-                ticker = yf.Ticker(ticker_symbol)
+                ticker = yf.Ticker(symbol)
                 hist = ticker.history(period=f"{lookback_days}d")
                 self.historical_data[name] = hist['Close'].to_dict()
+                
                 if not hist.empty:
+                    # Calculate basic metrics
+                    current_price = hist['Close'].iloc[-1]
+                    prev_price = hist['Close'].iloc[-2] if len(hist) > 1 else current_price
+                    change_24h = (current_price - prev_price) / prev_price
+                    
+                    # Calculate RSI (simple approximation)
+                    rsi = 50.0
+                    if len(hist) >= 14:
+                        delta = hist['Close'].diff()
+                        gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+                        loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+                        rs = gain / loss
+                        rsi = 100 - (100 / (1 + rs))
+                        rsi = rsi.iloc[-1]
+                        if pd.isna(rsi): rsi = 50.0
+
                     self.current_metrics[name] = {
-                        'price': hist['Close'].iloc[-1],
-                        'change_24h': (hist['Close'].iloc[-1] - hist['Close'].iloc[-2]) / hist['Close'].iloc[-2] if len(hist) > 1 else 0
+                        'price': current_price,
+                        'change_24h': change_24h,
+                        'rsi': rsi
                     }
             except Exception as e:
                 logger.warning(f"Failed to fetch history for {name}: {e}")
 
-        # 3. VIX
-        vix = self.data_sources['cboe'].get_vix()
-        if vix:
-            self.current_metrics['VIX'] = vix
+        # 3. VIX (Fallback if not fetched above)
+        if 'VIX' not in self.current_metrics:
+            vix = self.data_sources['cboe'].get_vix()
+            if vix:
+                self.current_metrics['VIX'] = vix
 
         # 4. CryptoCompare Data (Top 10)
         cc_data = self.data_sources['cryptocompare'].get_top_market_cap(limit=10)
@@ -355,20 +373,13 @@ class UnifiedFetcherV4:
                 self.current_metrics['ETH/BTC'] = eth_price / btc_price
                 
             # Estimate BTC Dominance and Alts Strength
-            # Try to fetch global data from CoinGecko
             global_data = self.data_sources['coingecko'].get_global_data()
             if global_data and 'data' in global_data:
                 market_cap_percentage = global_data['data'].get('market_cap_percentage', {})
                 btc_d = market_cap_percentage.get('btc')
-                eth_d = market_cap_percentage.get('eth')
                 
                 if btc_d:
                     self.current_metrics['BTC.D'] = btc_d
-                
-                # Alts/BTC proxy: (Total Cap - BTC Cap) / BTC Cap? 
-                # Or just use ETH dominance as a proxy for alts for now if we want a simple ratio
-                # Better: Alts Market Cap Share = 100 - BTC.D
-                if btc_d:
                     self.current_metrics['Alts.D'] = 100 - btc_d
                     
         except Exception as e:
@@ -690,16 +701,28 @@ class UnifiedFetcherV4:
             }},
             "the_coin": {{
                 "metrics": [
-                    {{ "name": "Rotation Strength", "value": "0-10", "signal": "Bitcoin/Altcoins", "percentile": 0-100 }},
-                    {{ "name": "Momentum", "value": "0-10", "signal": "Bearish/Bullish", "percentile": 0-100 }},
-                    {{ "name": "Setup Quality", "value": "0-10", "signal": "Average/Good/Excellent" }}
+                    {{ "name": "BTC Price", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "ETH Price", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "RSI (BTC)", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "Fear & Greed", "value": "string", "signal": "EXTREME FEAR" }},
+                    {{ "name": "DXY Index", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "Fed Rate", "value": "string", "signal": "NORMAL" }}
                 ],
-                "core_metrics": {{ "rotation_strength": 0.0, "momentum": 0.0, "setup_quality": 0.0 }},
-                "market_metrics": {{
-                    "btc_price": "string", "eth_price": "string", "rsi_btc": 0.0,
-                    "eth_btc": 0.0,
-                    "fear_and_greed": 0, "dxy_index": 0.0, "fed_rate": "string"
+                "crypto_assets": {{
+                    "BTC": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }},
+                    "ETH": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }},
+                    "VXV": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }},
+                    "APT": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }},
+                    "ADA": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }},
+                    "NEAR": {{ "price": 0.0, "risk": 0.0, "multiplier": 0.0 }}
                 }},
+                "composite_risk": 0.0,
+                "risk_level": "string",
+                "momentum": "string",
+                "key_level": "string",
+                "rsi": 0.0,
+                "trend": "string",
+                "fear_and_greed": {{ "value": 0, "classification": "string" }},
                 "ai_analysis": "string (EXTREMELY DETAILED analysis of crypto momentum, rotation, and setup quality)"
             }},
             "the_map": {{
