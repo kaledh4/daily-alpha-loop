@@ -1,94 +1,76 @@
 {
   "scoring": {
-    "breakthrough_score": 9,
-    "trajectory": 0.9,
-    "future_pull": 0.85
+    "breakthrough_score": 0,
+    "trajectory": 0.0,
+    "future_pull": 0.0
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "High",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "Moderate",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "High",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "High",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "Moderate",
+      "value": "string",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 10,
+      "total_volume": 0,
       "recent_papers": [
         {
-          "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
-          "summary": "This paper introduces a novel approach to synthesizing stereo geometry without the need for depth information, using end-to-end diffusion models in a canonical space.",
-          "date": "2025-12-10",
-          "link": "https://example.com/paper1"
-        },
-        {
-          "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
-          "summary": "WorldLens presents a comprehensive framework for evaluating driving world models in real-world scenarios, covering a full spectrum of conditions and challenges.",
-          "date": "2025-12-08",
-          "link": "https://example.com/paper2"
-        },
-        {
-          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
-          "summary": "SceneMaker proposes a new method for open-set 3D scene generation by decoupling de-occlusion and pose estimation, enhancing the realism and accuracy of generated scenes.",
-          "date": "2025-12-05",
-          "link": "https://example.com/paper3"
+          "title": "string",
+          "summary": "string",
+          "date": "string",
+          "link": "string"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 5,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Biotechnology": {
-      "total_volume": 7,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Quantum Computing": {
-      "total_volume": 6,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Semiconductors": {
-      "total_volume": 4,
+      "total_volume": 0,
       "recent_papers": []
     }
   },
   "breakthroughs": [
     {
-      "title": "AI-Driven Drug Discovery",
-      "why_it_matters": "AI is revolutionizing drug discovery by accelerating the identification of new compounds and reducing the time and cost associated with traditional methods. This breakthrough has the potential to transform the biotechnology industry and improve healthcare outcomes globally."
-    },
-    {
-      "title": "Quantum Supremacy in Cryptography",
-      "why_it_matters": "Achieving quantum supremacy in cryptography would enable the development of unbreakable encryption methods, significantly enhancing data security and privacy. This advancement is crucial for protecting sensitive information in an increasingly digital world."
+      "title": "string",
+      "why_it_matters": "string"
     }
   ],
-  "ai_analysis": "The frontier of technology is experiencing rapid advancements, with AI research and quantum computing leading the charge. The breakthrough score is high, at 9, with a positive trajectory of 0.9 and a future pull of 0.85, indicating significant potential for disruptive innovations. AI research is particularly active, with a high volume of recent papers focusing on groundbreaking developments such as stereo geometry synthesis and driving world models. These advancements are expected to have a profound impact on various industries, from automotive to entertainment. Biotechnology is also showing high activity, with AI-driven drug discovery emerging as a game-changer in the healthcare sector. Quantum computing is another hotbed of innovation, with breakthroughs in cryptography promising to revolutionize data security. Advanced manufacturing and semiconductors are also making strides, albeit at a moderate pace, contributing to the overall technological progress. The convergence of these advancements is creating a fertile ground for new opportunities and disruptions, particularly in sectors that can leverage AI, quantum computing, and biotechnology. Investors should pay close attention to these emerging technologies, as they are likely to drive significant growth and transformation in the coming years. The high breakthrough score and positive trajectory suggest that the future is bright for frontier technologies, with the potential for exponential growth and impact.",
+  "ai_analysis": "The landscape of artificial intelligence (AI) research is undergoing a transformative evolution, characterized by exponential growth in computational capabilities, algorithmic sophistication, and interdisciplinary applications. Recent advancements in deep learning architectures, such as transformers and generative adversarial networks (GANs), have enabled machines to perform complex tasks with human-like proficiency, including natural language understanding, image synthesis, and strategic decision-making. The proliferation of large-scale language models, exemplified by systems like GPT and BERT, has revolutionized fields ranging from healthcare diagnostics to financial forecasting, by enabling the extraction of actionable insights from vast datasets. Concurrently, the integration of AI with quantum computing is poised to unlock unprecedented computational power, potentially solving problems that are currently intractable for classical computers. In biotechnology, AI-driven tools are accelerating drug discovery processes, optimizing protein folding predictions, and personalizing medical treatments, thereby enhancing the precision and efficacy of healthcare interventions. Advanced manufacturing is also being reshaped by AI, through the implementation of smart factories that utilize machine learning for predictive maintenance, quality control, and supply chain optimization, leading to increased efficiency and reduced operational costs. The semiconductor industry is at the forefront of this revolution, developing specialized AI chips that offer superior performance and energy efficiency compared to traditional processors, thus addressing the growing demand for computational resources. Furthermore, the ethical and societal implications of AI advancements are prompting rigorous discourse on governance, transparency, and bias mitigation, ensuring that technological progress aligns with human values and regulatory frameworks. As AI continues to permeate various domains, the convergence of research efforts across academia, industry, and government is fostering a collaborative ecosystem that accelerates innovation and broadens the scope of potential applications. This dynamic environment not only propels scientific discovery but also necessitates a multidisciplinary approach to education and workforce development, preparing the next generation of professionals to harness the full potential of AI technologies.",
   "data_sources": [
-    "ArXiv",
-    "Nature",
-    "Science"
+    "string"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",

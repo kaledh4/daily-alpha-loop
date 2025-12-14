@@ -1,62 +1,58 @@
 {
   "scoring": {
-    "stance_strength": 8,
-    "volatility_risk": 2,
-    "confidence": 0.85
+    "stance_strength": 0,
+    "volatility_risk": 0,
+    "confidence": 0.0
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,827.41",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "12,500.00",
+      "value": "string",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.44",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,328.30",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "102.50",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.19%",
+      "value": "string",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 57.44,
-    "dxy": 102.5,
-    "gold": 4328.3,
-    "sp500": 6827.41,
-    "tasi": 12500.0,
-    "treasury_10y": 4.19
+    "oil": 0.0,
+    "dxy": 0.0,
+    "gold": 0.0,
+    "sp500": 0.0,
+    "tasi": 0.0,
+    "treasury_10y": 0.0
   },
-  "tasi_mood": "Cautiously Optimistic",
+  "tasi_mood": "string",
   "drivers": [
-    "Global Economic Recovery",
-    "Oil Price Stability",
-    "Gold as a Safe Haven"
+    "string"
   ],
-  "ai_analysis": "The global macro environment is stable, with key indices and commodities showing normal signals. The S&P 500 is at 6,827.41, reflecting a slight decline of 1.0664% over the past 24 hours, but the overall market sentiment remains positive. The TASI index is at 12,500.00, indicating a neutral stance with cautious optimism. Oil prices are stable at $57.44 per barrel, supported by global economic recovery and supply-demand dynamics. Gold is trading at $4,328.30, showing a slight increase of 0.9987%, which is typical for a safe-haven asset in a stable market environment. The DXY index is at 102.50, reflecting a strong US dollar, which is supportive of global trade and investment. The 10Y Treasury yield is at 4.19%, indicating a balanced outlook on economic growth and inflation. The overall stance strength is high, at 8, with low volatility risk, scored at 2, and high confidence, at 0.85. The TASI mood is cautiously optimistic, driven by global economic recovery and oil price stability. Investors should maintain a balanced portfolio, with exposure to both traditional and alternative assets, to capitalize on the current stable market conditions. The convergence of macro indicators suggests a continued period of stability, with opportunities for growth in sectors benefiting from economic recovery and technological advancements.",
+  "ai_analysis": "The global macroeconomic landscape presents a complex tapestry of interconnected variables that significantly influence financial markets and economic policies worldwide. The S&P 500, a barometer of U.S. equity market performance, reflects the aggregate sentiment of investors regarding corporate earnings, interest rates, and broader economic expectations. Its movements are closely watched as indicators of economic health and investor confidence. Meanwhile, the TASI (Tadawul All Share Index) encapsulates the dynamics of the Saudi Arabian stock market, which is intricately linked to the nation's oil-dependent economy and its ambitious Vision 2030 initiative aimed at economic diversification. The performance of TASI is not only a reflection of domestic economic policies but also of global oil prices and geopolitical stability in the Middle East. Oil prices, particularly Brent crude, serve as a critical determinant of global economic activity, affecting inflation rates, trade balances, and fiscal policies of both oil-exporting and oil-importing nations. Fluctuations in oil prices can lead to significant shifts in currency values and interest rate policies, as central banks attempt to manage inflationary pressures and economic growth. Gold, traditionally viewed as a safe-haven asset, responds inversely to the U.S. Dollar Index (DXY), which measures the dollar's strength against a basket of major currencies. When the DXY rises, indicating a stronger dollar, gold prices often fall, and vice versa. This relationship is pivotal during times of economic uncertainty or geopolitical tensions. The U.S. 10-Year Treasury yield acts as a benchmark for global interest rates, influencing borrowing costs, mortgage rates, and investment decisions across various asset classes. Its trajectory is closely monitored for signals regarding future monetary policy and economic growth expectations. The interplay among these macroeconomic indicators is further complicated by the actions of central banks, fiscal policies, and geopolitical events, creating a dynamic environment where changes in one variable can have cascading effects across global markets. Understanding these relationships is essential for policymakers, investors, and economists in navigating the complexities of the global economy and making informed decisions.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Saudi Exchange"
+    "string"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

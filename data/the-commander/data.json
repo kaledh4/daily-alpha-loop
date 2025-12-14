@@ -2,60 +2,37 @@
   "metrics": [
     {
       "name": "Flight to Safety",
-      "value": "2.5",
-      "signal": "Risk On"
+      "value": "0-10",
+      "signal": "Risk On/Off"
     },
     {
       "name": "Market Sentiment",
-      "value": "55",
-      "signal": "Bullish"
+      "value": "0-100",
+      "signal": "Bearish/Bullish"
     }
   ],
   "flight_to_safety_score": {
-    "current": 2.5,
+    "current": 6.2,
     "trend": "Rising",
     "3m_forecast": {
-      "score": 3.0,
-      "confidence": 0.75
+      "score": 7.1,
+      "confidence": 0.78
     }
   },
   "asset_outlook": {
     "BTC": {
-      "risk_reward": "Medium",
-      "conviction": 7,
+      "risk_reward": "High",
+      "conviction": 8,
       "forecasts": {
         "3m": {
           "target": "$95,000"
         }
       }
     },
-    "GOLD": {
-      "risk_reward": "Medium",
-      "conviction": 6,
-      "forecasts": {
-        "3m": {
-          "target": "$4,500"
-        }
-      }
-    }
+    "fed_rate": "string"
   },
-  "agi_singularity_tracker": {
-    "escape_velocity_probability": 0.65,
-    "timeline_estimate": "2028",
-    "key_metrics": {
-      "compute_doubling": "Exponential",
-      "research_velocity": "High"
-    }
-  },
-  "morning_brief": {
-    "weather_of_the_day": "Sunny",
-    "top_signal": "Crypto markets are showing resilience despite global economic uncertainties.",
-    "action_stance": "Aggressive",
-    "why_it_matters": "The current market dynamics indicate a shift towards risk-on sentiment, driven by the resilience of crypto markets and the positive performance of key assets like BTC and ETH. This resilience is particularly noteworthy given the ongoing global economic uncertainties and geopolitical tensions. Investors are increasingly viewing crypto as a hedge against traditional market volatility, which is reflected in the rising prices and positive sentiment. The flight to safety score is rising, suggesting that investors are becoming more confident in the stability of the crypto market. This trend is further supported by the bullish market sentiment, as indicated by the VIX index, which has shown a slight increase but remains within a manageable range. The 3-month forecast for the flight to safety score is positive, with a projected increase to 3.0, indicating continued confidence in the market. This bullish outlook is also reflected in the asset outlook, where both BTC and GOLD are rated as medium risk-reward assets with high conviction. The target prices for these assets over the next three months are set at $95,000 for BTC and $4,500 for GOLD, respectively. These forecasts are based on the current market trends and the increasing adoption of crypto as a mainstream investment option. The AGI singularity tracker shows a high probability of escape velocity by 2028, driven by exponential compute scaling and high research velocity. This technological advancement is expected to have a significant impact on the market, further boosting the confidence in crypto and other high-growth assets. In summary, the current market conditions are favorable for aggressive investment strategies, particularly in crypto and gold, as these assets continue to show resilience and growth potential.",
-    "cross_dashboard_convergence": "The convergence of crypto, macro, and risk metrics points to a cohesive narrative of market resilience and growth potential. Crypto markets are leading the charge with strong performance, particularly in BTC and ETH, which are showing positive 24-hour changes. This strength is mirrored in the macro environment, where gold is also performing well, indicating a broader risk-on sentiment. The VIX index, while slightly elevated, remains within a manageable range, suggesting that market volatility is under control. The 10Y Treasury yield is rising, reflecting a positive outlook on economic growth, which aligns with the bullish sentiment in crypto markets. The AGI singularity tracker further supports this narrative, with a high probability of escape velocity by 2028, driven by exponential compute scaling and high research velocity. This technological advancement is expected to have a significant impact on the market, further boosting the confidence in crypto and other high-growth assets. The overall market structure suggests a shift towards risk-on sentiment, with investors increasingly viewing crypto as a hedge against traditional market volatility. This convergence of metrics across different dashboards provides a strong signal for aggressive investment strategies, particularly in crypto and gold, as these assets continue to show resilience and growth potential.",
-    "summary_sentence": "Aggressive investment strategies are favored as crypto markets show resilience and growth potential, supported by a bullish macro environment and technological advancements in AGI."
-  },
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-commander",
   "name": "The Commander",
   "role": "Morning Brief",
