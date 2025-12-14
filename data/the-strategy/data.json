@@ -1,44 +1,44 @@
 {
   "scoring": {
-    "stance_confidence": 7
+    "stance_confidence": 6
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "Shield 8.0/10",
-      "signal": "EXTREME CAUTION"
+      "value": "Medium",
+      "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
-      "value": "Fear & Greed 21",
-      "signal": "CONTRARIAN BUY"
+      "value": "Bearish",
+      "signal": "BEARISH"
     },
     {
       "name": "Macro Input",
-      "value": "Yield Spike 4.19%",
-      "signal": "DEFENSIVE"
+      "value": "Neutral",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Frontier Input",
-      "value": "AI Velocity 0.85",
-      "signal": "AGGRESSIVE"
+      "value": "Normal",
+      "signal": "NORMAL"
     }
   ],
-  "stance": "Defensive Accumulation with AI-Tilt",
-  "mindset": "Contrarian Builder",
+  "stance": "Neutral",
+  "mindset": "Cautious Optimism",
   "inputs": {
-    "risk": "Elevated systemic stress requires robust hedges (gold, long-vol)",
-    "crypto": "Extreme fear signals generational buying zone for BTC/ETH",
-    "macro": "Yield-driven equity correction limits risk appetite",
-    "frontier": "AI breakthroughs demand overweight in compute infrastructure"
+    "risk": "Global risk is moderately elevated, with a focus on volatility management.",
+    "crypto": "Crypto markets are bearish, with a focus on risk management and selective opportunities.",
+    "macro": "Macro environment is neutral, with stable global indicators.",
+    "frontier": "Frontier technologies show active innovation, driving long-term growth potential."
   },
-  "ai_analysis": "Our strategic framework synthesizes conflicting signals into actionable allocations: 1) Core crypto position (BTC/ETH) at 35% target (vs 50% max), using $88.5k BTC as accumulation zone with 3:1 risk/reward, 2) AI-centric equities (semiconductors, cloud infra) at 25% given exponential research trajectory, 3) Macro hedges (gold miners, long-duration treasuries) at 20%, and 4) Dry powder reserve at 20% for volatility spikes. The asymmetric opportunity lies in crypto's negative convexity - maximum pain scenarios project 15% further downside versus 120% upside potential within 6 months. Portfolio construction emphasizes: a) Staggered limit orders below $90k BTC, b) AI compute options (NVDA Jan'26 $1500 calls), c) Gold bullion (5% physical allocation). Critical watch: Treasury liquidity crisis could force Fed intervention, creating reflexive crypto rally. Exit triggers: BTC dominance breaking <54% (altseason start) or VIX >25 sustained.",
+  "ai_analysis": "The current investment strategy is guided by a neutral stance with a cautious optimism mindset. The global risk environment is moderately elevated, requiring a focus on volatility management and risk mitigation. The crypto markets are bearish, with a strategy of selective opportunities and risk management. The macro environment is stable, providing a neutral backdrop for investment decisions. The frontier technologies show active innovation, offering long-term growth potential. The strategy emphasizes a balanced approach, combining risk management with selective exposure to high-growth opportunities in both traditional and frontier markets. The focus is on maintaining liquidity and flexibility to adapt to changing market conditions, while capitalizing on the innovative advancements in technology and their potential impact on various sectors.",
   "data_sources": [
-    "BlackRock Aladdin Risk Models",
-    "Vanguard Capital Markets Projections",
-    "Fidelity Strategic Alpha Framework"
+    "Bloomberg",
+    "Reuters",
+    "Federal Reserve"
   ],
-  "last_update": "2025-12-14T10:35:51.297556+00:00",
+  "last_update": "2025-12-14T11:20:48.319784+00:00",
   "dashboard": "the-strategy",
   "name": "The Strategy",
   "role": "Market Stance",

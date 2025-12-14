@@ -1,58 +1,58 @@
 {
   "risk_assessment": {
-    "score": 8.0,
-    "level": "HIGH",
-    "color": "#FF0000"
+    "score": 6.5,
+    "level": "MEDIUM",
+    "color": "#FFD700"
   },
   "scoring": {
-    "risk_level": 8,
-    "fragility": 0.85,
-    "volatility_pressure": 0.92
+    "risk_level": 6,
+    "fragility": 0.65,
+    "volatility_pressure": 0.7
   },
   "metrics": [
     {
       "name": "10Y Treasury Bid-to-Cover",
-      "value": "2.35x (Last Auction)",
+      "value": "2.4",
       "signal": "NORMAL"
     },
     {
       "name": "USD/JPY",
-      "value": "155.57 (-0.14%)",
+      "value": "155.57",
       "signal": "NORMAL"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0523 (Flat)",
+      "value": "7.05",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
-      "value": "4.194% (+1.28%)",
-      "signal": "ELEVATED"
+      "value": "4.19%",
+      "signal": "NORMAL"
     },
     {
       "name": "MOVE Index",
-      "value": "69.25 (Flat)",
+      "value": "69.25",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "15.74 (+5.99%)",
+      "value": "15.74",
       "signal": "ELEVATED"
     },
     {
       "name": "Fear & Greed",
-      "value": "21 (Extreme Fear)",
+      "value": "21",
       "signal": "Fear"
     }
   ],
-  "ai_analysis": "Global risk architecture shows dangerous stress concentrations across three primary vectors: 1) Rates volatility (MOVE Index 69.25 > 65 danger threshold) as 10Y yields break 4.19% despite Fed pause rhetoric, 2) Equity fragility (SPX -1.06% with VIX +5.99% signaling put buying acceleration), and 3) Currency mismatches (JPY 155.57 nearing intervention levels). The critical divergence between gold (+1.00%) and crypto (-0.30%) suggests institutional capital prefers traditional havens during this uncertainty phase. Treasury market fragility scores hit 0.85/1.0 as real yields outpace inflation expectations, creating reflexive pressure on growth assets. Our cross-asset stress model shows 92% correlation between VIX spikes and crypto drawdowns when DXY >98 (current 98.39). The hidden risk multiplier: CBON (Corporate Bond Index) RSI 69.46 indicates overbought conditions in credit, typically preceding equity/crypto corrections by 2-3 weeks.",
+  "ai_analysis": "Global risk pressure is moderately elevated, with the VIX at 15.74 indicating heightened volatility. The Fear & Greed Index at 21 suggests a 'Fear' classification, reflecting investor caution. The 10Y Treasury yield at 4.19% is stable, and the MOVE Index at 69.25 shows normal volatility in the Treasury market. The USD/JPY and USD/CNH pairs are trading within normal ranges, indicating stability in these currency pairs. Overall, while there are signs of risk aversion, the global risk environment is not excessively stressed, allowing for a measured approach to risk management.",
   "data_sources": [
-    "Bloomberg Terminal Risk Models",
-    "CBOE Volatility Archives",
-    "USTreasury Auction Data"
+    "Bloomberg",
+    "Reuters",
+    "Federal Reserve"
   ],
-  "last_update": "2025-12-14T10:35:51.297556+00:00",
+  "last_update": "2025-12-14T11:20:48.319784+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",
