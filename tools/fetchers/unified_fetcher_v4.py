@@ -60,12 +60,19 @@ except ImportError as e:
 # Client Classes
 # ========================================
 
+# Check environment
+IS_LOCAL = os.environ.get("IS_LOCAL", "false").lower() == "true"
+
 class BaseClient:
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key
         self.session = requests.Session()
 
     def get_json(self, url: str, params: Dict = None, headers: Dict = None) -> Optional[Dict]:
+        if IS_LOCAL and not self.api_key:
+            logger.info(f"[Local Mode] Skipping API call to {url} (No Key)")
+            return {}
+            
         try:
             response = self.session.get(url, params=params, headers=headers, timeout=15)
             response.raise_for_status()
@@ -333,6 +340,9 @@ class UnifiedFetcherV4:
         ]
         
         if not api_keys:
+            if IS_LOCAL:
+                logger.info("[Local Mode] No API keys found. Returning MOCK AI analysis.")
+                return self.get_mock_analysis()
             logger.error("No OPENROUTER_API_KEYs found. Please set OPENROUTER_API_KEY in .env or environment.")
             return {}
 
@@ -403,8 +413,125 @@ class UnifiedFetcherV4:
             
             logger.warning(f"All models failed with Key #{key_index + 1}. Trying next key if available...")
         
+        if IS_LOCAL:
+            logger.info("[Local Mode] All AI calls failed. Returning MOCK AI analysis.")
+            return self.get_mock_analysis()
+
         logger.error("All keys and models failed. Returning empty result.")
         return {}
+
+    def get_mock_analysis(self) -> Dict:
+        """Return comprehensive mock data for local testing"""
+        return {
+            "the_commander": {
+                "metrics": [
+                    { "name": "Flight to Safety", "value": "5", "signal": "Risk Neutral" },
+                    { "name": "Market Sentiment", "value": "45", "signal": "Bearish" }
+                ],
+                "flight_to_safety_score": { "current": 5.0, "trend": "Stable", "3m_forecast": { "score": 5.5, "confidence": 0.75 } },
+                "asset_outlook": {
+                    "BTC": { "risk_reward": "Medium", "conviction": 6, "forecasts": { "3m": { "target": "$85,000" } } },
+                    "GOLD": { "risk_reward": "Low", "conviction": 7, "forecasts": { "3m": { "target": "$4,400" } } }
+                },
+                "agi_singularity_tracker": {
+                    "escape_velocity_probability": 0.65,
+                    "timeline_estimate": "2028",
+                    "key_metrics": { "compute_doubling": "Exponential", "research_velocity": "High" }
+                },
+                "morning_brief": {
+                    "weather_of_the_day": "Cloudy",
+                    "top_signal": "Moderate Risk Aversion [MOCK]",
+                    "action_stance": "Neutral",
+                    "why_it_matters": "This is MOCK data for local testing. The market is waiting for real data.",
+                    "cross_dashboard_convergence": "All signals are simulated. Real convergence requires live API keys.",
+                    "summary_sentence": "Local testing mode active - Simulated market conditions."
+                }
+            },
+            "the_shield": {
+                "risk_assessment": { "score": 5.0, "level": "MEDIUM", "color": "#FFA500" },
+                "scoring": { "risk_level": 5, "fragility": 0.5, "volatility_pressure": 0.4 },
+                "metrics": [
+                    { "name": "10Y Treasury Bid-to-Cover", "value": "2.5", "signal": "NORMAL" },
+                    { "name": "USD/JPY", "value": "135.0", "signal": "NORMAL" },
+                    { "name": "USD/CNH", "value": "7.2", "signal": "NORMAL" },
+                    { "name": "10Y Treasury Yield", "value": "4.19%", "signal": "NORMAL" },
+                    { "name": "MOVE Index", "value": "120", "signal": "NORMAL" },
+                    { "name": "VIX", "value": "15.74", "signal": "ELEVATED" }
+                ],
+                "ai_analysis": "MOCK ANALYSIS: Market fragility is simulated as moderate.",
+                "data_sources": ["Mock Data Generator"]
+            },
+            "the_coin": {
+                "metrics": [
+                    { "name": "Rotation Strength", "value": "4", "signal": "Bitcoin", "percentile": 40 },
+                    { "name": "Momentum", "value": "3", "signal": "Bearish", "percentile": 30 },
+                    { "name": "Setup Quality", "value": "5", "signal": "Average" }
+                ],
+                "core_metrics": { "rotation_strength": 4.0, "momentum": 3.0, "setup_quality": 5.0 },
+                "market_metrics": {
+                    "btc_price": "$92,000", "eth_price": "$3,200", "rsi_btc": 45.0,
+                    "fear_and_greed": 40, "dxy_index": 102.5, "fed_rate": "4.50%"
+                },
+                "ai_analysis": "MOCK ANALYSIS: Crypto market is in a simulated consolidation phase."
+            },
+            "the_map": {
+                "scoring": { "stance_strength": 5, "volatility_risk": 5, "confidence": 0.8 },
+                "metrics": [
+                    { "name": "S&P 500", "value": "5800", "signal": "NORMAL" },
+                    { "name": "TASI", "value": "11200", "signal": "NEUTRAL" },
+                    { "name": "Oil (Brent)", "value": "$75.00", "signal": "NORMAL" },
+                    { "name": "Gold", "value": "$2650", "signal": "NORMAL" },
+                    { "name": "DXY", "value": "102.5", "signal": "NORMAL" },
+                    { "name": "10Y Yield", "value": "4.2%", "signal": "NORMAL" }
+                ],
+                "macro": { "oil": 75.0, "dxy": 102.5, "gold": 2650.0, "sp500": 5800.0, "tasi": 11200.0, "treasury_10y": 4.2 },
+                "tasi_mood": "Neutral",
+                "drivers": ["Oil Prices", "Fed Policy"],
+                "ai_analysis": "MOCK ANALYSIS: Global macro environment is simulated as stable.",
+                "data_sources": ["Mock Data"]
+            },
+            "the_frontier": {
+                "scoring": { "breakthrough_score": 7, "trajectory": 0.8, "future_pull": 0.7 },
+                "metrics": [
+                    { "name": "AI Research", "value": "High", "signal": "ACTIVE" },
+                    { "name": "Advanced Manufacturing", "value": "Moderate", "signal": "ACTIVE" },
+                    { "name": "Biotechnology", "value": "High", "signal": "ACTIVE" },
+                    { "name": "Quantum Computing", "value": "Moderate", "signal": "ACTIVE" },
+                    { "name": "Semiconductors", "value": "High", "signal": "ACTIVE" }
+                ],
+                "domains": {
+                    "AI Research": { "total_volume": 100, "recent_papers": [] },
+                    "Advanced Manufacturing": { "total_volume": 50, "recent_papers": [] },
+                    "Biotechnology": { "total_volume": 70, "recent_papers": [] },
+                    "Quantum Computing": { "total_volume": 40, "recent_papers": [] },
+                    "Semiconductors": { "total_volume": 60, "recent_papers": [] }
+                },
+                "breakthroughs": [ { "title": "Mock Breakthrough", "why_it_matters": "Testing purposes" } ],
+                "ai_analysis": "MOCK ANALYSIS: Tech progress is simulated as accelerating.",
+                "data_sources": ["Mock Data"]
+            },
+            "the_strategy": {
+                "scoring": { "stance_confidence": 5 },
+                "metrics": [
+                    { "name": "Risk Input", "value": "Medium", "signal": "CAUTION" },
+                    { "name": "Crypto Input", "value": "Bearish", "signal": "BEARISH" },
+                    { "name": "Macro Input", "value": "Neutral", "signal": "NEUTRAL" },
+                    { "name": "Frontier Input", "value": "Active", "signal": "NORMAL" }
+                ],
+                "stance": "Defensive",
+                "mindset": "Cautious",
+                "inputs": { "risk": "Medium", "crypto": "Bearish", "macro": "Neutral", "frontier": "Active" },
+                "ai_analysis": "MOCK ANALYSIS: Strategy is simulated as defensive.",
+                "data_sources": ["Mock Data"]
+            },
+            "the_library": {
+                "metrics": [],
+                "query": "Mock Query",
+                "simplified_answer": "This is a mock answer for testing.",
+                "related_commander_insights": { "current_outlook": "Mock Outlook", "forecast": "Mock Forecast" },
+                "further_reading": []
+            }
+        }
 
     async def unified_analysis(self):
         """
