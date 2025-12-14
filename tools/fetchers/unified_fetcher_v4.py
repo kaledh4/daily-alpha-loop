@@ -460,6 +460,15 @@ class UnifiedFetcherV4:
                         
                         try:
                             data = json.loads(content)
+                            # Basic validation before returning
+                            required_keys = ['the_commander', 'the_shield', 'the_map', 'the_coin']
+                            missing_keys = [k for k in required_keys if k not in data]
+                            
+                            if missing_keys:
+                                logger.warning(f"Model {model} returned incomplete JSON. Missing: {missing_keys}")
+                                # Optional: Retry logic could go here, but for now we just skip this model result
+                                continue
+                                
                             logger.info(f"Successfully received analysis from {model}")
                             return data
                         except json.JSONDecodeError as je:
@@ -636,6 +645,7 @@ class UnifiedFetcherV4:
         The user wants "more text, more meaning, more insights".
         
         Generate JSON output matching the following schema EXACTLY. Do not deviate.
+        Ensure ALL keys are present: "the_commander", "the_shield", "the_coin", "the_map", "the_frontier", "the_strategy", "the_library".
         
         {{
             "the_commander": {{
