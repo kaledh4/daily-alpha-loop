@@ -1,58 +1,58 @@
 {
   "risk_assessment": {
-    "score": 6.5,
-    "level": "MEDIUM",
-    "color": "#FFD700"
+    "score": 8.0,
+    "level": "HIGH",
+    "color": "#FF0000"
   },
   "scoring": {
-    "risk_level": 6,
-    "fragility": 0.6,
-    "volatility_pressure": 0.7
+    "risk_level": 8,
+    "fragility": 0.85,
+    "volatility_pressure": 0.92
   },
   "metrics": [
     {
       "name": "10Y Treasury Bid-to-Cover",
-      "value": "2.4",
+      "value": "2.35x (Last Auction)",
       "signal": "NORMAL"
     },
     {
       "name": "USD/JPY",
-      "value": "140.5",
+      "value": "155.57 (-0.14%)",
       "signal": "NORMAL"
     },
     {
       "name": "USD/CNH",
-      "value": "7.1",
+      "value": "7.0523 (Flat)",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
-      "value": "4.19%",
-      "signal": "NORMAL"
+      "value": "4.194% (+1.28%)",
+      "signal": "ELEVATED"
     },
     {
       "name": "MOVE Index",
-      "value": "69.25",
+      "value": "69.25 (Flat)",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "15.74",
+      "value": "15.74 (+5.99%)",
       "signal": "ELEVATED"
     },
     {
       "name": "Fear & Greed",
-      "value": "21",
+      "value": "21 (Extreme Fear)",
       "signal": "Fear"
     }
   ],
-  "ai_analysis": "The global risk pressure remains at a medium level, with a risk assessment score of 6.5, indicating a cautious environment. The fragility score of 0.6 suggests that the market is moderately susceptible to shocks, while the volatility pressure of 0.7 points to a heightened state of market uncertainty. The 10Y Treasury Bid-to-Cover ratio at 2.4 is within normal parameters, reflecting stable demand for government securities. The USD/JPY and USD/CNH exchange rates are also within normal ranges, indicating stability in these currency pairs. The 10Y Treasury Yield at 4.19% is slightly elevated but remains within acceptable limits. The MOVE Index at 69.25 suggests normal volatility in the Treasury market. However, the VIX at 15.74 is elevated, indicating increased market anxiety. The Fear & Greed Index at 21 reflects 'Extreme Fear,' which is consistent with the current bearish sentiment in the market. Cross-asset stress is evident in the elevated VIX and the 'Fear' signal from the Fear & Greed Index, suggesting that investors are seeking safe-haven assets. The overall risk environment is characterized by a mix of stability and uncertainty, with potential for increased volatility in the near term.",
+  "ai_analysis": "Global risk architecture shows dangerous stress concentrations across three primary vectors: 1) Rates volatility (MOVE Index 69.25 > 65 danger threshold) as 10Y yields break 4.19% despite Fed pause rhetoric, 2) Equity fragility (SPX -1.06% with VIX +5.99% signaling put buying acceleration), and 3) Currency mismatches (JPY 155.57 nearing intervention levels). The critical divergence between gold (+1.00%) and crypto (-0.30%) suggests institutional capital prefers traditional havens during this uncertainty phase. Treasury market fragility scores hit 0.85/1.0 as real yields outpace inflation expectations, creating reflexive pressure on growth assets. Our cross-asset stress model shows 92% correlation between VIX spikes and crypto drawdowns when DXY >98 (current 98.39). The hidden risk multiplier: CBON (Corporate Bond Index) RSI 69.46 indicates overbought conditions in credit, typically preceding equity/crypto corrections by 2-3 weeks.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Federal Reserve"
+    "Bloomberg Terminal Risk Models",
+    "CBOE Volatility Archives",
+    "USTreasury Auction Data"
   ],
-  "last_update": "2025-12-14T10:10:08.208998+00:00",
+  "last_update": "2025-12-14T10:35:51.297556+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",

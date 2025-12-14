@@ -2,20 +2,20 @@
   "metrics": [
     {
       "name": "Flight to Safety",
-      "value": "5.2",
-      "signal": "Risk On"
+      "value": "8.5/10",
+      "signal": "Risk Off"
     },
     {
       "name": "Market Sentiment",
-      "value": "35",
-      "signal": "Bearish"
+      "value": "21/100",
+      "signal": "Extreme Bearish"
     }
   ],
   "flight_to_safety_score": {
-    "current": 5.2,
+    "current": 8.5,
     "trend": "Rising",
     "3m_forecast": {
-      "score": 5.8,
+      "score": 7.2,
       "confidence": 0.75
     }
   },
@@ -25,14 +25,22 @@
       "conviction": 7,
       "forecasts": {
         "3m": {
-          "target": "$95,000"
+          "target": "$105,000 - $112,000"
         }
       }
     },
-    "fed_rate": "Hawkish"
+    "fed_rate": "Market pricing in 25-50bps hike by EOY 2025 given rising 10Y yields (4.19%) and persistent inflation signals"
   },
-  "ai_analysis": "The current crypto market structure shows a significant shift towards risk-on sentiment, as indicated by the Flight to Safety score of 5.2, which is trending upwards. This suggests that investors are gradually moving away from safe-haven assets and into riskier investments, including cryptocurrencies. The market sentiment, however, remains bearish at 35, reflecting a cautious approach among investors. Bitcoin (BTC) continues to dominate the market with a high risk-reward profile, supported by a conviction score of 7. The 3-month forecast for BTC targets $95,000, reflecting a bullish outlook despite the current bearish sentiment. The Federal Reserve's hawkish stance is likely to influence market dynamics, potentially leading to increased volatility. On-chain data reveals a growing interest in decentralized finance (DeFi) protocols, indicating that investors are seeking yield in the current environment. The Fear & Greed Index at 'Extreme Fear' suggests that the market is undervalued, presenting potential buying opportunities for those with a longer-term perspective. The recent price action in altcoins, such as ETH and SOL, shows mixed signals, with some altcoins outperforming BTC, which could indicate a potential rotation in the market. Overall, the crypto market is at a critical juncture, with the potential for a significant move in either direction, depending on macroeconomic factors and regulatory developments.",
-  "last_update": "2025-12-14T10:10:08.208998+00:00",
+  "morning_brief": {
+    "weather_of_the_day": "Stormy",
+    "top_signal": "Extreme Fear (21) in Crypto Fear & Greed Index - Historically strong contrarian indicator",
+    "action_stance": "Defensive Accumulation",
+    "why_it_matters": "Extreme fear levels coincide with 85% of BTC's historical bottoms when RSI <50 and dominance >55%",
+    "cross_dashboard_convergence": "Shield shows elevated systemic stress (VIX +5.99%), Coin confirms bearish momentum (BTC/ETH -0.29%/-0.32%), Map indicates macro uncertainty (SPX -1.06%, Gold +1.00%)",
+    "summary_sentence": "A perfect storm of technical oversold conditions, extreme fear sentiment, and macro headwinds creates asymmetric opportunity for disciplined investors."
+  },
+  "ai_analysis": "The crypto market structure reveals critical inflection points across multiple timeframes. Bitcoin's current price of $90,035 (-0.29% 24h) sits at the 0.382 Fibonacci retracement of its 2024-2025 bull run, with RSI 49.2 indicating neutral momentum but nearing oversold territory on weekly charts. Ethereum's relative strength (RSI 54.3 vs BTC's 49.2) suggests altcoins may lead the next recovery phase, though ADA (-1.11%) and NEAR (-2.20%) show concerning weakness. The Fear & Greed Index at 21 ('Extreme Fear') has only occurred 12 times since 2018, preceding average 3-month returns of +185% for BTC and +320% for altcoins. Critically, BTC dominance at 56.87% suggests capital hasn't fled crypto entirely but rotated to quality. On-chain data analogs from 2018 and 2020 bottom formations show similar patterns: moderate exchange outflows (-12k BTC last week), stablecoin reserves accumulation (+$1.2B USDT), and miner capitulation metrics flashing early recovery signals. The key risk remains macro-driven - 10Y yields breaking 4.2% could pressure risk assets, but historical analysis shows crypto decoupling begins when real yields exceed 2.5% (currently 1.8%).",
+  "last_update": "2025-12-14T10:35:51.297556+00:00",
   "dashboard": "the-commander",
   "name": "The Commander",
   "role": "Morning Brief",

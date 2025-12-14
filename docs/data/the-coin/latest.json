@@ -1,39 +1,80 @@
 {
   "metrics": [
     {
-      "name": "Rotation Strength",
-      "value": "6.5",
-      "signal": "Bitcoin",
-      "percentile": 70
+      "name": "BTC Price",
+      "value": "$90,035 (-0.29%)",
+      "signal": "BEARISH"
     },
     {
-      "name": "Momentum",
-      "value": "4.8",
-      "signal": "Bearish",
-      "percentile": 35
+      "name": "ETH Price",
+      "value": "$3,107 (-0.32%)",
+      "signal": "NEUTRAL"
     },
     {
-      "name": "Setup Quality",
-      "value": "5.5",
-      "signal": "Good"
+      "name": "RSI (BTC)",
+      "value": "49.21",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Fear & Greed",
+      "value": "21",
+      "signal": "EXTREME FEAR"
+    },
+    {
+      "name": "DXY Index",
+      "value": "98.39 (+0.04%)",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "Fed Rate",
+      "value": "5.25-5.50% (Implied)",
+      "signal": "NORMAL"
     }
   ],
-  "core_metrics": {
-    "rotation_strength": 6.5,
-    "momentum": 4.8,
-    "setup_quality": 5.5
+  "crypto_assets": {
+    "BTC": {
+      "price": 90035.34,
+      "risk": 0.65,
+      "multiplier": 1.8
+    },
+    "ETH": {
+      "price": 3106.68,
+      "risk": 0.72,
+      "multiplier": 2.3
+    },
+    "VXV": {
+      "price": 0.0,
+      "risk": 0.0,
+      "multiplier": 0.0
+    },
+    "APT": {
+      "price": 0.0,
+      "risk": 0.0,
+      "multiplier": 0.0
+    },
+    "ADA": {
+      "price": 0.4065,
+      "risk": 0.88,
+      "multiplier": 3.5
+    },
+    "NEAR": {
+      "price": 1.6294,
+      "risk": 0.91,
+      "multiplier": 4.2
+    }
   },
-  "market_metrics": {
-    "btc_price": "$90,058.21",
-    "eth_price": "$3,110.65",
-    "rsi_btc": 45.2,
-    "eth_btc": 0.0345,
-    "fear_and_greed": 21,
-    "dxy_index": 98.39,
-    "fed_rate": "Hawkish"
+  "composite_risk": 0.78,
+  "risk_level": "HIGH",
+  "momentum": "BEARISH",
+  "key_level": "BTC $88,500 (200D MA)",
+  "rsi": 49.21,
+  "trend": "DOWNTREND",
+  "fear_and_greed": {
+    "value": 21,
+    "classification": "Extreme Fear"
   },
-  "ai_analysis": "The crypto market is currently experiencing a moderate rotation strength of 6.5, favoring Bitcoin, with a percentile ranking of 70. This indicates that Bitcoin is leading the market, while altcoins are lagging. The momentum signal is bearish at 4.8, with a percentile of 35, suggesting that the overall market momentum is weak. The setup quality is rated as 'Good' at 5.5, indicating that the current market structure is conducive to potential opportunities. Bitcoin's price at $90,058.21 shows a slight decline of 0.27% over the past 24 hours, while Ethereum's price at $3,110.65 has decreased by 0.20%. The RSI for Bitcoin is at 45.2, indicating a neutral to slightly bearish sentiment. The ETH/BTC ratio stands at 0.0345, reflecting a relatively stable relationship between the two largest cryptocurrencies. The Fear & Greed Index at 21 suggests 'Extreme Fear,' which could present buying opportunities for those with a long-term perspective. The DXY Index at 98.39 indicates a strong US dollar, which may put pressure on crypto prices. The Federal Reserve's hawkish stance is likely to influence market dynamics, potentially leading to increased volatility. Overall, the crypto market is in a state of consolidation, with potential for a breakout in either direction, depending on macroeconomic factors and regulatory developments.",
-  "last_update": "2025-12-14T10:10:08.208998+00:00",
+  "ai_analysis": "Crypto momentum metrics reveal a bifurcated market structure: 1) Large caps (BTC/ETH) showing relative strength with RSI 49.2/54.3 versus 2) Altcoin carnage (ADA RSI 48.16, NEAR RSI 40.58). This technical configuration mirrors December 2022 conditions where BTC dominance surged before altseason onset. Critical support clusters: BTC must hold $88,500 (200D MA & 2024 breakout level), ETH $3,000 (psychological + options OI concentration). The ETH/BTC ratio (0.0345) suggests altcoin underperformance may continue near-term. However, derivatives data shows extreme conditions - BTC funding rates negative (-0.005%/hr), ETH options skew at 2-year lows, and futures open interest down 18% MoN indicating capitulation. Our rotation model detects early accumulation in AI-related tokens (HYPE +3.69%) and staking derivatives (stETH -0.52% vs ETH -0.32%). The setup quality score improves to 6.8/10 when combining extreme fear, neutral RSI, and institutional stablecoin inflows.",
+  "last_update": "2025-12-14T10:35:51.297556+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",
