@@ -102,25 +102,6 @@ class FREDClient(BaseClient):
 class AlphaVantageClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('ALPHA_VANTAGE_KEY'))
-
-class CoinGeckoClient(BaseClient):
-    def __init__(self):
-        super().__init__()
-        self.base_url = "https://api.coingecko.com/api/v3"
-
-    def get_price(self, ids: str, vs_currencies: str = 'usd') -> Dict:
-        params = {
-            'ids': ids,
-            'vs_currencies': vs_currencies,
-            'include_market_cap': 'true',
-            'include_24hr_change': 'true'
-        }
-        return self.get_json(f"{self.base_url}/simple/price", params) or {}
-
-class NewsAPIClient(BaseClient):
-    def __init__(self):
-        super().__init__(os.environ.get('NEWS_API_KEY'))
-
 class EIAClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('EIA_API_KEY'))
@@ -225,6 +206,9 @@ class UnifiedFetcherV4:
             'cboe': CBOEClient(),
             'eia': EIAClient(),
             'cryptocompare': CryptoCompareClient(),
+            'gemini': GeminiClient(),
+            'anthropic': AnthropicClient(),
+            'grok': GrokClient(),
         }
         
         self.ai_models = [
@@ -322,13 +306,23 @@ class UnifiedFetcherV4:
             if btc_price and eth_price:
                 self.current_metrics['ETH/BTC'] = eth_price / btc_price
                 
-            # Estimate BTC Dominance and Alts Strength if possible
-            # For now, we use a placeholder or derived metric if real data is missing
-            # If we had total market cap, we could calculate BTC.D
-            # Let's try to fetch BTC.D from TradingView or similar via yfinance if available, 
-            # otherwise we might need to rely on the AI or a specific API.
-            # Using a proxy for now:
-            pass
+            # Estimate BTC Dominance and Alts Strength
+            # Try to fetch global data from CoinGecko
+            global_data = self.data_sources['coingecko'].get_global_data()
+            if global_data and 'data' in global_data:
+                market_cap_percentage = global_data['data'].get('market_cap_percentage', {})
+                btc_d = market_cap_percentage.get('btc')
+                eth_d = market_cap_percentage.get('eth')
+                
+                if btc_d:
+                    self.current_metrics['BTC.D'] = btc_d
+                
+                # Alts/BTC proxy: (Total Cap - BTC Cap) / BTC Cap? 
+                # Or just use ETH dominance as a proxy for alts for now if we want a simple ratio
+                # Better: Alts Market Cap Share = 100 - BTC.D
+                if btc_d:
+                    self.current_metrics['Alts.D'] = 100 - btc_d
+                    
         except Exception as e:
             logger.warning(f"Failed to calculate derived metrics: {e}")
 
