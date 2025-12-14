@@ -571,61 +571,6 @@ class UnifiedFetcherV4:
                 }},
                 "asset_outlook": {{
                     "BTC": {{ "risk_reward": "High/Medium/Low", "conviction": 0-10, "forecasts": {{ "3m": {{ "target": "price_string" }} }} }},
-                    "GOLD": {{ "risk_reward": "High/Medium/Low", "conviction": 0-10, "forecasts": {{ "3m": {{ "target": "price_string" }} }} }}
-                }},
-                "agi_singularity_tracker": {{
-                    "escape_velocity_probability": 0.0-1.0,
-                    "timeline_estimate": "string (e.g. '2029')",
-                    "key_metrics": {{ "compute_doubling": "string", "research_velocity": "string" }}
-                }},
-                "morning_brief": {{
-                    "weather_of_the_day": "Sunny/Cloudy/Stormy",
-                    "top_signal": "string (clear and actionable signal)",
-                    "action_stance": "Aggressive/Neutral/Defensive",
-                    "why_it_matters": "string (LONG, DETAILED paragraph explaining the deep significance of the signal)",
-                    "cross_dashboard_convergence": "string (LONG, DETAILED paragraph explaining how crypto, macro, and risk metrics align)",
-                    "summary_sentence": "string (impactful summary)"
-                }}
-            }},
-            "the_shield": {{
-                "risk_assessment": {{
-                    "score": 0.0,
-                    "level": "LOW/MEDIUM/HIGH/CRITICAL",
-                    "color": "#hex"
-                }},
-                "scoring": {{
-                    "risk_level": 0,
-                    "fragility": 0.0,
-                    "volatility_pressure": 0.0
-                }},
-                "metrics": [
-                    {{ "name": "10Y Treasury Bid-to-Cover", "value": "string", "signal": "NORMAL/WARNING" }},
-                    {{ "name": "USD/JPY", "value": "string", "signal": "NORMAL/CRITICAL SHOCK" }},
-                    {{ "name": "USD/CNH", "value": "string", "signal": "NORMAL/WARNING" }},
-                    {{ "name": "10Y Treasury Yield", "value": "string", "signal": "NORMAL/WARNING" }},
-                    {{ "name": "MOVE Index", "value": "string", "signal": "NORMAL/ELEVATED" }},
-                    {{ "name": "VIX", "value": "string", "signal": "NORMAL/ELEVATED" }}
-                ],
-                "ai_analysis": "string (EXTREMELY DETAILED analysis of market fragility and risks)",
-                "data_sources": ["string"]
-            }},
-            "the_coin": {{
-                "metrics": [
-                    {{ "name": "Rotation Strength", "value": "0-10", "signal": "Bitcoin/Altseason", "percentile": 0-100 }},
-                    {{ "name": "Momentum", "value": "0-10", "signal": "Bullish/Bearish", "percentile": 0-100 }},
-                    {{ "name": "Setup Quality", "value": "0-10", "signal": "Good/Bad" }}
-                ],
-                "core_metrics": {{
-                    "rotation_strength": 0.0-10.0,
-                    "momentum": 0.0-10.0,
-                    "setup_quality": 0.0-10.0
-                }},
-                "market_metrics": {{
-                    "btc_price": "string",
-                    "eth_price": "string",
-                    "rsi_btc": 0.0,
-                    "fear_and_greed": 0,
-                    "dxy_index": 0.0,
                     "fed_rate": "string"
                 }},
                 "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
@@ -696,6 +641,20 @@ class UnifiedFetcherV4:
         """
         
         return await self.call_ai_ensemble(prompt)
+
+    def validate_data(self, data: Dict) -> bool:
+        """Validate that critical data is present before saving"""
+        if not data:
+            logger.error("Validation failed: Data is empty")
+            return False
+            
+        required_keys = ['the_commander', 'the_shield', 'the_map', 'the_coin']
+        for key in required_keys:
+            if key not in data:
+                logger.error(f"Validation failed: Missing required dashboard '{key}'")
+                return False
+                
+        return True
 
     def save_dashboard_data(self, analysis_result: Dict):
         """Save distributed data to respective dashboard folders"""
@@ -804,7 +763,13 @@ class UnifiedFetcherV4:
         # 2. Generate Analysis
         analysis = await self.unified_analysis()
         
-        # 3. Save Results
+        # 3. Validate Data (Production Only)
+        if not IS_LOCAL:
+            if not self.validate_data(analysis):
+                logger.error("Data validation failed in production! Aborting save.")
+                return
+
+        # 4. Save Results
         self.save_dashboard_data(analysis)
         
         logger.info("Unified Fetcher V4 completed successfully.")

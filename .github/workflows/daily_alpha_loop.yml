@@ -40,6 +40,7 @@ jobs:
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           # V4 Primary API Key (REQUIRED for AI analysis)
+          IS_LOCAL: 'false'
           OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_API_KEY2: ${{ secrets.OPENROUTER_API_KEY2 }}
