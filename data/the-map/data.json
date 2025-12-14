@@ -1,58 +1,62 @@
 {
   "scoring": {
-    "stance_strength": 0,
-    "volatility_risk": 0,
-    "confidence": 0.0
+    "stance_strength": 5,
+    "volatility_risk": 6,
+    "confidence": 0.65
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "string",
+      "value": "6,827.41",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "string",
+      "value": "10,614.71",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "string",
+      "value": "$57.44",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "string",
+      "value": "$4,328.30",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "string",
+      "value": "98.39",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "string",
+      "value": "4.19%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 0.0,
-    "dxy": 0.0,
-    "gold": 0.0,
-    "sp500": 0.0,
-    "tasi": 0.0,
-    "treasury_10y": 0.0
+    "oil": 57.44,
+    "dxy": 98.39,
+    "gold": 4328.3,
+    "sp500": 6827.41,
+    "tasi": 10614.71,
+    "treasury_10y": 4.19
   },
-  "tasi_mood": "string",
+  "tasi_mood": "Cautiously Optimistic",
   "drivers": [
-    "string"
+    "Global Economic Growth",
+    "Oil Prices",
+    "Geopolitical Tensions"
   ],
-  "ai_analysis": "The global macroeconomic landscape presents a complex tapestry of interconnected variables that significantly influence financial markets and economic policies worldwide. The S&P 500, a barometer of U.S. equity market performance, reflects the aggregate sentiment of investors regarding corporate earnings, interest rates, and broader economic expectations. Its movements are closely watched as indicators of economic health and investor confidence. Meanwhile, the TASI (Tadawul All Share Index) encapsulates the dynamics of the Saudi Arabian stock market, which is intricately linked to the nation's oil-dependent economy and its ambitious Vision 2030 initiative aimed at economic diversification. The performance of TASI is not only a reflection of domestic economic policies but also of global oil prices and geopolitical stability in the Middle East. Oil prices, particularly Brent crude, serve as a critical determinant of global economic activity, affecting inflation rates, trade balances, and fiscal policies of both oil-exporting and oil-importing nations. Fluctuations in oil prices can lead to significant shifts in currency values and interest rate policies, as central banks attempt to manage inflationary pressures and economic growth. Gold, traditionally viewed as a safe-haven asset, responds inversely to the U.S. Dollar Index (DXY), which measures the dollar's strength against a basket of major currencies. When the DXY rises, indicating a stronger dollar, gold prices often fall, and vice versa. This relationship is pivotal during times of economic uncertainty or geopolitical tensions. The U.S. 10-Year Treasury yield acts as a benchmark for global interest rates, influencing borrowing costs, mortgage rates, and investment decisions across various asset classes. Its trajectory is closely monitored for signals regarding future monetary policy and economic growth expectations. The interplay among these macroeconomic indicators is further complicated by the actions of central banks, fiscal policies, and geopolitical events, creating a dynamic environment where changes in one variable can have cascading effects across global markets. Understanding these relationships is essential for policymakers, investors, and economists in navigating the complexities of the global economy and making informed decisions.",
+  "ai_analysis": "The global macro environment is characterized by a stance strength of 5, indicating a moderate level of market conviction. The volatility risk is rated at 6, suggesting a heightened state of market uncertainty. The confidence level of 0.65 reflects a cautious optimism among investors. The S&P 500 at 6,827.41 is within normal parameters, indicating stability in the US equity market. The TASI at 10,614.71 shows a neutral signal, reflecting a stable Saudi market. Oil prices at $57.44 are within normal ranges, suggesting stability in the energy sector. Gold prices at $4,328.30 are also normal, indicating a balanced demand for safe-haven assets. The DXY Index at 98.39 reflects a strong US dollar, which may impact global trade and investment flows. The 10Y Treasury Yield at 4.19% is slightly elevated but remains within acceptable limits. The TASI mood is 'Cautiously Optimistic,' driven by global economic growth, oil prices, and geopolitical tensions. Overall, the global macro environment is stable, with potential for increased volatility in the near term.",
   "data_sources": [
-    "string"
+    "Bloomberg",
+    "Reuters",
+    "Saudi Exchange"
   ],
-  "last_update": "2025-12-14T09:54:09.660937+00:00",
+  "last_update": "2025-12-14T10:10:08.208998+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

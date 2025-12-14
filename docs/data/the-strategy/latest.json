@@ -1,42 +1,44 @@
 {
   "scoring": {
-    "stance_confidence": 0
+    "stance_confidence": 6
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "string",
+      "value": "Medium",
       "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
-      "value": "string",
+      "value": "Bearish",
       "signal": "BEARISH"
     },
     {
       "name": "Macro Input",
-      "value": "string",
+      "value": "Neutral",
       "signal": "NEUTRAL"
     },
     {
       "name": "Frontier Input",
-      "value": "string",
+      "value": "Normal",
       "signal": "NORMAL"
     }
   ],
-  "stance": "string",
-  "mindset": "string",
+  "stance": "Cautiously Bearish",
+  "mindset": "Opportunistic",
   "inputs": {
-    "risk": "string",
-    "crypto": "string",
-    "macro": "string",
-    "frontier": "string"
+    "risk": "Medium risk appetite with a focus on downside protection.",
+    "crypto": "Bearish sentiment with potential for short-term volatility.",
+    "macro": "Neutral macro environment with stable global growth.",
+    "frontier": "Normal frontier conditions with ongoing technological advancements."
   },
-  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
+  "ai_analysis": "The current investment strategy is characterized by a cautiously bearish stance, supported by a stance confidence of 6. The risk input is medium, suggesting a cautious approach with a focus on downside protection. The crypto input is bearish, reflecting the current market sentiment and potential for short-term volatility. The macro input is neutral, indicating a stable global growth environment with no significant economic concerns. The frontier input is normal, highlighting ongoing technological advancements without immediate disruptive impacts. The opportunistic mindset suggests a strategy of identifying undervalued assets and potential turnaround opportunities. The medium risk appetite allows for selective exposure to high-growth sectors while maintaining a diversified portfolio. The bearish crypto sentiment calls for a defensive position in cryptocurrencies, with a focus on preserving capital and waiting for clearer market signals. The neutral macro environment provides a stable backdrop for investment decisions, with no immediate macroeconomic risks. The normal frontier conditions indicate that technological advancements are progressing as expected, with no immediate disruptive innovations. Overall, the strategy is to maintain a cautious approach, focusing on downside protection while being opportunistic in identifying potential upside opportunities.",
   "data_sources": [
-    "string"
+    "Bloomberg",
+    "Reuters",
+    "Federal Reserve"
   ],
-  "last_update": "2025-12-14T09:54:09.660937+00:00",
+  "last_update": "2025-12-14T10:10:08.208998+00:00",
   "dashboard": "the-strategy",
   "name": "The Strategy",
   "role": "Market Stance",

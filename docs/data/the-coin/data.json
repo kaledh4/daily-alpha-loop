@@ -1,38 +1,39 @@
 {
   "metrics": [
     {
-      "name": "Flight to Safety",
-      "value": "0-10",
-      "signal": "Risk On/Off"
+      "name": "Rotation Strength",
+      "value": "6.5",
+      "signal": "Bitcoin",
+      "percentile": 70
     },
     {
-      "name": "Market Sentiment",
-      "value": "0-100",
-      "signal": "Bearish/Bullish"
+      "name": "Momentum",
+      "value": "4.8",
+      "signal": "Bearish",
+      "percentile": 35
+    },
+    {
+      "name": "Setup Quality",
+      "value": "5.5",
+      "signal": "Good"
     }
   ],
-  "flight_to_safety_score": {
-    "current": 6.2,
-    "trend": "Rising",
-    "3m_forecast": {
-      "score": 7.1,
-      "confidence": 0.78
-    }
+  "core_metrics": {
+    "rotation_strength": 6.5,
+    "momentum": 4.8,
+    "setup_quality": 5.5
   },
-  "asset_outlook": {
-    "BTC": {
-      "risk_reward": "High",
-      "conviction": 8,
-      "forecasts": {
-        "3m": {
-          "target": "$95,000"
-        }
-      }
-    },
-    "fed_rate": "string"
+  "market_metrics": {
+    "btc_price": "$90,058.21",
+    "eth_price": "$3,110.65",
+    "rsi_btc": 45.2,
+    "eth_btc": 0.0345,
+    "fear_and_greed": 21,
+    "dxy_index": 98.39,
+    "fed_rate": "Hawkish"
   },
-  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
-  "last_update": "2025-12-14T09:54:09.660937+00:00",
+  "ai_analysis": "The crypto market is currently experiencing a moderate rotation strength of 6.5, favoring Bitcoin, with a percentile ranking of 70. This indicates that Bitcoin is leading the market, while altcoins are lagging. The momentum signal is bearish at 4.8, with a percentile of 35, suggesting that the overall market momentum is weak. The setup quality is rated as 'Good' at 5.5, indicating that the current market structure is conducive to potential opportunities. Bitcoin's price at $90,058.21 shows a slight decline of 0.27% over the past 24 hours, while Ethereum's price at $3,110.65 has decreased by 0.20%. The RSI for Bitcoin is at 45.2, indicating a neutral to slightly bearish sentiment. The ETH/BTC ratio stands at 0.0345, reflecting a relatively stable relationship between the two largest cryptocurrencies. The Fear & Greed Index at 21 suggests 'Extreme Fear,' which could present buying opportunities for those with a long-term perspective. The DXY Index at 98.39 indicates a strong US dollar, which may put pressure on crypto prices. The Federal Reserve's hawkish stance is likely to influence market dynamics, potentially leading to increased volatility. Overall, the crypto market is in a state of consolidation, with potential for a breakout in either direction, depending on macroeconomic factors and regulatory developments.",
+  "last_update": "2025-12-14T10:10:08.208998+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",

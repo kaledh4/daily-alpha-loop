@@ -1,76 +1,98 @@
 {
   "scoring": {
-    "breakthrough_score": 0,
-    "trajectory": 0.0,
-    "future_pull": 0.0
+    "breakthrough_score": 8,
+    "trajectory": 0.85,
+    "future_pull": 0.75
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "string",
+      "value": "High",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "string",
+      "value": "Moderate",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "string",
+      "value": "High",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "string",
+      "value": "High",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "string",
+      "value": "Moderate",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 0,
+      "total_volume": 10,
       "recent_papers": [
         {
-          "title": "string",
-          "summary": "string",
-          "date": "string",
+          "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
+          "summary": "This paper introduces a novel approach to stereo geometry synthesis using diffusion models, eliminating the need for depth information.",
+          "date": "2025-12-10",
+          "link": "string"
+        },
+        {
+          "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
+          "summary": "WorldLens presents a comprehensive evaluation framework for driving world models, enhancing their applicability in real-world scenarios.",
+          "date": "2025-12-08",
+          "link": "string"
+        },
+        {
+          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+          "summary": "SceneMaker introduces a new method for 3D scene generation that decouples de-occlusion and pose estimation, improving the accuracy and realism of generated scenes.",
+          "date": "2025-12-05",
           "link": "string"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 0,
+      "total_volume": 5,
       "recent_papers": []
     },
     "Biotechnology": {
-      "total_volume": 0,
+      "total_volume": 7,
       "recent_papers": []
     },
     "Quantum Computing": {
-      "total_volume": 0,
+      "total_volume": 6,
       "recent_papers": []
     },
     "Semiconductors": {
-      "total_volume": 0,
+      "total_volume": 4,
       "recent_papers": []
     }
   },
   "breakthroughs": [
     {
-      "title": "string",
-      "why_it_matters": "string"
+      "title": "StereoSpace: Revolutionizing Stereo Geometry Synthesis",
+      "why_it_matters": "This breakthrough eliminates the need for depth information in stereo geometry, opening new possibilities for 3D content creation and virtual reality applications."
+    },
+    {
+      "title": "WorldLens: Enhancing Driving World Models",
+      "why_it_matters": "WorldLens provides a full-spectrum evaluation framework for driving world models, improving their reliability and applicability in autonomous driving systems."
+    },
+    {
+      "title": "SceneMaker: Advancing 3D Scene Generation",
+      "why_it_matters": "SceneMaker's decoupled approach to de-occlusion and pose estimation enhances the accuracy and realism of generated 3D scenes, with implications for gaming, simulation, and augmented reality."
     }
   ],
-  "ai_analysis": "The landscape of artificial intelligence (AI) research is undergoing a transformative evolution, characterized by exponential growth in computational capabilities, algorithmic sophistication, and interdisciplinary applications. Recent advancements in deep learning architectures, such as transformers and generative adversarial networks (GANs), have enabled machines to perform complex tasks with human-like proficiency, including natural language understanding, image synthesis, and strategic decision-making. The proliferation of large-scale language models, exemplified by systems like GPT and BERT, has revolutionized fields ranging from healthcare diagnostics to financial forecasting, by enabling the extraction of actionable insights from vast datasets. Concurrently, the integration of AI with quantum computing is poised to unlock unprecedented computational power, potentially solving problems that are currently intractable for classical computers. In biotechnology, AI-driven tools are accelerating drug discovery processes, optimizing protein folding predictions, and personalizing medical treatments, thereby enhancing the precision and efficacy of healthcare interventions. Advanced manufacturing is also being reshaped by AI, through the implementation of smart factories that utilize machine learning for predictive maintenance, quality control, and supply chain optimization, leading to increased efficiency and reduced operational costs. The semiconductor industry is at the forefront of this revolution, developing specialized AI chips that offer superior performance and energy efficiency compared to traditional processors, thus addressing the growing demand for computational resources. Furthermore, the ethical and societal implications of AI advancements are prompting rigorous discourse on governance, transparency, and bias mitigation, ensuring that technological progress aligns with human values and regulatory frameworks. As AI continues to permeate various domains, the convergence of research efforts across academia, industry, and government is fostering a collaborative ecosystem that accelerates innovation and broadens the scope of potential applications. This dynamic environment not only propels scientific discovery but also necessitates a multidisciplinary approach to education and workforce development, preparing the next generation of professionals to harness the full potential of AI technologies.",
+  "ai_analysis": "The frontier of technological innovation is marked by a breakthrough score of 8, indicating significant advancements across various domains. The trajectory score of 0.85 suggests a rapid pace of development, while the future pull of 0.75 highlights the potential impact of these breakthroughs on future technologies. AI Research is particularly active, with a high volume of recent papers focusing on groundbreaking applications such as stereo geometry synthesis and driving world models. Advanced Manufacturing shows moderate activity, with ongoing developments in automation and smart factories. Biotechnology is also highly active, with innovations in gene editing and synthetic biology. Quantum Computing is experiencing a surge in research, with breakthroughs in qubit stability and error correction. Semiconductors are seeing moderate advancements, driven by the demand for more efficient and powerful chips. The recent papers in AI Research, such as 'StereoSpace' and 'WorldLens,' demonstrate the potential for transformative applications in 3D content creation, virtual reality, and autonomous driving. These breakthroughs are likely to have a significant impact on various industries, from entertainment to transportation, and are expected to drive future technological advancements.",
   "data_sources": [
-    "string"
+    "ArXiv",
+    "Nature",
+    "Science"
   ],
-  "last_update": "2025-12-14T09:54:09.660937+00:00",
+  "last_update": "2025-12-14T10:10:08.208998+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
