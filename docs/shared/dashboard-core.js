@@ -415,7 +415,18 @@ async function initDashboard(dashboardName) {
         // 5. Data Sources
         html += renderDataSources(data.data_sources);
 
+<<<<<<< HEAD
         contentEl.innerHTML = html + renderFooter();
+=======
+        // 6. Footer
+        html += `
+            <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid #2d3748; padding-top: 20px;">
+                <a href="../read_all/index.html" style="color: #4a5568; text-decoration: none; font-size: 0.9rem;">Read All Data (Debug)</a>
+            </div>
+        `;
+
+        contentEl.innerHTML = html;
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
     }
 }
 

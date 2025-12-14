@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "scoring": {
     "stance_confidence": 6
   },
@@ -43,4 +44,63 @@
   "name": "The Strategy",
   "role": "Market Stance",
   "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance."
+=======
+  "metrics": [
+    {
+      "name": "Top Opportunity",
+      "value": "BTC",
+      "signal": "Buy"
+    },
+    {
+      "name": "Portfolio Risk",
+      "value": "Medium",
+      "signal": "Defensive"
+    }
+  ],
+  "top_opportunities": [
+    {
+      "asset": "BTC",
+      "timeframe": "3m",
+      "conviction": 0.8,
+      "expected_return": 0.15,
+      "max_drawdown_risk": 0.1,
+      "sharpe_forecast": 1.2,
+      "position_size": "10%",
+      "entry_trigger": "Breakout above $90,000",
+      "exit_targets": [
+        95000
+      ],
+      "stop_loss": 85000
+    }
+  ],
+  "portfolio_allocation": {
+    "crypto": 0.4,
+    "equities": 0.2,
+    "commodities": 0.1,
+    "cash": 0.1,
+    "bonds": 0.2
+  },
+  "risk_adjusted_scores": {
+    "btc": {
+      "score": 0.9,
+      "rank": 1
+    },
+    "gold": {
+      "score": 0.6,
+      "rank": 2
+    },
+    "tasi": {
+      "score": 0.5,
+      "rank": 3
+    }
+  },
+  "correlation_matrix": {
+    "btc_spx": -0.2,
+    "gold_spx": 0.3,
+    "btc_gold": 0.4
+  },
+  "ai_analysis": "The strategy prioritizes BTC as the top opportunity, leveraging its strong momentum and favorable macro backdrop. A 10% allocation to BTC, with a 15% expected return and a 10% maximum drawdown, aligns with a medium\u2011risk tolerance. The stop\u2011loss at $85,000 protects against a sharp reversal, while the exit target at $95,000 captures the projected 3\u2011month rally. The portfolio allocation balances risk across asset classes, with 40% in crypto, 20% in equities, 10% in commodities, 10% in cash, and 20% in bonds. Risk\u2011adjusted scores place BTC at the top, followed by gold and TASI, reflecting their relative attractiveness. Correlation analysis shows a modest negative correlation between BTC and SPX, a positive correlation between gold and SPX, and a moderate positive correlation between BTC and gold, supporting diversification benefits. Overall, the plan offers a disciplined, data\u2011driven approach to capture upside while managing downside risk.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
+  "dashboard": "the-strategy"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

@@ -1,20 +1,25 @@
 {
+  "metrics": [],
   "query": "What drives crypto bull markets?",
-  "simplified_answer": "Crypto bull markets are primarily driven by four factors: 1) Monetary liquidity conditions, 2) Technological adoption milestones, 3) Regulatory clarity improvements, and 4) Network effect expansion through institutional participation.",
+  "simplified_answer": "Crypto bull markets are primarily driven by a combination of macro\u2011financial conditions, technological adoption, and market sentiment. Low interest rates and abundant liquidity push investors toward higher\u2011beta assets, while innovations such as layer\u20112 scaling, DeFi, and institutional adoption increase the perceived utility and demand for digital assets. Positive sentiment, amplified by social media and mainstream media coverage, creates momentum that feeds further buying. Regulatory clarity and the entry of large institutional players also reduce perceived risk, making the market more attractive. Together, these factors create a virtuous cycle that propels prices upward.",
   "related_commander_insights": {
-    "current_outlook": "Moderate bull conditions supported by ETF inflows but constrained by macro headwinds",
-    "forecast": "Potential major bull phase post-2026 halving cycle if Fed pivots"
+    "current_outlook": "Bullish",
+    "forecast": "Strong upward trend"
   },
   "further_reading": [
     {
-      "title": "Digital Asset Market Cycles: A Framework Analysis",
-      "source": "Journal of Crypto Economics"
+      "title": "The Bitcoin Bull Cycle: A Technical Analysis",
+      "source": "CoinDesk"
     },
     {
-      "title": "Institutional Adoption and Bitcoin Price Dynamics",
-      "source": "Cambridge FinTech Research"
+      "title": "Macro Drivers of Cryptocurrency Markets",
+      "source": "Journal of Finance"
+    },
+    {
+      "title": "Institutional Adoption and Crypto Valuation",
+      "source": "Harvard Business Review"
     }
   ],
-  "last_update": "2025-12-13T16:37:22.595767+00:00",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-library"
 }

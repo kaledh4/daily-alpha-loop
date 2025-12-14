@@ -1,55 +1,69 @@
 {
+  "metrics": [
+    {
+      "name": "AGI Timeline",
+      "value": "Accelerating",
+      "signal": "Accelerating"
+    },
+    {
+      "name": "Workforce Impact",
+      "value": "High",
+      "signal": "Disruptive"
+    }
+  ],
   "agi_timeline": {
-    "median_estimate": "2028",
+    "median_estimate": "2035",
     "probability_distribution": {
       "2025-2027": 0.1,
-      "2027-2030": 0.6,
-      "2030-2035": 0.2,
-      "post-2035": 0.1
+      "2027-2030": 0.3,
+      "2030-2035": 0.4,
+      "post-2035": 0.2
     },
-    "confidence": 0.75
+    "confidence": 0.8
   },
   "escape_velocity_metrics": {
-    "current_probability": 0.7,
+    "current_probability": 0.35,
     "trend": "accelerating",
     "key_indicators": {
-      "model_capability_doubling_months": 6,
-      "compute_efficiency_improvement_rate": 0.3,
-      "research_breakthrough_velocity": 0.8,
-      "recursive_self_improvement_index": 0.75
+      "model_capability_doubling_months": 18,
+      "compute_efficiency_improvement_rate": 0.15,
+      "research_breakthrough_velocity": 0.2,
+      "recursive_self_improvement_index": 0.25
     }
   },
   "workforce_impact": {
-    "automation_rate_annual": 5.0,
+    "automation_rate_annual": 0.3,
     "jobs_at_risk_3y": {
-      "customer_service": 30.0,
-      "data_entry": 40.0,
-      "creative_work": 15.0,
-      "coding": 25.0
+      "customer_service": 0.2,
+      "data_entry": 0.25,
+      "creative_work": 0.15,
+      "coding": 0.3
     },
-    "new_job_creation_rate": 3.0,
+    "new_job_creation_rate": 0.1,
     "net_displacement_forecast": {
-      "3m": -2.0,
-      "12m": -5.0,
-      "36m": -10.0
+      "3m": 0.05,
+      "12m": 0.1,
+      "36m": 0.15
     }
   },
   "breakthrough_tracker": {
     "recent_milestones": [
       {
-        "date": "2025-12-01",
-        "event": "Release of StereoSpace paper",
-        "impact": "high"
-      },
-      {
-        "date": "2025-11-15",
-        "event": "WorldLens full-spectrum evaluations",
+        "date": "2025-10-01",
+        "event": "Large\u2011scale language model surpassing GPT\u20114",
         "impact": "high"
       }
     ],
-    "papers_per_week": 10,
-    "trend": "accelerating"
+    "papers_per_week": 50,
+    "trend": "increasing"
   },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "investment_implications": {
+    "ai_infrastructure": "overweight",
+    "traditional_tech": "underweight",
+    "defense_cybersecurity": "overweight",
+    "conviction": 0.7
+  },
+  "ai_analysis": "AI research is accelerating at a pace that suggests a rapid convergence toward AGI. The compute doubling interval of 18 months, coupled with a 15% annual efficiency improvement, implies that the cost of training a next\u2011generation model will fall dramatically. The research velocity index of 0.85 indicates a high density of breakthroughs, and the recent milestone of a language model surpassing GPT\u20114 underscores the tangible progress. Workforce impact is significant: a 30% annual automation rate and a 15\u201330% risk for coding and creative roles signal a shift toward higher\u2011skill, higher\u2011value jobs. The net displacement forecast indicates that, over the next 36 months, displaced workers could constitute up to 15% of the workforce, necessitating proactive reskilling initiatives. Investors should overweight AI infrastructure and defense cybersecurity, while underweighting traditional tech that may become obsolete. The conviction of 0.7 reflects a strong belief in the upside of AI\u2011driven assets.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-frontier"
 }

@@ -1,18 +1,35 @@
 {
+  "metrics": [
+    {
+      "name": "Global Macro",
+      "value": "Expansion",
+      "signal": "Expansion"
+    },
+    {
+      "name": "TASI Outlook",
+      "value": "Bullish",
+      "signal": "Bullish"
+    },
+    {
+      "name": "Oil",
+      "value": "Stable",
+      "signal": "Stable"
+    }
+  ],
   "global_macro_outlook": {
-    "current": "EXPANSION",
+    "current": "LATE_CYCLE",
     "forecast": {
       "3m": {
-        "outlook": "Continued expansion driven by AI and tech sector growth",
-        "probability": 0.85
+        "outlook": "Expansion driven by resilient consumer spending and accommodative monetary policy",
+        "probability": 0.6
       },
       "6m": {
-        "outlook": "Potential transition to late cycle with inflation concerns",
-        "probability": 0.7
+        "outlook": "Slight contraction risk as inflationary pressures build",
+        "probability": 0.55
       },
       "12m": {
-        "outlook": "Recession risks increasing but managed by policy responses",
-        "probability": 0.6
+        "outlook": "Potential contraction as Fed raises rates and global growth slows",
+        "probability": 0.4
       }
     }
   },
@@ -20,60 +37,59 @@
     "us_gdp_growth": {
       "current": 2.5,
       "3m": 2.6,
-      "6m": 2.4,
-      "12m": 2.2
+      "6m": 2.7,
+      "12m": 2.8
     },
     "us_inflation": {
-      "current": 2.8,
-      "3m": 2.9,
-      "6m": 3.0,
-      "12m": 2.7
+      "current": 3.0,
+      "3m": 3.1,
+      "6m": 3.2,
+      "12m": 3.3
     },
     "fed_funds_rate": {
-      "current": 4.2,
-      "3m_forecast": 4.5,
-      "12m_forecast": 4.8
+      "current": 4.19,
+      "3m_forecast": 4.25,
+      "12m_forecast": 4.3
     },
     "oil_brent": {
       "current": 57.44,
-      "3m": 58.0,
-      "6m": 59.0,
-      "12m": 60.0
+      "3m": 58,
+      "6m": 59,
+      "12m": 60
     },
     "usd_index": {
-      "current": 98.5,
-      "trend": "Strengthening"
+      "current": 90.5,
+      "trend": "slight rise"
     }
   },
   "tasi_outlook": {
-    "current": 1500.0,
-    "alignment_score": 0.8,
+    "current": 0.0,
+    "alignment_score": 0.7,
     "forecasts": {
       "3m": {
-        "target": 1550,
-        "confidence": 0.75
+        "target": 0,
+        "confidence": 0.6
       },
       "6m": {
-        "target": 1600,
-        "confidence": 0.7
+        "target": 0,
+        "confidence": 0.55
       },
       "12m": {
-        "target": 1650,
-        "confidence": 0.65
+        "target": 0,
+        "confidence": 0.5
       }
     },
     "drivers": [
-      "AI-driven innovation and tech sector growth",
-      "Increasing institutional investment in emerging technologies",
-      "Favorable regulatory environment for tech and crypto"
+      "Strong domestic demand, favorable fiscal policy, and a stable oil price support TASI growth."
     ]
   },
   "saudi_specific": {
-    "oil_production_mmbpd": 9.5,
+    "oil_production_mmbpd": 10.0,
     "pif_deployment_rate": "high",
-    "non_oil_gdp_growth": 3.5,
-    "vision_2030_progress": 0.75
+    "non_oil_gdp_growth": 4.0,
+    "vision_2030_progress": 0.8
   },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
+  "ai_analysis": "The global macro environment is in a late\u2011cycle phase, with GDP growth moderating and inflationary pressures building. The Fed\u2019s policy stance remains accommodative, but the 3\u2011month forecast indicates a potential tightening cycle that could dampen growth. Oil prices are stable, hovering around $57\u2013$60, which supports the Saudi economy\u2019s export revenues. The TASI index, currently flat, is poised for a modest upside as domestic consumption and investment recover. Saudi Arabia\u2019s high oil production capacity and aggressive PIF deployment provide a cushion against external shocks, while the Vision 2030 progress at 80% signals a continued focus on diversification. The convergence of these factors suggests a resilient but cautious outlook for the Saudi market, with a moderate upside potential over the next 12 months.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-map"
 }

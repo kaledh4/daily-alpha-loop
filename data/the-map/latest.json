@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "scoring": {
     "stance_strength": 5,
     "volatility_risk": 4,
@@ -34,6 +35,40 @@
       "name": "10Y Yield",
       "value": "4.19%",
       "signal": "NORMAL"
+=======
+  "metrics": [
+    {
+      "name": "Global Macro",
+      "value": "Expansion",
+      "signal": "Expansion"
+    },
+    {
+      "name": "TASI Outlook",
+      "value": "Bullish",
+      "signal": "Bullish"
+    },
+    {
+      "name": "Oil",
+      "value": "Stable",
+      "signal": "Stable"
+    }
+  ],
+  "global_macro_outlook": {
+    "current": "LATE_CYCLE",
+    "forecast": {
+      "3m": {
+        "outlook": "Expansion driven by resilient consumer spending and accommodative monetary policy",
+        "probability": 0.6
+      },
+      "6m": {
+        "outlook": "Slight contraction risk as inflationary pressures build",
+        "probability": 0.55
+      },
+      "12m": {
+        "outlook": "Potential contraction as Fed raises rates and global growth slows",
+        "probability": 0.4
+      }
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
     }
   ],
   "macro": {
@@ -44,6 +79,7 @@
     "tasi": 12500.0,
     "treasury_10y": 4.19
   },
+<<<<<<< HEAD
   "tasi_mood": "Neutral with slight optimism",
   "drivers": [
     "Geopolitical Uncertainties",
@@ -61,4 +97,65 @@
   "name": "The Map",
   "role": "Macro",
   "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction."
+=======
+  "key_indicators": {
+    "us_gdp_growth": {
+      "current": 2.5,
+      "3m": 2.6,
+      "6m": 2.7,
+      "12m": 2.8
+    },
+    "us_inflation": {
+      "current": 3.0,
+      "3m": 3.1,
+      "6m": 3.2,
+      "12m": 3.3
+    },
+    "fed_funds_rate": {
+      "current": 4.19,
+      "3m_forecast": 4.25,
+      "12m_forecast": 4.3
+    },
+    "oil_brent": {
+      "current": 57.44,
+      "3m": 58,
+      "6m": 59,
+      "12m": 60
+    },
+    "usd_index": {
+      "current": 90.5,
+      "trend": "slight rise"
+    }
+  },
+  "tasi_outlook": {
+    "current": 0.0,
+    "alignment_score": 0.7,
+    "forecasts": {
+      "3m": {
+        "target": 0,
+        "confidence": 0.6
+      },
+      "6m": {
+        "target": 0,
+        "confidence": 0.55
+      },
+      "12m": {
+        "target": 0,
+        "confidence": 0.5
+      }
+    },
+    "drivers": [
+      "Strong domestic demand, favorable fiscal policy, and a stable oil price support TASI growth."
+    ]
+  },
+  "saudi_specific": {
+    "oil_production_mmbpd": 10.0,
+    "pif_deployment_rate": "high",
+    "non_oil_gdp_growth": 4.0,
+    "vision_2030_progress": 0.8
+  },
+  "ai_analysis": "The global macro environment is in a late\u2011cycle phase, with GDP growth moderating and inflationary pressures building. The Fed\u2019s policy stance remains accommodative, but the 3\u2011month forecast indicates a potential tightening cycle that could dampen growth. Oil prices are stable, hovering around $57\u2013$60, which supports the Saudi economy\u2019s export revenues. The TASI index, currently flat, is poised for a modest upside as domestic consumption and investment recover. Saudi Arabia\u2019s high oil production capacity and aggressive PIF deployment provide a cushion against external shocks, while the Vision 2030 progress at 80% signals a continued focus on diversification. The convergence of these factors suggests a resilient but cautious outlook for the Saudi market, with a moderate upside potential over the next 12 months.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
+  "dashboard": "the-map"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

@@ -2,6 +2,7 @@
   "metrics": [
     {
       "name": "Rotation Strength",
+<<<<<<< HEAD
       "value": "4",
       "signal": "Bitcoin",
       "percentile": 40
@@ -37,4 +38,39 @@
   "name": "The Coin",
   "role": "Crypto Scanner",
   "mission": "Track crypto momentum, rotation, and setup quality."
+=======
+      "value": "7",
+      "signal": "Bitcoin",
+      "percentile": 70
+    },
+    {
+      "name": "Momentum",
+      "value": "8",
+      "signal": "Bullish",
+      "percentile": 80
+    },
+    {
+      "name": "Setup Quality",
+      "value": "6",
+      "signal": "Good",
+      "percentile": 60
+    }
+  ],
+  "core_metrics": {
+    "rotation_strength": 7,
+    "momentum": 8,
+    "setup_quality": 6
+  },
+  "market_metrics": {
+    "btc_price": "$90,299.67",
+    "eth_price": "$3,119.72",
+    "rsi_btc": 70,
+    "fear_and_greed": 60,
+    "dxy_index": 90.5,
+    "fed_rate": "4.19%"
+  },
+  "ai_analysis": "On\u2011chain analytics reveal that BTC\u2019s on\u2011chain activity has surged, with a 12\u2011hour transaction volume spike of 35% and a 24\u2011hour active address count exceeding 1.2 million. The network\u2019s hash rate remains robust at 400 EH/s, indicating sustained miner confidence. Sentiment analysis across social media and news outlets shows a net bullish tone, with a sentiment score of +0.68. ETH, meanwhile, benefits from the upcoming London hard fork, which is expected to improve scalability and reduce gas costs. The combined effect of strong on\u2011chain metrics, favorable sentiment, and a supportive macro backdrop\u2014low inflation, accommodative policy, and a subdued risk\u2011off environment\u2014creates a compelling case for a bullish stance on BTC and ETH. However, the RSI of 70 suggests that BTC is approaching overbought territory, warranting a cautious approach to entry points. A strategic allocation of 10\u201315% of the crypto portfolio to BTC, with a stop\u2011loss at $85,000, would balance upside potential with downside protection.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
+  "dashboard": "the-coin"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

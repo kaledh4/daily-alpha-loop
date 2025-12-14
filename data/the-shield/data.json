@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "risk_assessment": {
     "score": 0.6,
     "level": "HIGH",
@@ -8,9 +9,68 @@
     "risk_level": 2,
     "fragility": 0.4,
     "volatility_pressure": 0.5
+=======
+  "metrics": [
+    {
+      "name": "Fragility Index",
+      "value": "30",
+      "signal": "Stable",
+      "percentile": 30
+    },
+    {
+      "name": "VIX",
+      "value": "15.74",
+      "signal": "Low"
+    },
+    {
+      "name": "Liquidity",
+      "value": "8",
+      "signal": "Ample"
+    }
+  ],
+  "fragility_index": {
+    "current": 30,
+    "3m_forecast": {
+      "value": 35,
+      "crash_probability": 0.05
+    },
+    "6m_forecast": {
+      "value": 40,
+      "crash_probability": 0.1
+    },
+    "12m_forecast": {
+      "value": 45,
+      "crash_probability": 0.15
+    }
+  },
+  "stress_indicators": {
+    "vix_term_structure": {
+      "signal": "contango",
+      "stress_level": "low"
+    },
+    "credit_spreads": {
+      "current": 200,
+      "trend": "widening",
+      "z_score": 1.5
+    },
+    "liquidity_metrics": {
+      "bid_ask_spreads": {
+        "stress": "normal"
+      },
+      "market_depth": {
+        "stress": "normal"
+      }
+    },
+    "cross_asset_correlation": {
+      "current": 0.6,
+      "crisis_threshold": 0.85,
+      "trend": "rising"
+    }
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
   },
   "metrics": [
     {
+<<<<<<< HEAD
       "name": "10Y Treasury Bid-to-Cover",
       "value": "1.2x",
       "signal": "NORMAL"
@@ -52,4 +112,20 @@
   "name": "The Shield",
   "role": "Risk Environment",
   "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
+=======
+      "instrument": "Gold ETF (GLD)",
+      "recommended_allocation": "10%",
+      "rationale": "Gold historically serves as a safe\u2011haven during periods of heightened systemic risk. By allocating 10% of the portfolio to a liquid gold ETF, we create a buffer that can absorb shocks from potential market dislocations while preserving capital."
+    }
+  ],
+  "early_warning_signals": {
+    "yield_curve_inversion": false,
+    "high_yield_spread_spike": false,
+    "crypto_correlation_breakdown": false,
+    "funding_stress": false
+  },
+  "ai_analysis": "The current fragility index of 30 indicates a relatively stable market, but the upward trend in the 3\u2011month forecast suggests a gradual build\u2011up of systemic risk. The widening credit spreads, now at 200 basis points, signal that lenders are demanding higher compensation for perceived default risk, which could translate into tighter credit conditions for businesses. The VIX term structure remains in contango, implying that short\u2011term volatility is lower than long\u2011term expectations, a typical sign of a risk\u2011on environment. However, the rising cross\u2011asset correlation (0.6 trending upward) hints at an increasing probability that shocks in one market could spill over into others, thereby elevating tail risk. The combination of these factors warrants a cautious stance, with a modest allocation to defensive assets such as gold and a watchful eye on credit markets.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
+  "dashboard": "the-shield"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

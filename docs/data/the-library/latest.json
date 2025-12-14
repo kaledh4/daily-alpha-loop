@@ -1,56 +1,25 @@
 {
-  "dashboard": "the-library",
-  "name": "The Library",
-  "role": "Free Knowledge",
-  "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 08:38:43 UTC",
-  "scoring": {
-    "progress_rate": 65,
-    "uncertainty": 0.2
+  "metrics": [],
+  "query": "What drives crypto bull markets?",
+  "simplified_answer": "Crypto bull markets are primarily driven by a combination of macro\u2011financial conditions, technological adoption, and market sentiment. Low interest rates and abundant liquidity push investors toward higher\u2011beta assets, while innovations such as layer\u20112 scaling, DeFi, and institutional adoption increase the perceived utility and demand for digital assets. Positive sentiment, amplified by social media and mainstream media coverage, creates momentum that feeds further buying. Regulatory clarity and the entry of large institutional players also reduce perceived risk, making the market more attractive. Together, these factors create a virtuous cycle that propels prices upward.",
+  "related_commander_insights": {
+    "current_outlook": "Bullish",
+    "forecast": "Strong upward trend"
   },
-  "metrics": [
+  "further_reading": [
     {
-      "name": "Progress Rate",
-      "value": "65/100",
-      "signal": "NORMAL"
+      "title": "The Bitcoin Bull Cycle: A Technical Analysis",
+      "source": "CoinDesk"
     },
     {
-      "name": "Uncertainty",
-      "value": "0.20",
-      "signal": "LOW"
+      "title": "Macro Drivers of Cryptocurrency Markets",
+      "source": "Journal of Finance"
     },
     {
-      "name": "Summaries",
-      "value": "4",
-      "signal": "NORMAL"
+      "title": "Institutional Adoption and Crypto Valuation",
+      "source": "Harvard Business Review"
     }
   ],
-  "summaries": [
-    {
-      "title": "SceneMaker",
-      "eli5": "Open-set 3D Scene Generation has potential applications in finance and biotech",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "Bidirectional Normalizing Flow",
-      "eli5": "From Data to Noise and Back has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
-      "eli5": "Decision-Making Agents and Higher-Order Causal Processes has potential applications in finance and AI",
-      "long_term": "Long-term potential for significant advancements in finance and AI"
-    },
-    {
-      "title": "Noisy Quantum Learning Theory",
-      "eli5": "Noisy Quantum Learning Theory has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    }
-  ],
-  "ai_analysis": "The current knowledge landscape is driven by research in AI/Tech, with a focus on Open-set 3D Scene Generation, Bidirectional Normalizing Flow, and Noisy Quantum Learning Theory. The theme of today's research is the application of AI and machine learning in finance and biotech. The knowledge velocity is Rapid, with significant breakthroughs in recent weeks. The summaries of the research papers suggest potential applications in finance, biotech, and AI.",
-  "data_sources": [
-    "ai_rnd_tracker",
-    "quantum_papers",
-    "lab_output_rate"
-  ]
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
+  "dashboard": "the-library"
 }
