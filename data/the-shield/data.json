@@ -1,89 +1,29 @@
 {
-<<<<<<< HEAD
   "risk_assessment": {
-    "score": 0.6,
-    "level": "HIGH",
-    "color": "#FF4500"
+    "score": 0.0,
+    "level": "LOW",
+    "color": "#00FF00"
   },
   "scoring": {
-    "risk_level": 2,
-    "fragility": 0.4,
-    "volatility_pressure": 0.5
-=======
-  "metrics": [
-    {
-      "name": "Fragility Index",
-      "value": "30",
-      "signal": "Stable",
-      "percentile": 30
-    },
-    {
-      "name": "VIX",
-      "value": "15.74",
-      "signal": "Low"
-    },
-    {
-      "name": "Liquidity",
-      "value": "8",
-      "signal": "Ample"
-    }
-  ],
-  "fragility_index": {
-    "current": 30,
-    "3m_forecast": {
-      "value": 35,
-      "crash_probability": 0.05
-    },
-    "6m_forecast": {
-      "value": 40,
-      "crash_probability": 0.1
-    },
-    "12m_forecast": {
-      "value": 45,
-      "crash_probability": 0.15
-    }
-  },
-  "stress_indicators": {
-    "vix_term_structure": {
-      "signal": "contango",
-      "stress_level": "low"
-    },
-    "credit_spreads": {
-      "current": 200,
-      "trend": "widening",
-      "z_score": 1.5
-    },
-    "liquidity_metrics": {
-      "bid_ask_spreads": {
-        "stress": "normal"
-      },
-      "market_depth": {
-        "stress": "normal"
-      }
-    },
-    "cross_asset_correlation": {
-      "current": 0.6,
-      "crisis_threshold": 0.85,
-      "trend": "rising"
-    }
->>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
+    "risk_level": 0,
+    "fragility": 0.0,
+    "volatility_pressure": 0.0
   },
   "metrics": [
     {
-<<<<<<< HEAD
       "name": "10Y Treasury Bid-to-Cover",
-      "value": "1.2x",
+      "value": "2.5",
       "signal": "NORMAL"
     },
     {
       "name": "USD/JPY",
-      "value": "135.00",
+      "value": "140.0",
       "signal": "NORMAL"
     },
     {
       "name": "USD/CNH",
-      "value": "6.90",
-      "signal": "WARNING"
+      "value": "6.9",
+      "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
@@ -92,40 +32,24 @@
     },
     {
       "name": "MOVE Index",
-      "value": "0.5%",
+      "value": "80.0",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
       "value": "15.74",
-      "signal": "ELEVATED"
+      "signal": "NORMAL"
     }
   ],
-  "ai_analysis": "The risk landscape today is characterized by moderate fragility and elevated volatility pressure. The 10Y Treasury bid\u2011to\u2011cover ratio at 1.2x indicates a healthy liquidity cushion, but the warning signal on USD/CNH suggests potential stress in the offshore Chinese yuan market. The VIX at 15.74, while not extreme, is elevated relative to its 30\u2011day moving average, implying that market participants are pricing in some downside risk. Coupled with a 0.5% MOVE index, which reflects a modest uptick in Treasury supply risk, the overall picture is one of cautious equilibrium. The combination of a slightly rising US10Y yield and a stable oil price further supports a neutral stance, but any sudden spike in Treasury yields or a sharp drop in oil could quickly erode this balance. Therefore, investors should maintain a defensive posture, focusing on liquidity and avoiding overexposure to high\u2011beta assets.",
+  "ai_analysis": "The current market environment exhibits low risk and high stability, as indicated by the low risk assessment score and the normal signals across key metrics. The 10Y Treasury Bid-to-Cover ratio is at 2.5, suggesting healthy demand for government securities. The USD/JPY and USD/CNH exchange rates are stable, with values at 140.0 and 6.9, respectively, indicating no significant currency pressures. The 10Y Treasury Yield is at 4.19%, reflecting a balanced outlook on economic growth and inflation. The MOVE Index, at 80.0, and the VIX, at 15.74, both indicate normal levels of volatility, suggesting that market participants are not overly concerned about short-term risks. The overall fragility and volatility pressure are minimal, further supporting a stable market environment. This low-risk assessment is conducive to aggressive investment strategies, particularly in assets that show resilience and growth potential, such as crypto and gold. The stability in traditional markets provides a solid foundation for exploring higher-risk, higher-reward opportunities in the crypto space.",
   "data_sources": [
     "Bloomberg",
-    "Coingecko",
+    "Reuters",
     "Federal Reserve"
   ],
-  "last_update": "2025-12-14T08:29:16.554291+00:00",
+  "last_update": "2025-12-14T08:36:27.721889+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",
   "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
-=======
-      "instrument": "Gold ETF (GLD)",
-      "recommended_allocation": "10%",
-      "rationale": "Gold historically serves as a safe\u2011haven during periods of heightened systemic risk. By allocating 10% of the portfolio to a liquid gold ETF, we create a buffer that can absorb shocks from potential market dislocations while preserving capital."
-    }
-  ],
-  "early_warning_signals": {
-    "yield_curve_inversion": false,
-    "high_yield_spread_spike": false,
-    "crypto_correlation_breakdown": false,
-    "funding_stress": false
-  },
-  "ai_analysis": "The current fragility index of 30 indicates a relatively stable market, but the upward trend in the 3\u2011month forecast suggests a gradual build\u2011up of systemic risk. The widening credit spreads, now at 200 basis points, signal that lenders are demanding higher compensation for perceived default risk, which could translate into tighter credit conditions for businesses. The VIX term structure remains in contango, implying that short\u2011term volatility is lower than long\u2011term expectations, a typical sign of a risk\u2011on environment. However, the rising cross\u2011asset correlation (0.6 trending upward) hints at an increasing probability that shocks in one market could spill over into others, thereby elevating tail risk. The combination of these factors warrants a cautious stance, with a modest allocation to defensive assets such as gold and a watchful eye on credit markets.",
-  "last_update": "2025-12-14T04:33:42.384695+00:00",
-  "dashboard": "the-shield"
->>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }
