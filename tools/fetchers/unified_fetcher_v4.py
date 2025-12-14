@@ -663,6 +663,14 @@ class UnifiedFetcherV4:
                     "BTC": {{ "risk_reward": "High/Medium/Low", "conviction": 0-10, "forecasts": {{ "3m": {{ "target": "price_string" }} }} }},
                     "fed_rate": "string"
                 }},
+                "morning_brief": {{
+                    "weather_of_the_day": "Sunny/Cloudy/Stormy/Foggy/Volatile",
+                    "top_signal": "string (The single most important signal for today)",
+                    "action_stance": "Aggressive/Neutral/Defensive",
+                    "why_it_matters": "string (Explanation of the top signal)",
+                    "cross_dashboard_convergence": "string (How signals from Shield, Coin, and Map align)",
+                    "summary_sentence": "string (Executive summary sentence)"
+                }},
                 "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
             }},
             "the_shield": {{
