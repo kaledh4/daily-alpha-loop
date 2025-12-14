@@ -217,13 +217,9 @@ function renderAIAnalysis(analysis) {
 }
 
 function renderMorningBrief(brief) {
-    if (!brief) {
-        console.warn('[DashboardCore] Morning brief data is missing');
-        return '';
-    }
+    if (!brief) return '';
 
     const getWeatherIcon = (weather) => {
-        if (!weather) return '../static/icons/icons8-sunny-48.png';
         const w = weather.toLowerCase();
         // Prioritize specific matches
         if (w.includes('cloud')) return '../static/icons/icons8-cloudy.gif';
@@ -234,193 +230,190 @@ function renderMorningBrief(brief) {
         return '../static/icons/icons8-sunny-48.png';
     };
 
-    const weather = brief.weather_of_the_day || 'Unknown';
-    const icon = getWeatherIcon(weather);
-
     return `
         <div class="content-card">
             <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <span>Weather: ${weather}</span>
-                <img src="${icon}" alt="${weather}" style="width: 48px; height: 48px;">
+                <span>Weather: ${brief.weather_of_the_day}</span>
+                <img src="${getWeatherIcon(brief.weather_of_the_day)}" alt="${brief.weather_of_the_day}" style="width: 48px; height: 48px;">
             </div>
             
             <div class="data-grid" style="margin-top: 20px;">
                 <div class="data-section">
                     <h3>TOP SIGNAL</h3>
-                    <div class="data-value" style="font-size: 1.2rem; text-align: left;">${brief.top_signal || 'N/A'}</div>
+                    <div class="data-value" style="font-size: 1.2rem; text-align: left;">${brief.top_signal}</div>
                 </div>
                 <div class="data-section">
                     <h3>ACTION STANCE</h3>
-                    <div class="stance" style="text-align: center;">${brief.action_stance || 'N/A'}</div>
+                    <div class="stance" style="text-align: center;">${brief.action_stance}</div>
                 </div>
             </div>
 
             <div class="summary-box" style="margin-top: 20px; text-align: left;">
                 <h3 style="color: #90cdf4; margin-bottom: 10px;">Why It Matters</h3>
-                <p>${brief.why_it_matters || 'No explanation provided.'}</p>
+                <p>${brief.why_it_matters}</p>
             </div>
 
             <div class="data-section" style="margin-top: 20px;">
                 <h3>Cross-Dashboard Convergence</h3>
-                <p class="data-text">${brief.cross_dashboard_convergence || 'No convergence data.'}</p>
+                <p class="data-text">${brief.cross_dashboard_convergence}</p>
             </div>
 
             <div class="data-section" style="margin-top: 20px;">
                 <h3>The Commander's Summary</h3>
-                <p class="data-text" style="font-style: italic;">"${brief.summary_sentence || 'No summary available.'}"</p>
+                <p class="data-text" style="font-style: italic;">"${brief.summary_sentence}"</p>
             </div>
         </div>
     `;
 }
 
 async function initDashboard(dashboardName) {
-    try {
-        const data = await loadDashboardData(dashboardName);
+    const data = await loadDashboardData(dashboardName);
 
-        // Render Navigation (assuming navigation.js is loaded)
-        if (window.renderNavigation) {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('mode') !== 'seamless') {
-                document.getElementById('nav').innerHTML = window.renderNavigation(dashboardName);
-            } else {
-                // In seamless mode, hide the nav container to avoid spacing issues
-                const navEl = document.getElementById('nav');
-                if (navEl) navEl.style.display = 'none';
-            }
+    // Render Navigation (assuming navigation.js is loaded)
+    if (window.renderNavigation) {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('mode') !== 'seamless') {
+            document.getElementById('nav').innerHTML = window.renderNavigation(dashboardName);
+        } else {
+            // In seamless mode, hide the nav container to avoid spacing issues
+            const navEl = document.getElementById('nav');
+            if (navEl) navEl.style.display = 'none';
         }
+    }
 
-        if (!data) {
-            document.getElementById('content').innerHTML = `
-                <div class="content-card">
-                    <h2>Loading Data...</h2>
-                    <p>Please wait while we fetch the latest intelligence.</p>
-                </div>
-            `;
-            return;
-        }
+    if (!data) {
+        document.getElementById('content').innerHTML = `
+            <div class="content-card">
+                <h2>Loading Data...</h2>
+                <p>Please wait while we fetch the latest intelligence.</p>
+            </div>
+        `;
+        return;
+    }
 
-        renderHeader(data);
+    renderHeader(data);
 
-        const contentEl = document.getElementById('content');
-        let html = '';
+    const contentEl = document.getElementById('content');
 
-        if (dashboardName === 'the-commander') {
-            console.log('[DashboardCore] Rendering The Commander');
-            html += renderMorningBrief(data.morning_brief);
+    if (dashboardName === 'the-commander') {
+        let html = renderMorningBrief(data.morning_brief);
 
-            // Add Flight to Safety
-            html += renderFlightToSafety(data.flight_to_safety_score);
+        // Add Flight to Safety
+        html += renderFlightToSafety(data.flight_to_safety_score);
 
-            // Add Asset Outlook
-            html += renderAssetOutlook(data.asset_outlook);
+        // Add Asset Outlook
+        html += renderAssetOutlook(data.asset_outlook);
 
-            // Add AGI Tracker
-            html += renderAgiTracker(data.agi_singularity_tracker);
+        // Add AGI Tracker
+        html += renderAgiTracker(data.agi_singularity_tracker);
 
-            // Add conflict matrix if available
-            if (data.conflict_matrix) {
-                const matrix = data.conflict_matrix;
-                html += `
-                    <div class="content-card" style="margin-top: 20px;">
-                        <h2>📊 Dashboard Convergence</h2>
-                        <div class="data-grid">
-                            <div class="data-section">
-                                <h3>Risk</h3>
-                                <div style="color: ${matrix.risk.color}; font-weight: bold;">${matrix.risk.signal} (${matrix.risk.score}/100)</div>
-                            </div>
-                            <div class="data-section">
-                                <h3>Crypto</h3>
-                                <div style="color: ${matrix.crypto.color}; font-weight: bold;">${matrix.crypto.signal} (${matrix.crypto.score}/100)</div>
-                            </div>
-                            <div class="data-section">
-                                <h3>Macro</h3>
-                                <div style="color: ${matrix.macro.color}; font-weight: bold;">${matrix.macro.signal} (${matrix.macro.score}/100)</div>
-                            </div>
-                            <div class="data-section">
-                                <h3>Tech</h3>
-                                <div style="color: ${matrix.tech.color}; font-weight: bold;">${matrix.tech.signal} (${matrix.tech.score}/100)</div>
-                            </div>
+        // Add conflict matrix if available
+        if (data.conflict_matrix) {
+            const matrix = data.conflict_matrix;
+            html += `
+                <div class="content-card" style="margin-top: 20px;">
+                    <h2>📊 Dashboard Convergence</h2>
+                    <div class="data-grid">
+                        <div class="data-section">
+                            <h3>Risk</h3>
+                            <div style="color: ${matrix.risk.color}; font-weight: bold;">${matrix.risk.signal} (${matrix.risk.score}/100)</div>
                         </div>
-                        <div style="margin-top: 20px; padding: 15px; background: ${matrix.net_signal.color}20; border-radius: 8px; border-left: 4px solid ${matrix.net_signal.color};">
-                            <h3 style="color: ${matrix.net_signal.color}; margin-bottom: 8px;">Net Signal: ${matrix.net_signal.signal}</h3>
-                            <div style="color: #718096;">Confidence: ${(matrix.net_signal.confidence * 100).toFixed(0)}%</div>
+                        <div class="data-section">
+                            <h3>Crypto</h3>
+                            <div style="color: ${matrix.crypto.color}; font-weight: bold;">${matrix.crypto.signal} (${matrix.crypto.score}/100)</div>
+                        </div>
+                        <div class="data-section">
+                            <h3>Macro</h3>
+                            <div style="color: ${matrix.macro.color}; font-weight: bold;">${matrix.macro.signal} (${matrix.macro.score}/100)</div>
+                        </div>
+                        <div class="data-section">
+                            <h3>Tech</h3>
+                            <div style="color: ${matrix.tech.color}; font-weight: bold;">${matrix.tech.signal} (${matrix.tech.score}/100)</div>
                         </div>
                     </div>
-                `;
-            }
+                    <div style="margin-top: 20px; padding: 15px; background: ${matrix.net_signal.color}20; border-radius: 8px; border-left: 4px solid ${matrix.net_signal.color};">
+                        <h3 style="color: ${matrix.net_signal.color}; margin-bottom: 8px;">Net Signal: ${matrix.net_signal.signal}</h3>
+                        <div style="color: #718096;">Confidence: ${(matrix.net_signal.confidence * 100).toFixed(0)}%</div>
+                    </div>
+                </div>
+            `;
+        }
 
-            // Add decision tree if available
-            if (data.decision_tree && data.decision_tree.primary_decision) {
-                const decision = data.decision_tree.primary_decision;
+        // Add decision tree if available
+        if (data.decision_tree && data.decision_tree.primary_decision) {
+            const decision = data.decision_tree.primary_decision;
+            html += `
+                <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
+                    <h2 style="color: #48bb78;">🎯 Decision Tree</h2>
+                    <div style="padding: 15px; background: #1a202c; border-radius: 8px; margin-top: 10px;">
+                        <div style="color: #90cdf4; font-weight: bold; margin-bottom: 8px;">IF ${decision.condition}</div>
+                        <div style="color: #48bb78; font-size: 1.2rem; font-weight: bold; margin-bottom: 8px;">→ ${decision.action}</div>
+                        <div style="color: #718096; font-size: 0.9rem;">Confidence: ${(decision.confidence * 100).toFixed(0)}%</div>
+                        <div style="color: #cbd5e0; margin-top: 8px; font-style: italic;">${decision.reasoning}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        contentEl.innerHTML = html;
+    } else {
+        let html = '';
+
+        // 1. Regime detection (for The Shield)
+        if (data.regime) {
+            html += `
+                <div class="content-card">
+                    <h2>🎯 Market Regime</h2>
+                    <div style="padding: 15px; background: ${data.regime.color}20; border-radius: 8px; border-left: 4px solid ${data.regime.color};">
+                        <div style="color: ${data.regime.color}; font-size: 1.3rem; font-weight: bold;">${data.regime.regime}</div>
+                        <div style="color: #718096; margin-top: 4px;">Confidence: ${(data.regime.confidence * 100).toFixed(0)}%</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 2. Scoring Metrics
+        html += renderScoring(data.scoring);
+
+        // 3. Metrics Section
+        console.log('[DashboardCore] Checking metrics for:', data.dashboard);
+        if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
+            console.log('[DashboardCore] Metrics found:', data.metrics.length);
+            // Check if metrics are enhanced (have percentile)
+            const isEnhanced = data.metrics[0].percentile !== undefined;
+
+            if (isEnhanced) {
+                console.log('[DashboardCore] Rendering enhanced metrics');
+                html += renderEnhancedMetrics(data.metrics);
+            } else {
+                console.log('[DashboardCore] Rendering basic metrics');
+                // Render basic metrics
                 html += `
-                    <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
-                        <h2 style="color: #48bb78;">🎯 Decision Tree</h2>
-                        <div style="padding: 15px; background: #1a202c; border-radius: 8px; margin-top: 10px;">
-                            <div style="color: #90cdf4; font-weight: bold; margin-bottom: 8px;">IF ${decision.condition}</div>
-                            <div style="color: #48bb78; font-size: 1.2rem; font-weight: bold; margin-bottom: 8px;">→ ${decision.action}</div>
-                            <div style="color: #718096; font-size: 0.9rem;">Confidence: ${(decision.confidence * 100).toFixed(0)}%</div>
-                            <div style="color: #cbd5e0; margin-top: 8px; font-style: italic;">${decision.reasoning}</div>
+                    <div class="content-card" style="margin-top: 20px;">
+                        <h2><img src="../static/icons/icons8-chart-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Market Metrics</h2>
+                        <div class="data-grid">
+                            ${data.metrics.map(m => `
+                                <div class="data-section">
+                                    <h3>${m.name}</h3>
+                                    <div class="data-value" style="color: #63b3ed;">${m.value}</div>
+                                    <div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${m.signal}</div>
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
                 `;
             }
         } else {
-            // 1. Regime detection (for The Shield)
-            if (data.regime) {
-                html += `
-                    <div class="content-card">
-                        <h2>🎯 Market Regime</h2>
-                        <div style="padding: 15px; background: ${data.regime.color}20; border-radius: 8px; border-left: 4px solid ${data.regime.color};">
-                            <div style="color: ${data.regime.color}; font-size: 1.3rem; font-weight: bold;">${data.regime.regime}</div>
-                            <div style="color: #718096; margin-top: 4px;">Confidence: ${(data.regime.confidence * 100).toFixed(0)}%</div>
-                        </div>
-                    </div>
-                `;
-            }
-
-            // 2. Scoring Metrics
-            html += renderScoring(data.scoring);
-
-            // 3. Metrics Section
-            console.log('[DashboardCore] Checking metrics for:', data.dashboard);
-            if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
-                console.log('[DashboardCore] Metrics found:', data.metrics.length);
-                // Check if metrics are enhanced (have percentile)
-                const isEnhanced = data.metrics[0].percentile !== undefined;
-
-                if (isEnhanced) {
-                    console.log('[DashboardCore] Rendering enhanced metrics');
-                    html += renderEnhancedMetrics(data.metrics);
-                } else {
-                    console.log('[DashboardCore] Rendering basic metrics');
-                    // Render basic metrics
-                    html += `
-                        <div class="content-card" style="margin-top: 20px;">
-                            <h2><img src="../static/icons/icons8-chart-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Market Metrics</h2>
-                            <div class="data-grid">
-                                ${data.metrics.map(m => `
-                                    <div class="data-section">
-                                        <h3>${m.name}</h3>
-                                        <div class="data-value" style="color: #63b3ed;">${m.value}</div>
-                                        <div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${m.signal}</div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `;
-                }
-            } else {
-                console.warn('[DashboardCore] No metrics found for dashboard:', data.dashboard);
-            }
-
-            // 4. AI Analysis
-            html += renderAIAnalysis(data.ai_analysis);
-
-            // 5. Data Sources
-            html += renderDataSources(data.data_sources);
+            console.warn('[DashboardCore] No metrics found for dashboard:', data.dashboard);
         }
 
-        // 6. Footer (Common for all)
+        // 4. AI Analysis
+        html += renderAIAnalysis(data.ai_analysis);
+
+        // 5. Data Sources
+        html += renderDataSources(data.data_sources);
+
+        // 6. Footer
         html += `
             <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid #2d3748; padding-top: 20px;">
                 <a href="../read_all/index.html" style="color: #4a5568; text-decoration: none; font-size: 0.9rem;">Read All Data (Debug)</a>
@@ -428,16 +421,6 @@ async function initDashboard(dashboardName) {
         `;
 
         contentEl.innerHTML = html;
-
-    } catch (error) {
-        console.error('[DashboardCore] Fatal error initializing dashboard:', error);
-        document.getElementById('content').innerHTML = `
-            <div class="content-card" style="border-color: #e53e3e;">
-                <h2 style="color: #e53e3e;">System Error</h2>
-                <p>Failed to render dashboard content.</p>
-                <pre style="background: #2d3748; padding: 10px; border-radius: 4px; overflow-x: auto; margin-top: 10px;">${error.message}</pre>
-            </div>
-        `;
     }
 }
 
