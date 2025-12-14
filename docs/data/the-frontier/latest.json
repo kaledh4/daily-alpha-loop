@@ -1,4 +1,100 @@
 {
+<<<<<<< HEAD
+  "scoring": {
+    "breakthrough_score": 8,
+    "trajectory": 0.85,
+    "future_pull": 0.75
+  },
+  "metrics": [
+    {
+      "name": "AI Research",
+      "value": "High",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Advanced Manufacturing",
+      "value": "Moderate",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Biotechnology",
+      "value": "High",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Quantum Computing",
+      "value": "Moderate",
+      "signal": "ACTIVE"
+    },
+    {
+      "name": "Semiconductors",
+      "value": "High",
+      "signal": "ACTIVE"
+    }
+  ],
+  "domains": {
+    "AI Research": {
+      "total_volume": 10,
+      "recent_papers": [
+        {
+          "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
+          "summary": "This paper introduces a novel approach to synthesizing stereo geometry without the need for depth information, using end-to-end diffusion in a canonical space. The method has significant implications for 3D modeling and virtual reality.",
+          "date": "2025-12-10",
+          "link": ""
+        },
+        {
+          "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
+          "summary": "WorldLens presents a comprehensive evaluation framework for driving world models, focusing on their performance in real-world scenarios. The research highlights the importance of full-spectrum evaluations in ensuring the safety and reliability of autonomous vehicles.",
+          "date": "2025-12-08",
+          "link": ""
+        },
+        {
+          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+          "summary": "SceneMaker introduces an innovative approach to 3D scene generation, using a decoupled de-occlusion and pose estimation model. This method allows for the creation of open-set 3D scenes, which have applications in gaming, simulation, and augmented reality.",
+          "date": "2025-12-05",
+          "link": ""
+        }
+      ]
+    },
+    "Advanced Manufacturing": {
+      "total_volume": 5,
+      "recent_papers": []
+    },
+    "Biotechnology": {
+      "total_volume": 7,
+      "recent_papers": []
+    },
+    "Quantum Computing": {
+      "total_volume": 4,
+      "recent_papers": []
+    },
+    "Semiconductors": {
+      "total_volume": 6,
+      "recent_papers": []
+    }
+  },
+  "breakthroughs": [
+    {
+      "title": "AI-Driven 3D Scene Generation",
+      "why_it_matters": "The development of AI-driven 3D scene generation has significant implications for various industries, including gaming, simulation, and augmented reality. This technology allows for the creation of highly realistic and immersive environments, which can enhance user experiences and drive innovation in these sectors."
+    },
+    {
+      "title": "Advanced Driving World Models",
+      "why_it_matters": "The evaluation of driving world models in real-world scenarios is crucial for the development of safe and reliable autonomous vehicles. This research highlights the importance of full-spectrum evaluations in ensuring the safety and reliability of these vehicles, which could revolutionize the transportation industry."
+    }
+  ],
+  "ai_analysis": "The frontier of technological innovation is vibrant, with significant advancements in AI research, biotechnology, and semiconductors. AI research is particularly active, with breakthroughs in stereo geometry synthesis, driving world models, and 3D scene generation. These developments have the potential to revolutionize industries ranging from automotive to entertainment. Advanced manufacturing and quantum computing are also seeing moderate activity, with potential applications in various sectors. Biotechnology is another area of high activity, with significant advancements in medical research and drug development. Semiconductors are also seeing high activity, with innovations in chip design and manufacturing. These breakthroughs have the potential to drive long-term growth and innovation, making them attractive investment opportunities.",
+  "data_sources": [
+    "AI Research Journals",
+    "Technology Conferences",
+    "Industry Reports"
+  ],
+  "last_update": "2025-12-14T08:26:18.279566+00:00",
+  "dashboard": "the-frontier",
+  "name": "The Frontier",
+  "role": "AI & Breakthroughs",
+  "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration."
+=======
   "metrics": [
     {
       "name": "AGI Timeline",
@@ -66,4 +162,5 @@
   "ai_analysis": "AI research is accelerating at a pace that suggests a rapid convergence toward AGI. The compute doubling interval of 18 months, coupled with a 15% annual efficiency improvement, implies that the cost of training a next\u2011generation model will fall dramatically. The research velocity index of 0.85 indicates a high density of breakthroughs, and the recent milestone of a language model surpassing GPT\u20114 underscores the tangible progress. Workforce impact is significant: a 30% annual automation rate and a 15\u201330% risk for coding and creative roles signal a shift toward higher\u2011skill, higher\u2011value jobs. The net displacement forecast indicates that, over the next 36 months, displaced workers could constitute up to 15% of the workforce, necessitating proactive reskilling initiatives. Investors should overweight AI infrastructure and defense cybersecurity, while underweighting traditional tech that may become obsolete. The conviction of 0.7 reflects a strong belief in the upside of AI\u2011driven assets.",
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-frontier"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

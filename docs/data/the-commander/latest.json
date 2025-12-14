@@ -2,6 +2,22 @@
   "metrics": [
     {
       "name": "Flight to Safety",
+<<<<<<< HEAD
+      "value": "0-10",
+      "signal": "Risk On/Off"
+    },
+    {
+      "name": "Market Sentiment",
+      "value": "0-100",
+      "signal": "Bearish/Bullish"
+    }
+  ],
+  "flight_to_safety_score": {
+    "current": 4.5,
+    "trend": "Rising",
+    "3m_forecast": {
+      "score": 5.0,
+=======
       "value": "2.0",
       "signal": "Risk On"
     },
@@ -16,6 +32,7 @@
     "trend": "Rising",
     "3m_forecast": {
       "score": 3.0,
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
       "confidence": 0.7
     }
   },
@@ -40,6 +57,28 @@
     }
   },
   "agi_singularity_tracker": {
+<<<<<<< HEAD
+    "escape_velocity_probability": 0.35,
+    "timeline_estimate": "2035",
+    "key_metrics": {
+      "compute_doubling": "Every 1.5 years",
+      "research_velocity": "Accelerating"
+    }
+  },
+  "morning_brief": {
+    "weather_of_the_day": "Cloudy",
+    "top_signal": "VIX remains flat while gold gains momentum and BTC is in a consolidation phase",
+    "action_stance": "Neutral",
+    "why_it_matters": "The current market environment reflects a delicate balance between risk appetite and caution. A stable VIX indicates that volatility expectations are not spiking, which typically signals that investors are not yet in a panic mode. Gold\u2019s modest upside suggests that the safe\u2011haven currency is still attractive, but not overwhelmingly so, pointing to a moderate flight\u2011to\u2011safety sentiment. BTC\u2019s consolidation around the $90k level shows that the cryptocurrency is not yet breaking out into a new rally, yet it is also not showing signs of a sharp decline. Together, these dynamics mean that while there is no immediate trigger for a market shift, any sudden change in macro data or geopolitical events could quickly tilt the balance. Hence, staying alert to any uptick in VIX or a sudden drop in gold can provide early warning signs of a potential market pivot.",
+    "cross_dashboard_convergence": "Across the crypto, macro, and risk dashboards, we observe a coherent narrative: the VIX is holding steady, the 10Y Treasury yield is slightly higher than the previous week, and gold is up by almost 1%. These indicators collectively suggest that risk sentiment is neither bullish nor bearish but hovering in a neutral zone. In crypto terms, BTC\u2019s price is stable, while altcoins like ETH and HYPE are showing mixed performance. The macro backdrop of a modestly rising US10Y and a stable oil price supports a cautious stance. The convergence of these signals across asset classes reinforces the idea that the market is in a holding pattern, awaiting a clear catalyst to move decisively.",
+    "summary_sentence": "Today\u2019s markets are in a neutral holding pattern, with VIX steady, gold modestly up, and BTC consolidating\u2014watch for any macro catalyst that could tilt sentiment."
+  },
+  "last_update": "2025-12-14T08:29:16.554291+00:00",
+  "dashboard": "the-commander",
+  "name": "The Commander",
+  "role": "Morning Brief",
+  "mission": "Deliver the daily top signal, weather report, and executive summary."
+=======
     "escape_velocity_probability": 0.3,
     "timeline_estimate": "2035",
     "key_metrics": {
@@ -57,4 +96,5 @@
   },
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-commander"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

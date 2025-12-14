@@ -1,4 +1,15 @@
 {
+<<<<<<< HEAD
+  "risk_assessment": {
+    "score": 0.6,
+    "level": "HIGH",
+    "color": "#FF4500"
+  },
+  "scoring": {
+    "risk_level": 2,
+    "fragility": 0.4,
+    "volatility_pressure": 0.5
+=======
   "metrics": [
     {
       "name": "Fragility Index",
@@ -55,9 +66,53 @@
       "crisis_threshold": 0.85,
       "trend": "rising"
     }
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
   },
-  "tail_risk_hedges": [
+  "metrics": [
     {
+<<<<<<< HEAD
+      "name": "10Y Treasury Bid-to-Cover",
+      "value": "1.2x",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "USD/JPY",
+      "value": "135.00",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "USD/CNH",
+      "value": "6.90",
+      "signal": "WARNING"
+    },
+    {
+      "name": "10Y Treasury Yield",
+      "value": "4.19%",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "MOVE Index",
+      "value": "0.5%",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "VIX",
+      "value": "15.74",
+      "signal": "ELEVATED"
+    }
+  ],
+  "ai_analysis": "The risk landscape today is characterized by moderate fragility and elevated volatility pressure. The 10Y Treasury bid\u2011to\u2011cover ratio at 1.2x indicates a healthy liquidity cushion, but the warning signal on USD/CNH suggests potential stress in the offshore Chinese yuan market. The VIX at 15.74, while not extreme, is elevated relative to its 30\u2011day moving average, implying that market participants are pricing in some downside risk. Coupled with a 0.5% MOVE index, which reflects a modest uptick in Treasury supply risk, the overall picture is one of cautious equilibrium. The combination of a slightly rising US10Y yield and a stable oil price further supports a neutral stance, but any sudden spike in Treasury yields or a sharp drop in oil could quickly erode this balance. Therefore, investors should maintain a defensive posture, focusing on liquidity and avoiding overexposure to high\u2011beta assets.",
+  "data_sources": [
+    "Bloomberg",
+    "Coingecko",
+    "Federal Reserve"
+  ],
+  "last_update": "2025-12-14T08:29:16.554291+00:00",
+  "dashboard": "the-shield",
+  "name": "The Shield",
+  "role": "Risk Environment",
+  "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
+=======
       "instrument": "Gold ETF (GLD)",
       "recommended_allocation": "10%",
       "rationale": "Gold historically serves as a safe\u2011haven during periods of heightened systemic risk. By allocating 10% of the portfolio to a liquid gold ETF, we create a buffer that can absorb shocks from potential market dislocations while preserving capital."
@@ -72,4 +127,5 @@
   "ai_analysis": "The current fragility index of 30 indicates a relatively stable market, but the upward trend in the 3\u2011month forecast suggests a gradual build\u2011up of systemic risk. The widening credit spreads, now at 200 basis points, signal that lenders are demanding higher compensation for perceived default risk, which could translate into tighter credit conditions for businesses. The VIX term structure remains in contango, implying that short\u2011term volatility is lower than long\u2011term expectations, a typical sign of a risk\u2011on environment. However, the rising cross\u2011asset correlation (0.6 trending upward) hints at an increasing probability that shocks in one market could spill over into others, thereby elevating tail risk. The combination of these factors warrants a cautious stance, with a modest allocation to defensive assets such as gold and a watchful eye on credit markets.",
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-shield"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

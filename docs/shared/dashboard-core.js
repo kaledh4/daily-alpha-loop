@@ -355,13 +355,11 @@ async function initDashboard(dashboardName) {
             `;
         }
 
-        contentEl.innerHTML = html + renderFooter();
-    } else if (dashboardName === 'the-shield') {
-        contentEl.innerHTML = renderTheShield(data) + renderFooter();
+        contentEl.innerHTML = html;
     } else {
         let html = '';
 
-        // 1. Regime detection (for The Shield - Legacy/Fallback)
+        // 1. Regime detection (for The Shield)
         if (data.regime) {
             html += `
                 <div class="content-card">
@@ -415,9 +413,6 @@ async function initDashboard(dashboardName) {
         // 5. Data Sources
         html += renderDataSources(data.data_sources);
 
-<<<<<<< HEAD
-        contentEl.innerHTML = html + renderFooter();
-=======
         // 6. Footer
         html += `
             <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid #2d3748; padding-top: 20px;">
@@ -426,86 +421,7 @@ async function initDashboard(dashboardName) {
         `;
 
         contentEl.innerHTML = html;
->>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
     }
-}
-
-function renderFooter() {
-    return `
-        <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid #2d3748; padding-top: 20px;">
-            <a href="../read_all/index.html" style="color: #718096; text-decoration: none; font-size: 0.9rem;">
-                Debug: Read All Data
-            </a>
-        </div>
-    `;
-}
-
-function renderTheShield(data) {
-    let html = '';
-
-    // 1. Risk Assessment
-    if (data.risk_assessment) {
-        const ra = data.risk_assessment;
-        html += `
-            <div class="content-card">
-                <h2>🛡️ Risk Assessment</h2>
-                <div style="padding: 20px; background: ${ra.color}20; border-radius: 8px; border-left: 5px solid ${ra.color}; text-align: center;">
-                    <div style="font-size: 3rem; font-weight: bold; color: ${ra.color};">${ra.score}</div>
-                    <div style="font-size: 1.5rem; color: #e2e8f0; margin-top: 5px;">${ra.level}</div>
-                </div>
-            </div>
-        `;
-    }
-
-    // 2. Metrics
-    if (data.metrics && data.metrics.length > 0) {
-        html += `
-            <div class="content-card" style="margin-top: 20px;">
-                <h2><img src="../static/icons/icons8-chart-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Key Metrics</h2>
-                <div class="data-grid">
-                    ${data.metrics.map(m => `
-                        <div class="data-section">
-                            <h3>${m.name}</h3>
-                            <div class="data-value" style="color: #63b3ed;">${m.value}</div>
-                            <div style="font-size: 0.85rem; color: ${m.signal === 'NORMAL' ? '#48bb78' : '#fc8181'}; margin-top: 4px;">${m.signal}</div>
-                            <div style="font-size: 0.8rem; color: #718096; margin-top: 2px;">${m.desc}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-    }
-
-    // 3. AI Insights
-    if (data.ai_insights) {
-        html += `
-            <div class="content-card" style="margin-top: 20px; border-color: #fc8181;">
-                <h2 style="color: #fc8181;"><img src="../static/icons/icons8-ai-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> AI Risk Analysis</h2>
-                
-                <div style="margin-bottom: 20px;">
-                    <h3 style="color: #cbd5e0; margin-bottom: 10px;">Crash Analysis</h3>
-                    <div class="data-text">${data.ai_insights.crash_analysis}</div>
-                </div>
-
-                <div>
-                    <h3 style="color: #cbd5e0; margin-bottom: 10px;">News Summary</h3>
-                    <div class="data-text">${data.ai_insights.news_summary}</div>
-                </div>
-            </div>
-        `;
-    }
-
-    // 4. Days Remaining
-    if (data.days_remaining !== undefined) {
-        html += `
-            <div class="content-card" style="margin-top: 20px; text-align: center;">
-                <div style="font-size: 1.2rem; color: #718096;">Days Remaining in Year</div>
-                <div style="font-size: 2rem; font-weight: bold; color: #e2e8f0;">${data.days_remaining}</div>
-            </div>
-        `;
-    }
-
-    return html;
 }
 
 // Register Service Worker

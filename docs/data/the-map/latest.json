@@ -1,4 +1,41 @@
 {
+<<<<<<< HEAD
+  "scoring": {
+    "stance_strength": 5,
+    "volatility_risk": 4,
+    "confidence": 0.65
+  },
+  "metrics": [
+    {
+      "name": "S&P 500",
+      "value": "6,827.41",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "TASI",
+      "value": "12,500.00",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Oil (Brent)",
+      "value": "$57.44",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "Gold",
+      "value": "$4,328.30",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "DXY",
+      "value": "102.5",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "10Y Yield",
+      "value": "4.19%",
+      "signal": "NORMAL"
+=======
   "metrics": [
     {
       "name": "Global Macro",
@@ -31,8 +68,36 @@
         "outlook": "Potential contraction as Fed raises rates and global growth slows",
         "probability": 0.4
       }
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
     }
+  ],
+  "macro": {
+    "oil": 57.44,
+    "dxy": 102.5,
+    "gold": 4328.3,
+    "sp500": 6827.41,
+    "tasi": 12500.0,
+    "treasury_10y": 4.19
   },
+<<<<<<< HEAD
+  "tasi_mood": "Neutral with slight optimism",
+  "drivers": [
+    "Geopolitical Uncertainties",
+    "AI-Driven Innovations",
+    "Central Bank Policies"
+  ],
+  "ai_analysis": "The global macro environment is characterized by a mix of stability and caution. The S&P 500 is trading at 6,827.41, reflecting a modest decline but overall stability. The TASI, Saudi Arabia's main stock index, is at 12,500.00, indicating a neutral stance with slight optimism. Oil prices are at $57.44, reflecting geopolitical uncertainties and potential supply-demand imbalances. Gold is trading at $4,328.30, suggesting that investors are seeking safe-haven assets. The U.S. Dollar Index (DXY) is at 102.5, reflecting a strong dollar, which could impact the performance of dollar-denominated assets. The 10-year Treasury yield is at 4.19%, reflecting expectations of potential rate hikes, which could impact both equity and bond markets. In this context, investors should focus on managing risk while identifying opportunities in sectors that benefit from AI-driven innovations and central bank policies.",
+  "data_sources": [
+    "Global Economic Indicators",
+    "Central Bank Reports",
+    "AI Research Journals"
+  ],
+  "last_update": "2025-12-14T08:26:18.279566+00:00",
+  "dashboard": "the-map",
+  "name": "The Map",
+  "role": "Macro",
+  "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction."
+=======
   "key_indicators": {
     "us_gdp_growth": {
       "current": 2.5,
@@ -92,4 +157,5 @@
   "ai_analysis": "The global macro environment is in a late\u2011cycle phase, with GDP growth moderating and inflationary pressures building. The Fed\u2019s policy stance remains accommodative, but the 3\u2011month forecast indicates a potential tightening cycle that could dampen growth. Oil prices are stable, hovering around $57\u2013$60, which supports the Saudi economy\u2019s export revenues. The TASI index, currently flat, is poised for a modest upside as domestic consumption and investment recover. Saudi Arabia\u2019s high oil production capacity and aggressive PIF deployment provide a cushion against external shocks, while the Vision 2030 progress at 80% signals a continued focus on diversification. The convergence of these factors suggests a resilient but cautious outlook for the Saudi market, with a moderate upside potential over the next 12 months.",
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-map"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

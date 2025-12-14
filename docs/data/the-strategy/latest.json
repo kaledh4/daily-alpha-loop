@@ -1,4 +1,50 @@
 {
+<<<<<<< HEAD
+  "scoring": {
+    "stance_confidence": 6
+  },
+  "metrics": [
+    {
+      "name": "Risk Input",
+      "value": "Moderate",
+      "signal": "CAUTION"
+    },
+    {
+      "name": "Crypto Input",
+      "value": "Bearish",
+      "signal": "BEARISH"
+    },
+    {
+      "name": "Macro Input",
+      "value": "Neutral",
+      "signal": "NEUTRAL"
+    },
+    {
+      "name": "Frontier Input",
+      "value": "High",
+      "signal": "NORMAL"
+    }
+  ],
+  "stance": "Neutral with Selective Opportunities",
+  "mindset": "Cautious Optimism",
+  "inputs": {
+    "risk": "Moderate risk aversion with selective opportunities in AI-driven sectors.",
+    "crypto": "Bearish sentiment with potential for a reversal.",
+    "macro": "Stable but cautious global macro environment.",
+    "frontier": "High activity in AI research, biotechnology, and semiconductors."
+  },
+  "ai_analysis": "The current investment strategy should be characterized by cautious optimism, with a focus on managing risk while identifying selective opportunities. The risk input suggests a moderate level of risk aversion, with opportunities in AI-driven sectors. The crypto input is bearish, indicating a potential for a reversal in the short term. The macro input is neutral, reflecting a stable but cautious global macro environment. The frontier input is high, with significant activity in AI research, biotechnology, and semiconductors. In this context, investors should focus on sectors that benefit from AI-driven innovations while maintaining a diversified portfolio to manage risk. The strategy should be flexible, allowing for adjustments based on changing market conditions and new opportunities.",
+  "data_sources": [
+    "Market Data Feeds",
+    "Economic Indicators",
+    "AI Research Journals"
+  ],
+  "last_update": "2025-12-14T08:26:18.279566+00:00",
+  "dashboard": "the-strategy",
+  "name": "The Strategy",
+  "role": "Market Stance",
+  "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance."
+=======
   "metrics": [
     {
       "name": "Top Opportunity",
@@ -56,4 +102,5 @@
   "ai_analysis": "The strategy prioritizes BTC as the top opportunity, leveraging its strong momentum and favorable macro backdrop. A 10% allocation to BTC, with a 15% expected return and a 10% maximum drawdown, aligns with a medium\u2011risk tolerance. The stop\u2011loss at $85,000 protects against a sharp reversal, while the exit target at $95,000 captures the projected 3\u2011month rally. The portfolio allocation balances risk across asset classes, with 40% in crypto, 20% in equities, 10% in commodities, 10% in cash, and 20% in bonds. Risk\u2011adjusted scores place BTC at the top, followed by gold and TASI, reflecting their relative attractiveness. Correlation analysis shows a modest negative correlation between BTC and SPX, a positive correlation between gold and SPX, and a moderate positive correlation between BTC and gold, supporting diversification benefits. Overall, the plan offers a disciplined, data\u2011driven approach to capture upside while managing downside risk.",
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-strategy"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }

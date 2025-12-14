@@ -2,6 +2,43 @@
   "metrics": [
     {
       "name": "Rotation Strength",
+<<<<<<< HEAD
+      "value": "4",
+      "signal": "Bitcoin",
+      "percentile": 40
+    },
+    {
+      "name": "Momentum",
+      "value": "3",
+      "signal": "Bearish",
+      "percentile": 30
+    },
+    {
+      "name": "Setup Quality",
+      "value": "5",
+      "signal": "Good"
+    }
+  ],
+  "core_metrics": {
+    "rotation_strength": 4.0,
+    "momentum": 3.0,
+    "setup_quality": 5.0
+  },
+  "market_metrics": {
+    "btc_price": "$90,225.38",
+    "eth_price": "$3,116.35",
+    "rsi_btc": 45.0,
+    "fear_and_greed": 40,
+    "dxy_index": 102.5,
+    "fed_rate": "4.50%"
+  },
+  "ai_analysis": "The crypto market is currently in a state of consolidation, with Bitcoin and Ethereum experiencing minor declines. The rotation strength indicator suggests a slight bias towards Bitcoin, which is trading at $90,225.38. Ethereum, on the other hand, is trading at $3,116.35, reflecting a more bearish sentiment. The momentum indicator is in the bearish zone, suggesting that the current downtrend could continue in the short term. However, the setup quality indicator is positive, indicating that there are potential opportunities for a reversal. The Relative Strength Index (RSI) for Bitcoin is at 45.0, which is neither overbought nor oversold, suggesting that there is room for movement in either direction. The Fear and Greed Index is at 40, indicating a state of fear among investors. The U.S. Dollar Index (DXY) is at 102.5, reflecting a strong dollar, which could impact the performance of dollar-denominated assets like cryptocurrencies. The Federal Reserve's interest rate is at 4.50%, which could impact both equity and bond markets. In this context, investors should focus on managing risk while identifying potential opportunities for a reversal in the crypto market.",
+  "last_update": "2025-12-14T08:26:18.279566+00:00",
+  "dashboard": "the-coin",
+  "name": "The Coin",
+  "role": "Crypto Scanner",
+  "mission": "Track crypto momentum, rotation, and setup quality."
+=======
       "value": "7",
       "signal": "Bitcoin",
       "percentile": 70
@@ -35,4 +72,5 @@
   "ai_analysis": "On\u2011chain analytics reveal that BTC\u2019s on\u2011chain activity has surged, with a 12\u2011hour transaction volume spike of 35% and a 24\u2011hour active address count exceeding 1.2 million. The network\u2019s hash rate remains robust at 400 EH/s, indicating sustained miner confidence. Sentiment analysis across social media and news outlets shows a net bullish tone, with a sentiment score of +0.68. ETH, meanwhile, benefits from the upcoming London hard fork, which is expected to improve scalability and reduce gas costs. The combined effect of strong on\u2011chain metrics, favorable sentiment, and a supportive macro backdrop\u2014low inflation, accommodative policy, and a subdued risk\u2011off environment\u2014creates a compelling case for a bullish stance on BTC and ETH. However, the RSI of 70 suggests that BTC is approaching overbought territory, warranting a cautious approach to entry points. A strategic allocation of 10\u201315% of the crypto portfolio to BTC, with a stop\u2011loss at $85,000, would balance upside potential with downside protection.",
   "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-coin"
+>>>>>>> 37851cd5a94c8aaa0794896d76dcf0cb3e059dde
 }
