@@ -1,38 +1,38 @@
 {
   "metrics": [
     {
-      "name": "Rotation Strength",
-      "value": "6.5",
-      "signal": "Bitcoin",
-      "percentile": 75
+      "name": "Flight to Safety",
+      "value": "0-10",
+      "signal": "Risk On/Off"
     },
     {
-      "name": "Momentum",
-      "value": "7.0",
-      "signal": "Bullish",
-      "percentile": 80
-    },
-    {
-      "name": "Setup Quality",
-      "value": "8.0",
-      "signal": "Good"
+      "name": "Market Sentiment",
+      "value": "0-100",
+      "signal": "Bearish/Bullish"
     }
   ],
-  "core_metrics": {
-    "rotation_strength": 6.5,
-    "momentum": 7.0,
-    "setup_quality": 8.0
+  "flight_to_safety_score": {
+    "current": 6.2,
+    "trend": "Rising",
+    "3m_forecast": {
+      "score": 7.1,
+      "confidence": 0.78
+    }
   },
-  "market_metrics": {
-    "btc_price": "$90,221.47",
-    "eth_price": "$3,118.40",
-    "rsi_btc": 65.0,
-    "fear_and_greed": 55,
-    "dxy_index": 102.5,
-    "fed_rate": "5.25-5.50%"
+  "asset_outlook": {
+    "BTC": {
+      "risk_reward": "High",
+      "conviction": 8,
+      "forecasts": {
+        "3m": {
+          "target": "$95,000"
+        }
+      }
+    },
+    "fed_rate": "string"
   },
-  "ai_analysis": "The crypto market is currently in a strong bullish phase, with Bitcoin leading the charge. The rotation strength is high, at 6.5, indicating a significant shift towards Bitcoin dominance, which is further supported by the 75th percentile ranking. This trend is reinforced by the bullish momentum, scored at 7.0, and the good setup quality, rated at 8.0. The current BTC price is $90,221.47, showing a slight decline of 0.0855% over the past 24 hours, but the overall trend remains positive. ETH is also performing well, with a price of $3,118.40 and a 24-hour change of 0.0546%, indicating a bullish sentiment across the top crypto assets. The RSI for BTC is at 65.0, suggesting that the asset is in a healthy range without being overbought. The fear and greed index is at 55, reflecting a balanced market sentiment that is slightly leaning towards greed. The DXY index is at 102.5, indicating a strong US dollar, which could potentially impact crypto prices. The Fed rate remains stable at 5.25-5.50%, providing a predictable interest rate environment. On-chain data supports this bullish outlook, with increasing network activity and growing institutional interest. The overall market structure suggests a continued upward trend, with Bitcoin and Ethereum leading the way. Investors should consider maintaining a bullish stance, focusing on high-quality projects with strong fundamentals and growth potential. The convergence of technical indicators and on-chain metrics provides a robust signal for aggressive investment strategies in the crypto space.",
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",

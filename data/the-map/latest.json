@@ -1,63 +1,58 @@
 {
   "scoring": {
-    "stance_strength": 5,
-    "volatility_risk": 4,
-    "confidence": 0.6
+    "stance_strength": 0,
+    "volatility_risk": 0,
+    "confidence": 0.0
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,827.41",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10,630.36",
+      "value": "string",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.44",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,300.10",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.39",
+      "value": "string",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.19%",
+      "value": "string",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 57.44,
-    "dxy": 98.39,
-    "gold": 4300.1,
-    "sp500": 6827.41,
-    "tasi": 10630.36,
-    "treasury_10y": 4.19
+    "oil": 0.0,
+    "dxy": 0.0,
+    "gold": 0.0,
+    "sp500": 0.0,
+    "tasi": 0.0,
+    "treasury_10y": 0.0
   },
-  "tasi_mood": "Neutral",
+  "tasi_mood": "string",
   "drivers": [
-    "Oil price stability",
-    "US Treasury yields",
-    "Geopolitical tensions"
+    "string"
   ],
-  "ai_analysis": "The global macro environment is characterized by a delicate balance between growth pressures and risk\u2011off sentiment. The S&P 500 is trading at 6,827, down 1.07% from the previous close, reflecting a modest contraction in equity markets. The TASI, at 10,630, is down 0.80%, indicating that the Saudi market is also experiencing a mild pullback.\n\nOil prices are under pressure, with Brent at $57.44, a 2.5% decline from the previous session. This decline is driven by a combination of supply\u2011side excess and weak demand expectations amid a slowing global economy. Gold, however, remains a strong safe haven, trading at $4,300, which is a 0.5% increase.\n\nThe dollar index (DXY) is at 98.39, a slight decline from the previous close, but still above the 95\u2011point threshold that typically signals a strong dollar. The 10\u2011year Treasury yield at 4.19% is above the 3\u2011year average for the past decade, indicating that the Federal Reserve\u2019s tightening cycle is still in full swing.\n\nIn Saudi Arabia, the TASI mood is neutral, with no clear bullish or bearish signals. The drivers of the Saudi market are largely influenced by oil price stability, US Treasury yields, and geopolitical tensions in the Middle East. The combination of these factors suggests that the Saudi market is likely to remain range\u2011bound in the near term.\n\nOverall, the macro picture is one of a market that is under pressure from multiple fronts: equity markets are down, oil is under pressure, and the dollar remains strong. Investors should be prepared for potential volatility and consider hedging strategies that protect against sudden spikes in volatility.",
+  "ai_analysis": "The global macroeconomic landscape presents a complex tapestry of interconnected variables that significantly influence financial markets and economic policies worldwide. The S&P 500, a barometer of U.S. equity market performance, reflects the aggregate sentiment of investors regarding corporate earnings, interest rates, and broader economic expectations. Its movements are closely watched as indicators of economic health and investor confidence. Meanwhile, the TASI (Tadawul All Share Index) encapsulates the dynamics of the Saudi Arabian stock market, which is intricately linked to the nation's oil-dependent economy and its ambitious Vision 2030 initiative aimed at economic diversification. The performance of TASI is not only a reflection of domestic economic policies but also of global oil prices and geopolitical stability in the Middle East. Oil prices, particularly Brent crude, serve as a critical determinant of global economic activity, affecting inflation rates, trade balances, and fiscal policies of both oil-exporting and oil-importing nations. Fluctuations in oil prices can lead to significant shifts in currency values and interest rate policies, as central banks attempt to manage inflationary pressures and economic growth. Gold, traditionally viewed as a safe-haven asset, responds inversely to the U.S. Dollar Index (DXY), which measures the dollar's strength against a basket of major currencies. When the DXY rises, indicating a stronger dollar, gold prices often fall, and vice versa. This relationship is pivotal during times of economic uncertainty or geopolitical tensions. The U.S. 10-Year Treasury yield acts as a benchmark for global interest rates, influencing borrowing costs, mortgage rates, and investment decisions across various asset classes. Its trajectory is closely monitored for signals regarding future monetary policy and economic growth expectations. The interplay among these macroeconomic indicators is further complicated by the actions of central banks, fiscal policies, and geopolitical events, creating a dynamic environment where changes in one variable can have cascading effects across global markets. Understanding these relationships is essential for policymakers, investors, and economists in navigating the complexities of the global economy and making informed decisions.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Saudi Stock Exchange",
-    "Yahoo Finance"
+    "string"
   ],
-  "last_update": "2025-12-14T09:58:36.570976+00:00",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

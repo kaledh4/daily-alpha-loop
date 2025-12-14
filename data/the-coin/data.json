@@ -1,39 +1,38 @@
 {
   "metrics": [
     {
-      "name": "Rotation Strength",
-      "value": "4.0",
-      "signal": "Bitcoin/Altcoins",
-      "percentile": 40
+      "name": "Flight to Safety",
+      "value": "0-10",
+      "signal": "Risk On/Off"
     },
     {
-      "name": "Momentum",
-      "value": "3.0",
-      "signal": "Bearish/Bullish",
-      "percentile": 30
-    },
-    {
-      "name": "Setup Quality",
-      "value": "5.0",
-      "signal": "Average/Good/Excellent"
+      "name": "Market Sentiment",
+      "value": "0-100",
+      "signal": "Bearish/Bullish"
     }
   ],
-  "core_metrics": {
-    "rotation_strength": 4.0,
-    "momentum": 3.0,
-    "setup_quality": 5.0
+  "flight_to_safety_score": {
+    "current": 6.2,
+    "trend": "Rising",
+    "3m_forecast": {
+      "score": 7.1,
+      "confidence": 0.78
+    }
   },
-  "market_metrics": {
-    "btc_price": "$90,056.63",
-    "eth_price": "$3,110.55",
-    "rsi_btc": 45.0,
-    "eth_btc": 0.0345,
-    "fear_and_greed": 21,
-    "dxy_index": 98.39,
-    "fed_rate": "4.19%"
+  "asset_outlook": {
+    "BTC": {
+      "risk_reward": "High",
+      "conviction": 8,
+      "forecasts": {
+        "3m": {
+          "target": "$95,000"
+        }
+      }
+    },
+    "fed_rate": "string"
   },
-  "ai_analysis": "The crypto momentum landscape is currently in a state of mild bearishness, as evidenced by the 3\u2011point momentum score and the 4\u2011point rotation strength. Bitcoin\u2019s dominance remains high at 56.86%, but altcoins are slowly gaining market share, as reflected in the Alts.D of 43.14%. This gradual shift indicates a potential rotation from Bitcoin to altcoins, but the momentum remains weak, suggesting that the rotation is not yet fully materialized.\n\nThe setup quality score of 5.0 (average) indicates that the technical environment is neither strongly bullish nor strongly bearish. The RSI for Bitcoin is at 45.0, which is below the 50\u2011level, confirming a mild bearish bias. Ethereum\u2019s price relative to Bitcoin (ETH/BTC 0.0345) is stable, implying that Ethereum is not outpacing Bitcoin in terms of market share.\n\nOn the macro side, the Fear & Greed index at 21 and the VIX at 15.74 reinforce a risk\u2011off sentiment that could dampen any bullish momentum in the crypto space. The DXY at 98.39 and the 10\u2011year Treasury yield at 4.19% further support the notion that the dollar remains strong and that fixed\u2011income markets are under pressure.\n\nIn conclusion, the crypto market is in a cautious phase. While altcoins are slowly gaining traction, the overall momentum is weak, and the macro environment is risk\u2011off. Investors should adopt a defensive stance, focusing on liquidity and risk management, while keeping an eye on potential catalysts that could shift the market into a bullish regime.",
-  "last_update": "2025-12-14T09:58:36.570976+00:00",
+  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",

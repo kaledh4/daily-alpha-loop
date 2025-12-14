@@ -1,57 +1,45 @@
 {
   "scoring": {
-    "breakthrough_score": 7,
-    "trajectory": 0.8,
-    "future_pull": 0.9
+    "breakthrough_score": 0,
+    "trajectory": 0.0,
+    "future_pull": 0.0
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "High activity",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "Moderate activity",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "High activity",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "Emerging",
+      "value": "string",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "Strong demand",
+      "value": "string",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 10,
+      "total_volume": 0,
       "recent_papers": [
         {
-          "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
-          "summary": "This paper presents a novel diffusion\u2011based framework for generating stereo geometry without explicit depth maps, enabling more realistic 3D scene synthesis.",
-          "date": "2025-11-01",
-          "link": "https://arxiv.org/abs/xxxxxx"
-        },
-        {
-          "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
-          "summary": "WorldLens introduces a comprehensive evaluation suite for autonomous driving models, covering perception, planning, and control across diverse real\u2011world scenarios.",
-          "date": "2025-10-15",
-          "link": "https://arxiv.org/abs/yyyyyy"
-        },
-        {
-          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
-          "summary": "SceneMaker demonstrates an open\u2011set 3D scene generation pipeline that decouples occlusion handling and pose estimation, improving generation quality.",
-          "date": "2025-09-20",
-          "link": "https://arxiv.org/abs/zzzzzz"
+          "title": "string",
+          "summary": "string",
+          "date": "string",
+          "link": "string"
         }
       ]
     },
@@ -70,83 +58,19 @@
     "Semiconductors": {
       "total_volume": 0,
       "recent_papers": []
-    },
-    "breakthroughs": [
-      {
-        "title": "Quantum Supremacy Achieved in Error\u2011Corrected Qubits",
-        "why_it_matters": "Marks a milestone in scalable quantum computing, opening doors for complex cryptographic and simulation tasks."
-      }
-    ],
-    "ai_analysis": "The frontier sector is experiencing a surge of activity across multiple high\u2011impact domains. AI research is in a high\u2011activity phase, with a velocity index of 0.85 and exponential compute scaling. The recent papers listed above illustrate a shift towards more realistic 3D scene generation, autonomous driving evaluation, and open\u2011set scene synthesis, all of which are critical for the next generation of AI applications.\n\nAdvanced manufacturing is in a moderate activity phase, driven by the adoption of additive manufacturing and digital twins. Biotechnology remains highly active, with breakthroughs in gene editing and mRNA therapeutics. Quantum computing is still emerging, but the recent demonstration of error\u2011corrected qubits achieving supremacy signals a turning point that could accelerate the development of quantum\u2011enhanced cryptography and optimization.\n\nSemiconductors continue to see strong demand, especially in the automotive and data\u2011center segments. The combination of AI research, advanced manufacturing, biotechnology, quantum computing, and semiconductors creates a synergistic ecosystem that is poised to deliver transformative innovations over the next decade.\n\nFrom a workforce perspective, the rapid pace of progress in AI and quantum computing is reshaping skill requirements. Engineers with expertise in machine learning, quantum algorithms, and hardware design are in high demand, while traditional manufacturing roles are evolving to incorporate digital twins and simulation tools. The net effect is a shift towards a more interdisciplinary skill set that blends software, hardware, and domain knowledge.\n\nIn summary, the frontier is a hotbed of breakthroughs that are likely to drive significant economic growth and reshape the competitive landscape across multiple industries.",
-    "data_sources": [
-      "arXiv",
-      "IEEE Xplore",
-      "Nature",
-      "MIT Technology Review"
-    ]
+    }
   },
-  "the_strategy": {
-    "scoring": {
-      "stance_confidence": 0.7
-    },
-    "metrics": [
-      {
-        "name": "Risk Input",
-        "value": "High volatility, rising rates",
-        "signal": "CAUTION"
-      },
-      {
-        "name": "Crypto Input",
-        "value": "Bearish trend, rotation to altcoins",
-        "signal": "BEARISH"
-      },
-      {
-        "name": "Macro Input",
-        "value": "Stagnant growth, rising inflation",
-        "signal": "NEUTRAL"
-      },
-      {
-        "name": "Frontier Input",
-        "value": "AI breakthroughs, but workforce uncertainty",
-        "signal": "NORMAL"
-      }
-    ],
-    "stance": "Cautiously Defensive",
-    "mindset": "Risk\u2011averse, opportunistic",
-    "inputs": {
-      "risk": "High volatility, rising rates",
-      "crypto": "Bearish trend, rotation to altcoins",
-      "macro": "Stagnant growth, rising inflation",
-      "frontier": "AI breakthroughs, but workforce uncertainty"
-    },
-    "ai_analysis": "The investment strategy for the current environment should be anchored in a cautious, defensive posture that balances risk mitigation with opportunistic positioning. The risk input signals high volatility and a tightening monetary stance, which is reflected in the 10\u2011year Treasury yield at 4.19% and the VIX at 15.74. This environment is conducive to defensive asset allocation, such as high\u2011quality bonds, defensive equities, and stable\u2011coin exposure.\n\nThe crypto input indicates a bearish trend with a gradual rotation to altcoins. Bitcoin\u2019s dominance remains high, but the altcoin market cap is growing, suggesting that investors may seek diversification within the crypto space. However, the overall momentum is weak, so any exposure should be limited to high\u2011conviction opportunities that have clear technical or fundamental catalysts.\n\nMacro conditions are neutral, with stagnant growth and rising inflation. The dollar remains strong, and the global economy is in a delicate balance between growth and inflationary pressures. This macro backdrop supports a strategy that emphasizes liquidity and flexibility, allowing for quick repositioning as conditions evolve.\n\nFrontier inputs highlight AI breakthroughs that could unlock new value streams, but workforce uncertainty remains a concern. The rapid pace of AI adoption is reshaping skill requirements, and companies that can adapt quickly will benefit. Investors should consider exposure to AI\u2011enabled companies that have a clear path to monetization and a strong talent pipeline.\n\nIn practice, a portfolio that allocates 40% to defensive fixed\u2011income, 20% to high\u2011quality defensive equities, 10% to stable\u2011coin or crypto\u2011stable assets, 10% to altcoin opportunistic positions, and 20% to frontier\u2011focused equities (AI, biotech, semiconductors) would provide a balanced risk\u2011return profile. The strategy should be reviewed quarterly, with a focus on maintaining liquidity and monitoring key risk indicators such as the VIX, Treasury yields, and crypto market sentiment.",
-    "data_sources": [
-      "Bloomberg",
-      "Reuters",
-      "CoinDesk",
-      "Yahoo Finance"
-    ]
-  },
-  "the_library": {
-    "metrics": [],
-    "query": "What drives crypto bull markets?",
-    "simplified_answer": "Crypto bull markets are typically driven by a combination of macro\u2011fundamental factors, technological advancements, and market sentiment. 1) Macro\u2011fundamental drivers such as a strong dollar\u2011to\u2011crypto conversion rate, low\u2011interest\u2011rate environments, and a robust global\u2011market growth can encourage investors to allocate capital to digital assets. 2) Technological innovations that improve scalability, security, and usability (e.g., layer\u20112 solutions, roll\u2011ups, and smart\u2011contract platforms) are often the key\u00a0to\u00a0the\u00a0\u2026",
-    "related_commander_insights": {
-      "current_outlook": "Bearish",
-      "forecast": "Potential reversal in 3-6 months"
-    },
-    "further_reading": [
-      {
-        "title": "Understanding\u00a0the\u00a0Bitcoin\u00a0and\u00a0Bitcoin\u00a0Price\u00a0Syndrome",
-        "source": "CoinDesk"
-      },
-      {
-        "title": "The\u00a0Impact\u00a0of\u00a0Inflation\u00a0and\u00a0Inflation\u2011tied\u00a0i\u2011t\u00a0\u2026",
-        "source": "Coin\u00a0Synd"
-      }
-    ]
-  },
-  "last_update": "2025-12-14T09:58:36.570976+00:00",
+  "breakthroughs": [
+    {
+      "title": "string",
+      "why_it_matters": "string"
+    }
+  ],
+  "ai_analysis": "The landscape of artificial intelligence (AI) research is undergoing a transformative evolution, characterized by exponential growth in computational capabilities, algorithmic sophistication, and interdisciplinary applications. Recent advancements in deep learning architectures, such as transformers and generative adversarial networks (GANs), have enabled machines to perform complex tasks with human-like proficiency, including natural language understanding, image synthesis, and strategic decision-making. The proliferation of large-scale language models, exemplified by systems like GPT and BERT, has revolutionized fields ranging from healthcare diagnostics to financial forecasting, by enabling the extraction of actionable insights from vast datasets. Concurrently, the integration of AI with quantum computing is poised to unlock unprecedented computational power, potentially solving problems that are currently intractable for classical computers. In biotechnology, AI-driven tools are accelerating drug discovery processes, optimizing protein folding predictions, and personalizing medical treatments, thereby enhancing the precision and efficacy of healthcare interventions. Advanced manufacturing is also being reshaped by AI, through the implementation of smart factories that utilize machine learning for predictive maintenance, quality control, and supply chain optimization, leading to increased efficiency and reduced operational costs. The semiconductor industry is at the forefront of this revolution, developing specialized AI chips that offer superior performance and energy efficiency compared to traditional processors, thus addressing the growing demand for computational resources. Furthermore, the ethical and societal implications of AI advancements are prompting rigorous discourse on governance, transparency, and bias mitigation, ensuring that technological progress aligns with human values and regulatory frameworks. As AI continues to permeate various domains, the convergence of research efforts across academia, industry, and government is fostering a collaborative ecosystem that accelerates innovation and broadens the scope of potential applications. This dynamic environment not only propels scientific discovery but also necessitates a multidisciplinary approach to education and workforce development, preparing the next generation of professionals to harness the full potential of AI technologies.",
+  "data_sources": [
+    "string"
+  ],
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",

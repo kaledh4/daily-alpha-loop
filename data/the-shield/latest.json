@@ -1,59 +1,38 @@
 {
-  "risk_assessment": {
-    "score": 7.5,
-    "level": "HIGH",
-    "color": "#FF0000"
-  },
-  "scoring": {
-    "risk_level": 8,
-    "fragility": 0.6,
-    "volatility_pressure": 0.5
-  },
   "metrics": [
     {
-      "name": "10Y Treasury Bid-to-Cover",
-      "value": "56.86",
-      "signal": "NORMAL"
+      "name": "Flight to Safety",
+      "value": "0-10",
+      "signal": "Risk On/Off"
     },
     {
-      "name": "USD/JPY",
-      "value": "140.5",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "USD/CNH",
-      "value": "6.8",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "10Y Treasury Yield",
-      "value": "4.19%",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "MOVE Index",
-      "value": "69.25",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "VIX",
-      "value": "15.74",
-      "signal": "ELEVATED"
-    },
-    {
-      "name": "Fear & Greed",
-      "value": "21",
-      "signal": "Fear"
+      "name": "Market Sentiment",
+      "value": "0-100",
+      "signal": "Bearish/Bullish"
     }
   ],
-  "ai_analysis": "Global risk pressure is currently elevated, driven by a confluence of factors that span the equity, fixed\u2011income, and commodity markets. The 10\u2011year Treasury yield sits at 4.19%, a level that is still above the 3\u2011year average for the past decade, indicating that the Federal Reserve\u2019s tightening cycle is still in full swing. The bid\u2011to\u2011cover ratio of 56.86 for the 10\u2011year Treasury suggests that the market is still willing to absorb new debt issuance, but the ratio is approaching levels that historically precede a tightening of liquidity.\n\nThe MOVE index, a measure of Treasury market volatility, is at 69.25, which is above the 50\u2011point threshold that typically signals heightened risk in the bond market. Coupled with a VIX of 15.74, the data points to a market that is on the edge of a risk\u2011off shift. The Fear & Greed index at 21 confirms that sentiment is skewed towards fear.\n\nCurrency dynamics add another layer of complexity. The USD/JPY at 140.5 reflects a strong dollar against the yen, while the USD/CNH at 6.8 indicates that the offshore yuan remains relatively stable against the dollar. These currency movements suggest that the dollar is still the dominant safe\u2011haven currency, but the relative stability of the yuan could provide a hedge for investors in Asian markets.\n\nIn terms of cross\u2011asset stress, the equity markets are under pressure, with the S&P 500 down 1.07% and the TASI down 0.80%. Oil prices are also under pressure, trading at $57.44, which is a 2.5% decline from the previous session. Gold, however, remains a strong safe haven, trading at $4,300, which is a 0.5% increase.\n\nOverall, the risk environment is high, with elevated volatility in both the equity and fixed\u2011income markets, a strong dollar, and a bearish sentiment across the board. Investors should be prepared for potential market dislocations and consider hedging strategies that protect against sudden spikes in volatility.",
-  "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "CoinDesk",
-    "Yahoo Finance"
-  ],
-  "last_update": "2025-12-14T09:58:36.570976+00:00",
+  "flight_to_safety_score": {
+    "current": 6.2,
+    "trend": "Rising",
+    "3m_forecast": {
+      "score": 7.1,
+      "confidence": 0.78
+    }
+  },
+  "asset_outlook": {
+    "BTC": {
+      "risk_reward": "High",
+      "conviction": 8,
+      "forecasts": {
+        "3m": {
+          "target": "$95,000"
+        }
+      }
+    },
+    "fed_rate": "string"
+  },
+  "ai_analysis": "The cryptocurrency market is currently navigating a complex landscape characterized by heightened volatility and shifting investor sentiment. Bitcoin (BTC) is trading at approximately $90,041, reflecting a 24-hour decline of 0.285%, while Ethereum (ETH) is positioned around $3,112, down 0.15% over the same period. The broader market sentiment is further underscored by the Fear & Greed Index, which registers at 21, classified as 'Extreme Fear,' indicating that investors are predominantly risk-averse. This cautious stance is corroborated by the BTC Dominance metric, which stands at 56.87%, suggesting that Bitcoin continues to capture a significant portion of market capitalization, often at the expense of alternative cryptocurrencies during periods of uncertainty. The ETH/BTC ratio is at 0.03456, reflecting a relative underperformance of Ethereum against Bitcoin, a common trend during risk-off phases. The top cryptocurrencies exhibit mixed signals; while some assets like BNB and TRX show positive momentum with gains of 0.72% and 0.79% respectively, others such as HYPE experience substantial declines of 4.78%. Stablecoins like USDT and USDC maintain their pegs with minimal fluctuations, providing a semblance of stability amidst the turbulence. The AI research velocity index of 0.85, coupled with exponential compute scaling, suggests that technological advancements continue to accelerate, potentially laying the groundwork for future market catalysts. However, the immediate outlook remains clouded by macroeconomic factors, including fluctuating bond yields and currency strength, which are likely to influence investor behavior in the short term. As the market grapples with these dynamics, the interplay between risk sentiment, technological progress, and macroeconomic indicators will be pivotal in shaping the trajectory of cryptocurrency prices in the coming months.",
+  "last_update": "2025-12-14T09:54:09.660937+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",
