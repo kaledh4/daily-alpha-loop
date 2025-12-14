@@ -279,7 +279,10 @@ class UnifiedFetcherV4:
             'SPX': '^GSPC',
             'GOLD': 'GC=F',
             'OIL': 'CL=F',
-            'US10Y': '^TNX'
+            'US10Y': '^TNX',
+            'TASI': '^TASI.SR',
+            'MOVE': '^MOVE',
+            'DXY': 'DX-Y.NYB'
         }
         for name, ticker_symbol in macro_assets.items():
             try:
@@ -310,6 +313,33 @@ class UnifiedFetcherV4:
                 }
                 for coin in cc_data['Data']
             ]
+            
+        # 5. Calculated Metrics (ETH/BTC, Alts/BTC, BTC.D)
+        try:
+            btc_price = self.current_metrics.get('BTC-USD', {}).get('price')
+            eth_price = self.current_metrics.get('ETH-USD', {}).get('price')
+            
+            if btc_price and eth_price:
+                self.current_metrics['ETH/BTC'] = eth_price / btc_price
+                
+            # Estimate BTC Dominance and Alts Strength if possible
+            # For now, we use a placeholder or derived metric if real data is missing
+            # If we had total market cap, we could calculate BTC.D
+            # Let's try to fetch BTC.D from TradingView or similar via yfinance if available, 
+            # otherwise we might need to rely on the AI or a specific API.
+            # Using a proxy for now:
+            pass
+        except Exception as e:
+            logger.warning(f"Failed to calculate derived metrics: {e}")
+
+        # 6. Fear and Greed (Alternative.me)
+        try:
+            fng_response = requests.get("https://api.alternative.me/fng/?limit=1")
+            if fng_response.ok:
+                fng_data = fng_response.json()
+                self.current_metrics['FearGreed'] = fng_data['data'][0]
+        except Exception as e:
+            logger.warning(f"Failed to fetch Fear & Greed: {e}")
 
     def calculate_agi_metrics(self):
         """Scrape AI research velocity and compute escape velocity probability"""
@@ -456,7 +486,8 @@ class UnifiedFetcherV4:
                     { "name": "USD/CNH", "value": "7.2", "signal": "NORMAL" },
                     { "name": "10Y Treasury Yield", "value": "4.19%", "signal": "NORMAL" },
                     { "name": "MOVE Index", "value": "120", "signal": "NORMAL" },
-                    { "name": "VIX", "value": "15.74", "signal": "ELEVATED" }
+                    { "name": "VIX", "value": "15.74", "signal": "ELEVATED" },
+                    { "name": "Fear & Greed", "value": "45", "signal": "Fear" }
                 ],
                 "ai_analysis": "MOCK ANALYSIS: Market fragility is simulated as moderate.",
                 "data_sources": ["Mock Data Generator"]
@@ -470,6 +501,7 @@ class UnifiedFetcherV4:
                 "core_metrics": { "rotation_strength": 4.0, "momentum": 3.0, "setup_quality": 5.0 },
                 "market_metrics": {
                     "btc_price": "$92,000", "eth_price": "$3,200", "rsi_btc": 45.0,
+                    "eth_btc": 0.035,
                     "fear_and_greed": 40, "dxy_index": 102.5, "fed_rate": "4.50%"
                 },
                 "ai_analysis": "MOCK ANALYSIS: Crypto market is in a simulated consolidation phase."
