@@ -102,6 +102,24 @@ class FREDClient(BaseClient):
 class AlphaVantageClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('ALPHA_VANTAGE_KEY'))
+
+class CoinGeckoClient(BaseClient):
+    def __init__(self):
+        super().__init__()
+        self.base_url = "https://api.coingecko.com/api/v3"
+
+    def get_price(self, ids: str, vs_currencies: str = 'usd') -> Dict:
+        params = {
+            'ids': ids,
+            'vs_currencies': vs_currencies,
+            'include_market_cap': 'true',
+            'include_24hr_change': 'true'
+        }
+        return self.get_json(f"{self.base_url}/simple/price", params) or {}
+
+    def get_global_data(self) -> Dict:
+        url = f"{self.base_url}/global"
+        return self.get_json(url)
 class EIAClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('EIA_API_KEY'))
