@@ -1,13 +1,26 @@
 {
   "metrics": [],
-  "query": "Mock Query",
-  "simplified_answer": "This is a mock answer for testing.",
+  "query": "What drives crypto bull markets?",
+  "simplified_answer": "Crypto bull markets are driven by a combination of factors, including technological advancements, institutional adoption, regulatory clarity, and market sentiment. Technological innovations, such as the development of new blockchain protocols and decentralized applications, often spark interest and investment in the crypto space. Institutional adoption, where large financial institutions and corporations invest in crypto assets, provides legitimacy and stability to the market. Regulatory clarity, as governments and regulatory bodies provide clear guidelines for crypto investments and trading, reduces uncertainty and encourages more participants to enter the market. Market sentiment, influenced by media coverage, social media trends, and overall economic conditions, plays a significant role in driving bull markets. When these factors align, they create a positive feedback loop, attracting more investors and pushing crypto prices higher. Additionally, the scarcity and deflationary nature of many crypto assets, coupled with their potential for high returns, make them attractive investments during bull markets. Understanding these drivers can help investors identify opportunities and navigate the volatile crypto market more effectively.",
   "related_commander_insights": {
-    "current_outlook": "Mock Outlook",
-    "forecast": "Mock Forecast"
+    "current_outlook": "The current outlook is bullish, with strong performance in top crypto assets and positive market sentiment.",
+    "forecast": "The forecast is positive, with continued growth expected in the crypto market, driven by technological advancements and institutional adoption."
   },
-  "further_reading": [],
-  "last_update": "2025-12-14T09:00:50.569713+00:00",
+  "further_reading": [
+    {
+      "title": "The Impact of Institutional Investment on Crypto Markets",
+      "source": "Harvard Business Review"
+    },
+    {
+      "title": "Navigating Crypto Bull Markets: Strategies for Success",
+      "source": "CoinDesk"
+    },
+    {
+      "title": "Regulatory Trends and Their Influence on Crypto Adoption",
+      "source": "Forbes"
+    }
+  ],
+  "last_update": "2025-12-14T08:36:27.721889+00:00",
   "dashboard": "the-library",
   "name": "The Library",
   "role": "Knowledge Archive",
