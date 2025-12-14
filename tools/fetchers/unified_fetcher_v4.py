@@ -120,6 +120,11 @@ class CoinGeckoClient(BaseClient):
     def get_global_data(self) -> Dict:
         url = f"{self.base_url}/global"
         return self.get_json(url)
+
+class NewsAPIClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('NEWS_API_KEY'))
+
 class EIAClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('EIA_API_KEY'))
@@ -197,6 +202,31 @@ class CBOEClient(BaseClient):
                 }
         except Exception:
             pass
+        return {}
+
+class GeminiClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('GEMINI_API_KEY'))
+        # Placeholder for Gemini API implementation
+        
+    def get_prices(self):
+        # Implement actual Gemini API call if needed
+        return {}
+
+class AnthropicClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('ANTHROPIC_API_KEY'))
+        
+    def analyze(self, data):
+        # Placeholder for Anthropic analysis
+        return "Anthropic analysis placeholder"
+
+class GrokClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('GROK_API_KEY'))
+        
+    def fetch(self):
+        # Placeholder for Grok data fetch
         return {}
 
 # ========================================
@@ -581,6 +611,11 @@ class UnifiedFetcherV4:
         """
         Single AI call that generates outputs for ALL dashboards
         """
+        # 1. Strict Local Mode Check
+        if IS_LOCAL:
+            logger.info("[Local Mode] IS_LOCAL=true. Returning strict MOCK AI analysis.")
+            return self.get_mock_analysis()
+
         logger.info("Generating unified analysis...")
         
         # Prepare data summary for AI

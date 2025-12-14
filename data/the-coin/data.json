@@ -2,37 +2,38 @@
   "metrics": [
     {
       "name": "Rotation Strength",
-      "value": "6.5",
+      "value": "4",
       "signal": "Bitcoin",
-      "percentile": 75
+      "percentile": 40
     },
     {
       "name": "Momentum",
-      "value": "7.0",
-      "signal": "Bullish",
-      "percentile": 80
+      "value": "3",
+      "signal": "Bearish",
+      "percentile": 30
     },
     {
       "name": "Setup Quality",
-      "value": "8.0",
-      "signal": "Good"
+      "value": "5",
+      "signal": "Average"
     }
   ],
   "core_metrics": {
-    "rotation_strength": 6.5,
-    "momentum": 7.0,
-    "setup_quality": 8.0
+    "rotation_strength": 4.0,
+    "momentum": 3.0,
+    "setup_quality": 5.0
   },
   "market_metrics": {
-    "btc_price": "$90,221.47",
-    "eth_price": "$3,118.40",
-    "rsi_btc": 65.0,
-    "fear_and_greed": 55,
+    "btc_price": "$92,000",
+    "eth_price": "$3,200",
+    "rsi_btc": 45.0,
+    "eth_btc": 0.035,
+    "fear_and_greed": 40,
     "dxy_index": 102.5,
-    "fed_rate": "5.25-5.50%"
+    "fed_rate": "4.50%"
   },
-  "ai_analysis": "The crypto market is currently in a strong bullish phase, with Bitcoin leading the charge. The rotation strength is high, at 6.5, indicating a significant shift towards Bitcoin dominance, which is further supported by the 75th percentile ranking. This trend is reinforced by the bullish momentum, scored at 7.0, and the good setup quality, rated at 8.0. The current BTC price is $90,221.47, showing a slight decline of 0.0855% over the past 24 hours, but the overall trend remains positive. ETH is also performing well, with a price of $3,118.40 and a 24-hour change of 0.0546%, indicating a bullish sentiment across the top crypto assets. The RSI for BTC is at 65.0, suggesting that the asset is in a healthy range without being overbought. The fear and greed index is at 55, reflecting a balanced market sentiment that is slightly leaning towards greed. The DXY index is at 102.5, indicating a strong US dollar, which could potentially impact crypto prices. The Fed rate remains stable at 5.25-5.50%, providing a predictable interest rate environment. On-chain data supports this bullish outlook, with increasing network activity and growing institutional interest. The overall market structure suggests a continued upward trend, with Bitcoin and Ethereum leading the way. Investors should consider maintaining a bullish stance, focusing on high-quality projects with strong fundamentals and growth potential. The convergence of technical indicators and on-chain metrics provides a robust signal for aggressive investment strategies in the crypto space.",
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "ai_analysis": "MOCK ANALYSIS: Crypto market is in a simulated consolidation phase.",
+  "last_update": "2025-12-14T09:00:50.569713+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",

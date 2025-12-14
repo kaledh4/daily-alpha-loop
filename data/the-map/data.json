@@ -1,62 +1,59 @@
 {
   "scoring": {
-    "stance_strength": 8,
-    "volatility_risk": 2,
-    "confidence": 0.85
+    "stance_strength": 5,
+    "volatility_risk": 5,
+    "confidence": 0.8
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,827.41",
+      "value": "5800",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "12,500.00",
+      "value": "11200",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.44",
+      "value": "$75.00",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,328.30",
+      "value": "$2650",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "102.50",
+      "value": "102.5",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.19%",
+      "value": "4.2%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 57.44,
+    "oil": 75.0,
     "dxy": 102.5,
-    "gold": 4328.3,
-    "sp500": 6827.41,
-    "tasi": 12500.0,
-    "treasury_10y": 4.19
+    "gold": 2650.0,
+    "sp500": 5800.0,
+    "tasi": 11200.0,
+    "treasury_10y": 4.2
   },
-  "tasi_mood": "Cautiously Optimistic",
+  "tasi_mood": "Neutral",
   "drivers": [
-    "Global Economic Recovery",
-    "Oil Price Stability",
-    "Gold as a Safe Haven"
+    "Oil Prices",
+    "Fed Policy"
   ],
-  "ai_analysis": "The global macro environment is stable, with key indices and commodities showing normal signals. The S&P 500 is at 6,827.41, reflecting a slight decline of 1.0664% over the past 24 hours, but the overall market sentiment remains positive. The TASI index is at 12,500.00, indicating a neutral stance with cautious optimism. Oil prices are stable at $57.44 per barrel, supported by global economic recovery and supply-demand dynamics. Gold is trading at $4,328.30, showing a slight increase of 0.9987%, which is typical for a safe-haven asset in a stable market environment. The DXY index is at 102.50, reflecting a strong US dollar, which is supportive of global trade and investment. The 10Y Treasury yield is at 4.19%, indicating a balanced outlook on economic growth and inflation. The overall stance strength is high, at 8, with low volatility risk, scored at 2, and high confidence, at 0.85. The TASI mood is cautiously optimistic, driven by global economic recovery and oil price stability. Investors should maintain a balanced portfolio, with exposure to both traditional and alternative assets, to capitalize on the current stable market conditions. The convergence of macro indicators suggests a continued period of stability, with opportunities for growth in sectors benefiting from economic recovery and technological advancements.",
+  "ai_analysis": "MOCK ANALYSIS: Global macro environment is simulated as stable.",
   "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Saudi Exchange"
+    "Mock Data"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:00:50.569713+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",
