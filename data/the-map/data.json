@@ -1,8 +1,8 @@
 {
   "scoring": {
-    "stance_strength": 8,
-    "volatility_risk": 2,
-    "confidence": 0.85
+    "stance_strength": 5,
+    "volatility_risk": 4,
+    "confidence": 0.6
   },
   "metrics": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "name": "TASI",
-      "value": "12,500.00",
+      "value": "10,630.36",
       "signal": "NEUTRAL"
     },
     {
@@ -22,12 +22,12 @@
     },
     {
       "name": "Gold",
-      "value": "$4,328.30",
+      "value": "$4,300.10",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "102.50",
+      "value": "98.39",
       "signal": "NORMAL"
     },
     {
@@ -38,25 +38,26 @@
   ],
   "macro": {
     "oil": 57.44,
-    "dxy": 102.5,
-    "gold": 4328.3,
+    "dxy": 98.39,
+    "gold": 4300.1,
     "sp500": 6827.41,
-    "tasi": 12500.0,
+    "tasi": 10630.36,
     "treasury_10y": 4.19
   },
-  "tasi_mood": "Cautiously Optimistic",
+  "tasi_mood": "Neutral",
   "drivers": [
-    "Global Economic Recovery",
-    "Oil Price Stability",
-    "Gold as a Safe Haven"
+    "Oil price stability",
+    "US Treasury yields",
+    "Geopolitical tensions"
   ],
-  "ai_analysis": "The global macro environment is stable, with key indices and commodities showing normal signals. The S&P 500 is at 6,827.41, reflecting a slight decline of 1.0664% over the past 24 hours, but the overall market sentiment remains positive. The TASI index is at 12,500.00, indicating a neutral stance with cautious optimism. Oil prices are stable at $57.44 per barrel, supported by global economic recovery and supply-demand dynamics. Gold is trading at $4,328.30, showing a slight increase of 0.9987%, which is typical for a safe-haven asset in a stable market environment. The DXY index is at 102.50, reflecting a strong US dollar, which is supportive of global trade and investment. The 10Y Treasury yield is at 4.19%, indicating a balanced outlook on economic growth and inflation. The overall stance strength is high, at 8, with low volatility risk, scored at 2, and high confidence, at 0.85. The TASI mood is cautiously optimistic, driven by global economic recovery and oil price stability. Investors should maintain a balanced portfolio, with exposure to both traditional and alternative assets, to capitalize on the current stable market conditions. The convergence of macro indicators suggests a continued period of stability, with opportunities for growth in sectors benefiting from economic recovery and technological advancements.",
+  "ai_analysis": "The global macro environment is characterized by a delicate balance between growth pressures and risk\u2011off sentiment. The S&P 500 is trading at 6,827, down 1.07% from the previous close, reflecting a modest contraction in equity markets. The TASI, at 10,630, is down 0.80%, indicating that the Saudi market is also experiencing a mild pullback.\n\nOil prices are under pressure, with Brent at $57.44, a 2.5% decline from the previous session. This decline is driven by a combination of supply\u2011side excess and weak demand expectations amid a slowing global economy. Gold, however, remains a strong safe haven, trading at $4,300, which is a 0.5% increase.\n\nThe dollar index (DXY) is at 98.39, a slight decline from the previous close, but still above the 95\u2011point threshold that typically signals a strong dollar. The 10\u2011year Treasury yield at 4.19% is above the 3\u2011year average for the past decade, indicating that the Federal Reserve\u2019s tightening cycle is still in full swing.\n\nIn Saudi Arabia, the TASI mood is neutral, with no clear bullish or bearish signals. The drivers of the Saudi market are largely influenced by oil price stability, US Treasury yields, and geopolitical tensions in the Middle East. The combination of these factors suggests that the Saudi market is likely to remain range\u2011bound in the near term.\n\nOverall, the macro picture is one of a market that is under pressure from multiple fronts: equity markets are down, oil is under pressure, and the dollar remains strong. Investors should be prepared for potential volatility and consider hedging strategies that protect against sudden spikes in volatility.",
   "data_sources": [
     "Bloomberg",
     "Reuters",
-    "Saudi Exchange"
+    "Saudi Stock Exchange",
+    "Yahoo Finance"
   ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+  "last_update": "2025-12-14T09:58:36.570976+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

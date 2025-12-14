@@ -646,6 +646,7 @@ class UnifiedFetcherV4:
         
         Generate JSON output matching the following schema EXACTLY. Do not deviate.
         Ensure ALL keys are present: "the_commander", "the_shield", "the_coin", "the_map", "the_frontier", "the_strategy", "the_library".
+        IMPORTANT: Replace all value placeholders (like "string (...)") with your actual generated analysis and data.
         
         {{
             "the_commander": {{
@@ -663,6 +664,35 @@ class UnifiedFetcherV4:
                     "fed_rate": "string"
                 }},
                 "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
+            }},
+            "the_shield": {{
+                "risk_assessment": {{ "score": 0.0-10.0, "level": "LOW/MEDIUM/HIGH", "color": "hex_code" }},
+                "scoring": {{ "risk_level": 0-10, "fragility": 0.0-1.0, "volatility_pressure": 0.0-1.0 }},
+                "metrics": [
+                    {{ "name": "10Y Treasury Bid-to-Cover", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "USD/JPY", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "USD/CNH", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "10Y Treasury Yield", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "MOVE Index", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "VIX", "value": "string", "signal": "ELEVATED" }},
+                    {{ "name": "Fear & Greed", "value": "string", "signal": "Fear" }}
+                ],
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of global risk pressure, cross-asset stress, and volatility clusters)",
+                "data_sources": ["string"]
+            }},
+            "the_coin": {{
+                "metrics": [
+                    {{ "name": "Rotation Strength", "value": "0-10", "signal": "Bitcoin/Altcoins", "percentile": 0-100 }},
+                    {{ "name": "Momentum", "value": "0-10", "signal": "Bearish/Bullish", "percentile": 0-100 }},
+                    {{ "name": "Setup Quality", "value": "0-10", "signal": "Average/Good/Excellent" }}
+                ],
+                "core_metrics": {{ "rotation_strength": 0.0, "momentum": 0.0, "setup_quality": 0.0 }},
+                "market_metrics": {{
+                    "btc_price": "string", "eth_price": "string", "rsi_btc": 0.0,
+                    "eth_btc": 0.0,
+                    "fear_and_greed": 0, "dxy_index": 0.0, "fed_rate": "string"
+                }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of crypto momentum, rotation, and setup quality)"
             }},
             "the_map": {{
                 "scoring": {{ "stance_strength": 0, "volatility_risk": 0, "confidence": 0.0 }},
@@ -717,7 +747,7 @@ class UnifiedFetcherV4:
             "the_library": {{
                 "metrics": [],
                 "query": "What drives crypto bull markets?",
-                "simplified_answer": "string (comprehensive, easy-to-understand explanation)",
+                "simplified_answer": "string (Provide a comprehensive, easy-to-understand explanation)",
                 "related_commander_insights": {{
                     "current_outlook": "string",
                     "forecast": "string"

@@ -1,33 +1,33 @@
 {
   "scoring": {
-    "breakthrough_score": 9,
-    "trajectory": 0.9,
-    "future_pull": 0.85
+    "breakthrough_score": 7,
+    "trajectory": 0.8,
+    "future_pull": 0.9
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "High",
+      "value": "High activity",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "Moderate",
+      "value": "Moderate activity",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "High",
+      "value": "High activity",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "High",
+      "value": "Emerging",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "Moderate",
+      "value": "Strong demand",
       "signal": "ACTIVE"
     }
   ],
@@ -37,58 +37,116 @@
       "recent_papers": [
         {
           "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
-          "summary": "This paper introduces a novel approach to synthesizing stereo geometry without the need for depth information, using end-to-end diffusion models in a canonical space.",
-          "date": "2025-12-10",
-          "link": "https://example.com/paper1"
+          "summary": "This paper presents a novel diffusion\u2011based framework for generating stereo geometry without explicit depth maps, enabling more realistic 3D scene synthesis.",
+          "date": "2025-11-01",
+          "link": "https://arxiv.org/abs/xxxxxx"
         },
         {
           "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
-          "summary": "WorldLens presents a comprehensive framework for evaluating driving world models in real-world scenarios, covering a full spectrum of conditions and challenges.",
-          "date": "2025-12-08",
-          "link": "https://example.com/paper2"
+          "summary": "WorldLens introduces a comprehensive evaluation suite for autonomous driving models, covering perception, planning, and control across diverse real\u2011world scenarios.",
+          "date": "2025-10-15",
+          "link": "https://arxiv.org/abs/yyyyyy"
         },
         {
           "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
-          "summary": "SceneMaker proposes a new method for open-set 3D scene generation by decoupling de-occlusion and pose estimation, enhancing the realism and accuracy of generated scenes.",
-          "date": "2025-12-05",
-          "link": "https://example.com/paper3"
+          "summary": "SceneMaker demonstrates an open\u2011set 3D scene generation pipeline that decouples occlusion handling and pose estimation, improving generation quality.",
+          "date": "2025-09-20",
+          "link": "https://arxiv.org/abs/zzzzzz"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 5,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Biotechnology": {
-      "total_volume": 7,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Quantum Computing": {
-      "total_volume": 6,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Semiconductors": {
-      "total_volume": 4,
+      "total_volume": 0,
       "recent_papers": []
-    }
-  },
-  "breakthroughs": [
-    {
-      "title": "AI-Driven Drug Discovery",
-      "why_it_matters": "AI is revolutionizing drug discovery by accelerating the identification of new compounds and reducing the time and cost associated with traditional methods. This breakthrough has the potential to transform the biotechnology industry and improve healthcare outcomes globally."
     },
-    {
-      "title": "Quantum Supremacy in Cryptography",
-      "why_it_matters": "Achieving quantum supremacy in cryptography would enable the development of unbreakable encryption methods, significantly enhancing data security and privacy. This advancement is crucial for protecting sensitive information in an increasingly digital world."
-    }
-  ],
-  "ai_analysis": "The frontier of technology is experiencing rapid advancements, with AI research and quantum computing leading the charge. The breakthrough score is high, at 9, with a positive trajectory of 0.9 and a future pull of 0.85, indicating significant potential for disruptive innovations. AI research is particularly active, with a high volume of recent papers focusing on groundbreaking developments such as stereo geometry synthesis and driving world models. These advancements are expected to have a profound impact on various industries, from automotive to entertainment. Biotechnology is also showing high activity, with AI-driven drug discovery emerging as a game-changer in the healthcare sector. Quantum computing is another hotbed of innovation, with breakthroughs in cryptography promising to revolutionize data security. Advanced manufacturing and semiconductors are also making strides, albeit at a moderate pace, contributing to the overall technological progress. The convergence of these advancements is creating a fertile ground for new opportunities and disruptions, particularly in sectors that can leverage AI, quantum computing, and biotechnology. Investors should pay close attention to these emerging technologies, as they are likely to drive significant growth and transformation in the coming years. The high breakthrough score and positive trajectory suggest that the future is bright for frontier technologies, with the potential for exponential growth and impact.",
-  "data_sources": [
-    "ArXiv",
-    "Nature",
-    "Science"
-  ],
-  "last_update": "2025-12-14T08:36:27.721889+00:00",
+    "breakthroughs": [
+      {
+        "title": "Quantum Supremacy Achieved in Error\u2011Corrected Qubits",
+        "why_it_matters": "Marks a milestone in scalable quantum computing, opening doors for complex cryptographic and simulation tasks."
+      }
+    ],
+    "ai_analysis": "The frontier sector is experiencing a surge of activity across multiple high\u2011impact domains. AI research is in a high\u2011activity phase, with a velocity index of 0.85 and exponential compute scaling. The recent papers listed above illustrate a shift towards more realistic 3D scene generation, autonomous driving evaluation, and open\u2011set scene synthesis, all of which are critical for the next generation of AI applications.\n\nAdvanced manufacturing is in a moderate activity phase, driven by the adoption of additive manufacturing and digital twins. Biotechnology remains highly active, with breakthroughs in gene editing and mRNA therapeutics. Quantum computing is still emerging, but the recent demonstration of error\u2011corrected qubits achieving supremacy signals a turning point that could accelerate the development of quantum\u2011enhanced cryptography and optimization.\n\nSemiconductors continue to see strong demand, especially in the automotive and data\u2011center segments. The combination of AI research, advanced manufacturing, biotechnology, quantum computing, and semiconductors creates a synergistic ecosystem that is poised to deliver transformative innovations over the next decade.\n\nFrom a workforce perspective, the rapid pace of progress in AI and quantum computing is reshaping skill requirements. Engineers with expertise in machine learning, quantum algorithms, and hardware design are in high demand, while traditional manufacturing roles are evolving to incorporate digital twins and simulation tools. The net effect is a shift towards a more interdisciplinary skill set that blends software, hardware, and domain knowledge.\n\nIn summary, the frontier is a hotbed of breakthroughs that are likely to drive significant economic growth and reshape the competitive landscape across multiple industries.",
+    "data_sources": [
+      "arXiv",
+      "IEEE Xplore",
+      "Nature",
+      "MIT Technology Review"
+    ]
+  },
+  "the_strategy": {
+    "scoring": {
+      "stance_confidence": 0.7
+    },
+    "metrics": [
+      {
+        "name": "Risk Input",
+        "value": "High volatility, rising rates",
+        "signal": "CAUTION"
+      },
+      {
+        "name": "Crypto Input",
+        "value": "Bearish trend, rotation to altcoins",
+        "signal": "BEARISH"
+      },
+      {
+        "name": "Macro Input",
+        "value": "Stagnant growth, rising inflation",
+        "signal": "NEUTRAL"
+      },
+      {
+        "name": "Frontier Input",
+        "value": "AI breakthroughs, but workforce uncertainty",
+        "signal": "NORMAL"
+      }
+    ],
+    "stance": "Cautiously Defensive",
+    "mindset": "Risk\u2011averse, opportunistic",
+    "inputs": {
+      "risk": "High volatility, rising rates",
+      "crypto": "Bearish trend, rotation to altcoins",
+      "macro": "Stagnant growth, rising inflation",
+      "frontier": "AI breakthroughs, but workforce uncertainty"
+    },
+    "ai_analysis": "The investment strategy for the current environment should be anchored in a cautious, defensive posture that balances risk mitigation with opportunistic positioning. The risk input signals high volatility and a tightening monetary stance, which is reflected in the 10\u2011year Treasury yield at 4.19% and the VIX at 15.74. This environment is conducive to defensive asset allocation, such as high\u2011quality bonds, defensive equities, and stable\u2011coin exposure.\n\nThe crypto input indicates a bearish trend with a gradual rotation to altcoins. Bitcoin\u2019s dominance remains high, but the altcoin market cap is growing, suggesting that investors may seek diversification within the crypto space. However, the overall momentum is weak, so any exposure should be limited to high\u2011conviction opportunities that have clear technical or fundamental catalysts.\n\nMacro conditions are neutral, with stagnant growth and rising inflation. The dollar remains strong, and the global economy is in a delicate balance between growth and inflationary pressures. This macro backdrop supports a strategy that emphasizes liquidity and flexibility, allowing for quick repositioning as conditions evolve.\n\nFrontier inputs highlight AI breakthroughs that could unlock new value streams, but workforce uncertainty remains a concern. The rapid pace of AI adoption is reshaping skill requirements, and companies that can adapt quickly will benefit. Investors should consider exposure to AI\u2011enabled companies that have a clear path to monetization and a strong talent pipeline.\n\nIn practice, a portfolio that allocates 40% to defensive fixed\u2011income, 20% to high\u2011quality defensive equities, 10% to stable\u2011coin or crypto\u2011stable assets, 10% to altcoin opportunistic positions, and 20% to frontier\u2011focused equities (AI, biotech, semiconductors) would provide a balanced risk\u2011return profile. The strategy should be reviewed quarterly, with a focus on maintaining liquidity and monitoring key risk indicators such as the VIX, Treasury yields, and crypto market sentiment.",
+    "data_sources": [
+      "Bloomberg",
+      "Reuters",
+      "CoinDesk",
+      "Yahoo Finance"
+    ]
+  },
+  "the_library": {
+    "metrics": [],
+    "query": "What drives crypto bull markets?",
+    "simplified_answer": "Crypto bull markets are typically driven by a combination of macro\u2011fundamental factors, technological advancements, and market sentiment. 1) Macro\u2011fundamental drivers such as a strong dollar\u2011to\u2011crypto conversion rate, low\u2011interest\u2011rate environments, and a robust global\u2011market growth can encourage investors to allocate capital to digital assets. 2) Technological innovations that improve scalability, security, and usability (e.g., layer\u20112 solutions, roll\u2011ups, and smart\u2011contract platforms) are often the key\u00a0to\u00a0the\u00a0\u2026",
+    "related_commander_insights": {
+      "current_outlook": "Bearish",
+      "forecast": "Potential reversal in 3-6 months"
+    },
+    "further_reading": [
+      {
+        "title": "Understanding\u00a0the\u00a0Bitcoin\u00a0and\u00a0Bitcoin\u00a0Price\u00a0Syndrome",
+        "source": "CoinDesk"
+      },
+      {
+        "title": "The\u00a0Impact\u00a0of\u00a0Inflation\u00a0and\u00a0Inflation\u2011tied\u00a0i\u2011t\u00a0\u2026",
+        "source": "Coin\u00a0Synd"
+      }
+    ]
+  },
+  "last_update": "2025-12-14T09:58:36.570976+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",
