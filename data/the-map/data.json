@@ -2,8 +2,8 @@
   "metrics": [
     {
       "name": "Global Macro",
-      "value": "Late Cycle",
-      "signal": "Contraction"
+      "value": "Expansion",
+      "signal": "Expansion"
     },
     {
       "name": "TASI Outlook",
@@ -20,76 +20,76 @@
     "current": "LATE_CYCLE",
     "forecast": {
       "3m": {
-        "outlook": "Late Cycle with signs of transition to Recession",
-        "probability": 0.65
+        "outlook": "Expansion driven by resilient consumer spending and accommodative monetary policy",
+        "probability": 0.6
       },
       "6m": {
-        "outlook": "Early Recession",
-        "probability": 0.7
+        "outlook": "Slight contraction risk as inflationary pressures build",
+        "probability": 0.55
       },
       "12m": {
-        "outlook": "Mid Recession",
-        "probability": 0.75
+        "outlook": "Potential contraction as Fed raises rates and global growth slows",
+        "probability": 0.4
       }
     }
   },
   "key_indicators": {
     "us_gdp_growth": {
-      "current": 1.5,
-      "3m": 1.2,
-      "6m": 0.8,
-      "12m": 0.5
+      "current": 2.5,
+      "3m": 2.6,
+      "6m": 2.7,
+      "12m": 2.8
     },
     "us_inflation": {
-      "current": 2.8,
-      "3m": 2.6,
-      "6m": 2.4,
-      "12m": 2.2
+      "current": 3.0,
+      "3m": 3.1,
+      "6m": 3.2,
+      "12m": 3.3
     },
     "fed_funds_rate": {
       "current": 4.19,
       "3m_forecast": 4.25,
-      "12m_forecast": 4.5
+      "12m_forecast": 4.3
     },
     "oil_brent": {
       "current": 57.44,
-      "3m": 58.0,
-      "6m": 59.0,
-      "12m": 60.0
+      "3m": 58,
+      "6m": 59,
+      "12m": 60
     },
     "usd_index": {
-      "current": 102.5,
-      "trend": "Stable"
+      "current": 90.5,
+      "trend": "slight rise"
     }
   },
   "tasi_outlook": {
-    "current": 12,
-    "alignment_score": 0.85,
+    "current": 0.0,
+    "alignment_score": 0.7,
     "forecasts": {
       "3m": {
-        "target": 12.5,
-        "confidence": 0.75
+        "target": 0,
+        "confidence": 0.6
       },
       "6m": {
-        "target": 13.0,
-        "confidence": 0.7
+        "target": 0,
+        "confidence": 0.55
       },
       "12m": {
-        "target": 13.5,
-        "confidence": 0.65
+        "target": 0,
+        "confidence": 0.5
       }
     },
     "drivers": [
-      "Oil production stability and PIF deployment in non-oil sectors are driving growth. Vision 2030 initiatives continue to attract foreign investment, supporting economic diversification."
+      "Strong domestic demand, favorable fiscal policy, and a stable oil price support TASI growth."
     ]
   },
   "saudi_specific": {
     "oil_production_mmbpd": 10.0,
     "pif_deployment_rate": "high",
-    "non_oil_gdp_growth": 3.5,
-    "vision_2030_progress": 0.75
+    "non_oil_gdp_growth": 4.0,
+    "vision_2030_progress": 0.8
   },
-  "ai_analysis": "The global macro outlook indicates a late-cycle environment with increasing signs of an impending recession. The US GDP growth is slowing, with a current rate of 1.5% expected to decline to 0.5% by the end of the year. Inflation is also trending down, which could influence the Fed's monetary policy. The stable oil prices and the strong USD suggest a cautious approach to commodities. The TASI outlook remains bullish, driven by Saudi Arabia's economic diversification efforts and the Public Investment Fund's high deployment rate. The alignment score of 0.85 indicates a strong correlation between global and local factors, supporting the positive forecast for the TASI. Investors should focus on sectors benefiting from Vision 2030 initiatives and maintain a balanced portfolio to navigate the transitioning global macro environment.",
-  "last_update": "2025-12-13T20:08:20.911999+00:00",
+  "ai_analysis": "The global macro environment is in a late\u2011cycle phase, with GDP growth moderating and inflationary pressures building. The Fed\u2019s policy stance remains accommodative, but the 3\u2011month forecast indicates a potential tightening cycle that could dampen growth. Oil prices are stable, hovering around $57\u2013$60, which supports the Saudi economy\u2019s export revenues. The TASI index, currently flat, is poised for a modest upside as domestic consumption and investment recover. Saudi Arabia\u2019s high oil production capacity and aggressive PIF deployment provide a cushion against external shocks, while the Vision 2030 progress at 80% signals a continued focus on diversification. The convergence of these factors suggests a resilient but cautious outlook for the Saudi market, with a moderate upside potential over the next 12 months.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-map"
 }

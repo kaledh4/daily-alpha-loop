@@ -2,9 +2,9 @@
   "metrics": [
     {
       "name": "Fragility Index",
-      "value": "45",
+      "value": "30",
       "signal": "Stable",
-      "percentile": 55
+      "percentile": 30
     },
     {
       "name": "VIX",
@@ -13,23 +13,23 @@
     },
     {
       "name": "Liquidity",
-      "value": "6.5",
+      "value": "8",
       "signal": "Ample"
     }
   ],
   "fragility_index": {
-    "current": 45.0,
+    "current": 30,
     "3m_forecast": {
-      "value": 47.0,
-      "crash_probability": 0.15
+      "value": 35,
+      "crash_probability": 0.05
     },
     "6m_forecast": {
-      "value": 49.0,
-      "crash_probability": 0.2
+      "value": 40,
+      "crash_probability": 0.1
     },
     "12m_forecast": {
-      "value": 52.0,
-      "crash_probability": 0.25
+      "value": 45,
+      "crash_probability": 0.15
     }
   },
   "stress_indicators": {
@@ -38,9 +38,9 @@
       "stress_level": "low"
     },
     "credit_spreads": {
-      "current": 1.2,
-      "trend": "tightening",
-      "z_score": -1.0
+      "current": 200,
+      "trend": "widening",
+      "z_score": 1.5
     },
     "liquidity_metrics": {
       "bid_ask_spreads": {
@@ -51,21 +51,16 @@
       }
     },
     "cross_asset_correlation": {
-      "current": 0.75,
+      "current": 0.6,
       "crisis_threshold": 0.85,
-      "trend": "stable"
+      "trend": "rising"
     }
   },
   "tail_risk_hedges": [
     {
-      "instrument": "Gold",
-      "recommended_allocation": "5%",
-      "rationale": "Gold serves as a traditional safe-haven asset, providing a hedge against market volatility and potential economic uncertainties. Its recent price increase indicates growing investor interest in safe assets, making it a prudent addition to a diversified portfolio."
-    },
-    {
-      "instrument": "Volatility ETFs",
-      "recommended_allocation": "3%",
-      "rationale": "With the VIX showing a modest increase, volatility ETFs can offer protection against potential market turbulence. These instruments allow investors to benefit from rising volatility, providing a buffer during periods of market stress."
+      "instrument": "Gold ETF (GLD)",
+      "recommended_allocation": "10%",
+      "rationale": "Gold historically serves as a safe\u2011haven during periods of heightened systemic risk. By allocating 10% of the portfolio to a liquid gold ETF, we create a buffer that can absorb shocks from potential market dislocations while preserving capital."
     }
   ],
   "early_warning_signals": {
@@ -74,7 +69,7 @@
     "crypto_correlation_breakdown": false,
     "funding_stress": false
   },
-  "ai_analysis": "The current market fragility index of 45 suggests a stable environment, but with a gradual increase expected over the next year. The VIX's modest rise to 15.74 indicates a low level of stress, supported by tightening credit spreads and normal liquidity conditions. The cross-asset correlation of 0.75 remains below the crisis threshold, suggesting that assets are not moving in lockstep, which is a positive sign. However, investors should monitor the gradual increase in the fragility index and be prepared for potential tail risks, especially as the 12-month forecast shows a slight increase in crash probability to 25%. Diversification into safe-haven assets like gold and volatility ETFs can provide a cushion against potential market disruptions.",
-  "last_update": "2025-12-13T20:08:20.911999+00:00",
+  "ai_analysis": "The current fragility index of 30 indicates a relatively stable market, but the upward trend in the 3\u2011month forecast suggests a gradual build\u2011up of systemic risk. The widening credit spreads, now at 200 basis points, signal that lenders are demanding higher compensation for perceived default risk, which could translate into tighter credit conditions for businesses. The VIX term structure remains in contango, implying that short\u2011term volatility is lower than long\u2011term expectations, a typical sign of a risk\u2011on environment. However, the rising cross\u2011asset correlation (0.6 trending upward) hints at an increasing probability that shocks in one market could spill over into others, thereby elevating tail risk. The combination of these factors warrants a cautious stance, with a modest allocation to defensive assets such as gold and a watchful eye on credit markets.",
+  "last_update": "2025-12-14T04:33:42.384695+00:00",
   "dashboard": "the-shield"
 }
