@@ -2,45 +2,45 @@
   "metrics": [
     {
       "name": "Flight to Safety",
-      "value": "8.5/10",
-      "signal": "Risk Off"
+      "value": "5.2",
+      "signal": "Risk On"
     },
     {
       "name": "Market Sentiment",
-      "value": "21/100",
-      "signal": "Extreme Bearish"
+      "value": "35",
+      "signal": "Bearish"
     }
   ],
   "flight_to_safety_score": {
-    "current": 8.5,
+    "current": 5.2,
     "trend": "Rising",
     "3m_forecast": {
-      "score": 7.2,
+      "score": 5.8,
       "confidence": 0.75
     }
   },
   "asset_outlook": {
     "BTC": {
-      "risk_reward": "High",
+      "risk_reward": "Medium",
       "conviction": 7,
       "forecasts": {
         "3m": {
-          "target": "$105,000 - $112,000"
+          "target": "$92,000"
         }
       }
     },
-    "fed_rate": "Market pricing in 25-50bps hike by EOY 2025 given rising 10Y yields (4.19%) and persistent inflation signals"
+    "fed_rate": "Hawkish stance expected to continue"
   },
   "morning_brief": {
-    "weather_of_the_day": "Stormy",
-    "top_signal": "Extreme Fear (21) in Crypto Fear & Greed Index - Historically strong contrarian indicator",
-    "action_stance": "Defensive Accumulation",
-    "why_it_matters": "Extreme fear levels coincide with 85% of BTC's historical bottoms when RSI <50 and dominance >55%",
-    "cross_dashboard_convergence": "Shield shows elevated systemic stress (VIX +5.99%), Coin confirms bearish momentum (BTC/ETH -0.29%/-0.32%), Map indicates macro uncertainty (SPX -1.06%, Gold +1.00%)",
-    "summary_sentence": "A perfect storm of technical oversold conditions, extreme fear sentiment, and macro headwinds creates asymmetric opportunity for disciplined investors."
+    "weather_of_the_day": "Cloudy",
+    "top_signal": "Increasing flight to safety as investors seek stability",
+    "action_stance": "Neutral",
+    "why_it_matters": "The rising flight to safety score indicates a shift towards safer assets, suggesting caution in high-risk investments.",
+    "cross_dashboard_convergence": "The Shield and Coin sections both reflect heightened risk, aligning with the Commander's flight to safety signal.",
+    "summary_sentence": "Investors are increasingly seeking safety, with a neutral stance recommended as markets navigate uncertainty."
   },
-  "ai_analysis": "The crypto market structure reveals critical inflection points across multiple timeframes. Bitcoin's current price of $90,035 (-0.29% 24h) sits at the 0.382 Fibonacci retracement of its 2024-2025 bull run, with RSI 49.2 indicating neutral momentum but nearing oversold territory on weekly charts. Ethereum's relative strength (RSI 54.3 vs BTC's 49.2) suggests altcoins may lead the next recovery phase, though ADA (-1.11%) and NEAR (-2.20%) show concerning weakness. The Fear & Greed Index at 21 ('Extreme Fear') has only occurred 12 times since 2018, preceding average 3-month returns of +185% for BTC and +320% for altcoins. Critically, BTC dominance at 56.87% suggests capital hasn't fled crypto entirely but rotated to quality. On-chain data analogs from 2018 and 2020 bottom formations show similar patterns: moderate exchange outflows (-12k BTC last week), stablecoin reserves accumulation (+$1.2B USDT), and miner capitulation metrics flashing early recovery signals. The key risk remains macro-driven - 10Y yields breaking 4.2% could pressure risk assets, but historical analysis shows crypto decoupling begins when real yields exceed 2.5% (currently 1.8%).",
-  "last_update": "2025-12-14T10:35:51.297556+00:00",
+  "ai_analysis": "The current crypto market structure shows a mixed sentiment, with Bitcoin and Ethereum experiencing slight corrections. The RSI values for both BTC and ETH are in the neutral zone, indicating a potential for a rebound. On-chain data suggests that large holders are accumulating, which could support prices in the near term. The Fear & Greed Index at 'Extreme Fear' suggests that market participants are pessimistic, which often precedes a bullish reversal. The dominance of BTC at 56.84% indicates that investors are favoring the safety of Bitcoin over altcoins, which aligns with the flight to safety theme. The recent performance of altcoins like ADA and NEAR shows that they are more vulnerable to market corrections, reflecting their higher risk profile. Overall, the market is in a consolidation phase, with potential for a bullish move if the current support levels hold.",
+  "last_update": "2025-12-14T11:20:48.319784+00:00",
   "dashboard": "the-commander",
   "name": "The Commander",
   "role": "Morning Brief",

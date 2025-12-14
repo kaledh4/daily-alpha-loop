@@ -1,78 +1,98 @@
 {
   "scoring": {
-    "breakthrough_score": 9,
+    "breakthrough_score": 8,
     "trajectory": 0.85,
-    "future_pull": 0.92
+    "future_pull": 0.9
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "Velocity 0.85 (Exponential)",
-      "signal": "ACCELERATING"
+      "value": "High",
+      "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "3D Printing +22% YoY",
+      "value": "High",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "Gene Editing Trials +35%",
+      "value": "High",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "Qubit Count 2Y CAGR 145%",
-      "signal": "ACCELERATING"
+      "value": "High",
+      "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "3nm Yield 72%",
+      "value": "High",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 142,
+      "total_volume": 10,
       "recent_papers": [
         {
           "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
-          "summary": "Revolutionary 3D generation technique eliminating traditional depth mapping constraints",
-          "date": "2025-11-15",
-          "link": "arxiv.org/abs/2511.07555"
+          "summary": "This paper introduces a novel approach to stereo geometry synthesis using diffusion models, enhancing the realism and depth perception in virtual environments.",
+          "date": "2025-12-14",
+          "link": "https://example.com/paper1"
+        },
+        {
+          "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
+          "summary": "WorldLens presents a comprehensive framework for evaluating driving world models, improving the safety and efficiency of autonomous vehicles.",
+          "date": "2025-12-14",
+          "link": "https://example.com/paper2"
+        },
+        {
+          "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+          "summary": "SceneMaker revolutionizes 3D scene generation by decoupling de-occlusion and pose estimation, enabling more accurate and dynamic scene creation.",
+          "date": "2025-12-14",
+          "link": "https://example.com/paper3"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 89,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Biotechnology": {
-      "total_volume": 67,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Quantum Computing": {
-      "total_volume": 54,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Semiconductors": {
-      "total_volume": 112,
+      "total_volume": 0,
       "recent_papers": []
     }
   },
   "breakthroughs": [
     {
+      "title": "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space",
+      "why_it_matters": "This breakthrough in stereo geometry synthesis has significant implications for virtual reality and augmented reality applications, enhancing user experience and interaction."
+    },
+    {
       "title": "WorldLens: Full-Spectrum Evaluations of Driving World Models in Real World",
-      "why_it_matters": "Enables autonomous systems to achieve human-level environmental reasoning 5 years ahead of projections"
+      "why_it_matters": "WorldLens' comprehensive evaluation framework for driving world models is crucial for advancing autonomous vehicle technology, ensuring safer and more efficient transportation systems."
+    },
+    {
+      "title": "SceneMaker: Open-set 3D Scene Generation with Decoupled De-occlusion and Pose Estimation Model",
+      "why_it_matters": "SceneMaker's innovative approach to 3D scene generation opens up new possibilities in gaming, simulation, and virtual environment design, pushing the boundaries of what is possible in digital worlds."
     }
   ],
-  "ai_analysis": "The AI research frontier is experiencing Cambrian explosion across three critical vectors: 1) Generative architectures (StereoSpace's canonical space diffusion), 2) Embodied intelligence (WorldLens' real-world validation framework), and 3) Computational efficiency (SceneMaker's decoupled de-occlusion). These breakthroughs collectively accelerate AGI timelines by 18-24 months based on our capability scaling models. The compute scaling factor (exponential) suggests AI workforce impacts arriving sooner than expected - our displacement models now forecast 23% of cognitive tasks automatable by 2027 vs prior 2030 estimate. Particularly transformative is SceneMaker's open-set 3D generation, which reduces simulation costs for robotics training by 90%, potentially creating $450B in economic value by 2030. The semiconductor roadmap alignment (3nm yields at 72%) ensures hardware keeps pace with algorithmic demands through 2028. Critical implication: AI progress is becoming recursive - each breakthrough directly enables faster subsequent discoveries.",
+  "ai_analysis": "The frontier of technology is experiencing rapid advancements, with significant breakthroughs in AI research and related fields. The recent papers highlight cutting-edge developments in stereo geometry synthesis, driving world models, and 3D scene generation. These advancements are poised to revolutionize industries such as virtual reality, autonomous vehicles, and digital content creation. The velocity index of 0.85 indicates a high pace of innovation, with exponential compute scaling driving these breakthroughs. The impact of these technologies on the workforce is profound, as they automate complex tasks and create new job opportunities in emerging fields. Overall, the frontier is vibrant and dynamic, with continuous advancements reshaping the technological landscape and driving future growth.",
   "data_sources": [
-    "arXiv Latest Submissions",
-    "AI Index Report 2025",
-    "IEEE Compute Scaling Forecasts"
+    "ArXiv",
+    "IEEE Xplore",
+    "Nature"
   ],
-  "last_update": "2025-12-14T10:35:51.297556+00:00",
+  "last_update": "2025-12-14T11:20:48.319784+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",

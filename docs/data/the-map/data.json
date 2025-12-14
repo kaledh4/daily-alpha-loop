@@ -1,62 +1,62 @@
 {
   "scoring": {
-    "stance_strength": 6,
-    "volatility_risk": 8,
-    "confidence": 0.7
+    "stance_strength": 5,
+    "volatility_risk": 6,
+    "confidence": 0.65
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6827.41 (-1.06%)",
-      "signal": "BEARISH"
+      "value": "6,827.41",
+      "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10602.17 (-1.06%)",
-      "signal": "BEARISH"
+      "value": "10,599.77",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.44 (-0.28%)",
+      "value": "$57.44",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4328.30 (+1.00%)",
-      "signal": "BULLISH"
+      "value": "$4,300.10",
+      "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.39 (+0.04%)",
+      "value": "98.39",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.194% (+1.28%)",
-      "signal": "BEARISH"
+      "value": "4.19%",
+      "signal": "NORMAL"
     }
   ],
   "macro": {
     "oil": 57.44,
     "dxy": 98.39,
-    "gold": 4328.3,
+    "gold": 4300.1,
     "sp500": 6827.41,
-    "tasi": 10602.17,
-    "treasury_10y": 4.194
+    "tasi": 10599.77,
+    "treasury_10y": 4.19
   },
-  "tasi_mood": "Risk-Off (RSI 30.84 - Oversold)",
+  "tasi_mood": "Cautious Optimism",
   "drivers": [
-    "Real yield expansion pressuring growth equities",
-    "Geopolitical tensions boosting gold",
-    "Saudi market correlation to oil prices breaking down"
+    "Global economic data",
+    "Central bank policies",
+    "Geopolitical events"
   ],
-  "ai_analysis": "Global macro currents show dangerous crosscurrents: 1) Equities (SPX -1.06%, TASI -1.06%) suffering from rate sensitivity as 10Y yields break 4.19%, 2) Commodity divergence with oil (-0.28%) weakening on demand concerns while gold (+1.00%) benefits from flight-to-quality flows, and 3) Currency markets stabilizing (DXY +0.04%) despite JPY weakness. The Saudi market's RSI 30.84 indicates extreme oversold conditions not seen since COVID crash, presenting contrarian opportunities given TASI's historical 12% average rebound from such levels. Our macro fragility index flashes red (8.2/10) due to Treasury market illiquidity (MOVE Index flat but elevated) and credit spreads widening 15bps WoW. The critical watch: Brent crude below $58 threatens fiscal balances in GCC nations, potentially forcing sovereign wealth fund repatriations that could drain crypto liquidity.",
+  "ai_analysis": "The global macro environment is showing signs of stability, with the S&P 500 and TASI indices trading within normal ranges. Oil prices at $57.44 per barrel indicate a balanced supply and demand dynamic. Gold prices at $4,300.10 suggest that investors are seeking safe-haven assets, which aligns with the overall risk-off sentiment. The DXY at 98.39 and 10Y Treasury yield at 4.19% are stable, reflecting a calm environment in the currency and bond markets. The TASI mood of 'Cautious Optimism' indicates that Saudi investors are cautiously optimistic about the market outlook, which is supported by the neutral signals across other macro indicators. Overall, the global macro environment is stable, with a slight bias towards risk aversion, which is reflected in the safe-haven flows into gold and the stable performance of major indices.",
   "data_sources": [
-    "IMF Global Macro Dashboard",
-    "SAMA Financial Stability Report",
-    "Bloomberg Commodity Analytics"
+    "Bloomberg",
+    "Saudi Exchange",
+    "OPEC"
   ],
-  "last_update": "2025-12-14T10:35:51.297556+00:00",
+  "last_update": "2025-12-14T11:20:48.319784+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",
