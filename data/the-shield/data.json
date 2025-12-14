@@ -1,61 +1,55 @@
 {
-  "fragility_index": {
-    "current": 45.0,
-    "3m_forecast": {
-      "value": 48.0,
-      "crash_probability": 0.15
-    },
-    "6m_forecast": {
-      "value": 52.0,
-      "crash_probability": 0.2
-    },
-    "12m_forecast": {
-      "value": 55.0,
-      "crash_probability": 0.25
-    }
+  "risk_assessment": {
+    "score": 0.6,
+    "level": "HIGH",
+    "color": "#FF4500"
   },
-  "stress_indicators": {
-    "vix_term_structure": {
-      "signal": "contango",
-      "stress_level": "medium"
-    },
-    "credit_spreads": {
-      "current": 1.2,
-      "trend": "widening",
-      "z_score": 1.5
-    },
-    "liquidity_metrics": {
-      "bid_ask_spreads": {
-        "stress": "elevated"
-      },
-      "market_depth": {
-        "stress": "low"
-      }
-    },
-    "cross_asset_correlation": {
-      "current": 0.75,
-      "crisis_threshold": 0.85,
-      "trend": "rising"
-    }
+  "scoring": {
+    "risk_level": 2,
+    "fragility": 0.4,
+    "volatility_pressure": 0.5
   },
-  "tail_risk_hedges": [
+  "metrics": [
     {
-      "instrument": "Gold",
-      "recommended_allocation": "10%",
-      "rationale": "Gold is recommended as a tail risk hedge due to its historical performance as a safe haven asset during periods of market stress. With the current fragility index indicating a moderate level of market fragility and the potential for increased volatility, allocating a portion of the portfolio to gold can provide a buffer against potential downside risks. Gold's positive change in the data further supports its role as a hedge, as it has shown resilience and even appreciation in the face of market uncertainties. This allocation is particularly relevant given the risk-on sentiment driven by AI advancements, as it allows investors to participate in the potential upside while mitigating the risks associated with market volatility."
+      "name": "10Y Treasury Bid-to-Cover",
+      "value": "1.2x",
+      "signal": "NORMAL"
     },
     {
-      "instrument": "Volatility ETFs",
-      "recommended_allocation": "5%",
-      "rationale": "Volatility ETFs, such as those tracking the VIX, are recommended as a tail risk hedge to capitalize on potential market turbulence. The slight increase in the VIX, coupled with the rising cross-asset correlation, suggests that market uncertainty is on the rise. By allocating a portion of the portfolio to volatility ETFs, investors can benefit from any significant market sell-offs or spikes in volatility. This strategy complements the risk-on stance by providing a hedge against the downside, ensuring that the portfolio is well-protected against potential market corrections or crashes."
+      "name": "USD/JPY",
+      "value": "135.00",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "USD/CNH",
+      "value": "6.90",
+      "signal": "WARNING"
+    },
+    {
+      "name": "10Y Treasury Yield",
+      "value": "4.19%",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "MOVE Index",
+      "value": "0.5%",
+      "signal": "NORMAL"
+    },
+    {
+      "name": "VIX",
+      "value": "15.74",
+      "signal": "ELEVATED"
     }
   ],
-  "early_warning_signals": {
-    "yield_curve_inversion": false,
-    "high_yield_spread_spike": false,
-    "crypto_correlation_breakdown": false,
-    "funding_stress": false
-  },
-  "last_update": "2025-12-13T17:08:52.036332+00:00",
-  "dashboard": "the-shield"
+  "ai_analysis": "The risk landscape today is characterized by moderate fragility and elevated volatility pressure. The 10Y Treasury bid\u2011to\u2011cover ratio at 1.2x indicates a healthy liquidity cushion, but the warning signal on USD/CNH suggests potential stress in the offshore Chinese yuan market. The VIX at 15.74, while not extreme, is elevated relative to its 30\u2011day moving average, implying that market participants are pricing in some downside risk. Coupled with a 0.5% MOVE index, which reflects a modest uptick in Treasury supply risk, the overall picture is one of cautious equilibrium. The combination of a slightly rising US10Y yield and a stable oil price further supports a neutral stance, but any sudden spike in Treasury yields or a sharp drop in oil could quickly erode this balance. Therefore, investors should maintain a defensive posture, focusing on liquidity and avoiding overexposure to high\u2011beta assets.",
+  "data_sources": [
+    "Bloomberg",
+    "Coingecko",
+    "Federal Reserve"
+  ],
+  "last_update": "2025-12-14T08:29:16.554291+00:00",
+  "dashboard": "the-shield",
+  "name": "The Shield",
+  "role": "Risk Environment",
+  "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
 }

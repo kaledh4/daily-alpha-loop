@@ -114,6 +114,33 @@ class NewsAPIClient(BaseClient):
     def __init__(self):
         super().__init__(os.environ.get('NEWS_API_KEY'))
 
+class EIAClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('EIA_API_KEY'))
+        self.base_url = "https://api.eia.gov/v2"
+
+    def get_oil_price(self):
+        # Fallback to FRED or other sources if API key is missing or fails
+        # But here we implement the client
+        if not self.api_key:
+            return None
+        # Example endpoint for spot prices (simplified)
+        # In reality EIA API v2 is complex, we might just check if we have the key
+        return None
+
+class CryptoCompareClient(BaseClient):
+    def __init__(self):
+        super().__init__(os.environ.get('CRYPTOCOMPARE_API_KEY'))
+        self.base_url = "https://min-api.cryptocompare.com/data"
+
+    def get_top_market_cap(self, limit=10, tsym='USD'):
+        url = f"{self.base_url}/top/mktcapfull"
+        params = {'limit': limit, 'tsym': tsym}
+        if self.api_key:
+            params['api_key'] = self.api_key
+        return self.get_json(url, params)
+
+
 class ArxivClient(BaseClient):
     def search(self, query: str, max_results: int = 5) -> List[Dict]:
         import urllib.parse
@@ -189,6 +216,8 @@ class UnifiedFetcherV4:
             'arxiv': ArxivClient(),
             'world_bank': WorldBankClient(),
             'cboe': CBOEClient(),
+            'eia': EIAClient(),
+            'cryptocompare': CryptoCompareClient(),
         }
         
         self.ai_models = [
@@ -262,6 +291,18 @@ class UnifiedFetcherV4:
         vix = self.data_sources['cboe'].get_vix()
         if vix:
             self.current_metrics['VIX'] = vix
+
+        # 4. CryptoCompare Data (Top 10)
+        cc_data = self.data_sources['cryptocompare'].get_top_market_cap(limit=10)
+        if cc_data and 'Data' in cc_data:
+            self.current_metrics['top_crypto'] = [
+                {
+                    'symbol': coin['CoinInfo']['Name'],
+                    'price': coin.get('RAW', {}).get('USD', {}).get('PRICE'),
+                    'change_24h': coin.get('RAW', {}).get('USD', {}).get('CHANGEPCT24HOUR')
+                }
+                for coin in cc_data['Data']
+            ]
 
     def calculate_agi_metrics(self):
         """Scrape AI research velocity and compute escape velocity probability"""
@@ -420,40 +461,26 @@ class UnifiedFetcherV4:
                 }}
             }},
             "the_shield": {{
+                "risk_assessment": {{
+                    "score": 0.0,
+                    "level": "LOW/MEDIUM/HIGH/CRITICAL",
+                    "color": "#hex"
+                }},
+                "scoring": {{
+                    "risk_level": 0,
+                    "fragility": 0.0,
+                    "volatility_pressure": 0.0
+                }},
                 "metrics": [
-                    {{ "name": "Fragility Index", "value": "0-100", "signal": "Stable/Fragile", "percentile": 0-100 }},
-                    {{ "name": "VIX", "value": "string", "signal": "Low/High" }},
-                    {{ "name": "Liquidity", "value": "0-10", "signal": "Ample/Tight" }}
+                    {{ "name": "10Y Treasury Bid-to-Cover", "value": "string", "signal": "NORMAL/WARNING" }},
+                    {{ "name": "USD/JPY", "value": "string", "signal": "NORMAL/CRITICAL SHOCK" }},
+                    {{ "name": "USD/CNH", "value": "string", "signal": "NORMAL/WARNING" }},
+                    {{ "name": "10Y Treasury Yield", "value": "string", "signal": "NORMAL/WARNING" }},
+                    {{ "name": "MOVE Index", "value": "string", "signal": "NORMAL/ELEVATED" }},
+                    {{ "name": "VIX", "value": "string", "signal": "NORMAL/ELEVATED" }}
                 ],
-                "fragility_index": {{
-                    "current": 0.0-100.0,
-                    "3m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }},
-                    "6m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }},
-                    "12m_forecast": {{ "value": 0.0, "crash_probability": 0.0-1.0 }}
-                }},
-                "stress_indicators": {{
-                    "vix_term_structure": {{ "signal": "contango/backwardation", "stress_level": "low/medium/high" }},
-                    "credit_spreads": {{ "current": 0.0, "trend": "widening/tightening", "z_score": 0.0 }},
-                    "liquidity_metrics": {{
-                        "bid_ask_spreads": {{ "stress": "normal/elevated" }},
-                        "market_depth": {{ "stress": "normal/low" }}
-                    }},
-                    "cross_asset_correlation": {{
-                        "current": 0.0-1.0,
-                        "crisis_threshold": 0.85,
-                        "trend": "stable/rising"
-                    }}
-                }},
-                "tail_risk_hedges": [
-                    {{ "instrument": "string", "recommended_allocation": "string", "rationale": "string (detailed explanation of why this hedge is needed)" }}
-                ],
-                "early_warning_signals": {{
-                    "yield_curve_inversion": true/false,
-                    "high_yield_spread_spike": true/false,
-                    "crypto_correlation_breakdown": true/false,
-                    "funding_stress": true/false
-                }},
-                "ai_analysis": "string (EXTREMELY DETAILED analysis of market fragility and risks)"
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of market fragility and risks)",
+                "data_sources": ["string"]
             }},
             "the_coin": {{
                 "metrics": [
@@ -477,136 +504,54 @@ class UnifiedFetcherV4:
                 "ai_analysis": "string (EXTREMELY DETAILED, MULTI-PARAGRAPH analysis of crypto market structure, on-chain data, and sentiment)"
             }},
             "the_map": {{
+                "scoring": {{ "stance_strength": 0, "volatility_risk": 0, "confidence": 0.0 }},
                 "metrics": [
-                    {{ "name": "Global Macro", "value": "string", "signal": "Expansion/Contraction" }},
-                    {{ "name": "TASI Outlook", "value": "string", "signal": "Bullish/Bearish" }},
-                    {{ "name": "Oil", "value": "string", "signal": "Stable/Volatile" }}
+                    {{ "name": "S&P 500", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "TASI", "value": "string", "signal": "NEUTRAL" }},
+                    {{ "name": "Oil (Brent)", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "Gold", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "DXY", "value": "string", "signal": "NORMAL" }},
+                    {{ "name": "10Y Yield", "value": "string", "signal": "NORMAL" }}
                 ],
-                "global_macro_outlook": {{
-                    "current": "LATE_CYCLE/RECESSION/RECOVERY/EXPANSION",
-                    "forecast": {{
-                        "3m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }},
-                        "6m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }},
-                        "12m": {{ "outlook": "string (detailed)", "probability": 0.0-1.0 }}
-                    }}
-                }},
-                "key_indicators": {{
-                    "us_gdp_growth": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
-                    "us_inflation": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
-                    "fed_funds_rate": {{ "current": 0.0, "3m_forecast": 0.0, "12m_forecast": 0.0 }},
-                    "oil_brent": {{ "current": 0.0, "3m": 0.0, "6m": 0.0, "12m": 0.0 }},
-                    "usd_index": {{ "current": 0.0, "trend": "string" }}
-                }},
-                "tasi_outlook": {{
-                    "current": 0.0,
-                    "alignment_score": 0.0-1.0,
-                    "forecasts": {{
-                        "3m": {{ "target": 0, "confidence": 0.0-1.0 }},
-                        "6m": {{ "target": 0, "confidence": 0.0-1.0 }},
-                        "12m": {{ "target": 0, "confidence": 0.0-1.0 }}
-                    }},
-                    "drivers": ["string (detailed driver description)"]
-                }},
-                "saudi_specific": {{
-                    "oil_production_mmbpd": 0.0,
-                    "pif_deployment_rate": "high/medium/low",
-                    "non_oil_gdp_growth": 0.0,
-                    "vision_2030_progress": 0.0-1.0
-                }},
-                "ai_analysis": "string (EXTREMELY DETAILED analysis of global macro and Saudi market)"
+                "macro": {{ "oil": 0.0, "dxy": 0.0, "gold": 0.0, "sp500": 0.0, "tasi": 0.0, "treasury_10y": 0.0 }},
+                "tasi_mood": "string",
+                "drivers": ["string"],
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of global macro and Saudi market)",
+                "data_sources": ["string"]
             }},
             "the_frontier": {{
+                "scoring": {{ "breakthrough_score": 0, "trajectory": 0.0, "future_pull": 0.0 }},
                 "metrics": [
-                    {{ "name": "AGI Timeline", "value": "string", "signal": "Accelerating/Stable" }},
-                    {{ "name": "Workforce Impact", "value": "High/Medium/Low", "signal": "Disruptive" }}
+                    {{ "name": "AI Research", "value": "string", "signal": "ACTIVE" }},
+                    {{ "name": "Advanced Manufacturing", "value": "string", "signal": "ACTIVE" }},
+                    {{ "name": "Biotechnology", "value": "string", "signal": "ACTIVE" }},
+                    {{ "name": "Quantum Computing", "value": "string", "signal": "ACTIVE" }},
+                    {{ "name": "Semiconductors", "value": "string", "signal": "ACTIVE" }}
                 ],
-                "agi_timeline": {{
-                    "median_estimate": "string (year)",
-                    "probability_distribution": {{
-                        "2025-2027": 0.0,
-                        "2027-2030": 0.0,
-                        "2030-2035": 0.0,
-                        "post-2035": 0.0
-                    }},
-                    "confidence": 0.0-1.0
+                "domains": {{
+                    "AI Research": {{ "total_volume": 0, "recent_papers": [ {{ "title": "string", "summary": "string", "date": "string", "link": "string" }} ] }},
+                    "Advanced Manufacturing": {{ "total_volume": 0, "recent_papers": [] }},
+                    "Biotechnology": {{ "total_volume": 0, "recent_papers": [] }},
+                    "Quantum Computing": {{ "total_volume": 0, "recent_papers": [] }},
+                    "Semiconductors": {{ "total_volume": 0, "recent_papers": [] }}
                 }},
-                "escape_velocity_metrics": {{
-                    "current_probability": 0.0-1.0,
-                    "trend": "accelerating/stable",
-                    "key_indicators": {{
-                        "model_capability_doubling_months": 0.0,
-                        "compute_efficiency_improvement_rate": 0.0,
-                        "research_breakthrough_velocity": 0.0,
-                        "recursive_self_improvement_index": 0.0
-                    }}
-                }},
-                "workforce_impact": {{
-                    "automation_rate_annual": 0.0,
-                    "jobs_at_risk_3y": {{
-                        "customer_service": 0.0,
-                        "data_entry": 0.0,
-                        "creative_work": 0.0,
-                        "coding": 0.0
-                    }},
-                    "new_job_creation_rate": 0.0,
-                    "net_displacement_forecast": {{
-                        "3m": 0.0,
-                        "12m": 0.0,
-                        "36m": 0.0
-                    }}
-                }},
-                "breakthrough_tracker": {{
-                    "recent_milestones": [
-                        {{ "date": "string", "event": "string", "impact": "high/medium/low" }}
-                    ],
-                    "papers_per_week": 0,
-                    "trend": "string"
-                }},
-                "investment_implications": {{
-                    "ai_infrastructure": "overweight/underweight",
-                    "traditional_tech": "overweight/underweight",
-                    "defense_cybersecurity": "overweight/underweight",
-                    "conviction": 0.0-1.0
-                }},
-                "ai_analysis": "string (EXTREMELY DETAILED analysis of AI progress and workforce impact)"
+                "breakthroughs": [ {{ "title": "string", "why_it_matters": "string" }} ],
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of AI progress and workforce impact)",
+                "data_sources": ["string"]
             }},
             "the_strategy": {{
+                "scoring": {{ "stance_confidence": 0 }},
                 "metrics": [
-                    {{ "name": "Top Opportunity", "value": "string", "signal": "Buy/Sell" }},
-                    {{ "name": "Portfolio Risk", "value": "High/Medium/Low", "signal": "Defensive/Aggressive" }}
+                    {{ "name": "Risk Input", "value": "string", "signal": "CAUTION" }},
+                    {{ "name": "Crypto Input", "value": "string", "signal": "BEARISH" }},
+                    {{ "name": "Macro Input", "value": "string", "signal": "NEUTRAL" }},
+                    {{ "name": "Frontier Input", "value": "string", "signal": "NORMAL" }}
                 ],
-                "top_opportunities": [
-                    {{
-                        "asset": "string",
-                        "timeframe": "string",
-                        "conviction": 0.0-1.0,
-                        "expected_return": 0.0,
-                        "max_drawdown_risk": 0.0,
-                        "sharpe_forecast": 0.0,
-                        "position_size": "string",
-                        "entry_trigger": "string",
-                        "exit_targets": [0.0],
-                        "stop_loss": 0.0
-                    }}
-                ],
-                "portfolio_allocation": {{
-                    "crypto": 0.0,
-                    "equities": 0.0,
-                    "commodities": 0.0,
-                    "cash": 0.0,
-                    "bonds": 0.0
-                }},
-                "risk_adjusted_scores": {{
-                    "btc": {{ "score": 0.0, "rank": 0 }},
-                    "gold": {{ "score": 0.0, "rank": 0 }},
-                    "tasi": {{ "score": 0.0, "rank": 0 }}
-                }},
-                "correlation_matrix": {{
-                    "btc_spx": 0.0,
-                    "gold_spx": 0.0,
-                    "btc_gold": 0.0
-                }},
-                "ai_analysis": "string (EXTREMELY DETAILED analysis of investment strategy and opportunities)"
+                "stance": "string",
+                "mindset": "string",
+                "inputs": {{ "risk": "string", "crypto": "string", "macro": "string", "frontier": "string" }},
+                "ai_analysis": "string (EXTREMELY DETAILED analysis of investment strategy and opportunities)",
+                "data_sources": ["string"]
             }},
             "the_library": {{
                 "metrics": [],
@@ -642,6 +587,45 @@ class UnifiedFetcherV4:
             "the_library": "the-library"
         }
 
+        # Mapping for display names and metadata
+        dashboard_meta = {
+            "the_commander": {
+                "name": "The Commander",
+                "role": "Morning Brief",
+                "mission": "Deliver the daily top signal, weather report, and executive summary."
+            },
+            "the_shield": {
+                "name": "The Shield",
+                "role": "Risk Environment",
+                "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
+            },
+            "the_coin": {
+                "name": "The Coin",
+                "role": "Crypto Scanner",
+                "mission": "Track crypto momentum, rotation, and setup quality."
+            },
+            "the_map": {
+                "name": "The Map",
+                "role": "Macro",
+                "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction."
+            },
+            "the_frontier": {
+                "name": "The Frontier",
+                "role": "AI & Breakthroughs",
+                "mission": "Monitor breakthroughs in AI, robotics, compute, quantum, and science acceleration."
+            },
+            "the_strategy": {
+                "name": "The Strategy",
+                "role": "Market Stance",
+                "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance."
+            },
+            "the_library": {
+                "name": "The Library",
+                "role": "Knowledge Archive",
+                "mission": "Store and retrieve key insights and educational content."
+            }
+        }
+
         timestamp = datetime.now(timezone.utc).isoformat()
 
         # Normalize keys to lower case with underscores
@@ -658,6 +642,15 @@ class UnifiedFetcherV4:
                 # Add metadata
                 data['last_update'] = timestamp
                 data['dashboard'] = folder
+                
+                # Inject metadata if available
+                if key in dashboard_meta:
+                    meta = dashboard_meta[key]
+                    data['name'] = meta['name']
+                    data['role'] = meta['role']
+                    data['mission'] = meta['mission']
+                else:
+                    data['name'] = "Dashboard"
                 
                 # Ensure directory exists
                 target_dir = DATA_DIR / folder

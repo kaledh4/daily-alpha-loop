@@ -1,56 +1,28 @@
 {
+  "metrics": [],
+  "query": "What drives crypto bull markets?",
+  "simplified_answer": "Crypto bull markets are typically driven by a combination of factors, including technological advancements, regulatory clarity, institutional adoption, and macroeconomic conditions. Technological advancements, such as improvements in blockchain technology and the development of new use cases, can increase the utility and value of cryptocurrencies. Regulatory clarity provides a stable environment for investors and developers, encouraging further innovation and adoption. Institutional adoption, including investments from hedge funds and other large investors, can drive significant capital inflows into the crypto market. Macroeconomic conditions, such as low interest rates and inflation, can also drive investors towards cryptocurrencies as a hedge against traditional assets. Additionally, market sentiment and speculative behavior play a significant role in driving crypto bull markets.",
+  "related_commander_insights": {
+    "current_outlook": "The current outlook for crypto is bearish, with Bitcoin and Ethereum experiencing minor declines. However, there are potential opportunities for a reversal, particularly in sectors that benefit from AI-driven innovations.",
+    "forecast": "The 3-month forecast for crypto is cautious, with a potential target price of $85,000 for Bitcoin. Investors should focus on managing risk while identifying opportunities for a reversal."
+  },
+  "further_reading": [
+    {
+      "title": "The Impact of Technological Advancements on Crypto Markets",
+      "source": "Crypto Research Journal"
+    },
+    {
+      "title": "Regulatory Clarity and Its Role in Crypto Adoption",
+      "source": "Financial Regulation Quarterly"
+    },
+    {
+      "title": "Institutional Adoption and Its Impact on Crypto Prices",
+      "source": "Investment Trends Magazine"
+    }
+  ],
+  "last_update": "2025-12-14T08:26:18.279566+00:00",
   "dashboard": "the-library",
   "name": "The Library",
-  "role": "Free Knowledge",
-  "mission": "Compute the daily human advancement rate, track breakthroughs, and signal long-term trajectory.",
-  "last_update": "2025-12-13 08:38:43 UTC",
-  "scoring": {
-    "progress_rate": 65,
-    "uncertainty": 0.2
-  },
-  "metrics": [
-    {
-      "name": "Progress Rate",
-      "value": "65/100",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Uncertainty",
-      "value": "0.20",
-      "signal": "LOW"
-    },
-    {
-      "name": "Summaries",
-      "value": "4",
-      "signal": "NORMAL"
-    }
-  ],
-  "summaries": [
-    {
-      "title": "SceneMaker",
-      "eli5": "Open-set 3D Scene Generation has potential applications in finance and biotech",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "Bidirectional Normalizing Flow",
-      "eli5": "From Data to Noise and Back has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    },
-    {
-      "title": "On Decision-Making Agents and Higher-Order Causal Processes",
-      "eli5": "Decision-Making Agents and Higher-Order Causal Processes has potential applications in finance and AI",
-      "long_term": "Long-term potential for significant advancements in finance and AI"
-    },
-    {
-      "title": "Noisy Quantum Learning Theory",
-      "eli5": "Noisy Quantum Learning Theory has potential applications in AI and machine learning",
-      "long_term": "Long-term potential for significant advancements in AI and machine learning"
-    }
-  ],
-  "ai_analysis": "The current knowledge landscape is driven by research in AI/Tech, with a focus on Open-set 3D Scene Generation, Bidirectional Normalizing Flow, and Noisy Quantum Learning Theory. The theme of today's research is the application of AI and machine learning in finance and biotech. The knowledge velocity is Rapid, with significant breakthroughs in recent weeks. The summaries of the research papers suggest potential applications in finance, biotech, and AI.",
-  "data_sources": [
-    "ai_rnd_tracker",
-    "quantum_papers",
-    "lab_output_rate"
-  ]
+  "role": "Knowledge Archive",
+  "mission": "Store and retrieve key insights and educational content."
 }
