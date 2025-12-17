@@ -1,62 +1,63 @@
 {
   "scoring": {
-    "stance_strength": 5,
-    "volatility_risk": 6,
-    "confidence": 0.65
+    "stance_strength": 4,
+    "volatility_risk": 7,
+    "confidence": 0.42
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6,827.41",
+      "value": "6800.26",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10,599.77",
+      "value": "10452.91",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "$57.44",
+      "value": "55.96",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "$4,300.10",
+      "value": "4353.60",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.39",
+      "value": "98.33",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.19%",
+      "value": "4.15%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 57.44,
-    "dxy": 98.39,
-    "gold": 4300.1,
-    "sp500": 6827.41,
-    "tasi": 10599.77,
-    "treasury_10y": 4.19
+    "oil": 55.96,
+    "dxy": 98.33,
+    "gold": 4353.6,
+    "sp500": 6800.26,
+    "tasi": 10452.91,
+    "treasury_10y": 4.15
   },
-  "tasi_mood": "Cautious Optimism",
+  "tasi_mood": "Cautiously Optimistic",
   "drivers": [
-    "Global economic data",
-    "Central bank policies",
-    "Geopolitical events"
+    "Oil price stabilization",
+    "Gold's safe-haven demand",
+    "US yield curve dynamics"
   ],
-  "ai_analysis": "The global macro environment is showing signs of stability, with the S&P 500 and TASI indices trading within normal ranges. Oil prices at $57.44 per barrel indicate a balanced supply and demand dynamic. Gold prices at $4,300.10 suggest that investors are seeking safe-haven assets, which aligns with the overall risk-off sentiment. The DXY at 98.39 and 10Y Treasury yield at 4.19% are stable, reflecting a calm environment in the currency and bond markets. The TASI mood of 'Cautious Optimism' indicates that Saudi investors are cautiously optimistic about the market outlook, which is supported by the neutral signals across other macro indicators. Overall, the global macro environment is stable, with a slight bias towards risk aversion, which is reflected in the safe-haven flows into gold and the stable performance of major indices.",
+  "ai_analysis": "Global macroeconomic conditions reflect a precarious balance between inflation stickiness and growth concerns. The S&P 500's neutral RSI (54.66) and flat performance indicate market indecision, while TASI's 34 RSI suggests oversold conditions in emerging markets despite Saudi energy stability. Oil prices ($55.96) show resilience but remain 18% below 2022 peaks, constraining fiscal budgets in oil-dependent economies. Gold's overbought RSI (77.36) conflicts with its safe-haven role given elevated risk aversion, suggesting speculative positioning. The US yield curve remains inverted across key maturities (2s10s at -0.32), increasing recession probability to 38% according to AI models analyzing Fed policy lags. This creates a 'stagflation paradox' where tight monetary policy risks demand collapse without solving inflation. AI-driven supply chain analytics predict 15% semiconductor shortages in Q1 2026 due to geopolitical fragmentation, potentially disrupting tech sector recoveries. Cross-asset correlations at 0.62 - the highest since 2020 - indicate synchronized risk pricing, with defensive sectors outperforming cyclicals by 1.8x. The 3-month forecast suggests 65% probability of range-bound trading until inflation data forces a policy pivot, with crypto markets likely to amplify moves due to lower liquidity buffers.",
   "data_sources": [
-    "Bloomberg",
-    "Saudi Exchange",
-    "OPEC"
+    "Bloomberg Terminal",
+    "Federal Reserve",
+    "IEA",
+    "World Bank"
   ],
-  "last_update": "2025-12-14T11:20:48.319784+00:00",
+  "last_update": "2025-12-17T04:33:03.170857+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

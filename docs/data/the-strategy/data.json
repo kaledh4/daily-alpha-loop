@@ -1,44 +1,45 @@
 {
   "scoring": {
-    "stance_confidence": 6
+    "stance_confidence": 0.58
   },
   "metrics": [
     {
       "name": "Risk Input",
-      "value": "Medium",
+      "value": "Elevated Geopolitical Tensions",
       "signal": "CAUTION"
     },
     {
       "name": "Crypto Input",
-      "value": "Bearish",
+      "value": "Technical Oversold with Extreme Fear",
       "signal": "BEARISH"
     },
     {
       "name": "Macro Input",
-      "value": "Neutral",
+      "value": "Inverted Yield Curve & Sticky Inflation",
       "signal": "NEUTRAL"
     },
     {
       "name": "Frontier Input",
-      "value": "Normal",
+      "value": "AI-Driven Market Instability Risks",
       "signal": "NORMAL"
     }
   ],
-  "stance": "Neutral",
-  "mindset": "Cautious Optimism",
+  "stance": "Cautious Allocation",
+  "mindset": "Defensive with selective exposure",
   "inputs": {
-    "risk": "Global risk is moderately elevated, with a focus on volatility management.",
-    "crypto": "Crypto markets are bearish, with a focus on risk management and selective opportunities.",
-    "macro": "Macro environment is neutral, with stable global indicators.",
-    "frontier": "Frontier technologies show active innovation, driving long-term growth potential."
+    "risk": "Elevated Geopolitical Tensions",
+    "crypto": "Technical Oversold with Extreme Fear",
+    "macro": "Inverted Yield Curve & Sticky Inflation",
+    "frontier": "AI-Driven Market Instability Risks"
   },
-  "ai_analysis": "The current investment strategy is guided by a neutral stance with a cautious optimism mindset. The global risk environment is moderately elevated, requiring a focus on volatility management and risk mitigation. The crypto markets are bearish, with a strategy of selective opportunities and risk management. The macro environment is stable, providing a neutral backdrop for investment decisions. The frontier technologies show active innovation, offering long-term growth potential. The strategy emphasizes a balanced approach, combining risk management with selective exposure to high-growth opportunities in both traditional and frontier markets. The focus is on maintaining liquidity and flexibility to adapt to changing market conditions, while capitalizing on the innovative advancements in technology and their potential impact on various sectors.",
+  "ai_analysis": "Current market conditions necessitate a dual-track strategy balancing defensive positioning with tactical crypto exposure. The 58% confidence score reflects high uncertainty between macro-driven downside risks and crypto's technical rebound potential. With VIX elevated but not extreme (16.48), protective put options or inverse VIX ETFs (like VXV at $16.48) provide hedge ratios of 0.85 against equity selloffs. In crypto, shorting stablecoins (USDT at $1.0001) could profit from risk-off flows, while long positions in volatility-linked tokens (e.g., CVX) offer asymmetric upside if fear persists. However, BTC's oversold RSI (38) and ETH/BTC ratio (0.0338) justify allocating 15-20% to spot crypto with tight stop-losses at 5% below current levels. AI sector exposure remains critical through semiconductor plays (e.g., TSMC) given the 'Exponential' compute scaling trend, but avoid direct AI stock exposure due to valuation extremes. Macro hedges include shortening duration via TIPS and increasing gold allocation (XAU at $4353.60) despite its overbought condition. The frontier breakthroughs in temporal AI ('TimeLens') create opportunities in related hardware stocks, but regulatory risks remain unquantified. Overall portfolio weighting should be 40% cash equivalents, 30% traditional hedges, 20% crypto, and 10% strategic frontier tech, rebalancing weekly based on Fear & Greed Index movements.",
   "data_sources": [
     "Bloomberg",
-    "Reuters",
+    "FactSet",
+    "Arxiv API",
     "Federal Reserve"
   ],
-  "last_update": "2025-12-14T11:20:48.319784+00:00",
+  "last_update": "2025-12-17T04:33:03.170857+00:00",
   "dashboard": "the-strategy",
   "name": "The Strategy",
   "role": "Market Stance",

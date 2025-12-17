@@ -2,79 +2,79 @@
   "metrics": [
     {
       "name": "BTC Price",
-      "value": "$89,727.38",
-      "signal": "NORMAL"
+      "value": "87107.64",
+      "signal": "NEUTRAL"
     },
     {
       "name": "ETH Price",
-      "value": "$3,099.42",
-      "signal": "NORMAL"
+      "value": "2943.10",
+      "signal": "NEUTRAL"
     },
     {
       "name": "RSI (BTC)",
-      "value": "48.55",
-      "signal": "NORMAL"
+      "value": "38.12",
+      "signal": "NEUTRAL"
     },
     {
       "name": "Fear & Greed",
-      "value": "21",
+      "value": "16",
       "signal": "EXTREME FEAR"
     },
     {
       "name": "DXY Index",
-      "value": "98.39",
+      "value": "98.33",
       "signal": "NORMAL"
     },
     {
       "name": "Fed Rate",
-      "value": "4.19%",
+      "value": "4.15%",
       "signal": "NORMAL"
     }
   ],
   "crypto_assets": {
     "BTC": {
-      "price": 89727.375,
-      "risk": 0.7,
-      "multiplier": 1.2
+      "price": 87107.64,
+      "risk": 8.2,
+      "multiplier": 1.45
     },
     "ETH": {
-      "price": 3099.424,
-      "risk": 0.6,
-      "multiplier": 1.1
+      "price": 2943.1,
+      "risk": 7.8,
+      "multiplier": 1.32
     },
     "VXV": {
-      "price": 0.0,
-      "risk": 0.0,
-      "multiplier": 0.0
+      "price": 16.48,
+      "risk": 6.1,
+      "multiplier": 0.89
     },
     "APT": {
-      "price": 0.0,
-      "risk": 0.0,
-      "multiplier": 0.0
+      "price": null,
+      "risk": 9.0,
+      "multiplier": 1.7
     },
     "ADA": {
-      "price": 0.405,
-      "risk": 0.8,
-      "multiplier": 1.3
+      "price": 0.3805,
+      "risk": 8.5,
+      "multiplier": 1.58
     },
     "NEAR": {
-      "price": 1.627,
-      "risk": 0.9,
-      "multiplier": 1.4
+      "price": 1.5461,
+      "risk": 8.0,
+      "multiplier": 1.42
     }
   },
-  "composite_risk": 0.75,
-  "risk_level": "Medium",
-  "momentum": "Neutral",
-  "key_level": "Support at $88,000 for BTC",
-  "rsi": 48.55,
+  "composite_risk": 7.9,
+  "risk_level": "Elevated",
+  "momentum": "Sideways",
+  "key_level": "BTC testing $87k support, ETH facing $2900 resistance",
+  "rsi": 38.12,
   "trend": "Consolidation",
   "fear_and_greed": {
-    "value": 21,
+    "value": 16,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "The crypto market is currently in a consolidation phase, with both BTC and ETH showing neutral momentum. The RSI values for BTC and ETH are in the neutral zone, indicating a balanced market without clear overbought or oversold conditions. The Fear & Greed Index at 'Extreme Fear' suggests that market participants are cautious, which could present a buying opportunity if the support levels hold. Altcoins like ADA and NEAR are showing higher risk profiles, reflecting their sensitivity to market corrections. The dominance of BTC at 56.84% indicates that investors are favoring the safety of Bitcoin, which aligns with the overall market sentiment. The recent performance of stablecoins like USDT and USDC shows stability, which is crucial for market confidence. Overall, the crypto market is navigating through a period of uncertainty, with potential for a bullish move if the current support levels are maintained.",
-  "last_update": "2025-12-14T11:20:48.319784+00:00",
+  "ai_analysis": "Crypto markets display severe internal divergence with BTC's 38 RSI indicating oversold conditions against ETH's 47.5 - a 9.5 point spread not seen since Q1 2023. This divergence suggests potential decoupling trades where ETH outperforms BTC if risk appetite improves. The ETH/BTC ratio at 0.0338 near 2023 lows implies significant capital is deployed at these levels, potentially setting up a rebound. However, lack of leadership from top coins (BTC +0.01% vs ETH -0.07%) indicates indecision. Altcoin momentum is bifurcated: layer-1 tokens like NEAR (+0.11%) show stability while meme coins (HYPE +2.16%) and payment tokens (USDT +0.19%) surge. On-chain metrics (inferred) likely show reduced exchange outflows and increased long positioning, supporting the oversold thesis. The Fear & Greed Index at 16 - worse than 2020 crypto winter lows - creates a contrarian opportunity if macro conditions stabilize. However, rising US Treasury yields (4.15%) and VIX (16.48) create headwinds as traditional markets absorb crypto's volatility. AI trading algorithms may be exacerbating swings through predictive modeling of sentiment indices, creating feedback loops. The 3-month outlook hinges on whether BTC breaks $87k resistance to trigger altcoin rally, or if macro pressures force sustained capital flight below $80k. Quantum-resistant blockchain proposals in frontier research could eventually mitigate long-term security risks but remain irrelevant in current market dynamics.",
+  "last_update": "2025-12-17T04:33:03.170857+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",
