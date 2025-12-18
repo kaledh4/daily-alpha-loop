@@ -5,36 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read All Data - Daily Alpha Loop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../shared/styles.css">
     <style>
         .json-container {
-            background: #1a202c;
-            padding: 20px;
-            border-radius: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px);
+            padding: 25px;
+            border-radius: 24px;
             margin-bottom: 30px;
             overflow-x: auto;
-            border: 1px solid #2d3748;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
         }
 
         pre {
-            color: #a0aec0;
+            color: var(--charcoal);
             font-family: 'Courier New', Courier, monospace;
             white-space: pre-wrap;
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
         .copy-btn {
-            background: #4a5568;
-            color: white;
+            background: var(--charcoal);
+            color: var(--white);
             border: none;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 999px;
+            font-weight: 700;
             cursor: pointer;
             float: right;
             margin-bottom: 10px;
+            transition: transform 0.2s;
         }
 
         .copy-btn:hover {
-            background: #2d3748;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--charcoal);
         }
     </style>
 </head>
@@ -43,7 +58,7 @@
     <div class="container">
         <div class="header">
             <h1>Read All Data</h1>
-            <p style="color: #cbd5e0;">Raw JSON data for debugging and analysis.</p>
+            <p>Raw JSON data for debugging and analysis.</p>
         </div>
 
         <div id="content">
@@ -75,7 +90,6 @@
                     section.className = 'json-container';
 
                     const title = document.createElement('h2');
-                    title.style.color = '#63b3ed';
                     title.textContent = dashboard.toUpperCase().replace('-', ' ');
 
                     const copyBtn = document.createElement('button');

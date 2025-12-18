@@ -1,30 +1,21 @@
 /**
- * SHARED DASHBOARD CORE
+ * SHARED DASHBOARD CORE - V6 DESIGN SYSTEM
  * Renders the unified theme for all dashboards.
- * Relies on navigation.js for loadDashboardData and renderNavigation.
  */
 
 function renderHeader(data) {
     const header = document.querySelector('.header');
     if (!header) return;
 
-    // Find the dashboard config to get the icon
-    // We assume DASHBOARDS is available from navigation.js
-    const dashConfig = typeof DASHBOARDS !== 'undefined'
-        ? DASHBOARDS.find(d => d.id === (window.DASHBOARD_NAME || data.dashboard))
-        : null;
-
-    const iconHtml = dashConfig && dashConfig.icon
-        ? `<img src="${dashConfig.icon}" alt="${data.name}" style="width: 48px; height: 48px; vertical-align: middle; margin-right: 10px;">`
-        : '';
+    const dashId = window.DASHBOARD_NAME || data.dashboard;
+    const dashClass = dashId.replace('the-', '');
 
     header.innerHTML = `
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-            ${iconHtml}
             <h1 style="margin: 0;">${data.name || 'Dashboard'}</h1>
         </div>
-        <p style="font-size: 1.4rem; color: #90cdf4; font-weight: 600; margin-bottom: 10px;">${data.role || ''}</p>
-        <p style="max-width: 800px; margin: 0 auto; color: #cbd5e0;">${data.mission || ''}</p>
+        <p style="font-size: 1.4rem; color: var(--taupe); font-weight: 600; margin-bottom: 10px;">${data.role || ''}</p>
+        <p style="max-width: 800px; margin: 0 auto; color: var(--charcoal); opacity: 0.8;">${data.mission || ''}</p>
         <div class="timestamp">Updated: ${(() => {
             const ts = data.last_update || data.timestamp;
             if (!ts) return 'Just now';
@@ -49,69 +40,24 @@ function renderScoring(scoring) {
     const getScale = (key, value) => {
         const k = key.toLowerCase();
         if (k.includes('rate') || k.includes('percent') || k === 'risk_level') return '/ 100';
-        if (k === 'confidence' || k === 'uncertainty') return ''; // Usually 0-1
+        if (k === 'confidence' || k === 'uncertainty') return '';
         return '/ 10';
     };
 
     return `
-        <div class="content-card">
-            <h2><img src="../static/icons/icons8-metrics-58.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Core Metrics</h2>
+        <div class="dashboard-card ${window.DASHBOARD_NAME.replace('the-', '')}">
+            <div class="card-header">
+                <h3>Core Metrics</h3>
+            </div>
             <div class="data-grid">
                 ${Object.entries(scoring).map(([key, value]) => `
                     <div class="data-section">
                         <h3>${key.replace(/_/g, ' ').toUpperCase()}</h3>
-                        <div class="data-value" style="color: #63b3ed;">
-                            ${value} <span style="font-size: 0.8rem; color: #718096;">${getScale(key, value)}</span>
+                        <div class="data-value">
+                            ${value} <span style="font-size: 0.8rem; color: var(--taupe);">${getScale(key, value)}</span>
                         </div>
                     </div>
                 `).join('')}
-            </div>
-        </div>
-    `;
-}
-
-function renderEnhancedMetrics(metrics) {
-    if (!metrics || !Array.isArray(metrics)) return '';
-
-    return `
-        <div class="content-card" style="margin-top: 20px;">
-            <h2><img src="../static/icons/icons8-map-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Enhanced Metrics</h2>
-            <div class="data-grid">
-                ${metrics.map(metric => {
-        const percentile = metric.percentile || null;
-        const trend = metric.trend || null;
-        const colorZone = metric.color_zone || null;
-
-        let trendHtml = '';
-        if (trend) {
-            const trendColor = trend.direction === '↑' ? '#28a745' : trend.direction === '↓' ? '#dc3545' : '#718096';
-            trendHtml = `<span style="color: ${trendColor}; font-size: 1.2rem; margin-left: 8px;">${trend.direction}</span>`;
-        }
-
-        let percentileHtml = '';
-        if (percentile !== null) {
-            percentileHtml = `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${percentile}th percentile</div>`;
-        }
-
-        let zoneHtml = '';
-        if (colorZone) {
-            zoneHtml = `<div style="display: inline-block; padding: 4px 8px; background: ${colorZone.color}20; color: ${colorZone.color}; border-radius: 4px; font-size: 0.85rem; margin-left: 8px;">${colorZone.label}</div>`;
-        }
-
-        return `
-                        <div class="data-section" style="border-left: 3px solid ${colorZone ? colorZone.color : '#718096'}; padding-left: 12px;">
-                            <h3 style="display: flex; align-items: center; justify-content: space-between;">
-                                <span>${metric.name}</span>
-                                ${trendHtml}
-                            </h3>
-                            <div class="data-value" style="color: ${colorZone ? colorZone.color : '#63b3ed'};">
-                                ${metric.value} ${zoneHtml}
-                            </div>
-                            ${percentileHtml}
-                            ${trend && trend.label ? `<div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${trend.label}</div>` : ''}
-                        </div>
-                    `;
-    }).join('')}
             </div>
         </div>
     `;
@@ -121,11 +67,13 @@ function renderDataSources(sources) {
     if (!sources || sources.length === 0) return '';
 
     return `
-        <div class="content-card" style="margin-top: 20px;">
-            <h2><img src="../static/icons/icons8-map-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Data Sources</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <div class="dashboard-card ${window.DASHBOARD_NAME.replace('the-', '')}" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3>Data Sources</h3>
+            </div>
+            <div class="signals">
                 ${sources.map(source => `
-                    <span class="source-badge">${source.split('/').pop()}</span>
+                    <span class="signal taupe">${source.split('/').pop()}</span>
                 `).join('')}
             </div>
         </div>
@@ -135,12 +83,14 @@ function renderDataSources(sources) {
 function renderFlightToSafety(score) {
     if (!score) return '';
     return `
-        <div class="content-card" style="margin-top: 20px;">
-            <h2>🛡️ Flight to Safety Score</h2>
+        <div class="dashboard-card shield" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3>Flight to Safety Score</h3>
+            </div>
             <div class="data-grid">
                 <div class="data-section">
                     <h3>Current Score</h3>
-                    <div class="data-value" style="color: #fc8181;">${score.current} <span style="font-size: 0.8rem; color: #718096;">/ 10</span></div>
+                    <div class="data-value" style="color: var(--sand-gold);">${score.current} <span style="font-size: 0.8rem; color: var(--taupe);">/ 10</span></div>
                 </div>
                 <div class="data-section">
                     <h3>Trend</h3>
@@ -148,8 +98,8 @@ function renderFlightToSafety(score) {
                 </div>
                 <div class="data-section">
                     <h3>3M Forecast</h3>
-                    <div class="data-value" style="color: #63b3ed;">${score['3m_forecast'].score}</div>
-                    <div style="font-size: 0.8rem; color: #718096;">Conf: ${(score['3m_forecast'].confidence * 100).toFixed(0)}%</div>
+                    <div class="data-value">${score['3m_forecast'].score}</div>
+                    <div style="font-size: 0.8rem; color: var(--taupe);">Conf: ${(score['3m_forecast'].confidence * 100).toFixed(0)}%</div>
                 </div>
             </div>
         </div>
@@ -159,12 +109,14 @@ function renderFlightToSafety(score) {
 function renderAgiTracker(tracker) {
     if (!tracker) return '';
     return `
-        <div class="content-card" style="margin-top: 20px; border-color: #9f7aea;">
-            <h2 style="color: #9f7aea;"><img src="../static/icons/AGI-Singularity-Tracker.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> AGI Singularity Tracker</h2>
+        <div class="dashboard-card frontier" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3>AGI Singularity Tracker</h3>
+            </div>
             <div class="data-grid">
                 <div class="data-section">
                     <h3>Escape Velocity Prob</h3>
-                    <div class="data-value" style="color: #9f7aea;">${(tracker.escape_velocity_probability * 100).toFixed(1)}%</div>
+                    <div class="data-value" style="color: var(--sage-green);">${(tracker.escape_velocity_probability * 100).toFixed(1)}%</div>
                 </div>
                 <div class="data-section">
                     <h3>Timeline Estimate</h3>
@@ -172,11 +124,11 @@ function renderAgiTracker(tracker) {
                 </div>
             </div>
             <div style="margin-top: 15px;">
-                <h3 style="margin-bottom: 8px;">Key Metrics</h3>
+                <h3 style="margin-bottom: 8px; color: var(--taupe); font-size: 0.85rem; text-transform: uppercase;">Key Metrics</h3>
                 ${Object.entries(tracker.key_metrics).map(([k, v]) => `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; border-bottom: 1px solid #2d3748; padding-bottom: 2px;">
-                        <span style="color: #cbd5e0;">${k.replace(/_/g, ' ')}</span>
-                        <span style="color: #63b3ed;">${v}</span>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px; border-bottom: 1px solid var(--glass-border); padding-bottom: 2px;">
+                        <span style="color: var(--charcoal); font-weight: 500;">${k.replace(/_/g, ' ')}</span>
+                        <span style="color: var(--sand-gold); font-weight: 700;">${v}</span>
                     </div>
                 `).join('')}
             </div>
@@ -187,16 +139,18 @@ function renderAgiTracker(tracker) {
 function renderAssetOutlook(outlook) {
     if (!outlook) return '';
     return `
-        <div class="content-card" style="margin-top: 20px;">
-            <h2><img src="../static/icons/Asset_Outlook.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Asset Outlook</h2>
+        <div class="dashboard-card strategy" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3>Asset Outlook</h3>
+            </div>
             <div class="data-grid">
                 ${Object.entries(outlook).map(([asset, data]) => `
                     <div class="data-section">
                         <h3>${asset.toUpperCase()}</h3>
                         <div class="data-value" style="font-size: 1.2rem;">${data.risk_reward.toUpperCase()}</div>
-                        <div style="font-size: 0.9rem; color: #718096; margin-top: 4px;">Conviction: ${data.conviction}</div>
-                        <div style="margin-top: 8px; font-size: 0.85rem;">
-                            3M Target: <span style="color: #48bb78;">${data.forecasts['3m'].target}</span>
+                        <div style="font-size: 0.9rem; color: var(--taupe); margin-top: 4px;">Conviction: ${data.conviction}</div>
+                        <div class="signals">
+                            <span class="signal sage">${data.forecasts['3m'].target}</span>
                         </div>
                     </div>
                 `).join('')}
@@ -207,118 +161,143 @@ function renderAssetOutlook(outlook) {
 
 function renderAIAnalysis(analysis) {
     return `
-        <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
-            <h2 style="color: #48bb78; border-color: #48bb78;"><img src="../static/icons/icons8-ai-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> AI Analysis</h2>
-            <div class="data-text" style="font-size: 1.2rem; white-space: pre-line;">
+        <div class="dashboard-card ${window.DASHBOARD_NAME.replace('the-', '')}" style="margin-top: 20px;">
+            <div class="card-header">
+                <h3>AI Analysis</h3>
+            </div>
+            <div class="analysis">
                 ${analysis || 'Analysis temporarily unavailable. The system is gathering more data.'}
             </div>
         </div>
     `;
 }
 
-function renderMorningBrief(brief) {
-    if (!brief) return '';
+function renderMorningBrief(data) {
+    const brief = data.sentiment;
+    const guidance = data.portfolio_guidance;
+    const verdict = data.old_stand_verdict;
+    const alphaLoop = data.alpha_loop;
 
-    const getWeatherIcon = (weather) => {
-        if (!weather) return '../static/icons/icons8-sunny-48.png';
-        const w = weather.toLowerCase();
-        if (w.includes('cloud')) return '../static/icons/icons8-cloudy.gif';
-        if (w.includes('storm') || w.includes('rain')) return '../static/icons/icons8-stormy-48.png';
-        if (w.includes('sun') || w.includes('clear')) return '../static/icons/icons8-sunny-48.png';
-        if (w.includes('fog')) return '../static/icons/icons8-foggy-48.png';
-        if (w.includes('volat')) return '../static/icons/icons8-volatile-48.png';
-        return '../static/icons/icons8-sunny-48.png';
-    };
+    if (!brief && !data.morning_brief) return '';
 
-    // Support for V5 fields
-    const isV5 = brief.daily_sentiment !== undefined;
-
-    if (isV5) {
+    // Support for V6 fields
+    if (brief) {
+        const toggleClass = brief.risk_toggle.toLowerCase().includes('on') ? 'risk-on' : (brief.risk_toggle.toLowerCase().includes('off') ? 'risk-off' : 'transition');
         return `
-            <div class="content-card">
-                <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <span>Sentiment: ${brief.daily_sentiment}</span>
-                    <img src="${getWeatherIcon(brief.daily_sentiment)}" alt="sentiment" style="width: 48px; height: 48px;">
+            <div class="dashboard-card commander">
+                <div class="card-header">
+                    <h3>The Commander</h3>
+                    <span class="status ${toggleClass}">${brief.risk_toggle}</span>
                 </div>
                 
-                <div class="data-grid" style="margin-top: 20px;">
+                <p class="analysis">${brief.daily_sentiment}</p>
+
+                <div class="data-grid">
                     <div class="data-section">
-                        <h3>RISK TOGGLE</h3>
-                        <div class="data-value" style="font-size: 1.2rem; text-align: left; color: #fc8181;">${brief.risk_toggle}</div>
-                    </div>
-                    <div class="data-section">
-                        <h3>RATE PATH IMPACT</h3>
-                        <div class="data-value" style="font-size: 1.1rem; text-align: left; color: #63b3ed;">${brief.rate_path_impact}</div>
+                        <h3>Rate Path Impact</h3>
+                        <div class="data-value" style="font-size: 1.1rem;">${brief.rate_path_impact}</div>
                     </div>
                 </div>
 
-                <div class="summary-box" style="margin-top: 20px; text-align: left; border-left: 4px solid #48bb78;">
-                    <h3 style="color: #48bb78; margin-bottom: 10px;">Portfolio Guidance</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Crypto (90%)</h4>
-                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.crypto}</p>
+                <div class="dashboard-card" style="margin-top: 20px; background: rgba(255,255,255,0.2);">
+                    <div class="card-header">
+                        <h3>Portfolio Guidance (V6)</h3>
+                    </div>
+                    <div class="data-grid">
+                        <div class="data-section">
+                            <h3>Crypto (90%)</h3>
+                            <div style="font-weight: 800; color: var(--charcoal);">${guidance.crypto_90.stance}</div>
+                            <p style="font-size: 0.85rem; color: var(--taupe); margin-top: 5px;">${guidance.crypto_90.rationale}</p>
                         </div>
-                        <div>
-                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Metals (10%)</h4>
-                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.metals}</p>
+                        <div class="data-section">
+                            <h3>Metals (10%)</h3>
+                            <div style="font-weight: 800; color: var(--charcoal);">${guidance.metals_10.stance}</div>
+                            <p style="font-size: 0.85rem; color: var(--taupe); margin-top: 5px;">${guidance.metals_10.rationale}</p>
                         </div>
-                        <div>
-                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Sectors/Banking</h4>
-                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.sectors_banking}</p>
+                        <div class="data-section">
+                            <h3>Frontier</h3>
+                            <div style="font-weight: 800; color: var(--charcoal);">${guidance.frontier.stance}</div>
+                            <p style="font-size: 0.85rem; color: var(--taupe); margin-top: 5px;">${guidance.frontier.rationale}</p>
                         </div>
-                        <div>
-                            <h4 style="color: #90cdf4; margin-bottom: 5px;">The Frontier</h4>
-                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.the_frontier}</p>
+                        <div class="data-section">
+                            <h3>Sectors Focus</h3>
+                            <div style="font-weight: 800; color: var(--charcoal);">${guidance.sectors.focus.join(', ')}</div>
+                            <p style="font-size: 0.85rem; color: var(--taupe); margin-top: 5px;">Region: ${guidance.sectors.region}</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="data-section" style="margin-top: 20px; background: #2d3748; padding: 15px; border-radius: 8px;">
-                    <h3 style="color: #f6e05e;">"Old Stand" Comparison</h3>
-                    <p class="data-text" style="font-style: italic;">${brief.old_stand_comparison}</p>
+                <div class="dashboard-card" style="margin-top: 20px; background: rgba(255,255,255,0.15);">
+                    <div class="card-header">
+                        <h3>Best Return-to-Risk Sector Allocation</h3>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        ${guidance.sectors.best_return_to_risk_allocation.map(alloc => `
+                            <div style="padding: 12px; background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 800; color: var(--charcoal);">${alloc.sector}</span>
+                                    <span class="signal sage">${alloc.weight}</span>
+                                </div>
+                                <p style="font-size: 0.85rem; color: var(--charcoal); margin-top: 5px; opacity: 0.8;">${alloc.rationale}</p>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
 
-                <div class="data-section" style="margin-top: 20px; border: 1px dashed #48bb78; padding: 15px; border-radius: 8px;">
-                    <h3 style="color: #48bb78;">12-Minute Alpha Loop (IF/THEN)</h3>
-                    <p class="data-value" style="font-size: 1.2rem; color: #48bb78;">${brief.alpha_loop_if_then}</p>
+                <div class="data-section" style="margin-top: 20px;">
+                    <h3>"Old Stand" Verdict: ${verdict.status}</h3>
+                    <p class="analysis" style="font-style: italic; margin-bottom: 0;">${verdict.explanation}</p>
+                </div>
+
+                <div class="data-section" style="margin-top: 20px; border: 1px dashed var(--sage-green);">
+                    <h3>Actionable IF/THEN Loop</h3>
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                        ${alphaLoop.map(item => `
+                            <div style="font-size: 1rem; color: var(--charcoal);">
+                                <span style="color: var(--sand-gold); font-weight: 800;">IF</span> ${item.if} 
+                                <span style="color: var(--sage-green); font-weight: 800;">THEN</span> ${item.then}
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
         `;
     }
 
-    // Fallback for V4
+    // Fallback for V4/V5
+    const v5Brief = data.morning_brief;
+    if (!v5Brief) return '';
+
     return `
-        <div class="content-card">
-            <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <span>Weather: ${brief.weather_of_the_day}</span>
-                <img src="${getWeatherIcon(brief.weather_of_the_day)}" alt="${brief.weather_of_the_day}" style="width: 48px; height: 48px;">
+        <div class="dashboard-card commander">
+            <div class="card-header">
+                <h3>Morning Brief</h3>
             </div>
             
-            <div class="data-grid" style="margin-top: 20px;">
+            <div class="data-grid">
                 <div class="data-section">
                     <h3>TOP SIGNAL</h3>
-                    <div class="data-value" style="font-size: 1.2rem; text-align: left;">${brief.top_signal}</div>
+                    <div class="data-value" style="font-size: 1.2rem;">${v5Brief.top_signal}</div>
                 </div>
                 <div class="data-section">
                     <h3>ACTION STANCE</h3>
-                    <div class="stance" style="text-align: center;">${brief.action_stance}</div>
+                    <div class="data-value" style="color: var(--sage-green);">${v5Brief.action_stance}</div>
                 </div>
             </div>
 
-            <div class="summary-box" style="margin-top: 20px; text-align: left;">
-                <h3 style="color: #90cdf4; margin-bottom: 10px;">Why It Matters</h3>
-                <p>${brief.why_it_matters}</p>
+            <div class="data-section" style="margin-top: 20px;">
+                <h3>Why It Matters</h3>
+                <p class="analysis">${v5Brief.why_it_matters}</p>
             </div>
 
             <div class="data-section" style="margin-top: 20px;">
                 <h3>Cross-Dashboard Convergence</h3>
-                <p class="data-text">${brief.cross_dashboard_convergence}</p>
+                <p class="analysis">${v5Brief.cross_dashboard_convergence}</p>
             </div>
 
             <div class="data-section" style="margin-top: 20px;">
                 <h3>The Commander's Summary</h3>
-                <p class="data-text" style="font-style: italic;">"${brief.summary_sentence}"</p>
+                <p class="analysis" style="font-style: italic;">"${v5Brief.summary_sentence}"</p>
             </div>
         </div>
     `;
@@ -327,13 +306,11 @@ function renderMorningBrief(brief) {
 async function initDashboard(dashboardName) {
     const data = await loadDashboardData(dashboardName);
 
-    // Render Navigation (assuming navigation.js is loaded)
     if (window.renderNavigation) {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('mode') !== 'seamless') {
             document.getElementById('nav').innerHTML = window.renderNavigation(dashboardName);
         } else {
-            // In seamless mode, hide the nav container to avoid spacing issues
             const navEl = document.getElementById('nav');
             if (navEl) navEl.style.display = 'none';
         }
@@ -341,7 +318,7 @@ async function initDashboard(dashboardName) {
 
     if (!data) {
         document.getElementById('content').innerHTML = `
-            <div class="content-card">
+            <div class="dashboard-card">
                 <h2>Loading Data...</h2>
                 <p>Please wait while we fetch the latest intelligence.</p>
             </div>
@@ -354,130 +331,53 @@ async function initDashboard(dashboardName) {
     const contentEl = document.getElementById('content');
 
     if (dashboardName === 'the-commander') {
-        let html = renderMorningBrief(data.morning_brief);
-
-        // Add Flight to Safety
-        html += renderFlightToSafety(data.flight_to_safety_score);
-
-        // Add Asset Outlook
-        html += renderAssetOutlook(data.asset_outlook);
-
-        // Add AGI Tracker
-        html += renderAgiTracker(data.agi_singularity_tracker);
-
-        // Add conflict matrix if available
-        if (data.conflict_matrix) {
-            const matrix = data.conflict_matrix;
-            html += `
-                <div class="content-card" style="margin-top: 20px;">
-                    <h2>📊 Dashboard Convergence</h2>
-                    <div class="data-grid">
-                        <div class="data-section">
-                            <h3>Risk</h3>
-                            <div style="color: ${matrix.risk.color}; font-weight: bold;">${matrix.risk.signal} (${matrix.risk.score}/100)</div>
-                        </div>
-                        <div class="data-section">
-                            <h3>Crypto</h3>
-                            <div style="color: ${matrix.crypto.color}; font-weight: bold;">${matrix.crypto.signal} (${matrix.crypto.score}/100)</div>
-                        </div>
-                        <div class="data-section">
-                            <h3>Macro</h3>
-                            <div style="color: ${matrix.macro.color}; font-weight: bold;">${matrix.macro.signal} (${matrix.macro.score}/100)</div>
-                        </div>
-                        <div class="data-section">
-                            <h3>Tech</h3>
-                            <div style="color: ${matrix.tech.color}; font-weight: bold;">${matrix.tech.signal} (${matrix.tech.score}/100)</div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 20px; padding: 15px; background: ${matrix.net_signal.color}20; border-radius: 8px; border-left: 4px solid ${matrix.net_signal.color};">
-                        <h3 style="color: ${matrix.net_signal.color}; margin-bottom: 8px;">Net Signal: ${matrix.net_signal.signal}</h3>
-                        <div style="color: #718096;">Confidence: ${(matrix.net_signal.confidence * 100).toFixed(0)}%</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Add decision tree if available
-        if (data.decision_tree && data.decision_tree.primary_decision) {
-            const decision = data.decision_tree.primary_decision;
-            html += `
-                <div class="content-card" style="margin-top: 20px; border-color: #48bb78;">
-                    <h2 style="color: #48bb78;">🎯 Decision Tree</h2>
-                    <div style="padding: 15px; background: #1a202c; border-radius: 8px; margin-top: 10px;">
-                        <div style="color: #90cdf4; font-weight: bold; margin-bottom: 8px;">IF ${decision.condition}</div>
-                        <div style="color: #48bb78; font-size: 1.2rem; font-weight: bold; margin-bottom: 8px;">→ ${decision.action}</div>
-                        <div style="color: #718096; font-size: 0.9rem;">Confidence: ${(decision.confidence * 100).toFixed(0)}%</div>
-                        <div style="color: #cbd5e0; margin-top: 8px; font-style: italic;">${decision.reasoning}</div>
-                    </div>
-                </div>
-            `;
-        }
-
+        let html = renderMorningBrief(data);
+        if (data.flight_to_safety_score) html += renderFlightToSafety(data.flight_to_safety_score);
+        if (data.asset_outlook) html += renderAssetOutlook(data.asset_outlook);
+        if (data.agi_singularity_tracker) html += renderAgiTracker(data.agi_singularity_tracker);
+        if (data.ai_analysis) html += renderAIAnalysis(data.ai_analysis);
         contentEl.innerHTML = html;
     } else {
         let html = '';
-
-        // 1. Regime detection (for The Shield)
         if (data.regime) {
             html += `
-                <div class="content-card">
-                    <h2>🎯 Market Regime</h2>
-                    <div style="padding: 15px; background: ${data.regime.color}20; border-radius: 8px; border-left: 4px solid ${data.regime.color};">
-                        <div style="color: ${data.regime.color}; font-size: 1.3rem; font-weight: bold;">${data.regime.regime}</div>
-                        <div style="color: #718096; margin-top: 4px;">Confidence: ${(data.regime.confidence * 100).toFixed(0)}%</div>
+                <div class="dashboard-card ${dashboardName.replace('the-', '')}">
+                    <div class="card-header">
+                        <h3>Market Regime</h3>
+                        <span class="status" style="background: ${data.regime.color}20; color: ${data.regime.color};">${data.regime.regime}</span>
+                    </div>
+                    <p class="analysis">Confidence: ${(data.regime.confidence * 100).toFixed(0)}%</p>
+                </div>
+            `;
+        }
+        html += renderScoring(data.scoring);
+        if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
+            html += `
+                <div class="dashboard-card ${dashboardName.replace('the-', '')}" style="margin-top: 20px;">
+                    <div class="card-header">
+                        <h3>Market Metrics</h3>
+                    </div>
+                    <div class="data-grid">
+                        ${data.metrics.map(m => `
+                            <div class="data-section">
+                                <h3>${m.name}</h3>
+                                <div class="data-value">${m.value}</div>
+                                <div class="signals">
+                                    <span class="signal taupe">${m.signal}</span>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             `;
         }
-
-        // 2. Scoring Metrics
-        html += renderScoring(data.scoring);
-
-        // 3. Metrics Section
-        console.log('[DashboardCore] Checking metrics for:', data.dashboard);
-        if (data.metrics && Array.isArray(data.metrics) && data.metrics.length > 0) {
-            console.log('[DashboardCore] Metrics found:', data.metrics.length);
-            // Check if metrics are enhanced (have percentile)
-            const isEnhanced = data.metrics[0].percentile !== undefined;
-
-            if (isEnhanced) {
-                console.log('[DashboardCore] Rendering enhanced metrics');
-                html += renderEnhancedMetrics(data.metrics);
-            } else {
-                console.log('[DashboardCore] Rendering basic metrics');
-                // Render basic metrics
-                html += `
-                    <div class="content-card" style="margin-top: 20px;">
-                        <h2><img src="../static/icons/icons8-chart-48.png" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"> Market Metrics</h2>
-                        <div class="data-grid">
-                            ${data.metrics.map(m => `
-                                <div class="data-section">
-                                    <h3>${m.name}</h3>
-                                    <div class="data-value" style="color: #63b3ed;">${m.value}</div>
-                                    <div style="font-size: 0.85rem; color: #718096; margin-top: 4px;">${m.signal}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-        } else {
-            console.warn('[DashboardCore] No metrics found for dashboard:', data.dashboard);
-        }
-
-        // 4. AI Analysis
         html += renderAIAnalysis(data.ai_analysis);
-
-        // 5. Data Sources
         html += renderDataSources(data.data_sources);
-
-        // 6. Footer
         html += `
-            <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid #2d3748; padding-top: 20px;">
-                <a href="../read_all/index.html" style="color: #4a5568; text-decoration: none; font-size: 0.9rem;">Read All Data (Debug)</a>
+            <div style="margin-top: 40px; text-align: center; padding-bottom: 20px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                <a href="../read_all/index.html" style="color: var(--taupe); text-decoration: none; font-size: 0.9rem;">Read All Data (Debug)</a>
             </div>
         `;
-
         contentEl.innerHTML = html;
     }
 }
@@ -486,49 +386,32 @@ async function initDashboard(dashboardName) {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
-            .then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch(err => {
-                console.log('ServiceWorker registration failed: ', err);
-            });
+            .then(reg => console.log('SW registered'))
+            .catch(err => console.log('SW failed', err));
     });
 }
 
-// Auto-initialize if dashboard name is provided in global scope
+// Auto-initialize
 if (window.DASHBOARD_NAME) {
     document.addEventListener('DOMContentLoaded', () => {
         initDashboard(window.DASHBOARD_NAME);
-        // Refresh every 5 minutes
         setInterval(() => initDashboard(window.DASHBOARD_NAME), 5 * 60 * 1000);
     });
 }
 
-// PWA Install Logic
+// PWA Install
 let deferredPrompt;
 const installBtn = document.getElementById('install-app-btn');
-
 window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
-    // Stash the event so it can be triggered later.
     deferredPrompt = e;
-    // Update UI to notify the user they can add to home screen
     if (installBtn) {
         installBtn.style.display = 'block';
-
-        installBtn.addEventListener('click', (e) => {
-            // Hide our user interface that shows our A2HS button
+        installBtn.addEventListener('click', () => {
             installBtn.style.display = 'none';
-            // Show the prompt
             deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                } else {
-                    console.log('User dismissed the A2HS prompt');
-                }
+            deferredPrompt.userChoice.then(res => {
+                console.log('User choice:', res.outcome);
                 deferredPrompt = null;
             });
         });
