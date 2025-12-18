@@ -1,64 +1,9 @@
 {
-  "scoring": {
-    "stance_strength": 5,
-    "volatility_risk": 6,
-    "confidence": 0.65
-  },
-  "metrics": [
-    {
-      "name": "S&P 500",
-      "value": "6,721.43",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "TASI",
-      "value": "10,414.06",
-      "signal": "NEUTRAL"
-    },
-    {
-      "name": "Oil (Brent)",
-      "value": "56.19 USD",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Gold",
-      "value": "4,360.00 USD",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "DXY",
-      "value": "98.42",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "10Y Yield",
-      "value": "4.151%",
-      "signal": "NORMAL"
-    }
-  ],
-  "macro": {
-    "oil": 56.19,
-    "dxy": 98.42,
-    "gold": 4360.0,
-    "sp500": 6721.43,
-    "tasi": 10414.06,
-    "treasury_10y": 4.151
-  },
-  "tasi_mood": "Cautious",
-  "drivers": [
-    "Global economic uncertainty",
-    "Geopolitical tensions",
-    "Central bank policies"
-  ],
-  "ai_analysis": "The global macro environment is characterized by caution, with the S&P 500 and TASI showing slight declines. Oil prices are stable, and gold is up slightly, indicating some safe-haven buying. The DXY is strengthening, reflecting a flight to safety. Treasury yields are stable, suggesting that while there is some volatility, it is not extreme. The TASI mood is cautious, reflecting regional economic uncertainties and geopolitical tensions. Overall, the macro environment is supportive of a defensive investment stance, with investors seeking stability in traditional safe-haven assets.",
-  "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Saudi Exchange"
-  ],
-  "last_update": "2025-12-18T04:30:52.850090+00:00",
-  "dashboard": "the-map",
   "name": "The Map",
-  "role": "Macro",
-  "mission": "Extract hawkish/dovish tone, forward pressure, rate path, and macro wind direction."
+  "last_update": "2025-12-18T22:59:22.037805+00:00",
+  "meta": {
+    "generated_at": "2025-12-18T22:59:22.037805+00:00",
+    "version": "5.0"
+  },
+  "ai_analysis": "The TASI index is showing strength with a 0.35% increase. This indicates potential opportunities in Saudi markets. The energy sector is also showing strength based on EIA data."
 }

@@ -220,8 +220,8 @@ function renderMorningBrief(brief) {
     if (!brief) return '';
 
     const getWeatherIcon = (weather) => {
+        if (!weather) return '../static/icons/icons8-sunny-48.png';
         const w = weather.toLowerCase();
-        // Prioritize specific matches
         if (w.includes('cloud')) return '../static/icons/icons8-cloudy.gif';
         if (w.includes('storm') || w.includes('rain')) return '../static/icons/icons8-stormy-48.png';
         if (w.includes('sun') || w.includes('clear')) return '../static/icons/icons8-sunny-48.png';
@@ -230,6 +230,64 @@ function renderMorningBrief(brief) {
         return '../static/icons/icons8-sunny-48.png';
     };
 
+    // Support for V5 fields
+    const isV5 = brief.daily_sentiment !== undefined;
+
+    if (isV5) {
+        return `
+            <div class="content-card">
+                <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <span>Sentiment: ${brief.daily_sentiment}</span>
+                    <img src="${getWeatherIcon(brief.daily_sentiment)}" alt="sentiment" style="width: 48px; height: 48px;">
+                </div>
+                
+                <div class="data-grid" style="margin-top: 20px;">
+                    <div class="data-section">
+                        <h3>RISK TOGGLE</h3>
+                        <div class="data-value" style="font-size: 1.2rem; text-align: left; color: #fc8181;">${brief.risk_toggle}</div>
+                    </div>
+                    <div class="data-section">
+                        <h3>RATE PATH IMPACT</h3>
+                        <div class="data-value" style="font-size: 1.1rem; text-align: left; color: #63b3ed;">${brief.rate_path_impact}</div>
+                    </div>
+                </div>
+
+                <div class="summary-box" style="margin-top: 20px; text-align: left; border-left: 4px solid #48bb78;">
+                    <h3 style="color: #48bb78; margin-bottom: 10px;">Portfolio Guidance</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Crypto (90%)</h4>
+                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.crypto}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Metals (10%)</h4>
+                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.metals}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #90cdf4; margin-bottom: 5px;">Sectors/Banking</h4>
+                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.sectors_banking}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #90cdf4; margin-bottom: 5px;">The Frontier</h4>
+                            <p style="font-size: 0.95rem;">${brief.portfolio_guidance.the_frontier}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-section" style="margin-top: 20px; background: #2d3748; padding: 15px; border-radius: 8px;">
+                    <h3 style="color: #f6e05e;">"Old Stand" Comparison</h3>
+                    <p class="data-text" style="font-style: italic;">${brief.old_stand_comparison}</p>
+                </div>
+
+                <div class="data-section" style="margin-top: 20px; border: 1px dashed #48bb78; padding: 15px; border-radius: 8px;">
+                    <h3 style="color: #48bb78;">12-Minute Alpha Loop (IF/THEN)</h3>
+                    <p class="data-value" style="font-size: 1.2rem; color: #48bb78;">${brief.alpha_loop_if_then}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    // Fallback for V4
     return `
         <div class="content-card">
             <div class="weather-badge" style="text-align: center; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
