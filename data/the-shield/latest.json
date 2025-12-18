@@ -1,60 +1,9 @@
 {
-  "risk_assessment": {
-    "score": 6.5,
-    "level": "MEDIUM",
-    "color": "#FF9900"
-  },
-  "scoring": {
-    "risk_level": 6,
-    "fragility": 0.6,
-    "volatility_pressure": 0.7
-  },
-  "metrics": [
-    {
-      "name": "10Y Treasury Bid-to-Cover",
-      "value": "2.5",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "USD/JPY",
-      "value": "155.72",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "USD/CNH",
-      "value": "7.037",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "10Y Treasury Yield",
-      "value": "4.151%",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "MOVE Index",
-      "value": "62.74",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "VIX",
-      "value": "17.62",
-      "signal": "ELEVATED"
-    },
-    {
-      "name": "Fear & Greed",
-      "value": "17",
-      "signal": "Fear"
-    }
-  ],
-  "ai_analysis": "Global risk pressure is moderate, with the VIX at 17.62 indicating elevated volatility. The Fear & Greed Index at 17 suggests extreme fear, which is consistent with the current market sentiment. The USD is strengthening slightly against the JPY and CNH, reflecting a flight to safety. Treasury yields are stable, and the MOVE index is within normal ranges, suggesting that while there is some volatility, it is not extreme. Cross-asset stress is present but manageable, with gold prices up slightly, indicating some safe-haven buying. Overall, the risk environment is cautious, with investors seeking stability in traditional safe-haven assets.",
-  "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Federal Reserve"
-  ],
-  "last_update": "2025-12-18T04:30:52.850090+00:00",
-  "dashboard": "the-shield",
   "name": "The Shield",
-  "role": "Risk Environment",
-  "mission": "Detect global risk pressure, cross-asset stress, volatility clusters, and fragility vectors."
+  "last_update": "2025-12-18T22:59:22.035201+00:00",
+  "meta": {
+    "generated_at": "2025-12-18T22:59:22.035201+00:00",
+    "version": "5.0"
+  },
+  "ai_analysis": "The VIX is at 16.87, indicating moderate market stress. The Fear & Greed Index is at 17, classified as 'Extreme Fear'. This suggests a cautious approach is warranted."
 }

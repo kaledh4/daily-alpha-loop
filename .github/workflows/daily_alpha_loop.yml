@@ -36,10 +36,10 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
-      - name: Run Daily Alpha Loop V4
+      - name: Run Daily Alpha Loop V5
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
-          # V4 Primary API Key (REQUIRED for AI analysis)
+          # V5 Primary API Key (REQUIRED for AI analysis)
           IS_LOCAL: 'false'
           OPENROUTER_KEY: ${{ secrets.OPENROUTER_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -54,7 +54,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
-        run: python tools/fetchers/unified_fetcher_v4.py
+        run: python tools/fetchers/unified_fetcher_v5.py
 
       - name: Build all applications
         run: npm run build

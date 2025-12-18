@@ -1,82 +1,9 @@
 {
-  "metrics": [
-    {
-      "name": "BTC Price",
-      "value": "86,811.09 USD",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "ETH Price",
-      "value": "2,835.43 USD",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "RSI (BTC)",
-      "value": "30.74",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Fear & Greed",
-      "value": "17",
-      "signal": "EXTREME FEAR"
-    },
-    {
-      "name": "DXY Index",
-      "value": "98.42",
-      "signal": "NORMAL"
-    },
-    {
-      "name": "Fed Rate",
-      "value": "4.151%",
-      "signal": "NORMAL"
-    }
-  ],
-  "crypto_assets": {
-    "BTC": {
-      "price": 86811.09,
-      "risk": 8.0,
-      "multiplier": 1.2
-    },
-    "ETH": {
-      "price": 2835.43,
-      "risk": 7.5,
-      "multiplier": 1.1
-    },
-    "VXV": {
-      "price": 0.0,
-      "risk": 0.0,
-      "multiplier": 0.0
-    },
-    "APT": {
-      "price": 0.0,
-      "risk": 0.0,
-      "multiplier": 0.0
-    },
-    "ADA": {
-      "price": 0.3658,
-      "risk": 6.0,
-      "multiplier": 0.9
-    },
-    "NEAR": {
-      "price": 1.4709,
-      "risk": 5.5,
-      "multiplier": 0.8
-    }
-  },
-  "composite_risk": 7.0,
-  "risk_level": "High",
-  "momentum": "Downward",
-  "key_level": "Support at 85,000 USD for BTC",
-  "rsi": 30.74,
-  "trend": "Bearish",
-  "fear_and_greed": {
-    "value": 17,
-    "classification": "Extreme Fear"
-  },
-  "ai_analysis": "The crypto market is currently in a bearish trend, with BTC and ETH showing negative 24-hour changes. The RSI values for BTC, ETH, and ADA are all below 35, indicating oversold conditions. The Fear & Greed Index at 17 suggests extreme fear, which is consistent with the current market sentiment. On-chain data shows a decrease in active addresses and transaction volumes, which could signal a short-term bottom. The DXY index is slightly up, indicating a strengthening US dollar, which typically correlates with a risk-off environment in crypto. The Fed rate remains stable, providing some certainty for investors. Overall, the crypto market is in a defensive posture, with potential opportunities for contrarian investors who can tolerate short-term volatility.",
-  "last_update": "2025-12-18T04:30:52.850090+00:00",
-  "dashboard": "the-coin",
   "name": "The Coin",
-  "role": "Crypto Scanner",
-  "mission": "Track crypto momentum, rotation, and setup quality."
+  "last_update": "2025-12-18T22:59:22.036295+00:00",
+  "meta": {
+    "generated_at": "2025-12-18T22:59:22.036295+00:00",
+    "version": "5.0"
+  },
+  "ai_analysis": "BTC is showing strength with a dominance of 57.48%. ETH has shown slight weakness with a -0.083% change. This suggests a preference for safety in the crypto market."
 }

@@ -28,6 +28,7 @@ _rate_limits = defaultdict(lambda: {'count': 0, 'reset_time': 0})
 # API Keys (from environment)
 FRED_API_KEY = os.environ.get('FRED_API_KEY')
 ALPHA_VANTAGE_KEY = os.environ.get('ALPHA_VANTAGE_KEY')
+EIA_API_KEY = os.environ.get('EIA_API_KEY')
 
 # ========================================
 # FRED API (Federal Reserve Economic Data)
@@ -94,6 +95,18 @@ def get_fred_indicators() -> Dict:
     """Get key FRED indicators for risk monitoring"""
     indicators = {}
     
+    # Federal Funds Effective Rate (5.4 -> 3 tracking)
+    fed_funds = fetch_fred_series('FEDFUNDS', days=365)
+    if fed_funds:
+        latest = next((obs for obs in fed_funds if obs.get('value') != '.'), None)
+        if latest:
+            indicators['fed_funds'] = float(latest['value'])
+            # Get previous value for trend
+            if len(fed_funds) > 1:
+                prev = next((obs for obs in fed_funds[1:] if obs.get('value') != '.'), None)
+                if prev:
+                    indicators['fed_funds_prev'] = float(prev['value'])
+
     # VIX (if not available from yfinance)
     vix_data = fetch_fred_series('VIXCLS', days=30)
     if vix_data:
@@ -116,6 +129,78 @@ def get_fred_indicators() -> Dict:
             indicators['dxy_fred'] = float(latest['value'])
     
     return indicators
+
+# ========================================
+# EIA API (Energy Information Administration)
+# ========================================
+# Free tier: Requires API Key
+# Rate limit: 100 requests/minute
+
+def fetch_eia_data(route: str, params: Dict = None) -> Optional[Dict]:
+    """Fetch data from EIA API v2"""
+    if not EIA_API_KEY:
+        logger.warning("EIA_API_KEY not set, skipping EIA data")
+        return None
+    
+    cache_key = f"eia_{route.replace('/', '_')}"
+    cache_file = CACHE_DIR / f'{cache_key}.json'
+    
+    # Check cache (refresh daily)
+    if cache_file.exists():
+        try:
+            cached = json.loads(cache_file.read_text())
+            cache_time = datetime.fromisoformat(cached.get('cached_at', '2000-01-01'))
+            if (datetime.now(timezone.utc) - cache_time).total_seconds() < 86400:
+                logger.info(f"  Using cached EIA data for {route}")
+                return cached.get('data')
+        except:
+            pass
+            
+    try:
+        url = f"https://api.eia.gov/v2/{route}"
+        final_params = params.copy() if params else {}
+        final_params['api_key'] = EIA_API_KEY
+        
+        response = requests.get(url, params=final_params, timeout=15)
+        response.raise_for_status()
+        data = response.json()
+        
+        # Cache result
+        cache_data = {
+            'cached_at': datetime.now(timezone.utc).isoformat(),
+            'data': data
+        }
+        cache_file.write_text(json.dumps(cache_data), encoding='utf-8')
+        
+        logger.info(f"  ✅ Fetched EIA {route}")
+        return data
+        
+    except Exception as e:
+        logger.warning(f"  Failed EIA {route}: {e}")
+        return None
+
+def get_energy_metrics() -> Dict:
+    """Get key energy metrics from EIA"""
+    metrics = {}
+    
+    # Crude Oil Prices (WTI)
+    # Route: petroleum/pri/spt/data
+    params = {
+        'frequency': 'daily',
+        'data[0]': 'value',
+        'facets[series][]': 'RWTC',
+        'sort[0][column]': 'period',
+        'sort[0][direction]': 'desc',
+        'length': 10
+    }
+    
+    oil_data = fetch_eia_data('petroleum/pri/spt/data', params)
+    if oil_data and 'response' in oil_data and 'data' in oil_data['response']:
+        latest = oil_data['response']['data'][0]
+        metrics['oil_wti'] = float(latest.get('value', 0))
+        metrics['oil_period'] = latest.get('period')
+        
+    return metrics
 
 # ========================================
 # CoinGecko API
