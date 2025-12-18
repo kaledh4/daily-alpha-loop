@@ -1,63 +1,62 @@
 {
   "scoring": {
-    "stance_strength": 4,
-    "volatility_risk": 7,
-    "confidence": 0.42
+    "stance_strength": 5,
+    "volatility_risk": 6,
+    "confidence": 0.65
   },
   "metrics": [
     {
       "name": "S&P 500",
-      "value": "6800.26",
+      "value": "6,721.43",
       "signal": "NORMAL"
     },
     {
       "name": "TASI",
-      "value": "10452.91",
+      "value": "10,414.06",
       "signal": "NEUTRAL"
     },
     {
       "name": "Oil (Brent)",
-      "value": "55.96",
+      "value": "56.19 USD",
       "signal": "NORMAL"
     },
     {
       "name": "Gold",
-      "value": "4353.60",
+      "value": "4,360.00 USD",
       "signal": "NORMAL"
     },
     {
       "name": "DXY",
-      "value": "98.33",
+      "value": "98.42",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Yield",
-      "value": "4.15%",
+      "value": "4.151%",
       "signal": "NORMAL"
     }
   ],
   "macro": {
-    "oil": 55.96,
-    "dxy": 98.33,
-    "gold": 4353.6,
-    "sp500": 6800.26,
-    "tasi": 10452.91,
-    "treasury_10y": 4.15
+    "oil": 56.19,
+    "dxy": 98.42,
+    "gold": 4360.0,
+    "sp500": 6721.43,
+    "tasi": 10414.06,
+    "treasury_10y": 4.151
   },
-  "tasi_mood": "Cautiously Optimistic",
+  "tasi_mood": "Cautious",
   "drivers": [
-    "Oil price stabilization",
-    "Gold's safe-haven demand",
-    "US yield curve dynamics"
+    "Global economic uncertainty",
+    "Geopolitical tensions",
+    "Central bank policies"
   ],
-  "ai_analysis": "Global macroeconomic conditions reflect a precarious balance between inflation stickiness and growth concerns. The S&P 500's neutral RSI (54.66) and flat performance indicate market indecision, while TASI's 34 RSI suggests oversold conditions in emerging markets despite Saudi energy stability. Oil prices ($55.96) show resilience but remain 18% below 2022 peaks, constraining fiscal budgets in oil-dependent economies. Gold's overbought RSI (77.36) conflicts with its safe-haven role given elevated risk aversion, suggesting speculative positioning. The US yield curve remains inverted across key maturities (2s10s at -0.32), increasing recession probability to 38% according to AI models analyzing Fed policy lags. This creates a 'stagflation paradox' where tight monetary policy risks demand collapse without solving inflation. AI-driven supply chain analytics predict 15% semiconductor shortages in Q1 2026 due to geopolitical fragmentation, potentially disrupting tech sector recoveries. Cross-asset correlations at 0.62 - the highest since 2020 - indicate synchronized risk pricing, with defensive sectors outperforming cyclicals by 1.8x. The 3-month forecast suggests 65% probability of range-bound trading until inflation data forces a policy pivot, with crypto markets likely to amplify moves due to lower liquidity buffers.",
+  "ai_analysis": "The global macro environment is characterized by caution, with the S&P 500 and TASI showing slight declines. Oil prices are stable, and gold is up slightly, indicating some safe-haven buying. The DXY is strengthening, reflecting a flight to safety. Treasury yields are stable, suggesting that while there is some volatility, it is not extreme. The TASI mood is cautious, reflecting regional economic uncertainties and geopolitical tensions. Overall, the macro environment is supportive of a defensive investment stance, with investors seeking stability in traditional safe-haven assets.",
   "data_sources": [
-    "Bloomberg Terminal",
-    "Federal Reserve",
-    "IEA",
-    "World Bank"
+    "Bloomberg",
+    "Reuters",
+    "Saudi Exchange"
   ],
-  "last_update": "2025-12-17T04:33:03.170857+00:00",
+  "last_update": "2025-12-18T04:30:52.850090+00:00",
   "dashboard": "the-map",
   "name": "The Map",
   "role": "Macro",

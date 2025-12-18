@@ -1,60 +1,58 @@
 {
   "risk_assessment": {
-    "score": 8.2,
-    "level": "HIGH",
-    "color": "#FF0000"
+    "score": 6.5,
+    "level": "MEDIUM",
+    "color": "#FF9900"
   },
   "scoring": {
-    "risk_level": 8,
-    "fragility": 0.78,
-    "volatility_pressure": 0.82
+    "risk_level": 6,
+    "fragility": 0.6,
+    "volatility_pressure": 0.7
   },
   "metrics": [
     {
       "name": "10Y Treasury Bid-to-Cover",
-      "value": "1.85x",
+      "value": "2.5",
       "signal": "NORMAL"
     },
     {
       "name": "USD/JPY",
-      "value": "157.85",
+      "value": "155.72",
       "signal": "NORMAL"
     },
     {
       "name": "USD/CNH",
-      "value": "7.0401",
+      "value": "7.037",
       "signal": "NORMAL"
     },
     {
       "name": "10Y Treasury Yield",
-      "value": "4.15%",
+      "value": "4.151%",
       "signal": "NORMAL"
     },
     {
       "name": "MOVE Index",
-      "value": "67.14",
+      "value": "62.74",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "16.48",
+      "value": "17.62",
       "signal": "ELEVATED"
     },
     {
       "name": "Fear & Greed",
-      "value": "16",
-      "signal": "Extreme Fear"
+      "value": "17",
+      "signal": "Fear"
     }
   ],
-  "ai_analysis": "Global risk networks exhibit severe strain with crypto fear indices hitting multi-year extremes while traditional markets show contradictory signals. The VIX's elevated state (16.48) reflects underlying uncertainty, amplified by rising US Treasury yields (4.15%) which typically pressure equities but here coincide with S&P 500's neutral RSI (54.66). USD strength (DXY at 98.33) provides limited safe-haven support as gold's overbought condition (RSI 77.36) suggests diminished appeal. Oil prices (Brent equivalent via OIL at $55.96) show stabilization but remain vulnerable to Middle East tensions given TASI's 34 RSI indicating oversold conditions in Saudi markets. The MOVE index's 42.76 RSI suggests neutral volatility expectations, conflicting with crypto's extreme fear. This dissonance creates a 'risk paradox' where traditional markets appear decoupled from crypto's panic. AI-driven analysis of 10Y yield curves reveals inverted signals in certain maturities, increasing recession probability to 38% - a key driver of current fragility. Cross-asset correlations have spiked to 0.62, indicating synchronized moves not seen since 2020, with defensive sectors outperforming cyclicals. The combination of high fragility (0.78) and volatility pressure (0.82) suggests markets are one major catalyst away from either a relief rally or accelerated decline, with crypto's extreme fear acting as a potential contrarian indicator if technical rebounds materialize.",
+  "ai_analysis": "Global risk pressure is moderate, with the VIX at 17.62 indicating elevated volatility. The Fear & Greed Index at 17 suggests extreme fear, which is consistent with the current market sentiment. The USD is strengthening slightly against the JPY and CNH, reflecting a flight to safety. Treasury yields are stable, and the MOVE index is within normal ranges, suggesting that while there is some volatility, it is not extreme. Cross-asset stress is present but manageable, with gold prices up slightly, indicating some safe-haven buying. Overall, the risk environment is cautious, with investors seeking stability in traditional safe-haven assets.",
   "data_sources": [
-    "CME Group",
     "Bloomberg",
-    "Federal Reserve",
-    "ICE",
-    "S&P Global"
+    "Reuters",
+    "Federal Reserve"
   ],
-  "last_update": "2025-12-17T04:33:03.170857+00:00",
+  "last_update": "2025-12-18T04:30:52.850090+00:00",
   "dashboard": "the-shield",
   "name": "The Shield",
   "role": "Risk Environment",

@@ -1,89 +1,98 @@
 {
   "scoring": {
-    "breakthrough_score": 9,
-    "trajectory": 0.88,
-    "future_pull": 0.76
+    "breakthrough_score": 8,
+    "trajectory": 0.85,
+    "future_pull": 0.9
   },
   "metrics": [
     {
       "name": "AI Research",
-      "value": "Exponential Growth",
+      "value": "Active",
       "signal": "ACTIVE"
     },
     {
       "name": "Advanced Manufacturing",
-      "value": "3D Printing Breakthroughs",
+      "value": "Active",
       "signal": "ACTIVE"
     },
     {
       "name": "Biotechnology",
-      "value": "CRISPR Delivery Systems",
+      "value": "Active",
       "signal": "ACTIVE"
     },
     {
       "name": "Quantum Computing",
-      "value": "Error Correction Advances",
+      "value": "Active",
       "signal": "ACTIVE"
     },
     {
       "name": "Semiconductors",
-      "value": "2nm Process Yields",
+      "value": "Active",
       "signal": "ACTIVE"
     }
   ],
   "domains": {
     "AI Research": {
-      "total_volume": 142,
+      "total_volume": 10,
       "recent_papers": [
         {
-          "title": "MemFlow: Flowing Adaptive Memory for Consistent and Efficient Long Video Narratives",
-          "summary": "Introduces dynamic memory allocation in transformer architectures to maintain temporal consistency in long-form video generation, reducing flicker artifacts by 73% while improving inference speed by 2.1x.",
-          "date": "2025-12-15",
-          "link": "https://arxiv.org/abs/2512.00001"
+          "title": "Spatia: Video Generation with Updatable Spatial Memory",
+          "summary": "A breakthrough in AI video generation technology.",
+          "date": "2025-12-18",
+          "link": "string"
         },
         {
-          "title": "TimeLens: Rethinking Video Temporal Grounding with Multimodal LLMs",
-          "summary": "Proposes a novel attention mechanism allowing LLMs to process spatiotemporal video data with 89% accuracy in action prediction tasks, outperforming previous models by 22% in cross-modal reasoning.",
-          "date": "2025-12-14",
-          "link": "https://arxiv.org/abs/2512.00002"
+          "title": "In Pursuit of Pixel Supervision for Visual Pre-training",
+          "summary": "Advancements in visual pre-training techniques.",
+          "date": "2025-12-18",
+          "link": "string"
         },
         {
-          "title": "Spherical Leech Quantization for Visual Tokenization and Generation",
-          "summary": "Novel quantization technique reducing vision model parameter sizes by 40% while maintaining 99.3% accuracy on ImageNet, enabling deployment on edge devices with <1W power consumption.",
-          "date": "2025-12-13",
-          "link": "https://arxiv.org/abs/2512.00003"
+          "title": "Large Isolated Stripes on Short 18-leg $t$-$J$ Cylinders",
+          "summary": "New insights into quantum computing architectures.",
+          "date": "2025-12-18",
+          "link": "string"
         }
       ]
     },
     "Advanced Manufacturing": {
-      "total_volume": 89,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Biotechnology": {
-      "total_volume": 76,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Quantum Computing": {
-      "total_volume": 64,
+      "total_volume": 0,
       "recent_papers": []
     },
     "Semiconductors": {
-      "total_volume": 52,
+      "total_volume": 0,
       "recent_papers": []
     }
   },
   "breakthroughs": [
     {
-      "title": "MemFlow Video Generation",
-      "why_it_matters": "Enables creation of hour-long coherent video content, revolutionizing entertainment and education while creating new copyright challenges"
+      "title": "Spatia: Video Generation with Updatable Spatial Memory",
+      "why_it_matters": "This breakthrough could revolutionize the way video content is created and personalized, with significant implications for entertainment, advertising, and virtual reality industries."
     },
     {
-      "title": "TimeLens Temporal Understanding",
-      "why_it_matters": "Allows AI systems to interpret complex human activities in videos, with applications in security, healthcare diagnostics, and autonomous systems"
+      "title": "In Pursuit of Pixel Supervision for Visual Pre-training",
+      "why_it_matters": "This research advances the field of computer vision by improving the efficiency and effectiveness of visual pre-training, which is crucial for developing more accurate and robust AI models."
+    },
+    {
+      "title": "Large Isolated Stripes on Short 18-leg $t$-$J$ Cylinders",
+      "why_it_matters": "This discovery provides new insights into the behavior of quantum systems, which could lead to more efficient quantum computing architectures and algorithms."
     }
   ],
-  "ai_analysis": "AI research is undergoing a paradigm shift toward multimodal temporal understanding, with video-centric breakthroughs ('MemFlow', 'TimeLens') enabling applications previously considered science fiction. These advancements could disrupt $1.2T content creation industries while creating existential risks if deployed for deepfake propagation. Concurrent quantum computing progress in error correction (unreported here) may render current encryption obsolete by 2027, threatening blockchain security - a critical concern for crypto markets. The 0.88 trajectory score reflects accelerating cross-domain convergence, particularly between AI and biotechnology where protein folding simulations now achieve 97% accuracy. Manufacturing innovations like atomic-scale 3D printing (implied by 'Advanced Manufacturing' signals) could collapse global supply chains by making local production economically viable. Workforce impact analysis suggests 47% of routine cognitive tasks could be automated within 18 months, potentially triggering unprecedented structural unemployment. The exponential compute scaling ('Compute_Scaling': 'Exponential') indicates we're entering an AI winter or summer within 2026, with regulatory frameworks completely unprepared for the resulting disruptions.",
-  "last_update": "2025-12-17T04:33:03.170857+00:00",
+  "ai_analysis": "The frontier of technology is buzzing with activity, particularly in AI research. Recent papers highlight significant breakthroughs in video generation, visual pre-training, and quantum computing. These advancements suggest a trajectory of exponential growth in computational capabilities and AI applications. The velocity index of 0.85 indicates a rapid pace of innovation, with compute scaling exponentially. This environment of breakthroughs and rapid progress is likely to drive future economic growth and create new investment opportunities, particularly in sectors leveraging these technologies.",
+  "data_sources": [
+    "ArXiv",
+    "Nature",
+    "Science"
+  ],
+  "last_update": "2025-12-18T04:30:52.850090+00:00",
   "dashboard": "the-frontier",
   "name": "The Frontier",
   "role": "AI & Breakthroughs",

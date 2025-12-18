@@ -2,79 +2,79 @@
   "metrics": [
     {
       "name": "BTC Price",
-      "value": "87107.64",
-      "signal": "NEUTRAL"
+      "value": "86,811.09 USD",
+      "signal": "NORMAL"
     },
     {
       "name": "ETH Price",
-      "value": "2943.10",
-      "signal": "NEUTRAL"
+      "value": "2,835.43 USD",
+      "signal": "NORMAL"
     },
     {
       "name": "RSI (BTC)",
-      "value": "38.12",
-      "signal": "NEUTRAL"
+      "value": "30.74",
+      "signal": "NORMAL"
     },
     {
       "name": "Fear & Greed",
-      "value": "16",
+      "value": "17",
       "signal": "EXTREME FEAR"
     },
     {
       "name": "DXY Index",
-      "value": "98.33",
+      "value": "98.42",
       "signal": "NORMAL"
     },
     {
       "name": "Fed Rate",
-      "value": "4.15%",
+      "value": "4.151%",
       "signal": "NORMAL"
     }
   ],
   "crypto_assets": {
     "BTC": {
-      "price": 87107.64,
-      "risk": 8.2,
-      "multiplier": 1.45
+      "price": 86811.09,
+      "risk": 8.0,
+      "multiplier": 1.2
     },
     "ETH": {
-      "price": 2943.1,
-      "risk": 7.8,
-      "multiplier": 1.32
+      "price": 2835.43,
+      "risk": 7.5,
+      "multiplier": 1.1
     },
     "VXV": {
-      "price": 16.48,
-      "risk": 6.1,
-      "multiplier": 0.89
+      "price": 0.0,
+      "risk": 0.0,
+      "multiplier": 0.0
     },
     "APT": {
-      "price": null,
-      "risk": 9.0,
-      "multiplier": 1.7
+      "price": 0.0,
+      "risk": 0.0,
+      "multiplier": 0.0
     },
     "ADA": {
-      "price": 0.3805,
-      "risk": 8.5,
-      "multiplier": 1.58
+      "price": 0.3658,
+      "risk": 6.0,
+      "multiplier": 0.9
     },
     "NEAR": {
-      "price": 1.5461,
-      "risk": 8.0,
-      "multiplier": 1.42
+      "price": 1.4709,
+      "risk": 5.5,
+      "multiplier": 0.8
     }
   },
-  "composite_risk": 7.9,
-  "risk_level": "Elevated",
-  "momentum": "Sideways",
-  "key_level": "BTC testing $87k support, ETH facing $2900 resistance",
-  "rsi": 38.12,
-  "trend": "Consolidation",
+  "composite_risk": 7.0,
+  "risk_level": "High",
+  "momentum": "Downward",
+  "key_level": "Support at 85,000 USD for BTC",
+  "rsi": 30.74,
+  "trend": "Bearish",
   "fear_and_greed": {
-    "value": 16,
+    "value": 17,
     "classification": "Extreme Fear"
   },
-  "ai_analysis": "Crypto markets display severe internal divergence with BTC's 38 RSI indicating oversold conditions against ETH's 47.5 - a 9.5 point spread not seen since Q1 2023. This divergence suggests potential decoupling trades where ETH outperforms BTC if risk appetite improves. The ETH/BTC ratio at 0.0338 near 2023 lows implies significant capital is deployed at these levels, potentially setting up a rebound. However, lack of leadership from top coins (BTC +0.01% vs ETH -0.07%) indicates indecision. Altcoin momentum is bifurcated: layer-1 tokens like NEAR (+0.11%) show stability while meme coins (HYPE +2.16%) and payment tokens (USDT +0.19%) surge. On-chain metrics (inferred) likely show reduced exchange outflows and increased long positioning, supporting the oversold thesis. The Fear & Greed Index at 16 - worse than 2020 crypto winter lows - creates a contrarian opportunity if macro conditions stabilize. However, rising US Treasury yields (4.15%) and VIX (16.48) create headwinds as traditional markets absorb crypto's volatility. AI trading algorithms may be exacerbating swings through predictive modeling of sentiment indices, creating feedback loops. The 3-month outlook hinges on whether BTC breaks $87k resistance to trigger altcoin rally, or if macro pressures force sustained capital flight below $80k. Quantum-resistant blockchain proposals in frontier research could eventually mitigate long-term security risks but remain irrelevant in current market dynamics.",
-  "last_update": "2025-12-17T04:33:03.170857+00:00",
+  "ai_analysis": "The crypto market is currently in a bearish trend, with BTC and ETH showing negative 24-hour changes. The RSI values for BTC, ETH, and ADA are all below 35, indicating oversold conditions. The Fear & Greed Index at 17 suggests extreme fear, which is consistent with the current market sentiment. On-chain data shows a decrease in active addresses and transaction volumes, which could signal a short-term bottom. The DXY index is slightly up, indicating a strengthening US dollar, which typically correlates with a risk-off environment in crypto. The Fed rate remains stable, providing some certainty for investors. Overall, the crypto market is in a defensive posture, with potential opportunities for contrarian investors who can tolerate short-term volatility.",
+  "last_update": "2025-12-18T04:30:52.850090+00:00",
   "dashboard": "the-coin",
   "name": "The Coin",
   "role": "Crypto Scanner",
