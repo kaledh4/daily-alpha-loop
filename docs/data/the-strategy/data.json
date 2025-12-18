@@ -1,46 +1,9 @@
 {
-  "scoring": {
-    "stance_confidence": 7
-  },
-  "metrics": [
-    {
-      "name": "Risk Input",
-      "value": "Caution",
-      "signal": "CAUTION"
-    },
-    {
-      "name": "Crypto Input",
-      "value": "Bearish",
-      "signal": "BEARISH"
-    },
-    {
-      "name": "Macro Input",
-      "value": "Neutral",
-      "signal": "NEUTRAL"
-    },
-    {
-      "name": "Frontier Input",
-      "value": "Normal",
-      "signal": "NORMAL"
-    }
-  ],
-  "stance": "Defensive",
-  "mindset": "Opportunistic",
-  "inputs": {
-    "risk": "Global risk pressure is moderate, with a cautious stance advised.",
-    "crypto": "Crypto markets are bearish, with extreme fear indicators suggesting potential buying opportunities.",
-    "macro": "Macro environment is neutral, with some safe-haven buying observed.",
-    "frontier": "Frontier technologies show active innovation, particularly in AI research."
-  },
-  "ai_analysis": "Given the current market conditions, a defensive stance with an opportunistic mindset is advised. The crypto market is in a bearish trend, with extreme fear indicators suggesting potential buying opportunities if the market stabilizes. The global risk environment is cautious, with investors seeking stability in traditional safe-haven assets. The macro environment is neutral, with some safe-haven buying observed. However, the frontier of technology, particularly in AI research, shows active innovation, which could drive future economic growth and create new investment opportunities. Investors should focus on high-quality assets with strong fundamentals and be prepared to act on potential contrarian opportunities in the crypto space.",
-  "data_sources": [
-    "Bloomberg",
-    "Reuters",
-    "Federal Reserve"
-  ],
-  "last_update": "2025-12-18T04:30:52.850090+00:00",
-  "dashboard": "the-strategy",
   "name": "The Strategy",
-  "role": "Market Stance",
-  "mission": "Read the market context, interpret cross-domain vectors, and determine today's stance."
+  "last_update": "2025-12-18T22:59:22.040432+00:00",
+  "meta": {
+    "generated_at": "2025-12-18T22:59:22.040432+00:00",
+    "version": "5.0"
+  },
+  "ai_analysis": "The portfolio should reflect a balance between safety and growth opportunities. The current market conditions suggest a cautious approach with a focus on BTC and Gold."
 }

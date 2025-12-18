@@ -1,28 +1,9 @@
 {
-  "metrics": [],
-  "query": "What drives crypto bull markets?",
-  "simplified_answer": "Crypto bull markets are typically driven by a combination of factors, including technological advancements, increased institutional adoption, regulatory clarity, and macroeconomic conditions that favor risk assets. Technological breakthroughs, such as those in blockchain scalability and security, can spark bullish sentiment. Institutional investment and regulatory approval can provide legitimacy and stability to the market. Additionally, a low-interest-rate environment and inflation concerns can drive investors towards crypto as a store of value and hedge against fiat currency devaluation. Social media hype and retail investor participation also play significant roles in fueling bull markets. Understanding these drivers can help investors identify potential catalysts for the next crypto bull run.",
-  "related_commander_insights": {
-    "current_outlook": "The current outlook is bearish, with extreme fear indicators suggesting potential buying opportunities if the market stabilizes.",
-    "forecast": "The 3-month forecast for BTC is a target of 92,000 USD, with a conviction level of 8 out of 10."
-  },
-  "further_reading": [
-    {
-      "title": "The Anatomy of Crypto Bull Markets",
-      "source": "CoinDesk"
-    },
-    {
-      "title": "Institutional Adoption and Crypto Market Cycles",
-      "source": "Bloomberg"
-    },
-    {
-      "title": "Technological Drivers of Crypto Bull Runs",
-      "source": "Wired"
-    }
-  ],
-  "last_update": "2025-12-18T04:30:52.850090+00:00",
-  "dashboard": "the-library",
   "name": "The Library",
-  "role": "Knowledge Archive",
-  "mission": "Store and retrieve key insights and educational content."
+  "last_update": "2025-12-18T22:59:22.040936+00:00",
+  "meta": {
+    "generated_at": "2025-12-18T22:59:22.040936+00:00",
+    "version": "5.0"
+  },
+  "ai_analysis": "Historical precedents suggest that during periods of moderate market stress, a balanced approach with a focus on safety is warranted. The increasing frequency of AI breakthroughs is a positive sign for the tech sector."
 }
