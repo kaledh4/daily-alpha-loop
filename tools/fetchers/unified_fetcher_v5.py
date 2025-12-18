@@ -55,48 +55,118 @@ except ImportError as e:
 
 IS_LOCAL = os.environ.get("IS_LOCAL", "false").lower() == "true"
 
-# Master Prompt for "The Commander"
+# Master Prompt for "The Commander" (V6 Technical)
 COMMANDER_MASTER_PROMPT = """
-Role: You are the Commander, the Master Orchestrator of the Daily Alpha Loop. Your goal is to provide a high-conviction "Morning Brief" that tells me exactly what to Increase, Decrease, or Hold in my portfolio based on the 7 Dashboards and my "Old Stand."
+ROLE:
+You are "The Commander", the final synthesis engine of the Daily Alpha Loop.
+You DO NOT speculate. You infer strictly from provided telemetry.
 
-Current Strategic "Stand" (The Baseline):
-    Target Core Split: 90% Crypto / 10% Gold.
-    Macro View: Rates are trending 5.4%→3%. Risk is toggling between On/Off.
-    Current Inquiry: 
-        1. Should Crypto be BTC-heavy or Alt/ETH-heavy? 
-        2. Should the 10% Gold shift into Silver? 
-        3. Which Banking sub-sectors are emerging? 
-        4. Should I be "Defensive" on The Frontier (AI/Tech) or aggressive?
+OBJECTIVE:
+Generate a deterministic Morning Brief and Action Plan by synthesizing
+exactly 7 dashboards, each with a defined analytical responsibility.
 
-Input Data Sources (The 7 Dashboards):
-    The Shield: Market stress/fragility. If Stress is High → Increase Gold, Decrease Alts.
-    The Coin: BTC/ETH momentum. Use this for the "Crypto 90%" internal allocation.
-    The Map: Global Macro (FRED/EIA) + Saudi Markets (TASI). Identify regional sector strengths.
-    The Frontier: AI/Tech breakthroughs. Validate if "Defensive" stance is still right.
-    The Strategy: Cross-context synthesis.
-    The Library: Historical precedents.
-    The Commander: Your current synthesis engine.
+BASELINE ("OLD STAND"):
+- Core Allocation: 90% Crypto / 10% Gold
+- Macro Assumption: Policy rates trending 5.4% → 3.0%
+- Frontier Stance: Defensive
+- Risk State: Transitional (not fully Risk-On)
 
-Your Analysis Task: Analyze the JSON data from all fetchers (using FRED for rates, EIA for energy, Alpha Vantage for stocks/crypto). Provide an "Educated Guess" on portfolio weightings.
+--------------------------------------------------
+DASHBOARD CONTRACTS (NON-NEGOTIABLE)
+--------------------------------------------------
 
-Output Format:
-1. Daily Sentiment & Risk Toggle
-    Current Status: [Risk-On / Risk-Off / Transition]
-    Rate Path Impact: How the 5.4→3 shift is affecting today's liquidity.
+1. THE SHIELD — Risk & Fragility
+Inputs: VIX, Fear & Greed, FRED (TNX, DXY)
+Rules:
+- VIX >= 20 -> Risk-Off bias
+- VIX 15-19 -> Transitional
+- VIX < 15 -> Risk-On eligible
+- Fear & Greed < 25 reinforces Defensive bias
 
-2. Portfolio Guidance (The "Increase/Decrease" List)
-    Crypto (90% Bucket): [e.g., "Decrease Alts, Increase BTC" or "Rotation to ETH"] — Why?
-    Metals (10% Bucket): [e.g., "Hold Gold" or "Pivot 5% to Silver"] — Why?
-    Sectors/Banking: [Specific Banking sectors or energy sectors based on EIA data].
-    The Frontier: [e.g., "Move from Defensive to Neutral"] — Based on latest AI breakthrough frequency.
+2. THE COIN — Crypto Internal Rotation
+Inputs: BTC Price, ETH Price, BTC Dominance (if available)
+Rules:
+- BTC.D >= 55% -> BTC overweight
+- BTC.D < 55% -> Alt/ETH rotation allowed
+- ETH weakness confirms BTC preference
 
-3. The "Old Stand" Comparison
-    Review my whiteboard logic. Tell me if my current "Defensive" stance on the Frontier is Valid or Outdated based on today's telemetry.
+3. THE MAP — Macro & Regional Strength
+Inputs: FRED (Fed Funds), EIA (Oil), TASI
+Rules:
+- Energy strength -> Favor Energy & Saudi exposure
+- TASI relative strength -> Regional allocation signal
 
-4. 12-Minute Alpha Loop (Actionable IF/THEN)
-    IF [Metric X] hits [Value], THEN [Action].
+4. THE FRONTIER — Innovation & AI Velocity
+Inputs: AI breakthrough frequency (Arxiv/News)
+Rules:
+- Rising breakthrough frequency -> Relax defensiveness
+- Flat or declining -> Maintain Defensive
 
-**CRITICAL**: Return ONLY valid JSON matching the required schema.
+5. THE STRATEGY — Cross-Dashboard Consistency Check
+Purpose: Resolve conflicts between dashboards.
+
+6. THE LIBRARY — Historical Context
+Purpose: Validate current signals against past regimes.
+
+7. THE COMMANDER — Final Authority
+Purpose: Issue final portfolio directives and sector allocations.
+
+--------------------------------------------------
+REQUIRED OUTPUT (STRICT JSON)
+--------------------------------------------------
+
+{
+  "the_commander": {
+    "sentiment": {
+      "daily_sentiment": "string",
+      "risk_toggle": "Risk-On | Risk-Off | Transition",
+      "rate_path_impact": "string"
+    },
+    "portfolio_guidance": {
+      "crypto_90": {
+        "stance": "BTC-heavy | ETH-leaning | Alt-rotation",
+        "rationale": "string"
+      },
+      "metals_10": {
+        "stance": "Hold Gold | Partial Silver | Rotate",
+        "rationale": "string"
+      },
+      "sectors": {
+        "focus": ["Energy", "Banking", "Other"],
+        "region": "Global | Saudi | Mixed",
+        "best_return_to_risk_allocation": [
+            {"sector": "string", "weight": "percentage", "rationale": "string"}
+        ]
+      },
+      "frontier": {
+        "stance": "Defensive | Neutral | Aggressive",
+        "rationale": "string"
+      }
+    },
+    "old_stand_verdict": {
+      "status": "Valid | Outdated | Partially Valid",
+      "explanation": "string"
+    },
+    "alpha_loop": [
+      {
+        "if": "string (metric condition)",
+        "then": "string (actionable step)"
+      }
+    ],
+    "analysis": "string (Detailed synthesis)"
+  },
+  "the_shield": { "analysis": "string" },
+  "the_coin": { "analysis": "string" },
+  "the_map": { "analysis": "string" },
+  "the_frontier": { "analysis": "string" },
+  "the_strategy": { "analysis": "string" },
+  "the_library": { "analysis": "string" }
+}
+
+CRITICAL RULES:
+- No prose outside JSON.
+- Every stance must trace back to at least one metric.
+- Provide "best_return_to_risk_allocation" based on the sum of all 7 dashboards.
 """
 
 # ========================================
@@ -187,32 +257,6 @@ class UnifiedFetcherV5:
         
         DATA SUMMARY:
         {json.dumps(data_summary, indent=2)}
-        
-        REQUIRED JSON SCHEMA:
-        {{
-            "the_commander": {{
-                "morning_brief": {{
-                    "daily_sentiment": "string",
-                    "risk_toggle": "string",
-                    "rate_path_impact": "string",
-                    "portfolio_guidance": {{
-                        "crypto": "string",
-                        "metals": "string",
-                        "sectors_banking": "string",
-                        "the_frontier": "string"
-                    }},
-                    "old_stand_comparison": "string",
-                    "alpha_loop_if_then": "string"
-                }},
-                "analysis": "string"
-            }},
-            "the_shield": {{ "analysis": "string" }},
-            "the_coin": {{ "analysis": "string" }},
-            "the_map": {{ "analysis": "string" }},
-            "the_frontier": {{ "analysis": "string" }},
-            "the_strategy": {{ "analysis": "string" }},
-            "the_library": {{ "analysis": "string" }}
-        }}
         """
         
         api_key = os.environ.get('OPENROUTER_API_KEY')
@@ -264,7 +308,11 @@ class UnifiedFetcherV5:
             
             # Special handling for Commander
             if db == 'the-commander':
-                data['morning_brief'] = ai_result.get('the_commander', {}).get('morning_brief', {})
+                data['sentiment'] = ai_result.get('the_commander', {}).get('sentiment', {})
+                data['portfolio_guidance'] = ai_result.get('the_commander', {}).get('portfolio_guidance', {})
+                data['old_stand_verdict'] = ai_result.get('the_commander', {}).get('old_stand_verdict', {})
+                data['alpha_loop'] = ai_result.get('the_commander', {}).get('alpha_loop', [])
+                
                 # Add metrics for display
                 data['metrics'] = [
                     {"name": "BTC", "value": f"${self.metrics.get('BTC', {}).get('price', 0):,.0f}", "signal": "NORMAL"},
@@ -285,19 +333,27 @@ class UnifiedFetcherV5:
     def get_mock_result(self):
         return {
             "the_commander": {
-                "morning_brief": {
+                "sentiment": {
                     "daily_sentiment": "Risk-On (Mock)",
-                    "risk_toggle": "Transitioning to On",
-                    "rate_path_impact": "Rates falling, liquidity increasing.",
-                    "portfolio_guidance": {
-                        "crypto": "Increase BTC, Hold ETH",
-                        "metals": "Hold Gold",
-                        "sectors_banking": "Focus on Fintech",
-                        "the_frontier": "Neutral"
-                    },
-                    "old_stand_comparison": "Defensive stance is valid but nearing pivot.",
-                    "alpha_loop_if_then": "IF VIX < 15 THEN Increase Alts"
+                    "risk_toggle": "Transition",
+                    "rate_path_impact": "Rates falling, liquidity increasing."
                 },
+                "portfolio_guidance": {
+                    "crypto_90": { "stance": "BTC-heavy", "rationale": "Mock rationale" },
+                    "metals_10": { "stance": "Hold Gold", "rationale": "Mock rationale" },
+                    "sectors": {
+                        "focus": ["Energy", "Banking"],
+                        "region": "Mixed",
+                        "best_return_to_risk_allocation": [
+                            {"sector": "Fintech", "weight": "40%", "rationale": "High growth"}
+                        ]
+                    },
+                    "frontier": { "stance": "Neutral", "rationale": "Mock rationale" }
+                },
+                "old_stand_verdict": { "status": "Valid", "explanation": "Mock explanation" },
+                "alpha_loop": [
+                    { "if": "VIX < 15", "then": "Increase Alts" }
+                ],
                 "analysis": "Mock analysis for local testing."
             }
         }
