@@ -7,7 +7,7 @@ const DASHBOARDS = [
     { id: 'the-map', name: 'The Map', mission: 'Macro Trends', icon: '../static/icons/icons8-map-48.png' },
     { id: 'the-frontier', name: 'The Frontier', mission: 'AI Breakthroughs', icon: '../static/icons/icons8-ai-48.png' },
     { id: 'the-strategy', name: 'The Strategy', mission: 'Opportunity Radar', icon: '../static/icons/icons8-strategy-48.png' },
-    { id: 'the-library', name: 'The Library', mission: 'Knowledge Archive', icon: '../static/icons/icons8-library-50.png' }
+    { id: 'the-library', name: 'The Library', mission: 'Knowledge Archive', icon: '../static/icons/icons8-library-48.png' }
 ];
 
 function renderNavigation(currentDashboard) {
@@ -20,7 +20,7 @@ function renderNavigation(currentDashboard) {
       <a href="${url}" 
          onclick="handleNavClick(event, '${seamlessUrl}', '${dash.name}')"
          class="nav-card ${isActive ? 'active' : ''}">
-        <img src="${dash.icon}" alt="${dash.name}" class="nav-icon" style="width: 32px; height: 32px; margin-bottom: 8px;">
+        <img src="${dash.icon}" alt="${dash.name}" class="nav-icon">
         <h3>${dash.name}</h3>
         <p>${dash.mission}</p>
       </a>
@@ -40,14 +40,14 @@ window.handleNavClick = function (event, url, title) {
         overlay = document.createElement('div');
         overlay.id = 'seamless-overlay';
         overlay.innerHTML = `
-            <div id="seamless-overlay-header" style="background: var(--glass-bg); backdrop-filter: blur(14px); border-bottom: 1px solid var(--glass-border); padding: 15px 20px;">
-                <button id="seamless-back-btn" onclick="closeSeamlessOverlay()" style="background: var(--charcoal); color: var(--white); border: none; padding: 8px 20px; border-radius: 999px; font-weight: 700; cursor: pointer; transition: all 0.2s;">
+            <div id="seamless-overlay-header">
+                <button id="seamless-back-btn" onclick="closeSeamlessOverlay()">
                     ← Back to Commander
                 </button>
-                <span id="seamless-title" style="color: var(--charcoal); font-weight: 800; font-size: 1.2rem;"></span>
+                <span id="seamless-title"></span>
                 <div style="width: 80px;"></div>
             </div>
-            <iframe id="seamless-frame" src="" style="width: 100%; height: 100%; border: none; flex: 1; background: var(--bg-gradient);"></iframe>
+            <iframe id="seamless-frame" src=""></iframe>
         `;
         document.body.appendChild(overlay);
     }
