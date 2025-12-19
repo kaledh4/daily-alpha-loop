@@ -1,28 +1,76 @@
 {
   "name": "The Commander",
-  "last_update": "2025-12-18T22:59:22.033597+00:00",
+  "last_update": "2025-12-18T23:08:42.081484+00:00",
   "meta": {
-    "generated_at": "2025-12-18T22:59:22.033597+00:00",
+    "generated_at": "2025-12-18T23:08:42.081484+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The market is in a state of transition with cautious optimism. The rate path is providing gradual easing, but volatility remains. The portfolio should reflect a balance between safety and growth opportunities.",
-  "morning_brief": {
-    "daily_sentiment": "Cautiously Optimistic",
+  "ai_analysis": "The current market environment is transitional with a slight risk-on bias due to easing policy rates. The crypto market favors BTC given its dominance and ETH weakness. Energy and Technology sectors show strength, with a focus on Saudi exposure and AI innovation. The defensive frontier stance is maintained due to flat AI breakthrough frequency. The old stand is partially valid, with adjustments in sector focus.",
+  "sentiment": {
+    "daily_sentiment": "Cautious",
     "risk_toggle": "Transition",
-    "rate_path_impact": "The rate path from 5.4% to 3% is providing a gradual easing of liquidity, but market participants are still cautious due to the recent volatility.",
-    "portfolio_guidance": {
-      "crypto": "Decrease Alts, Increase BTC. BTC dominance is high at 57.48%, indicating a preference for safety. ETH has shown slight weakness with a -0.083% change.",
-      "metals": "Hold Gold. The VIX is at 16.87, indicating moderate market stress. Silver has shown weakness with a -1.19% change, so it's better to hold onto Gold.",
-      "sectors_banking": "Focus on Energy sectors based on EIA data. The TASI index is showing strength with a 0.35% increase, indicating potential opportunities in Saudi markets.",
-      "the_frontier": "Move from Defensive to Neutral. The frequency of AI breakthroughs is increasing, as seen in the news data, indicating a potential shift in the tech landscape."
-    },
-    "old_stand_comparison": "Your current 'Defensive' stance on the Frontier is somewhat outdated. The increasing frequency of AI breakthroughs suggests a more neutral stance is appropriate.",
-    "alpha_loop_if_then": "IF BTC dominance falls below 55%, THEN consider increasing Alt/ETH exposure. IF the VIX rises above 20, THEN increase Gold allocation to 15%. IF the TASI index continues to show strength, THEN consider increasing exposure to Saudi markets."
+    "rate_path_impact": "Continued easing supports risk assets"
   },
+  "portfolio_guidance": {
+    "crypto_90": {
+      "stance": "BTC-heavy",
+      "rationale": "BTC dominance above 55%, ETH weakness"
+    },
+    "metals_10": {
+      "stance": "Hold Gold",
+      "rationale": "Gold shows slight strength, no clear signal for rotation"
+    },
+    "sectors": {
+      "focus": [
+        "Energy",
+        "Technology"
+      ],
+      "region": "Mixed",
+      "best_return_to_risk_allocation": [
+        {
+          "sector": "Energy",
+          "weight": "20%",
+          "rationale": "Oil strength and Saudi exposure"
+        },
+        {
+          "sector": "Technology",
+          "weight": "15%",
+          "rationale": "QQQ strength and AI innovation"
+        },
+        {
+          "sector": "Crypto",
+          "weight": "65%",
+          "rationale": "BTC-heavy stance and market conditions"
+        }
+      ]
+    },
+    "frontier": {
+      "stance": "Defensive",
+      "rationale": "AI breakthrough frequency is flat, maintaining defensive posture"
+    }
+  },
+  "old_stand_verdict": {
+    "status": "Partially Valid",
+    "explanation": "Core allocation and frontier stance remain valid, but sector focus shifts"
+  },
+  "alpha_loop": [
+    {
+      "if": "VIX remains between 15-19",
+      "then": "Maintain transitional risk stance"
+    },
+    {
+      "if": "BTC dominance stays above 55%",
+      "then": "Keep BTC-heavy crypto allocation"
+    },
+    {
+      "if": "AI breakthrough frequency increases",
+      "then": "Consider relaxing defensive frontier stance"
+    }
+  ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$85,650",
+      "value": "$85,490",
       "signal": "NORMAL"
     },
     {

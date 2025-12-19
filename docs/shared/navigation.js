@@ -40,14 +40,14 @@ window.handleNavClick = function (event, url, title) {
         overlay = document.createElement('div');
         overlay.id = 'seamless-overlay';
         overlay.innerHTML = `
-            <div id="seamless-overlay-header">
-                <button id="seamless-back-btn" onclick="closeSeamlessOverlay()">
+            <div id="seamless-overlay-header" style="background: var(--glass-bg); backdrop-filter: blur(14px); border-bottom: 1px solid var(--glass-border); padding: 15px 20px;">
+                <button id="seamless-back-btn" onclick="closeSeamlessOverlay()" style="background: var(--charcoal); color: var(--white); border: none; padding: 8px 20px; border-radius: 999px; font-weight: 700; cursor: pointer; transition: all 0.2s;">
                     ← Back to Commander
                 </button>
-                <span id="seamless-title" style="color: white; font-weight: bold;"></span>
-                <div style="width: 80px;"></div> <!-- Spacer for centering -->
+                <span id="seamless-title" style="color: var(--charcoal); font-weight: 800; font-size: 1.2rem;"></span>
+                <div style="width: 80px;"></div>
             </div>
-            <iframe id="seamless-frame" src=""></iframe>
+            <iframe id="seamless-frame" src="" style="width: 100%; height: 100%; border: none; flex: 1; background: var(--bg-gradient);"></iframe>
         `;
         document.body.appendChild(overlay);
     }
