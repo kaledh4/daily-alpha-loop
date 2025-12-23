@@ -1,9 +1,9 @@
 {
   "name": "The Shield",
-  "last_update": "2025-12-22T04:35:57.672490+00:00",
+  "last_update": "2025-12-23T04:34:19.345467+00:00",
   "meta": {
-    "generated_at": "2025-12-22T04:35:57.672499+00:00",
+    "generated_at": "2025-12-23T04:34:19.345473+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The VIX is at 14.91, indicating a Risk-On eligible environment. The Fear & Greed index is at 25, classified as Extreme Fear, which reinforces a defensive bias. The TNX is at 4.15, and the DXY is at 98.61, both showing stability."
+  "ai_analysis": "VIX at 14.08 indicates a transitional risk environment. Fear & Greed index at 24 reinforces a defensive bias. TNX at 4.17 and DXY at 98.06 suggest a stable macro environment with slight inflation concerns."
 }
