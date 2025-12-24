@@ -1,9 +1,9 @@
 {
   "name": "The Map",
-  "last_update": "2025-12-23T04:34:19.346203+00:00",
+  "last_update": "2025-12-24T04:32:23.480099+00:00",
   "meta": {
-    "generated_at": "2025-12-23T04:34:19.346209+00:00",
+    "generated_at": "2025-12-24T04:32:23.480108+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "Fed Funds rate at 3.88% indicates anticipated rate cuts. Oil price strength at 57.91 suggests favoring the energy sector. TASI relative strength at 10552.26 indicates a regional allocation signal to Saudi Arabia."
+  "ai_analysis": "Energy strength is indicated by oil prices rising (price change +0.84%) and TASI showing relative strength (price change +0.41%). This suggests favorable energy and regional exposure. The Fed Funds rate at 3.88% and DXY weakness (price change -0.38%) suggest favorable banking sector conditions."
 }
