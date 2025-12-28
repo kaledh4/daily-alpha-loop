@@ -1,29 +1,29 @@
 {
   "name": "The Commander",
-  "last_update": "2025-12-27T04:28:44.419727+00:00",
+  "last_update": "2025-12-28T04:40:35.285540+00:00",
   "meta": {
-    "generated_at": "2025-12-27T04:28:44.419742+00:00",
+    "generated_at": "2025-12-28T04:40:35.285559+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current market environment is transitional, with falling policy rates supporting risk assets. The crypto portfolio should maintain a BTC-heavy stance due to high BTC dominance and ETH weakness. The metals allocation should hold gold as a stable store of value. Sector focus should include energy, technology, and banking, with a mixed regional approach. The frontier stance remains defensive due to flat AI breakthrough frequency.",
+  "ai_analysis": "The current market environment is transitional, with a cautious optimism driven by downward trending policy rates and rising AI innovation. The portfolio maintains a BTC-heavy stance in crypto, holds gold in metals, and focuses on Energy, Technology, and Banking sectors. The frontier stance is neutral, balancing defensiveness with opportunities in AI and technology.",
   "sentiment": {
     "daily_sentiment": "Cautiously Optimistic",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Falling rates support risk assets, but volatility remains a concern."
+    "rate_path_impact": "Policy rates trending downward, supporting risk assets."
   },
   "portfolio_guidance": {
     "crypto_90": {
       "stance": "BTC-heavy",
-      "rationale": "BTC dominance is above 55%, and ETH is showing weakness."
+      "rationale": "BTC.D > 55% and ETH weakness."
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold remains a stable store of value amidst transitional market conditions."
+      "rationale": "Gold price is up, maintaining its safe-haven status."
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Banking",
+        "Saudi",
         "Technology"
       ],
       "region": "Mixed",
@@ -31,57 +31,52 @@
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Energy strength indicated by oil prices."
+          "rationale": "Energy strength and Saudi exposure."
         },
         {
           "sector": "Technology",
-          "weight": "20%",
-          "rationale": "Innovation and AI velocity suggest potential upside."
+          "weight": "15%",
+          "rationale": "AI breakthrough frequency is rising."
         },
         {
           "sector": "Banking",
           "weight": "10%",
-          "rationale": "Falling rates may benefit banking sector."
-        },
-        {
-          "sector": "Gold",
-          "weight": "10%",
-          "rationale": "Gold remains a stable store of value amidst transitional market conditions."
+          "rationale": "Policy rates trending downward, supporting financials."
         },
         {
           "sector": "Crypto",
-          "weight": "40%",
-          "rationale": "BTC-heavy stance due to high BTC dominance."
+          "weight": "55%",
+          "rationale": "BTC-heavy stance."
         }
       ]
     },
     "frontier": {
-      "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency maintains defensive posture."
+      "stance": "Neutral",
+      "rationale": "Rising AI breakthrough frequency relaxes defensiveness, but VIX is in transitional range."
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains valid, but sector focus and frontier stance have adjusted."
+    "explanation": "Core allocation remains 90% Crypto, 10% Gold. Frontier stance shifted from Defensive to Neutral."
   },
   "alpha_loop": [
     {
-      "if": "VIX remains below 15",
-      "then": "Consider increasing risk exposure gradually."
+      "if": "VIX remains between 15-19",
+      "then": "Maintain transitional stance and monitor for further signals."
     },
     {
-      "if": "AI breakthrough frequency increases",
-      "then": "Relax defensive stance and explore growth opportunities."
+      "if": "BTC.D remains above 55%",
+      "then": "Maintain BTC-heavy stance in crypto allocation."
     },
     {
-      "if": "Energy prices continue to strengthen",
-      "then": "Increase exposure to energy and Saudi-related assets."
+      "if": "AI breakthrough frequency continues to rise",
+      "then": "Increase exposure to Technology sector."
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$87,420",
+      "value": "$87,679",
       "signal": "NORMAL"
     },
     {
