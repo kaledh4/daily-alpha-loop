@@ -1,9 +1,9 @@
 {
   "name": "The Coin",
-  "last_update": "2025-12-30T04:35:22.869041+00:00",
+  "last_update": "2025-12-31T04:35:15.908218+00:00",
   "meta": {
-    "generated_at": "2025-12-30T04:35:22.869048+00:00",
+    "generated_at": "2025-12-31T04:35:15.908224+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "BTC Dominance is 57.28%, above 55%, indicating a BTC overweight stance. ETH price has decreased by -2.98%, confirming BTC preference. The crypto internal rotation stance is BTC-heavy."
+  "ai_analysis": "BTC.D at 57.44% allows for alt/ETH rotation. ETH shows slight strength, confirming alt rotation."
 }
