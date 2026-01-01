@@ -1,92 +1,82 @@
 {
   "name": "The Commander",
-  "last_update": "2025-12-31T04:35:15.907177+00:00",
+  "last_update": "2026-01-01T04:44:00.814268+00:00",
   "meta": {
-    "generated_at": "2025-12-31T04:35:15.907191+00:00",
+    "generated_at": "2026-01-01T04:44:00.814288+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current environment is transitional with falling rates supporting risk assets. The portfolio maintains a core crypto allocation with a focus on alt/ETH rotation due to BTC dominance being below 55%. Energy and banking sectors are favored due to oil strength and falling rates. The defensive frontier stance is maintained due to flat AI innovation velocity. Gold is held as a hedge.",
+  "ai_analysis": "The current environment is transitional with a slight bias towards risk-on due to falling policy rates and moderate market conditions. The portfolio should maintain a defensive stance with a focus on energy, tech, and banking sectors. Crypto allocation should favor BTC due to its dominance, while metals should hold gold. The old stand is partially valid, with adjustments needed for the transitional risk state.",
   "sentiment": {
-    "daily_sentiment": "Cautiously Optimistic",
+    "daily_sentiment": "Neutral",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Falling rates support risk assets"
+    "rate_path_impact": "Policy rates trending downwards continue to support risk assets."
   },
   "portfolio_guidance": {
     "crypto_90": {
-      "stance": "Alt-rotation",
-      "rationale": "BTC.D < 55% allows for alt/ETH rotation"
+      "stance": "BTC-heavy",
+      "rationale": "BTC.D is 57.33%, confirming BTC overweight. ETH shows slight strength but not enough to rotate."
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold shows slight strength, maintain holding"
+      "rationale": "No strong signals for silver or rotation."
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Banking",
-        "Technology"
+        "Tech",
+        "Banking"
       ],
       "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Oil strength and regional signals"
+          "rationale": "Oil strength and TASI relative strength."
+        },
+        {
+          "sector": "Tech",
+          "weight": "25%",
+          "rationale": "Innovation and AI velocity indicators."
         },
         {
           "sector": "Banking",
           "weight": "15%",
-          "rationale": "Falling rates benefit banks"
-        },
-        {
-          "sector": "Technology",
-          "weight": "15%",
-          "rationale": "AI innovation velocity"
-        },
-        {
-          "sector": "Crypto",
-          "weight": "40%",
-          "rationale": "Core allocation"
-        },
-        {
-          "sector": "Gold",
-          "weight": "10%",
-          "rationale": "Hedging and slight strength"
+          "rationale": "Falling rates and defensive posture."
         }
       ]
     },
     "frontier": {
       "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency maintains defensiveness"
+      "rationale": "Flat AI breakthrough frequency and transitional risk state."
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation and frontier stance remain valid, but sector focus shifts"
+    "explanation": "Core allocation remains valid, but frontier stance and risk state are transitional."
   },
   "alpha_loop": [
     {
-      "if": "VIX remains below 15",
-      "then": "Consider increasing risk exposure"
+      "if": "VIX < 15",
+      "then": "Consider increasing risk exposure."
+    },
+    {
+      "if": "BTC.D >= 55%",
+      "then": "Maintain BTC overweight stance."
     },
     {
       "if": "AI breakthrough frequency rises",
-      "then": "Relax defensive stance"
-    },
-    {
-      "if": "Oil prices continue to strengthen",
-      "then": "Increase energy sector allocation"
+      "then": "Relax defensive posture."
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$88,326",
+      "value": "$87,461",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "14.33",
+      "value": "14.95",
       "signal": "NORMAL"
     },
     {
