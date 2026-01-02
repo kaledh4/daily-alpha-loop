@@ -1,77 +1,87 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-01T04:44:00.814268+00:00",
+  "last_update": "2026-01-02T04:36:40.302826+00:00",
   "meta": {
-    "generated_at": "2026-01-01T04:44:00.814288+00:00",
+    "generated_at": "2026-01-02T04:36:40.302840+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current environment is transitional with a slight bias towards risk-on due to falling policy rates and moderate market conditions. The portfolio should maintain a defensive stance with a focus on energy, tech, and banking sectors. Crypto allocation should favor BTC due to its dominance, while metals should hold gold. The old stand is partially valid, with adjustments needed for the transitional risk state.",
+  "ai_analysis": "The current environment supports a transitional risk stance with a focus on energy and technology sectors. The crypto allocation remains heavily weighted towards BTC due to dominance and ETH weakness. The defensive posture is slightly relaxed due to rising AI breakthrough frequency.",
   "sentiment": {
-    "daily_sentiment": "Neutral",
+    "daily_sentiment": "Moderately Bullish",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Policy rates trending downwards continue to support risk assets."
+    "rate_path_impact": "Fed Funds trending downwards, supporting risk assets."
   },
   "portfolio_guidance": {
     "crypto_90": {
       "stance": "BTC-heavy",
-      "rationale": "BTC.D is 57.33%, confirming BTC overweight. ETH shows slight strength but not enough to rotate."
+      "rationale": "BTC.D > 55% and ETH weakness."
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "No strong signals for silver or rotation."
+      "rationale": "Gold price is stable and defensive posture."
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Tech",
-        "Banking"
+        "Banking",
+        "Technology"
       ],
       "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Oil strength and TASI relative strength."
-        },
-        {
-          "sector": "Tech",
-          "weight": "25%",
-          "rationale": "Innovation and AI velocity indicators."
+          "rationale": "Oil price strength and TASI relative strength."
         },
         {
           "sector": "Banking",
           "weight": "15%",
-          "rationale": "Falling rates and defensive posture."
+          "rationale": "Falling rates benefit banking sector."
+        },
+        {
+          "sector": "Technology",
+          "weight": "10%",
+          "rationale": "AI breakthrough frequency is rising."
+        },
+        {
+          "sector": "Crypto",
+          "weight": "90%",
+          "rationale": "Core allocation and BTC-heavy stance."
+        },
+        {
+          "sector": "Gold",
+          "weight": "10%",
+          "rationale": "Core allocation and defensive posture."
         }
       ]
     },
     "frontier": {
-      "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency and transitional risk state."
+      "stance": "Neutral",
+      "rationale": "Rising AI breakthrough frequency relaxes defensiveness slightly."
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains valid, but frontier stance and risk state are transitional."
+    "explanation": "Core allocation remains valid, but frontier stance and sector focus have shifted."
   },
   "alpha_loop": [
     {
-      "if": "VIX < 15",
-      "then": "Consider increasing risk exposure."
+      "if": "VIX < 15 and Fed Funds < 4.0%",
+      "then": "Increase exposure to risk-on assets."
     },
     {
-      "if": "BTC.D >= 55%",
-      "then": "Maintain BTC overweight stance."
+      "if": "AI breakthrough frequency rises significantly",
+      "then": "Consider increasing technology sector allocation."
     },
     {
-      "if": "AI breakthrough frequency rises",
-      "then": "Relax defensive posture."
+      "if": "Oil price continues to strengthen",
+      "then": "Increase energy sector exposure."
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$87,461",
+      "value": "$88,704",
       "signal": "NORMAL"
     },
     {
