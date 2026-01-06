@@ -1,9 +1,9 @@
 {
   "name": "The Coin",
-  "last_update": "2026-01-05T04:53:34.758843+00:00",
+  "last_update": "2026-01-06T04:35:58.164770+00:00",
   "meta": {
-    "generated_at": "2026-01-05T04:53:34.758849+00:00",
+    "generated_at": "2026-01-06T04:35:58.164780+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "BTC price is 92400.21875 with a change of 0.019834084203715237. ETH price is 3161.709228515625 with a change of 0.011449997727229771. BTC.D is at 57.082995986607585, indicating an alt-rotation signal. ETH is showing strength, confirming the alt-rotation signal."
+  "ai_analysis": "BTC.D at 56.8% allows for rotation, but ETH weakness confirms BTC preference. BTC and ETH prices show strength, supporting a BTC-heavy stance."
 }
