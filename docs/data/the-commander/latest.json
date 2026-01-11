@@ -1,24 +1,24 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-10T04:30:07.321749+00:00",
+  "last_update": "2026-01-11T04:43:22.053013+00:00",
   "meta": {
-    "generated_at": "2026-01-10T04:30:07.321766+00:00",
+    "generated_at": "2026-01-11T04:43:22.053034+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current market environment is cautiously optimistic with a transitional risk stance. The core allocation remains valid, but adjustments are made based on new data. The frontier stance is neutral, allowing for gradual shifts towards aggressiveness if AI breakthroughs continue. Energy and Banking sectors are favored due to oil strength and moderately positive rate path impact. Technology sector is also considered due to increasing AI breakthrough frequency.",
+  "ai_analysis": "The current environment is cautiously optimistic with a transitional risk state. The portfolio maintains a defensive posture with a focus on energy and banking sectors due to oil strength and rate trends. The crypto allocation remains BTC-heavy due to ETH weakness and BTC dominance below 55%. The frontier stance remains defensive due to flat AI breakthrough frequency.",
   "sentiment": {
     "daily_sentiment": "Cautiously Optimistic",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Moderately Positive"
+    "rate_path_impact": "Rates trending downwards, supporting risk assets."
   },
   "portfolio_guidance": {
     "crypto_90": {
-      "stance": "Alt-rotation",
-      "rationale": "BTC.D < 55% allows for Alt/ETH rotation. ETH weakness confirms BTC preference, but rotation is permitted."
+      "stance": "BTC-heavy",
+      "rationale": "BTC dominance is 56.92%, below 55% threshold, but ETH shows weakness."
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold shows strength with a positive change. No indication to rotate out of gold."
+      "rationale": "Gold shows slight strength, maintaining defensive posture."
     },
     "sectors": {
       "focus": [
@@ -30,66 +30,48 @@
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
-          "weight": "20%",
-          "rationale": "Oil strength indicates favor for Energy sector."
+          "weight": "25%",
+          "rationale": "Oil strength and TASI relative strength."
         },
         {
           "sector": "Banking",
-          "weight": "15%",
-          "rationale": "Moderately Positive rate path impact favors Banking sector."
+          "weight": "20%",
+          "rationale": "Rates trending downwards, favorable for banks."
         },
         {
           "sector": "Technology",
-          "weight": "10%",
-          "rationale": "Increasing AI breakthrough frequency suggests tech sector potential."
-        },
-        {
-          "sector": "Crypto",
-          "weight": "45%",
-          "rationale": "Core allocation and alt-rotation strategy."
-        },
-        {
-          "sector": "Gold",
-          "weight": "10%",
-          "rationale": "Hold Gold as per metals stance."
+          "weight": "15%",
+          "rationale": "QQQ strength and AI breakthrough frequency."
         }
       ]
     },
     "frontier": {
-      "stance": "Neutral",
-      "rationale": "Rising AI breakthrough frequency suggests relaxing defensiveness, but VIX and Fear & Greed metrics maintain a transitional stance."
+      "stance": "Defensive",
+      "rationale": "Flat AI breakthrough frequency and transitional risk state."
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains valid. Macro assumption and frontier stance are adjusted based on new data."
+    "explanation": "Core allocation remains valid, but frontier stance and risk state have shifted."
   },
   "alpha_loop": [
     {
-      "if": "VIX remains between 15-19",
-      "then": "Maintain transitional risk stance."
+      "if": "VIX remains below 15",
+      "then": "Consider increasing risk exposure gradually."
     },
     {
-      "if": "AI breakthrough frequency continues to rise",
-      "then": "Gradually shift frontier stance to Aggressive."
+      "if": "AI breakthrough frequency increases",
+      "then": "Relax defensive stance and consider tech sector allocation."
     },
     {
-      "if": "Oil prices continue to strengthen",
-      "then": "Increase Energy sector allocation."
-    },
-    {
-      "if": "BTC.D falls below 50%",
-      "then": "Initiate full Alt/ETH rotation."
-    },
-    {
-      "if": "Fear & Greed index falls below 25",
-      "then": "Reinforce Defensive bias in frontier stance."
+      "if": "Oil prices continue to rise",
+      "then": "Increase energy sector allocation."
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$90,410",
+      "value": "$90,642",
       "signal": "NORMAL"
     },
     {

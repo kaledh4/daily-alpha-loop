@@ -1,9 +1,9 @@
 {
   "name": "The Coin",
-  "last_update": "2026-01-10T04:30:07.323035+00:00",
+  "last_update": "2026-01-11T04:43:22.054231+00:00",
   "meta": {
-    "generated_at": "2026-01-10T04:30:07.323046+00:00",
+    "generated_at": "2026-01-11T04:43:22.054238+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "BTC.D is at 56.93%, allowing for Alt/ETH rotation. ETH shows weakness with a negative change, confirming a preference for BTC but permitting rotation."
+  "ai_analysis": "BTC dominance at 56.92% allows for alt/ETH rotation, but ETH weakness confirms BTC preference. BTC shows slight strength with a 0.32% change."
 }
