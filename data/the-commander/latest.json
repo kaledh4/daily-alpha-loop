@@ -1,81 +1,76 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-18T04:37:53.260089+00:00",
+  "last_update": "2026-01-19T04:47:02.489572+00:00",
   "meta": {
-    "generated_at": "2026-01-18T04:37:53.260104+00:00",
+    "generated_at": "2026-01-19T04:47:02.489587+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current market environment suggests a transitional risk stance. Policy rates are trending downwards, supporting a risk-on environment, but VIX and Fear & Greed indices indicate caution. Crypto allocation should focus on Alt/ETH rotation due to BTC Dominance being below 55% and ETH showing strength. Energy sector shows promise due to oil price strength. AI breakthroughs suggest long-term potential in technology sectors. Gold remains a stable hedge.",
+  "ai_analysis": "The current environment is transitional with falling rates supporting risk assets. The portfolio maintains a defensive stance with a focus on energy and banking sectors. Crypto allocation favors BTC due to ETH weakness. Gold is held for defensive purposes.",
   "sentiment": {
     "daily_sentiment": "Cautiously Optimistic",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Policy rates trending downwards from 3.72% to 3.0% supports risk-on, but VIX and Fear & Greed indices suggest caution."
+    "rate_path_impact": "Falling rates support risk assets"
   },
   "portfolio_guidance": {
     "crypto_90": {
-      "stance": "Alt-rotation",
-      "rationale": "BTC Dominance < 55% allows for Alt/ETH rotation. ETH showing strength with a 0.705% increase."
+      "stance": "BTC-heavy",
+      "rationale": "BTC Dominance < 55% but ETH weakness confirms BTC preference"
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold price slightly down but remains a stable hedge. No strong signals for rotation."
+      "rationale": "Gold strength and defensive stance"
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Technology"
+        "Banking"
       ],
       "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Oil price strength indicates favorable energy sector performance."
+          "rationale": "Energy strength"
         },
         {
-          "sector": "Technology",
-          "weight": "20%",
-          "rationale": "QQQ slight decline but remains strong; AI breakthroughs suggest long-term potential."
+          "sector": "Banking",
+          "weight": "15%",
+          "rationale": "Falling rates benefit banks"
         },
         {
           "sector": "Gold",
           "weight": "10%",
-          "rationale": "Stable hedge against market volatility."
-        },
-        {
-          "sector": "Crypto",
-          "weight": "50%",
-          "rationale": "Core allocation with a focus on Alt/ETH rotation."
+          "rationale": "Defensive stance and gold strength"
         }
       ]
     },
     "frontier": {
-      "stance": "Neutral",
-      "rationale": "Rising AI breakthrough frequency suggests relaxing defensiveness, but VIX and Fear & Greed indices indicate caution."
+      "stance": "Defensive",
+      "rationale": "Flat AI breakthrough frequency"
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains 90% Crypto / 10% Gold. Macro assumption of policy rates trending downwards is valid. Frontier stance adjusted to Neutral from Defensive."
+    "explanation": "Core allocation remains but frontier stance and sector focus shift"
   },
   "alpha_loop": [
     {
-      "if": "VIX remains between 15-19",
-      "then": "Maintain transitional risk stance and monitor for further signals."
+      "if": "VIX < 15",
+      "then": "Consider increasing risk exposure"
     },
     {
-      "if": "AI breakthrough frequency continues to rise",
-      "then": "Consider increasing exposure to innovative sectors."
+      "if": "AI breakthrough frequency rises",
+      "then": "Relax defensiveness"
     },
     {
-      "if": "Oil prices continue to strengthen",
-      "then": "Increase allocation to energy sector."
+      "if": "Energy strength persists",
+      "then": "Increase energy sector allocation"
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$95,050",
+      "value": "$92,643",
       "signal": "NORMAL"
     },
     {
