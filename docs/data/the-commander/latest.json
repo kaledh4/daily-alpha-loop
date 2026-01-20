@@ -1,81 +1,82 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-19T04:47:02.489572+00:00",
+  "last_update": "2026-01-20T04:40:20.528234+00:00",
   "meta": {
-    "generated_at": "2026-01-19T04:47:02.489587+00:00",
+    "generated_at": "2026-01-20T04:40:20.528248+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current environment is transitional with falling rates supporting risk assets. The portfolio maintains a defensive stance with a focus on energy and banking sectors. Crypto allocation favors BTC due to ETH weakness. Gold is held for defensive purposes.",
+  "ai_analysis": "The current market environment is transitional, with mixed signals across dashboards. The VIX indicates a transitional risk stance, while the crypto market shows a preference for BTC. The macro environment supports energy and banking sectors, while innovation in AI suggests a potential opportunity in technology. The old stand is partially valid, with adjustments needed to sector focus and rate path.",
   "sentiment": {
-    "daily_sentiment": "Cautiously Optimistic",
+    "daily_sentiment": "Cautious",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Falling rates support risk assets"
+    "rate_path_impact": "Fed rate cuts expected to continue, supporting risk assets"
   },
   "portfolio_guidance": {
     "crypto_90": {
       "stance": "BTC-heavy",
-      "rationale": "BTC Dominance < 55% but ETH weakness confirms BTC preference"
+      "rationale": "BTC.D < 55%, but ETH weakness confirms BTC preference"
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold strength and defensive stance"
+      "rationale": "Gold price increasing, maintaining safe-haven status"
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Banking"
+        "Banking",
+        "Technology"
       ],
       "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Energy strength"
+          "rationale": "Oil price stable, TASI showing strength"
+        },
+        {
+          "sector": "Technology",
+          "weight": "20%",
+          "rationale": "AI breakthroughs increasing, potential for innovation-driven growth"
         },
         {
           "sector": "Banking",
           "weight": "15%",
-          "rationale": "Falling rates benefit banks"
-        },
-        {
-          "sector": "Gold",
-          "weight": "10%",
-          "rationale": "Defensive stance and gold strength"
+          "rationale": "Fed rate cuts expected to support banking sector"
         }
       ]
     },
     "frontier": {
       "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency"
+      "rationale": "AI breakthrough frequency flat, maintaining defensive posture"
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains but frontier stance and sector focus shift"
+    "explanation": "Core allocation and frontier stance remain valid, but sector focus and rate path have changed"
   },
   "alpha_loop": [
     {
-      "if": "VIX < 15",
-      "then": "Consider increasing risk exposure"
+      "if": "VIX remains between 15-19",
+      "then": "Maintain transitional risk stance"
     },
     {
-      "if": "AI breakthrough frequency rises",
-      "then": "Relax defensiveness"
+      "if": "BTC.D remains below 55%",
+      "then": "Consider rotating into alts if BTC shows weakness"
     },
     {
-      "if": "Energy strength persists",
-      "then": "Increase energy sector allocation"
+      "if": "AI breakthrough frequency increases",
+      "then": "Relax defensive posture and consider increasing tech sector allocation"
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$92,643",
+      "value": "$92,254",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "15.86",
+      "value": "18.84",
       "signal": "NORMAL"
     },
     {
