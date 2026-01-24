@@ -1,82 +1,81 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-23T04:38:09.745463+00:00",
+  "last_update": "2026-01-24T04:31:51.882283+00:00",
   "meta": {
-    "generated_at": "2026-01-23T04:38:09.745479+00:00",
+    "generated_at": "2026-01-24T04:31:51.882296+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current environment is cautiously optimistic with a transitional risk state. The portfolio should maintain a defensive stance while taking advantage of sector-specific strengths in energy, banking, and technology. The old stand is partially valid, with adjustments needed for the shifting macro environment and risk state.",
+  "ai_analysis": "The current environment is transitional with falling rates supporting risk assets. The portfolio maintains a core crypto allocation with a BTC-heavy stance due to ETH weakness. Energy and Banking sectors are favored due to oil strength and falling rates. The frontier stance remains defensive due to flat AI breakthrough frequency.",
   "sentiment": {
     "daily_sentiment": "Cautiously Optimistic",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Policy rates trending downwards supports risk assets."
+    "rate_path_impact": "Falling rates support risk assets but uncertainty remains"
   },
   "portfolio_guidance": {
     "crypto_90": {
       "stance": "BTC-heavy",
-      "rationale": "BTC.D < 55% but BTC price strength and ETH weakness."
+      "rationale": "BTC.D < 55% but ETH weakness confirms BTC preference"
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold price strength and defensive stance."
+      "rationale": "Gold price increase and defensive stance"
     },
     "sectors": {
       "focus": [
         "Energy",
-        "Banking",
-        "Technology"
+        "Banking"
       ],
       "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
           "weight": "20%",
-          "rationale": "Oil price strength and TASI relative strength."
+          "rationale": "Oil strength and TASI relative strength"
         },
         {
           "sector": "Banking",
           "weight": "15%",
-          "rationale": "Capital One acquisition of Brex indicates sector strength."
+          "rationale": "Falling rates benefit banks"
         },
         {
-          "sector": "Technology",
-          "weight": "15%",
-          "rationale": "AI breakthrough frequency and QQQ strength."
+          "sector": "Crypto",
+          "weight": "65%",
+          "rationale": "Core allocation and BTC preference"
         }
       ]
     },
     "frontier": {
       "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency and transitional risk state."
+      "rationale": "Flat AI breakthrough frequency and transitional risk state"
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation and frontier stance remain valid, but macro assumption and risk state have shifted."
+    "explanation": "Core allocation remains but frontier stance and risk state have changed"
   },
   "alpha_loop": [
     {
+      "if": "Oil price > $60 and TASI change > 1%",
+      "then": "Increase Energy sector allocation"
+    },
+    {
+      "if": "AI breakthrough frequency flat",
+      "then": "Maintain Defensive frontier stance"
+    },
+    {
       "if": "VIX < 15",
-      "then": "Consider increasing risk-on exposure."
-    },
-    {
-      "if": "AI breakthrough frequency increases",
-      "then": "Relax defensiveness and consider tech sector allocation."
-    },
-    {
-      "if": "Energy prices weaken",
-      "then": "Reduce energy sector allocation."
+      "then": "Consider Risk-On transition"
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$89,917",
+      "value": "$89,593",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "15.64",
+      "value": "16.09",
       "signal": "NORMAL"
     },
     {
