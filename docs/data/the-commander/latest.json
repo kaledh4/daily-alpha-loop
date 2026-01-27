@@ -1,24 +1,24 @@
 {
   "name": "The Commander",
-  "last_update": "2026-01-25T04:48:08.526040+00:00",
+  "last_update": "2026-01-27T04:42:27.507311+00:00",
   "meta": {
-    "generated_at": "2026-01-25T04:48:08.526055+00:00",
+    "generated_at": "2026-01-27T04:42:27.507324+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "The current environment is transitional with a cautiously optimistic sentiment. The core allocation remains largely valid, but sector focus has shifted towards Energy and Technology due to oil strength and innovation velocity. The frontier stance remains defensive due to flat AI breakthrough frequency.",
+  "ai_analysis": "The market shows signs of cautious optimism with transitional risk metrics. The crypto market allows for alt/ETH rotation, while gold maintains its safe-haven status. Energy and technology sectors are favored due to oil strength and AI innovation, respectively. The frontier stance remains neutral, balancing defensive and aggressive signals.",
   "sentiment": {
     "daily_sentiment": "Cautiously Optimistic",
     "risk_toggle": "Transition",
-    "rate_path_impact": "Policy rates trending downwards support risk assets."
+    "rate_path_impact": "Falling rates support risk assets"
   },
   "portfolio_guidance": {
     "crypto_90": {
-      "stance": "BTC-heavy",
-      "rationale": "BTC.D < 55% but BTC strength relative to ETH."
+      "stance": "Alt-rotation",
+      "rationale": "BTC.D < 55% allows alt/ETH rotation"
     },
     "metals_10": {
       "stance": "Hold Gold",
-      "rationale": "Gold shows strength, no clear signal for rotation."
+      "rationale": "Gold shows strength, silver's move is less compelling"
     },
     "sectors": {
       "focus": [
@@ -26,62 +26,57 @@
         "Technology",
         "Regional"
       ],
-      "region": "Saudi",
+      "region": "Mixed",
       "best_return_to_risk_allocation": [
         {
           "sector": "Energy",
-          "weight": "20%",
-          "rationale": "Oil strength and TASI relative strength."
+          "weight": "25%",
+          "rationale": "Oil strength and Saudi exposure"
         },
         {
           "sector": "Technology",
+          "weight": "20%",
+          "rationale": "AI velocity and tech strength"
+        },
+        {
+          "sector": "Regional (Saudi)",
           "weight": "15%",
-          "rationale": "Innovation velocity and QQQ strength."
-        },
-        {
-          "sector": "Gold",
-          "weight": "10%",
-          "rationale": "Safe haven and moderate risk environment."
-        },
-        {
-          "sector": "Crypto",
-          "weight": "55%",
-          "rationale": "Core allocation with BTC preference."
+          "rationale": "TASI relative strength"
         }
       ]
     },
     "frontier": {
-      "stance": "Defensive",
-      "rationale": "Flat AI breakthrough frequency and transitional risk state."
+      "stance": "Neutral",
+      "rationale": "Increasing AI breakthroughs, but risk metrics are transitional"
     }
   },
   "old_stand_verdict": {
     "status": "Partially Valid",
-    "explanation": "Core allocation remains valid, but frontier stance and sector focus have shifted."
+    "explanation": "Core allocation and frontier stance partially align, but macro assumption and risk state have shifted"
   },
   "alpha_loop": [
     {
-      "if": "VIX < 15",
-      "then": "Consider increasing risk exposure."
+      "if": "VIX remains between 15-20",
+      "then": "Maintain transitional risk stance"
     },
     {
-      "if": "AI breakthrough frequency increases",
-      "then": "Relax defensive stance."
+      "if": "BTC.D falls below 50%",
+      "then": "Increase alt/ETH rotation"
     },
     {
-      "if": "BTC.D >= 55%",
-      "then": "Overweight BTC in crypto allocation."
+      "if": "AI breakthrough frequency accelerates",
+      "then": "Consider relaxing defensive stance"
     }
   ],
   "metrics": [
     {
       "name": "BTC",
-      "value": "$88,938",
+      "value": "$88,672",
       "signal": "NORMAL"
     },
     {
       "name": "VIX",
-      "value": "16.09",
+      "value": "16.15",
       "signal": "NORMAL"
     },
     {
