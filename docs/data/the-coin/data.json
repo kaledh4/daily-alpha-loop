@@ -1,9 +1,9 @@
 {
   "name": "The Coin",
-  "last_update": "2026-01-27T04:42:27.508498+00:00",
+  "last_update": "2026-01-29T05:03:11.221017+00:00",
   "meta": {
-    "generated_at": "2026-01-27T04:42:27.508504+00:00",
+    "generated_at": "2026-01-29T05:03:11.221026+00:00",
     "version": "5.0"
   },
-  "ai_analysis": "BTC.D at 57.45% allows for alt/ETH rotation. ETH's strength relative to BTC supports this rotation."
+  "ai_analysis": "BTC.D at 57.35% allows for alt/ETH rotation, but ETH weakness confirms BTC preference. BTC price at $88,195 and ETH price at $2,956.03 support BTC-heavy stance."
 }
